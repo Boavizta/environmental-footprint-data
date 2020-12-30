@@ -19,7 +19,7 @@ Dell - Product Carbon Footprint for Desktops -https://corporate.delltechnologies
 Dell - Product Carbon Footprint for Monitors - https://corporate.delltechnologies.com/en-us/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=2  
 Dell - Product Carbon Footprint for Servers - https://corporate.delltechnologies.com/en-us/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=3  
 Dell - Product Carbon Footprint for Thin Clients - https://corporate.delltechnologies.com/en-us/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=4  
-Dell - Product Carbon Footprint for other old products - https://corporate.delltechnologies.com/en-us/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=5. 
+Dell - Product Carbon Footprint for other old products - https://corporate.delltechnologies.com/en-us/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=5  
 Seagate - Product Sustainability Reports for Hard Drives - https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/  
 Seagate - Life Cycle Assessment for Extensible Storage Platform - https://www.seagate.com/files/www-content/global-citizenship/en-us/docs/lca-summary-onestor-sp-2584s-20150309.pdf  
 Lexmark - Environmental Product Declarations - https://csr.lexmark.com/env-epd.php  
