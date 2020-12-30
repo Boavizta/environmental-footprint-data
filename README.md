@@ -2,7 +2,7 @@
 
 ## 1) Product Carbon Footprint and Life Cycle Assessment from Manufacturers
 
-Lenovo - Fiches PCF (Product Carbon Footprint) - http://lenovo.com/fr/fr/compliance/eco-declaration  
+Lenovo - Product Carbon Footprint - http://lenovo.com/fr/fr/compliance/eco-declaration  
 Apple - Product Environmental footprint - https://www.apple.com/environment/  
 HP - Product Carbon footprint Reports For Desktops and PCs- https://h22235.www2.hp.com/hpinfo/globalcitizenship/environment/productdata/ProductCarbonFootprintdesktop-pc.html    
 HP - Product Carbon footprint Reports For Monitors - https://h22235.www2.hp.com/hpinfo/globalcitizenship/environment/productdata/ProductCarbonFootprintmonitors.html  HP - Product Carbon footprint Reports For Tablets -https://h22235.www2.hp.com/hpinfo/globalcitizenship/environment/productdata/ProductCarbonFootprinttablets.html
