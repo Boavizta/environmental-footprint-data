@@ -34,7 +34,7 @@
 [ADEME - Mix Electrique par pays (Données de 2011)](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/moyenne_par_pays.htm)
 
 ## 3) Energy Consumption Data
-[Energy Star qualified products for EU Market (](https://ec.europa.eu/energy/topics/energy-efficiency/energy-efficient-products/energy-star_en)  
+[Energy Star qualified products for EU Market](https://ec.europa.eu/energy/topics/energy-efficiency/energy-efficient-products/energy-star_en)  
 
 
 ## 4) Agregate Data
