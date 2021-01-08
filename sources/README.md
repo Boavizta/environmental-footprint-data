@@ -33,7 +33,11 @@
 [Electricitymap Data Sources](https://github.com/tmrowco/electricitymap-contrib/blob/master/DATA_SOURCES.md)  
 [ADEME - Mix Electrique par pays (Données de 2011)](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/moyenne_par_pays.htm)
 
-## 3) Agregate Data
+## 3) Energy Consumption Data
+[Energy Star qualified products for EU Market (](https://ec.europa.eu/energy/topics/energy-efficiency/energy-efficient-products/energy-star_en)  
+
+
+## 4) Agregate Data
 [ADEME - Produits Informatique et Equipements de Bureau](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?produits_informatiques__electr.htm)  
 [ADEME - Poids Carbone des produits de consommation et équipements](https://www.ademe.fr/sites/default/files/assets/documents/poids_carbone-biens-equipement-201809-rapport.pdf)  
 [TMROWCO - CO2 Equivalent of products (search for INFORMATION AND COMMUNICATION:)](https://github.com/tmrowco/bloom-contrib/blob/master/co2eq/purchase/footprints.yml)  
