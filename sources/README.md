@@ -36,6 +36,7 @@
 ## 3) Energy Consumption Data
 [Energy Star qualified products for EU Market](https://ec.europa.eu/energy/topics/energy-efficiency/energy-efficient-products/energy-star_en)  
 [Standard Performance Evaluation Corporation Power Benchmark](https://spec.org/power_ssj2008/results/)  
+[CO2 Signal API - including carbon intensity](https://docs.co2signal.com/#introduction)  
 
 ## 4) Agregate Data
 [ADEME - Produits Informatique et Equipements de Bureau](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/index.htm?produits_informatiques__electr.htm)  
