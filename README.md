@@ -3,8 +3,8 @@
 The CSV files provided in this project put together some environmental footprint data of digital
 devices such as laptops or servers:
 
-* `boavizta-data-fr.csv`: French version (`;` used as a delimiter, coma as a decimal separator, French date)
-* `boavizta-data-us.csv`: English version (`,` used as a delimiter, coma as a decimal separator, US date)
+* `boavizta-data-fr.csv`: French version (`;` used as a delimiter, coma as a decimal separator)
+* `boavizta-data-us.csv`: English version (`,` used as a delimiter, coma as a decimal separator)
 
 They data has been collected from the manufacturer datasheets publicly available on their Web sites.
 They can be freely used for any purpose.
@@ -20,9 +20,10 @@ People are encouraged to contribute to these files.
 * Category:
   * Workplace: product commonly used in a workplace
   * Datacenter: product commonly used in a data center (e.g. server, network switch, etc.)
-
-* Use (%): percentage of the footprint coming from the use phase (the hypothesis for this use phase
+* kgCO2eq (total): GHG emissions (estimated as CO2 equivalent) through the total lifecycle of the product (Manufacturing, Transportation, Use phase and Recycling)
+* Use (%): percentage of the GHG emissions coming from the use phase (the hypothesis for this use phase
   are detailed in the other columns, especially the Lifetime and the Use Location)
+* Yearly TEC (kWh): Yearly estimated energy demand
 * Lifetime: expected lifetime (in years)
 * Use Location:
   * US: United States of America
