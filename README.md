@@ -4,7 +4,7 @@ This data repository is maintained by [Boavizta](www.boavizta.org) and is comple
 This data can be freely used for any purpose including without using Boavizta's methodology.
 
 ## Data sets
-At this time, we provide two CSV files grouping together data collected from manufacturer (mainly Product Carbon Footprint reports) publicly avaiblable and mainly :
+At this time, we provide two CSV files grouping together data collected from manufacturers (mainly Product Carbon Footprint reports) publicly avaiblable :
 
 * `boavizta-data-fr.csv`: French version (`;` used as a delimiter, coma as a decimal separator)
 * `boavizta-data-us.csv`: English version (`,` used as a delimiter, coma as a decimal separator)
