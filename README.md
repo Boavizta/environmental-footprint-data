@@ -1,17 +1,30 @@
 # Boavizta Project - Environmental Footprint Data
 
-The CSV files provided in this project put together some environmental footprint data of digital
-devices such as laptops or servers:
+This data repository is maintained by [Boavizta](www.boavizta.org) and is complementary to Boavizta's environmental footprint evaluation methology. It aims to reference as much data as possible to help organizations to evaluate the environmental footprint of their information systems, applications and digital services.
+This data can be freely used for any purpose including without using Boavizta's methodology.
+
+## Data sets
+At this time, we provide two CSV files grouping together data collected from manufacturer (mainly Product Carbon Footprint reports) publicly avaiblable and mainly :
 
 * `boavizta-data-fr.csv`: French version (`;` used as a delimiter, coma as a decimal separator)
 * `boavizta-data-us.csv`: English version (`,` used as a delimiter, coma as a decimal separator)
 
-They data has been collected from the manufacturer datasheets publicly available on their Web sites.
-They can be freely used for any purpose.
+We encourage all manufacturers to provide us with similar data or to correct potential errors in these files.
+
+Boavizta working group works actively to enrich these files with new data :
+* from manufacturers
+* resulting from its analyzes and intended to provide ratios or average values that would simplify the evaluation
 
 Please refer to [sources.md](sources.md) for a complete list of sources.
 
+## Contribute
 People are encouraged to contribute to these files.
+
+You can easily contribute by :
+* forking this repo and submitting PRs
+* sending us an email to data@boavizta.org
+
+If any manufacturers wish to share data with us, we will be happy to discuss with them how we can efficiently synchronize this data.
 
 ## Data format
 
@@ -43,3 +56,12 @@ People are encouraged to contribute to these files.
 * Screen size: in inches
 * RAM: in GB
 * CPU: number of CPU
+
+## About Boavizta.org
+
+Boavizta.org is a working group:
+
+* Working to improve and generalize environmental footprint evaluation in organizations
+* Federating and connecting stakholders of the "environmental footprint evaluation" ecosystem
+* Helping members to improve their skills and to carry out their own projects
+* Leveraging group members initiatives
