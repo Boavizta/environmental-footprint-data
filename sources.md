@@ -20,6 +20,7 @@
 [HP - Product Carbon footprint Reports For Notebooks](https://h22235.www2.hp.com/hpinfo/globalcitizenship/environment/productdata/ProductCarbonFootprintnotebooks.html)  
 [HP - Product Carbon footprint Reports For Thin Clients](https://h22235.www2.hp.com/hpinfo/globalcitizenship/environment/productdata/ProductCarbonFootprintthin-clien.html)  
 [HP - Product Carbon footprint Reports For Workstations](https://h22235.www2.hp.com/hpinfo/globalcitizenship/environment/productdata/ProductCarbonFootprintworkstatio.html)  
+[HP - Product Carbon footprint Reports For Servers](https://www.hpe.com/us/en/search-results.html?q=HPE+Proliant+carbon+footprint+data+sheet&page=1&autocomplete=0)  
 [Huawei - Product Environmental Information Reports For Tablets and Smartphones](https://consumer.huawei.com/en/support/product-environmental-information/)  
 [Konica-Minolta - Eco Leaf Product Environmental Declaration](https://www.konicaminolta.com/about/csr/environment/communication/label.html)  
 [Lenovo - Product Carbon Footprint](http://lenovo.com/fr/fr/compliance/eco-declaration)  
