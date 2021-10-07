@@ -6,8 +6,8 @@ This data can be freely used for any purpose including without using Boavizta's 
 ## Data sets
 At this time, we provide two CSV files grouping together data collected from manufacturers (mainly Product Carbon Footprint reports) publicly avaiblable :
 
-* `boavizta-data-fr.csv`: French version (`;` used as a delimiter, coma as a decimal separator)
-* `boavizta-data-us.csv`: English version (`,` used as a delimiter, coma as a decimal separator)
+* `boavizta-data-fr.csv`: French version (`;` used as a delimiter, comma as a decimal separator)
+* `boavizta-data-us.csv`: English version (`,` used as a delimiter, dot as a decimal separator)
 
 We encourage all manufacturers to provide us with similar data or to correct potential errors in these files.
 
@@ -55,13 +55,13 @@ If any manufacturers wish to share data with us, we will be happy to discuss wit
 
 * Screen size: in inches
 * RAM: in GB
-* CPU: number of CPU
+* CPU: number of CPUs
 
 ## About Boavizta.org
 
 Boavizta.org is a working group:
 
 * Working to improve and generalize environmental footprint evaluation in organizations
-* Federating and connecting stakholders of the "environmental footprint evaluation" ecosystem
+* Federating and connecting stakeholders of the "environmental footprint evaluation" ecosystem
 * Helping members to improve their skills and to carry out their own projects
 * Leveraging group members initiatives
