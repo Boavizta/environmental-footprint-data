@@ -14,6 +14,7 @@ writer = csv.writer(output, delimiter=';')
 with open(source) as csvfile:
     reader = csv.reader(csvfile)
     for row in reader:
-        updatedrow = [re.sub(r'(.*[0-9])\.([0-9].*)', r'\1,\2', content) for content in row]
+        updatedrow = [re.sub(r'(.*[0-9]*)\.([0-9].*)', r'\1,\2', content) for content in row]
+        updatedrow = [re.sub(r'(.*[0-9]*)\.([0-9].*(in|TB|GB))', r'\1,\2', content) for content in updatedrow]
         writer.writerow(updatedrow)
 output.close()
