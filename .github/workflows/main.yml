@@ -26,6 +26,7 @@ jobs:
           python-version: 3.9
 
       - name: Check that US & FR data are in sync
+        # Run the converter from US to FR, then check if there's any diff on the FR file.
         run: |
           python tools/gen_fr.py -s boavizta-data-us.csv -o boavizta-data-fr.csv
-          git diff
+          test -z "$(git diff boavizta-data-fr.csv)"
