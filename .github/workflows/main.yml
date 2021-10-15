@@ -3,11 +3,11 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push or pull request events but only for the action branch
   push:
-    branches: [ main ]
+    branches: [ action ]
   pull_request:
-    branches: [ main ]
+    branches: [ action ]
 
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
