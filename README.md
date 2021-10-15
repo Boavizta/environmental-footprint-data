@@ -1,6 +1,6 @@
 # Boavizta Project - Environmental Footprint Data
 
-This data repository is maintained by [Boavizta](www.boavizta.org) and is complementary to Boavizta's environmental footprint evaluation methology. It aims to reference as much data as possible to help organizations to evaluate the environmental footprint of their information systems, applications and digital services.
+This data repository is maintained by [Boavizta](https://www.boavizta.org) and is complementary to Boavizta's environmental footprint evaluation methology. It aims to reference as much data as possible to help organizations to evaluate the environmental footprint of their information systems, applications and digital services.
 This data can be freely used for any purpose including without using Boavizta's methodology.
 
 ## Data sets
