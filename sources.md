@@ -25,6 +25,8 @@
 [Konica-Minolta - Eco Leaf Product Environmental Declaration](https://www.konicaminolta.com/about/csr/environment/communication/label.html)  
 [Lenovo - Product Carbon Footprint](http://lenovo.com/fr/fr/compliance/eco-declaration)  
 [Lexmark - Environmental Product Declarations](https://csr.lexmark.com/env-epd.php)  
+[Microsoft - Eco Profiles](https://www.microsoft.com/en-us/legal/compliance/environmental-compliance/documentation)  
+[Lexmark - Environmental Product Declarations](https://csr.lexmark.com/env-epd.php)  
 [Seagate - Product Sustainability Reports for Hard Drives](https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/)  
 [Seagate - Life Cycle Assessment for Extensible Storage Platform](https://www.seagate.com/files/www-content/global-citizenship/en-us/docs/lca-summary-onestor-sp-2584s-20150309.pdf)  
 [SK Hynix - Life Cycle Assessment and Carbon Footprint for DRAM and NAND Flash](https://www.skhynix.com/eng/sustain/prdEnviImpact.jsp)  
