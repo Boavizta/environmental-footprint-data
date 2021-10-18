@@ -75,7 +75,8 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         result['Use Location'] = extracted['use_location']
     if 'energy_demand' in extracted:
         result['Yearly TEC (kWh)'] = float(extracted['energy_demand'])
-    result['Added Date'] = datetime.datetime.now.strftime('%Y-%m-%d')
+    now = datetime.datetime.now()
+    result['Added Date'] = now.strftime('%Y-%m-%d')
     result['Add Method'] = "HP Auto Parser"
 
     for image in pdf.list_images(body):

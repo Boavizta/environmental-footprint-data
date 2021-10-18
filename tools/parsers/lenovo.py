@@ -87,7 +87,8 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         result['RAM'] = float(extracted['ram'])
     if 'cpu' in extracted:
         result['CPU'] = int(extracted['cpu'])
-    result['Added Date'] = datetime.datetime.now.strftime('%Y-%m-%d')
+    now = datetime.datetime.now()
+    result['Added Date'] = now.strftime('%Y-%m-%d')
     result['Add Method'] = "Lenovo Auto Parser"
 
     for image in pdf.list_images(body):

@@ -40,16 +40,16 @@ def main(string_args: Optional[List[str]] = None) -> None:
             continue
         except github.UnknownObjectException:
             pass
-        repo.create_git_ref(f'refs/heads/{newbranch}', repo.get_branch('ncc-merge').commit.sha)
-        contents = repo.get_contents('boavizta-data-us.csv', ref='ncc-merge')
+        repo.create_git_ref(f'refs/heads/{newbranch}', repo.get_branch('main').commit.sha)
+        contents = repo.get_contents('boavizta-data-us.csv', ref='main')
         repo.update_file(
             contents.path, change_name,
-            contents.decoded_content.decode() + device.as_csv_row(csv_format='us'),
+            contents.decoded_content.decode() + "\n" + device.as_csv_row(csv_format='us'),
             contents.sha, branch=newbranch)
-        contents = repo.get_contents('boavizta-data-fr.csv', ref='ncc-merge')
+        contents = repo.get_contents('boavizta-data-fr.csv', ref='main')
         repo.update_file(
             contents.path, f'{change_name} - fr format',
-            contents.decoded_content.decode() + device.as_csv_row(csv_format='fr'),
+            contents.decoded_content.decode() + "\n" + device.as_csv_row(csv_format='fr'),
             contents.sha, branch=newbranch)
         body = textwrap.dedent(f'''\
             SUMMARY
@@ -58,7 +58,7 @@ def main(string_args: Optional[List[str]] = None) -> None:
             PDF_SOURCE_LINK
             {device.get('Sources')}
         ''')
-        repo.create_pull(title=change_name, body=body, head=newbranch, base='ncc-merge')
+        repo.create_pull(title=change_name, body=body, head=newbranch, base='main')
 
 
 if __name__ == '__main__':
