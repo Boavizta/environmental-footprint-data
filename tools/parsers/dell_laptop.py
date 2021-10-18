@@ -16,7 +16,7 @@ from .lib import pdf
 
 # A list of patterns to search in the text.
 _DELL_LCA_PATTERNS = (
-    re.compile(r'\s\s(?P<name>.*?)\s*From design to end-of-life'),
+    re.compile(r'\s\sDell (?P<name>.*?)\s*From design to end-of-life'),
     re.compile(r' estimated carbon footprint\: (?P<footprint>[0-9]*) kgCO2e(?: \+\/\- (?P<error>[0-9]*) kgCO2e)?'),
     re.compile(r' estimated standard deviation of \+\/\- (?P<error>[0-9]*)\s*kgCO2e'),
     re.compile(r' Report produced\s*(?P<date>[A-Z][a-z]*, [0-9]{4}) '),

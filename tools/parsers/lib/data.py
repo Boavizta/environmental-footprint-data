@@ -24,6 +24,7 @@ DeviceCarbonFootprintData = TypedDict('DeviceCarbonFootprintData', {
     'HD/SSD': str,
     'RAM': float,
     'CPU': int,
+    'U': int,
     'Added Date': str,
     'Add Method': str
 }, total=False)
