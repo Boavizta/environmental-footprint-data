@@ -42,14 +42,16 @@ def main(string_args: Optional[List[str]] = None) -> None:
             pass
         repo.create_git_ref(f'refs/heads/{newbranch}', repo.get_branch('main').commit.sha)
         contents = repo.get_contents('boavizta-data-us.csv', ref='main')
+        newcontent = contents.decoded_content.decode() + "\n" + device.as_csv_row(csv_format='us')
+
         repo.update_file(
-            contents.path, change_name,
-            contents.decoded_content.decode() + "\n" + device.as_csv_row(csv_format='us'),
+            contents.path, f'{change_name} - us format',
+            contents.decoded_content.decode().splitlines()[0] + '\n'.join(sorted((contents.decoded_content.decode() + "\n" + device.as_csv_row(csv_format='us')).splitlines()[1:])),
             contents.sha, branch=newbranch)
         contents = repo.get_contents('boavizta-data-fr.csv', ref='main')
         repo.update_file(
             contents.path, f'{change_name} - fr format',
-            contents.decoded_content.decode() + "\n" + device.as_csv_row(csv_format='fr'),
+            contents.decoded_content.decode().splitlines()[0] + '\n'.join(sorted((contents.decoded_content.decode() + "\n" + device.as_csv_row(csv_format='fr')).splitlines()[1:])),
             contents.sha, branch=newbranch)
         body = textwrap.dedent(f'''\
             SUMMARY
