@@ -59,6 +59,27 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     # Convert each matched group to our format.
     if 'name' in extracted:
         result['Name'] = extracted['name'].strip()
+    if 'Monitor' in result['Name']:
+        result['Category'] = "Workplace"
+        result['Subcategory'] = "Monitor"
+    elif 'Poweredge' in result['Name']:
+        result['Category'] = "Datacenter"
+        result['Subcategory'] = "Server"
+    elif 'Lattitude' in result['Name']:
+        result['Category'] = "Workplace"
+        result['Subcategory'] = "Laptop"
+    elif 'Optiplex' in result['Name']:
+        result['Category'] = "Workplace"
+        result['Subcategory'] = "Desktop"
+    elif 'Precision' in result['Name']:
+        result['Category'] = "Workplace"
+        result['Subcategory'] = "Desktop"
+    elif 'Wyse' in result['Name']:
+        result['Category'] = "Workplace"
+        result['Subcategory'] = "Thin client"
+    elif 'XPS' in result['Name']:
+        result['Category'] = "Workplace"
+        result['Subcategory'] = "Laptop"
     if 'footprint' in extracted:
         result['Total (kgCO2eq)'] = float(extracted['footprint'])
     if result.get('Total (kgCO2eq)') and 'error' in extracted:
