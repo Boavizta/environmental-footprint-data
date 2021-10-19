@@ -65,10 +65,10 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     elif 'Poweredge' in result['Name']:
         result['Category'] = "Datacenter"
         result['Subcategory'] = "Server"
-    elif 'Lattitude' in result['Name']:
+    elif 'Latitude' in result['Name']:
         result['Category'] = "Workplace"
         result['Subcategory'] = "Laptop"
-    elif 'Optiplex' in result['Name']:
+    elif 'OptiPlex' in result['Name']:
         result['Category'] = "Workplace"
         result['Subcategory'] = "Desktop"
     elif 'Precision' in result['Name']:
