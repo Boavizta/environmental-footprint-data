@@ -1,0 +1,6 @@
+numpy==1.21.2
+opencv-python-headless==4.5.3.56
+pdfminer.six==20211012
+pymupdf==1.18.19
+scrapy==2.5.1
+pytesseract==0.3.8
