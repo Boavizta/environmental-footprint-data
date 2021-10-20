@@ -44,24 +44,12 @@
 	<h3 class="title-second title-left">Effectuer une recherche </h3>
 	<div id="myGrid" class="ag-theme-balham" style="height: 800px; width:60%;"></div>
 	<h3 class="title-second">Ratio Scope 2 / Scope 3</h3>
-	<canvas id="camembert" width="600" height="400"></canvas>
-	<script>
-		var pieData = [{
-				value: 60,
-				color: "#878BB6"
-			},
-			{
-				value: 40,
-				color: "#4ACAB4"
-			},
-		];
-		var pieOptions = {
-			segmentShowStroke: false,
-			animateScale: true
-		}
-		var camembert = document.getElementById("camembert").getContext("2d");
-		new Chart(camembert).Pie(pieData, pieOptions);
-	</script>
+    <div id="stats">
+        <div class="camembert-left">
+            <h4>Moyenne globale</h4>
+	        <canvas id="camembert" width="600" height="400"></canvas>
+        </div>
+    </div>
 	<script>
 		var __basePath = './';
 	</script>
