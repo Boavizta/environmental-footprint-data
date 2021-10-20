@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Boavizta</title>
+	<link rel="stylesheet" href="./style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,800;1,400&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;800&display=swap" rel="stylesheet">
+	<script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+	<script src="https://unpkg.com/papaparse@5.3.1/papaparse.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+	<script src="./index.js"></script>
+</head>
+
+<body>
+	<div id="navbar">
+		<img id="logo" src="./boavizta-logo-4.png" alt="Boavizta">
+		<h1 class="title-main">BOAVIZTA</h1>
+
+	</div>
+	<h1 class="title-main">Données</h1>
+	<h3 class="title-second">Référentiel de données</h3>
+	<p class="text">Un des constats qui nous a incités à lancer Boavizta était que nous manquions cruellement de données
+		pertinentes pour mesurer les impacts environnementaux du numérique. Au-delà des impacts liés à la consommation
+		d'électricité des équipements permettant de délivrer des services numériques, il est primordial, pour mesurer
+		justement, de connaitre les impacts de la fabrication, du transport et de la fin de vie de tous ces équipements.
+		D'autant plus que pour certains d'entre eux, comme les terminaux et les écrans, ces phases du cycle de vie ont un
+		impact bien plus important que celui lié à leur consommation électrique.</p>
+	<p class="text">Jusqu'à présent, les mesures d'impact de ces phases étaient complexes à mettre en oeuvre ou
+		nécessitaient des données propriétaires, et impliquaient des durées et des couts bien trop importants pour être
+		réalisées régulièrement, même sur des périmètres simples.</p>
+	<p class="text">Boavizta pense qu'une autre approche est possible et que celle-ci serait bien plus adaptée pour rendre
+		accessible la mesure d'impact environnemental du numérique au plus grand nombre.</p>
+	<h3 class="title-second title-left">Effectuer une recherche </h3>
+	<div id="myGrid" class="ag-theme-balham" style="height: 800px; width:60%;"></div>
+	<h3 class="title-second">Ratio Scope 2 / Scope 3</h3>
+	<canvas id="camembert" width="600" height="400"></canvas>
+	<script>
+		var pieData = [{
+				value: 60,
+				color: "#878BB6"
+			},
+			{
+				value: 40,
+				color: "#4ACAB4"
+			},
+		];
+		var pieOptions = {
+			segmentShowStroke: false,
+			animateScale: true
+		}
+		var camembert = document.getElementById("camembert").getContext("2d");
+		new Chart(camembert).Pie(pieData, pieOptions);
+	</script>
+	<script>
+		var __basePath = './';
+	</script>
+</body>
+</html>
