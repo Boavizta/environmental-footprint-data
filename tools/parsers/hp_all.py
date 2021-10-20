@@ -58,7 +58,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         result['Name'] = extracted['name'].strip()
     if 'footprint_with_error' in extracted and 'tolerance' in extracted:
         result['Total (kgCO2eq)'] = float(extracted['footprint_with_error'])
-        result['Error (%)'] = round((float(extracted['tolerance']) / result['Total (kgCO2eq)'] * 100),2)
+        result['Error (%)'] = round((float(extracted['tolerance']) / result['Total (kgCO2eq)']),4)
     if 'footprint' in extracted:
         result['Total (kgCO2eq)'] = float(extracted['footprint'])
     if 'date' in extracted:
@@ -93,7 +93,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             clean_text = use_text.replace('\n', '').replace(' ', '')
             match_use = _USE_PERCENT_PATTERN.match(clean_text)
             if match_use:
-                result['Use (%)'] = float(match_use.group(1))
+                result['Use (%)'] = float(match_use.group(1))/100
 
         # Search "Manufact... x%" in the middle part of the graph.
         cropped_right = crop(image, left=.25, right=.3)
@@ -108,7 +108,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             clean_text = manuf_text.replace('\n', '').replace(' ', '')
             match_use = _MANUF_PERCENT_PATTERN.match(clean_text)
             if match_use:
-                result['Manufacturing'] = float(match_use.group(1))
+                result['Manufacturing'] = float(match_use.group(1))/100
 
         if manuf_block or use_block:
             break

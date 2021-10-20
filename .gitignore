@@ -1,4 +1,4 @@
 new_dell.csv
-*__pycache__/
+__pycache__
 /.mypy_cache/
 */.env
