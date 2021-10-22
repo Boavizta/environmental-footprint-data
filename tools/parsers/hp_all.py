@@ -70,39 +70,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['Added Date'] = now.strftime('%Y-%m-%d')
     result['Add Method'] = "HP Auto Parser"
 
-    for image in pdf.list_images(body):
-        # Search "Use x%" in the left part of the graph.
-        cropped_left = crop(image, right=.75)
-        use_block = find_text_in_image(cropped_left, re.compile('Use'), threshold=150)
-        if use_block:
-            # Create an image a bit larger, especially below the text found where the number is.
-            use_image = cropped_left[
-                use_block.top - 3:use_block.top + use_block.height * 3,
-                use_block.left - 20:use_block.left + use_block.width + 20,
-            ]
-            use_text = image_to_text(use_image, threshold=130)
-            clean_text = use_text.replace('\n', '').replace(' ', '')
-            match_use = _USE_PERCENT_PATTERN.match(clean_text)
-            if match_use:
-                result['Use (%)'] = float(match_use.group(1))/100
-
-        # Search "Manufact... x%" in the middle part of the graph.
-        cropped_right = crop(image, left=.25, right=.3)
-        manuf_block = find_text_in_image(cropped_right, re.compile('Manufa'), threshold=50)
-        if manuf_block:
-            # Create an image a bit larger, especially below the text found where the number is.
-            manuf_image = cropped_right[
-                manuf_block.top - 3:manuf_block.top + manuf_block.height * 3,
-                manuf_block.left - 8:manuf_block.left + manuf_block.width + 3,
-            ]
-            manuf_text = image_to_text(manuf_image, threshold=30)
-            clean_text = manuf_text.replace('\n', '').replace(' ', '')
-            match_use = _MANUF_PERCENT_PATTERN.match(clean_text)
-            if match_use:
-                result['Manufacturing'] = float(match_use.group(1))/100
-
-        if manuf_block or use_block:
-            break
+    # TODO(pascal): Explore images to pull out Use and Manufacturing percentages.
 
     yield data.DeviceCarbonFootprint(result)
 
