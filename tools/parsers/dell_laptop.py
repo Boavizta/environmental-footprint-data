@@ -55,7 +55,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     extracted = text.search_all_patterns(_DELL_LCA_PATTERNS, pdf_as_text)
 
     if not extracted:
-        logging.error('The file "{pdf_filename}" did not match the Dell pattern')
+        logging.error('The file "%s" did not match the Dell pattern', pdf_filename)
         return
 
     # Convert each matched group to our format.

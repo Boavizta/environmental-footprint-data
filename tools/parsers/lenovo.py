@@ -39,7 +39,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     pdf_as_text = pdf.pdf2txt(body)
     extracted = text.search_all_patterns(_LENOVO_LCA_PATTERNS, pdf_as_text)
     if not extracted:
-        logging.error('The file "{pdf_filename}" did not match the Lenovo pattern')
+        logging.error('The file "%s" did not match the Lenovo pattern', pdf_filename)
         return
 
     # Convert each matched group to our format.
