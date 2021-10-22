@@ -31,6 +31,16 @@ _DELL_LCA_PATTERNS = (
     re.compile(r' CPU Quantity\s*(?P<cpu>[0-9]*)\s+'),
 )
 
+_CATEGORIES = {
+    'Monitor': ('Workplace', 'Monitor'),
+    'Poweredge': ('Datacenter', 'Server'),
+    'Latitude': ('Workplace', 'Laptop'),
+    'OptiPlex': ('Workplace', 'Desktop'),
+    'Precision': ('Workplace', 'Desktop'),
+    'Wyse': ('Workplace', 'Thin client'),
+    'XPS': ('Workplace', 'Laptop'),
+}
+
 _USE_PERCENT_PATTERN = re.compile(r'.*Use([0-9]*\.*[0-9]*)\%.*')
 _MANUF_PERCENT_PATTERN = re.compile(r'.*Manufac(?:turing|uring|ture)([0-9]*\.*[0-9]*)\%.*')
 
@@ -59,27 +69,10 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     # Convert each matched group to our format.
     if 'name' in extracted:
         result['Name'] = extracted['name'].strip()
-    if 'Monitor' in result['Name']:
-        result['Category'] = "Workplace"
-        result['Subcategory'] = "Monitor"
-    elif 'Poweredge' in result['Name']:
-        result['Category'] = "Datacenter"
-        result['Subcategory'] = "Server"
-    elif 'Latitude' in result['Name']:
-        result['Category'] = "Workplace"
-        result['Subcategory'] = "Laptop"
-    elif 'OptiPlex' in result['Name']:
-        result['Category'] = "Workplace"
-        result['Subcategory'] = "Desktop"
-    elif 'Precision' in result['Name']:
-        result['Category'] = "Workplace"
-        result['Subcategory'] = "Desktop"
-    elif 'Wyse' in result['Name']:
-        result['Category'] = "Workplace"
-        result['Subcategory'] = "Thin client"
-    elif 'XPS' in result['Name']:
-        result['Category'] = "Workplace"
-        result['Subcategory'] = "Laptop"
+        for keyword, category_and_sub in _CATEGORIES.items():
+            if keyword in result['Name']:
+                result['Category'], result['Subcategory'] = category_and_sub
+                break
     if 'footprint' in extracted:
         result['Total (kgCO2eq)'] = float(extracted['footprint'])
     if result.get('Total (kgCO2eq)') and 'error' in extracted:
