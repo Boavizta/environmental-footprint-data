@@ -16,7 +16,7 @@ from .lib import pdf
 
 # A list of patterns to search in the text.
 _DELL_LCA_PATTERNS = (
-    re.compile(r'\s\sDell (?P<name>.*?)\s*From design to end-of-life'),
+    re.compile(r'\s\s(?P<name>.*?)\s*From design to end-of-life'),
     re.compile(r' estimated carbon footprint\: (?P<footprint>[0-9]*) kgCO2e(?: \+\/\- (?P<error>[0-9]*) kgCO2e)?'),
     re.compile(r' estimated standard deviation of \+\/\- (?P<error>[0-9]*)\s*kgCO2e'),
     re.compile(r' Report produced\s*(?P<date>[A-Z][a-z]*, [0-9]{4}) '),
@@ -68,11 +68,13 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Convert each matched group to our format.
     if 'name' in extracted:
-        result['Name'] = extracted['name'].strip()
-        for keyword, category_and_sub in _CATEGORIES.items():
-            if keyword in result['Name']:
-                result['Category'], result['Subcategory'] = category_and_sub
-                break
+        result['Name'] = extracted['name'].strip().removeprefix('Dell ')
+    else:
+        raise ValueError(pdf_as_text)
+    for keyword, category_and_sub in _CATEGORIES.items():
+        if keyword in result['Name']:
+            result['Category'], result['Subcategory'] = category_and_sub
+            break
     if 'footprint' in extracted:
         result['Total (kgCO2eq)'] = float(extracted['footprint'])
     if result.get('Total (kgCO2eq)') and 'error' in extracted:
