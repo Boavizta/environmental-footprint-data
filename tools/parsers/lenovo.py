@@ -1,6 +1,6 @@
-"""Parsers for Dell LCA PDF.
+"""Parsers for Lenovo LCA PDF.
 
-See an example here https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-wyse-3030.pdf
+See an example here https://static.lenovo.com/ww/docs/regulatory/eco-declaration/pcf-lenovo-e41-45.pdf
 """
 
 import logging
@@ -9,7 +9,6 @@ import datetime
 from typing import BinaryIO, Iterator
 
 from .lib import data
-from .lib.image import crop, find_text_in_image, image_to_text
 from .lib import loader
 from .lib import pdf
 from .lib import text
@@ -17,45 +16,41 @@ from .lib import text
 
 # A list of patterns to search in the text.
 _LENOVO_LCA_PATTERNS = (
-    re.compile(r'\s\s(?P<name>.*?)\s*From design to end-of-life'),
-    re.compile(r' estimated carbon footprint\: (?P<footprint>[0-9]*) kgCO2e(?: \+\/\- (?P<error>[0-9]*) kgCO2e)?'),
-    re.compile(r' estimated standard deviation of \+\/\- (?P<error>[0-9]*)\s*kgCO2e'),
+    re.compile(r'Commercial Name (?P<name>.*?)\s*Model'),
     re.compile(r' Issue Date\s*(?P<date>[A-Z][a-z][0-9]*, [0-9]{4})'),
-    re.compile(r' Product Weight\s*kg\s*Input\s*(?P<weight>[0-9]*.[0-9]*)'),
-    #re.compile(r' Screen Size\s*inches\s*(?P<screen_size>[0-9]*.[0-9]*'),
+    re.compile(
+        r' report this value as\s*(?P<footprint>[0-9]+)\s*'
+        r'\+/-\s*(?P<error>[0-9]+) kg of CO2e'),
+    re.compile(r' Product Weight\s*kg\s*(Input\s*)?(?P<weight>[0-9]*.[0-9]*)'),
+    re.compile(r' Screen Size\s*inches\s*(?P<screen_size>[0-9]+\.[0-9]+)'),
     re.compile(r'Assembly Location\s*no unit\s*(?P<assembly_location>[A-Za-z]*)\s+'),
-    re.compile(r'Product Lifetime\s*years\s*Input\s*(?P<lifetime>[0-9]*)'),
+    re.compile(r'Product Lifetime\s*years\s*(Input\s*)?(?P<lifetime>[0-9]*)'),
     re.compile(r' Use Location\s*no unit\s*(?P<use_location>[A-Za-z]*)\s+'),
-    re.compile(r' Energy Demand \(Yearly TEC\)\s*(?P<energyè_demand>[0-9]*.[0-9]*)\s*kWh'),
-    re.compile(r' HDD\/SSD Quantity (?P<hdd>.*(?:SSD|HDD?))\s+'),
-    re.compile(r' DRAM Capacity\s*(?P<ram>[0-9]*)[A-Z]{2}\s+'),
-    re.compile(r' CPU Quantity\s*(?P<cpu>[0-9]*)\s+'),
 )
 
 _USE_PERCENT_PATTERN = re.compile(r'.*Use([0-9]*\.*[0-9]*)\%.*')
-_MANUF_PERCENT_PATTERN = re.compile(r'.*Manufac(?:turing|uring|ture)([0-9]*\.*[0-9]*)\%.*')
 
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
     result = data.DeviceCarbonFootprintData()
-    result['Manufacturer'] = 'Dell'
+    result['Manufacturer'] = 'Lenovo'
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
     extracted = text.search_all_patterns(_LENOVO_LCA_PATTERNS, pdf_as_text)
     if not extracted:
-        logging.error('The file "{pdf_filename}" did not match the Dell pattern')
+        logging.error('The file "{pdf_filename}" did not match the Lenovo pattern')
         return
 
     # Convert each matched group to our format.
     if 'name' in extracted:
-        result['Name'] = extracted['name'].strip()
+        result['Name'] = extracted['name'].strip().removeprefix('Lenovo ')
     if 'footprint' in extracted:
         result['Total (kgCO2eq)'] = float(extracted['footprint'])
     if result.get('Total (kgCO2eq)') and 'error' in extracted:
-        result['Error (%)'] = round((float(extracted['error']) / result['Total (kgCO2eq)']),4)
+        result['Error (%)'] = round((float(extracted['error']) / result['Total (kgCO2eq)']), 4)
     else:
-        raise ValueError(pdf_as_text)
+        raise ValueError((repr(pdf_as_text), extracted))
     if 'date' in extracted:
         result['Date'] = extracted['date']
     if 'weight' in extracted:
@@ -80,39 +75,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['Added Date'] = now.strftime('%Y-%m-%d')
     result['Add Method'] = "Lenovo Auto Parser"
 
-    for image in pdf.list_images(body):
-        # Search "Use x%" in the left part of the graph.
-        cropped_left = crop(image, right=.75)
-        use_block = find_text_in_image(cropped_left, re.compile('Use'), threshold=150)
-        if use_block:
-            # Create an image a bit larger, especially below the text found where the number is.
-            use_image = cropped_left[
-                use_block.top - 3:use_block.top + use_block.height * 3,
-                use_block.left - 20:use_block.left + use_block.width + 20,
-            ]
-            use_text = image_to_text(use_image, threshold=130)
-            clean_text = use_text.replace('\n', '').replace(' ', '')
-            match_use = _USE_PERCENT_PATTERN.match(clean_text)
-            if match_use:
-                result['Use (%)'] = float(match_use.group(1))/100
-
-        # Search "Manufact... x%" in the middle part of the graph.
-        cropped_right = crop(image, left=.25, right=.3)
-        manuf_block = find_text_in_image(cropped_right, re.compile('Manufa'), threshold=50)
-        if manuf_block:
-            # Create an image a bit larger, especially below the text found where the number is.
-            manuf_image = cropped_right[
-                manuf_block.top - 3:manuf_block.top + manuf_block.height * 3,
-                manuf_block.left - 8:manuf_block.left + manuf_block.width + 3,
-            ]
-            manuf_text = image_to_text(manuf_image, threshold=30)
-            clean_text = manuf_text.replace('\n', '').replace(' ', '')
-            match_use = _MANUF_PERCENT_PATTERN.match(clean_text)
-            if match_use:
-                result['Manufacturing'] = float(match_use.group(1))/100
-
-        if manuf_block or use_block:
-            break
+    # TODO(pascal): Explore images to pull out Use and Manufacturing percentages.
 
     yield data.DeviceCarbonFootprint(result)
 

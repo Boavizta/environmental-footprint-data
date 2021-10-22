@@ -20,6 +20,7 @@ import scrapy
 from scrapy import http
 
 from tools.spiders.lib import spider
+from tools.parsers import lenovo
 
 
 _INDEX_PAGE_URL = 'https://www.lenovo.com/us/en/compliance/eco-declaration'
@@ -62,9 +63,6 @@ class LenovoSpider(spider.BoaViztaSpider):
     def parse_carbon_footprint(
         self, response: http.Response, **unused_kwargs: Any,
     ) -> Iterator[Any]:
-        # TODO(pascal): Connect to the Lenovo PDF parser.
-        if False:
-            yield None
-        # for device in lenovo(io.BytesIO(response.body), response.url):
-        #    device.data['Sources'] = response.url
-        #    yield device.data
+        for device in lenovo(io.BytesIO(response.body), response.url):
+            device.data['Sources'] = response.url
+            yield device.data
