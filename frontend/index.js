@@ -137,16 +137,16 @@ function buildcharts() {
   });
   avg_use = total_use / filtered_items;
   console.log('Average use of ' + avg_use + ' on ' + filtered_items + ' items.');
-  var data = [
-    { scope: 'Sccope 2', percentage: avg_use },
+  var ChartData = [
+    { scope: 'Scope 2', percentage: avg_use },
     { scope: 'Scope 3', percentage: (1 - avg_use) },
   ];
-  var options = {
+  var ChartOptions = {
     container: document.querySelector('#myChart'),
     autoSize: true,
     series: [
       {
-        data: data,
+        data: ChartData,
         type: 'pie',
         labelKey: 'scope',
         angleKey: 'percentage',
@@ -178,7 +178,7 @@ function buildcharts() {
     },
   };
   
-  var chart = agCharts.AgChart.create(options);
+  var chart = agCharts.AgChart.create(ChartOptions);
 };
 function gridit(csv) {
   data = Papa.parse(csv), {
