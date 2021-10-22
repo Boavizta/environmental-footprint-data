@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
 	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
 	<script src="https://unpkg.com/papaparse@5.3.1/papaparse.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+	<script src="https://unpkg.com/ag-charts-community@4.1.0/dist/ag-charts-community.min.js"></script>
 	<script src="./index.js"></script>
 </head>
 
@@ -44,12 +44,7 @@
 	<h3 class="title-second title-left">Effectuer une recherche </h3>
 	<div id="myGrid" class="ag-theme-balham" style="height: 800px; width:60%;"></div>
 	<h3 class="title-second">Ratio Scope 2 / Scope 3</h3>
-    <div id="stats">
-        <div class="camembert-left">
-            <h4>Moyenne globale</h4>
-	        <canvas id="camembert" width="600" height="400"></canvas>
-        </div>
-    </div>
+	<div id="myChart" class="ag-theme-balham" style="height: 200px; width:60%;"></div>
 	<script>
 		var __basePath = './';
 	</script>
