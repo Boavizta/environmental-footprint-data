@@ -6,12 +6,13 @@ See an example here https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon
 import logging
 import re
 import datetime
-from typing import BinaryIO, Dict, Iterator
+from typing import BinaryIO, Iterator
 
 from .lib import data
-from .lib.image import binary_grey_threshold, crop, find_text_in_image, image_to_text
+from .lib.image import crop, find_text_in_image, image_to_text
 from .lib import loader
 from .lib import pdf
+from .lib import text
 
 
 # A list of patterns to search in the text.
@@ -51,16 +52,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
-
-    # Match with the specific patterns.
-    extracted: Dict[str, str] = {}
-    for pattern in _DELL_LCA_PATTERNS:
-        match = pattern.search(pdf_as_text)
-        if not match:
-            continue
-        for key, value in match.groupdict().items():
-            if value:
-                extracted[key] = value
+    extracted = text.search_all_patterns(_DELL_LCA_PATTERNS, pdf_as_text)
 
     if not extracted:
         logging.error('The file "{pdf_filename}" did not match the Dell pattern')
