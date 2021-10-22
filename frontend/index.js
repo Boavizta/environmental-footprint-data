@@ -139,7 +139,7 @@ function buildcharts() {
   console.log('Average use of ' + avg_use + ' on ' + filtered_items + ' items.');
   var ChartData = [
     { scope: 'Scope 2', percentage: avg_use },
-    { scope: 'Scope 3', percentage: (1 - avg_use) },
+    { scope: 'Scope 3', percentage: (100 - avg_use) },
   ];
   var ChartOptions = {
     container: document.querySelector('#myChart'),
@@ -177,16 +177,16 @@ function buildcharts() {
       enabled: true,
     },
   };
-  
+
   var chart = agCharts.AgChart.create(ChartOptions);
 };
 function gridit(csv) {
   data = Papa.parse(csv), {
     header: true
   };
-  
+
   const rowData = data.data;
-  
+
   const objectsData = rowData.map((row, i) => {
     return {
       'Manufacturer': row[0],
