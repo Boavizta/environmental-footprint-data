@@ -1,6 +1,6 @@
 """Parsers for HP DESK PDF.
 
-See an example here https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-wyse-3030.pdf
+See an example here https://h22235.www2.hp.com/hpinfo/globalcitizenship/environment/productdata/Countries/_MultiCountry/productcarbonfootprint_notebo_2020116223055953.pdf
 """
 
 import logging
@@ -9,7 +9,6 @@ import datetime
 from typing import BinaryIO, Iterator
 
 from .lib import data
-from .lib.image import crop, find_text_in_image, image_to_text
 from .lib import loader
 from .lib import pdf
 from .lib import text
@@ -28,9 +27,6 @@ _HP_DESK_PATTERNS = (
     re.compile(r' Final manufacturing location\s*(?P<assembly_location>[A-Za-z]*)\s+'),
     re.compile(r' Copyright \s*(?P<date>[0-9]{4}) '),
 )
-
-_USE_PERCENT_PATTERN = re.compile(r'.*Use([0-9]*\.*[0-9]*)\%.*')
-_MANUF_PERCENT_PATTERN = re.compile(r'.*Manufac(?:turing|uring|ture)([0-9]*\.*[0-9]*)\%.*')
 
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
