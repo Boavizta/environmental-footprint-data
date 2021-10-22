@@ -122,6 +122,20 @@ var gridOptions = {
 
 
 function buildcharts() {
+  var elmt = document.getElementById("myChart");
+
+  try {
+      console.log("null");
+      elmt.remove();
+  } catch {
+  }
+
+  var mychart = document.createElement("DIV");
+  mychart.className = "ag-theme-balham";
+  mychart.id = "myChart";
+  mychart.cssText += "height: 200px; width:60%;";
+
+  document.body.appendChild(mychart);
   let avg_use = 0;
   let total_use = 0;
   let filtered_items = 0;
@@ -134,6 +148,8 @@ function buildcharts() {
       total_use = total_use + RowUse;
       filtered_items = filtered_items + 1;
     }
+    var UseLocation = rowNode.data.Use_Location;
+
   });
   avg_use = total_use / filtered_items;
   console.log('Average use of ' + avg_use + ' on ' + filtered_items + ' items.');
@@ -217,12 +233,6 @@ function gridit(csv) {
   gridOptions.api.setRowData(objectsData);
   console.log(objectsData)
 
-
-  // Manufacturing % Use % Use Location . Total (kgCO2eq) .
-    // use vs manuf global
-    //  use vs manuf by use location
-    // use vs manuf by use location & assembly & build location
-    // use vs manuf by vendor
   buildcharts(objectsData)
 };
 
