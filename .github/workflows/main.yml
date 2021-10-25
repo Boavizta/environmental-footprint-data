@@ -30,3 +30,27 @@ jobs:
         run: |
           python tools/gen_fr.py -s boavizta-data-us.csv -o boavizta-data-fr.csv
           test -z "$(git diff boavizta-data-fr.csv)"
+
+  tools-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out the repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tools/requirements.txt -r tools/tests/requirements.txt
+          sudo apt install -y tesseract-ocr
+
+      - name: Check static typing
+        run: mypy --ignore-missing-imports tools
+
+      - name: Run tests
+        run: PYTHONPATH=tools python -m unittest discover -s tools/tests

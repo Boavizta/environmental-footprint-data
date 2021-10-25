@@ -1,0 +1,11 @@
+[{
+    "Manufacturer": "Lenovo",
+    "Name": "E41-45",
+    "Total (kgCO2eq)": 257,
+    "Error (%)": 0.179,
+    "Weight": 1.65,
+    "Assembly Location": "CN",
+    "Lifetime": 5.0,
+    "Use Location": "US",
+    "Add Method": "Lenovo Auto Parser"
+}]

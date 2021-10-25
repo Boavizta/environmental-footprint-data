@@ -2,7 +2,7 @@
 from typing import Dict, Iterable, Pattern
 
 
-def search_all_patterns(patterns: Iterable[Pattern], text: str) -> Dict[str, str]:
+def search_all_patterns(patterns: Iterable[Pattern[str]], text: str) -> Dict[str, str]:
     """Search a text for all patterns and extract the named groups."""
     extracted: Dict[str, str] = {}
     for pattern in patterns:
