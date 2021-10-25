@@ -1,0 +1,14 @@
+[{
+    "Manufacturer": "HP",
+    "Name": "HP E14 G4 Portable Monitor",
+    "Total (kgCO2eq)": 480.0,
+    "Error (%)": 0.2292,
+    "Date": "2020",
+    "Weight": 0.6,
+    "Screen size": 14.0,
+    "Assembly Location": "China",
+    "Lifetime": 5,
+    "Use Location": "Worldwide",
+    "Yearly TEC (kWh)": 12.45,
+    "Add Method": "HP Auto Parser"
+}]

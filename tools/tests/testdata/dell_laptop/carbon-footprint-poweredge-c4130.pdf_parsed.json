@@ -1,0 +1,16 @@
+[{
+    "Add Method": "Dell Auto Parser",
+    "Assembly Location": "EU",
+    "Date": "February, 2019",
+    "Error (%)": 1.1023,
+    "Lifetime": 4,
+    "Manufacturer": "Dell",
+    "Name": "PowerEdge C4130",
+    "Total (kgCO2eq)": 12700,
+    "Use Location": "EU",
+    "Weight": 20.2,
+    "Yearly TEC (kWh)": 2767.722,
+    "CPU": 2,
+    "HD/SSD": "x1 200GB 1.8” SSD",
+    "RAM": 16
+}]
