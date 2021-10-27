@@ -1,4 +1,6 @@
 """Check that data files have the right format."""
+import csv
+import io
 import os
 import unittest
 
@@ -20,6 +22,11 @@ class FormatsTest(unittest.TestCase):
     def test_trailing_endline(self) -> None:
         self.assertTrue(
             self.data_content.endswith('\n'), msg='Data file needs to end with a trailing newline')
+
+    def test_read_format(self) -> None:
+        reader = csv.DictReader(io.StringIO(self.data_content))
+        for row in reader:
+            data.DeviceCarbonFootprint.from_text(row)
 
     # TODO(pascal): Check that fr and us formats are in sync.
 
