@@ -12,6 +12,7 @@ This spider:
 
 Note that extracting the whole info is quite long, so be patient.
 """
+import html
 import io
 import re
 from typing import Any, Iterator
@@ -25,8 +26,24 @@ from tools.parsers import lenovo
 
 _INDEX_PAGE_URL = 'https://www.lenovo.com/us/en/compliance/eco-declaration'
 
+# Pattern of tab names.
+_TAB_NAMES_IN_MAIN_JS_PATTERN = re.compile(
+    r'data-toggle="tab".*href="#(?P<tab_id>[^"]+)".*>(?P<title>.*)</a>')
+
+# Pattern for extracting the id attribute.
+_ID_ATTR_PATTERN = re.compile(r'id="([^"]+)"')
+
 # Pattern of links to PCF docs in the main.js.
 _PCF_LINK_IN_MAIN_JS_PATTERN = re.compile(r'href="([^"]+)">PCF ')
+
+_CATEGORIES = {
+    'Notebook': ('Workplace', 'Laptop'),
+    'Monitor': ('Workplace', 'Monitor'),
+    'Server': ('Datacenter', 'Server'),
+    'Workstation': ('Workplace', 'Workstation'),
+    'Desktop': ('Workplace', 'Desktop'),
+    'Tablet': ('Workplace', 'Tablet'),
+}
 
 
 class LenovoSpider(spider.BoaViztaSpider):
@@ -54,15 +71,42 @@ class LenovoSpider(spider.BoaViztaSpider):
         self, response: http.Response, **unused_kwargs: Any,
     ) -> Iterator[scrapy.Request]:
         """Parse the Lenovo javascript file listing all PDF documents."""
-        for match in _PCF_LINK_IN_MAIN_JS_PATTERN.finditer(response.text):
-            pcf_url = match.group(1)
-            if self._should_skip(pcf_url):
+
+        # List existing tabs with their IDs.
+        # The list of the tabs is as the top of the file which contains title like
+        # "Notebooks & Ultrabooks", "Desktop & All-in-Ones".
+        tab_titles = {
+            match.group('tab_id'): html.unescape(match.group('title'))
+            for match in _TAB_NAMES_IN_MAIN_JS_PATTERN.finditer(response.text)
+        }
+
+        # The link to various models grouped into tabs.
+        tab_contents = response.text.split('"tab-pane')[1:]
+        for tab_content in tab_contents:
+            first_line = tab_content.split('\n', 1)[0]
+            if 'role="tabpanel"' not in first_line:
                 continue
-            yield scrapy.Request(pcf_url, callback=self.parse_carbon_footprint)
+            tab_id_match = _ID_ATTR_PATTERN.search(first_line)
+            if not tab_id_match:
+                continue
+            tab_id = tab_id_match.group(1)
+            tab_title = tab_titles[tab_id]
+
+            for match in _PCF_LINK_IN_MAIN_JS_PATTERN.finditer(tab_content):
+                pcf_url = match.group(1)
+                if self._should_skip(pcf_url):
+                    continue
+                yield scrapy.Request(
+                    pcf_url, callback=self.parse_carbon_footprint,
+                    cb_kwargs={'tab_title': tab_title})
 
     def parse_carbon_footprint(
-        self, response: http.Response, **unused_kwargs: Any,
+        self, response: http.Response, tab_title: str, **unused_kwargs: Any,
     ) -> Iterator[Any]:
         for device in lenovo(io.BytesIO(response.body), response.url):
             device.data['Sources'] = response.url
+            for keyword, category_and_sub in _CATEGORIES.items():
+                if keyword in tab_title:
+                    device.data['Category'], device.data['Subcategory'] = category_and_sub
+                    break
             yield device.data
