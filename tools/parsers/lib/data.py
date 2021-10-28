@@ -58,10 +58,12 @@ class DeviceCarbonFootprint:
     def from_text(cls, data: Dict[str, str]) -> 'DeviceCarbonFootprint':
         typed_data: DeviceCarbonFootprintData = {}
         for key, data_type in DeviceCarbonFootprintData.__annotations__.items():
-            if not data.get(key):
+            if not (value := data.get(key)):
                 continue
-            value = data[key]
-            typed_data[key] = data_type(value)  # type: ignore
+            try:
+                typed_data[key] = data_type(value)  # type: ignore
+            except ValueError as error:
+                raise ValueError(f'Value error for "{key}": "{value}"\n{data}') from error
         return DeviceCarbonFootprint(typed_data)
 
     def get(self, key: str) -> Union[float, str, int]:
