@@ -1,14 +1,14 @@
 [{
-    "Manufacturer": "HP",
-    "Name": "HP E14 G4 Portable Monitor",
-    "Total (kgCO2eq)": 480.0,
-    "Error (%)": 0.2292,
-    "Date": "2020",
-    "Weight": 0.6,
-    "Screen size": 14.0,
-    "Assembly Location": "China",
-    "Lifetime": 5,
-    "Use Location": "Worldwide",
-    "Yearly TEC (kWh)": 12.45,
-    "Add Method": "HP Auto Parser"
+    "manufacturer": "HP",
+    "name": "HP E14 G4 Portable Monitor",
+    "gwp_total": 480.0,
+    "gwp_error_ratio": 0.2292,
+    "report_date": "2020",
+    "weight": 0.6,
+    "screen_size": 14.0,
+    "assembly_location": "China",
+    "lifetime": 5,
+    "use_location": "Worldwide",
+    "yearly_tec": 12.45,
+    "add_method": "HP Auto Parser"
 }]

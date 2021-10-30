@@ -104,9 +104,9 @@ class LenovoSpider(spider.BoaViztaSpider):
         self, response: http.Response, tab_title: str, **unused_kwargs: Any,
     ) -> Iterator[Any]:
         for device in lenovo(io.BytesIO(response.body), response.url):
-            device.data['Sources'] = response.url
+            device.data['sources'] = response.url
             for keyword, category_and_sub in _CATEGORIES.items():
                 if keyword in tab_title:
-                    device.data['Category'], device.data['Subcategory'] = category_and_sub
+                    device.data['category'], device.data['subcategory'] = category_and_sub
                     break
             yield device.data

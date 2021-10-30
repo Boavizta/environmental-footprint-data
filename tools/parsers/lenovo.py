@@ -33,7 +33,7 @@ _USE_PERCENT_PATTERN = re.compile(r'.*Use([0-9]*\.*[0-9]*)\%.*')
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
     result = data.DeviceCarbonFootprintData()
-    result['Manufacturer'] = 'Lenovo'
+    result['manufacturer'] = 'Lenovo'
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
@@ -44,36 +44,36 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Convert each matched group to our format.
     if 'name' in extracted:
-        result['Name'] = extracted['name'].strip().removeprefix('Lenovo ')
+        result['name'] = extracted['name'].strip().removeprefix('Lenovo ')
     if 'footprint' in extracted:
-        result['Total (kgCO2eq)'] = float(extracted['footprint'])
-    if result.get('Total (kgCO2eq)') and 'error' in extracted:
-        result['Error (%)'] = round((float(extracted['error']) / result['Total (kgCO2eq)']), 4)
+        result['gwp_total'] = float(extracted['footprint'])
+    if result.get('gwp_total') and 'error' in extracted:
+        result['gwp_error_ratio'] = round((float(extracted['error']) / result['gwp_total']), 4)
     else:
         raise ValueError((repr(pdf_as_text), extracted))
     if 'date' in extracted:
-        result['Date'] = extracted['date']
+        result['report_date'] = extracted['date']
     if 'weight' in extracted:
-        result['Weight'] = float(extracted['weight'])
+        result['weight'] = float(extracted['weight'])
     if 'screen_size' in extracted:
-        result['Screen size'] = float(extracted['screen_size'])
+        result['screen_size'] = float(extracted['screen_size'])
     if 'assembly_location' in extracted:
-        result['Assembly Location'] = extracted['assembly_location']
+        result['assembly_location'] = extracted['assembly_location']
     if 'lifetime' in extracted:
-        result['Lifetime'] = float(extracted['lifetime'])
+        result['lifetime'] = float(extracted['lifetime'])
     if 'use_location' in extracted:
-        result['Use Location'] = extracted['use_location']
+        result['use_location'] = extracted['use_location']
     if 'energy_demand' in extracted:
-        result['Yearly TEC (kWh)'] = float(extracted['energy_demand'])
+        result['yearly_tec'] = float(extracted['energy_demand'])
     if 'hdd' in extracted:
-        result['HD/SSD'] = extracted['hdd']
+        result['hard_drive'] = extracted['hdd']
     if 'ram' in extracted:
-        result['RAM'] = float(extracted['ram'])
+        result['memory'] = float(extracted['ram'])
     if 'cpu' in extracted:
-        result['CPU'] = int(extracted['cpu'])
+        result['number_cpu'] = int(extracted['cpu'])
     now = datetime.datetime.now()
-    result['Added Date'] = now.strftime('%Y-%m-%d')
-    result['Add Method'] = "Lenovo Auto Parser"
+    result['added_date'] = now.strftime('%Y-%m-%d')
+    result['add_method'] = "Lenovo Auto Parser"
 
     # TODO(pascal): Explore images to pull out Use and Manufacturing percentages.
 

@@ -1,11 +1,11 @@
 [{
-    "Manufacturer": "Lenovo",
-    "Name": "E41-45",
-    "Total (kgCO2eq)": 257,
-    "Error (%)": 0.179,
-    "Weight": 1.65,
-    "Assembly Location": "CN",
-    "Lifetime": 5.0,
-    "Use Location": "US",
-    "Add Method": "Lenovo Auto Parser"
+    "manufacturer": "Lenovo",
+    "name": "E41-45",
+    "gwp_total": 257,
+    "gwp_error_ratio": 0.179,
+    "weight": 1.65,
+    "assembly_location": "CN",
+    "lifetime": 5.0,
+    "use_location": "US",
+    "add_method": "Lenovo Auto Parser"
 }]

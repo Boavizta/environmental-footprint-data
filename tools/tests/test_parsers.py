@@ -76,7 +76,7 @@ class ParsersTest(unittest.TestCase):
                             input_body = io.BytesIO(input_file.read())
                         result = [device.data for device in parser(input_body, input_filename)]
                         for device_data in result:
-                            device_data.pop('Added Date', None)
+                            device_data.pop('added_date', None)
                         expected = self._load_expectation(parser_name, filename)
                         self.assertDictsAlmostEqual(expected, result)
 

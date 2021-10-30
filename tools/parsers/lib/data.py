@@ -2,32 +2,32 @@ import csv
 import io
 from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict
 
-# The carbon footprint data for one device model.
-DeviceCarbonFootprintData = TypedDict('DeviceCarbonFootprintData', {
-    'Manufacturer': str,
-    'Name': str,
-    'Category': str,
-    'Subcategory': str,
-    'Total (kgCO2eq)': float,
-    'Use (%)': float,
-    'Yearly TEC (kWh)': float,
-    'Lifetime': float,
-    'Use Location': str,
-    'Date': str,
-    'Sources': str,
-    'Error (%)': float,
-    'Manufacturing': float,
-    'Weight': float,
-    'Assembly Location': str,
-    'Screen size': float,
-    'Server Type': str,
-    'HD/SSD': str,
-    'RAM': float,
-    'CPU': int,
-    'U': int,
-    'Added Date': str,
-    'Add Method': str
-}, total=False)
+
+class DeviceCarbonFootprintData(TypedDict, total=False):
+    """The carbon footprint data for one device model."""
+    manufacturer: str
+    name: str
+    category: str
+    subcategory: str
+    gwp_total: float
+    gwp_use_ratio: float
+    yearly_tec: float
+    lifetime: float
+    use_location: str
+    report_date: str
+    sources: str
+    gwp_error_ratio: float
+    gwp_manufacturing_ratio: float
+    weight: float
+    assembly_location: str
+    screen_size: float
+    server_type: str
+    hard_drive: str
+    memory: float
+    number_cpu: int
+    height: int
+    added_date: str
+    add_method: str
 
 
 def _format_csv_row(row: Iterable[Any], csv_format: Literal['us', 'fr']) -> str:

@@ -64,5 +64,5 @@ class DellSpider(spider.BoaViztaSpider):
         self, response: http.Response, **unused_kwargs: Any,
     ) -> Iterator[Any]:
         for device in dell_laptop(io.BytesIO(response.body), response.url):
-            device.data['Sources'] = response.url
+            device.data['sources'] = response.url
             yield device.data
