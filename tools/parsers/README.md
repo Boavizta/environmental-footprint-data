@@ -11,7 +11,7 @@ Keep each parser in a distinct module (file), and move common code to the `lib` 
 When working on a parser, download the corresponding file locally then run:
 
 ```sh
-python -m parsers.dell_laptop carbon-footprint-wyse-3030.pdf
+python -m tools.parsers.dell_laptop carbon-footprint-wyse-3030.pdf
 ```
 
 You might need to install some libraries.
@@ -32,7 +32,7 @@ pip install -r requirements-testing.txt
 Then you can run:
 
 ```sh
-mypy --strict --ignore-missing-imports parsers tests
+mypy --strict --ignore-missing-imports tools
 ```
 
 ## Testing
