@@ -10,105 +10,105 @@ function gridit(csv) {
   };
 
   const columnDefs = [{
-      field: "Manufacturer",
+      field: "manufacturer",
       width: 150
     },
     {
-      field: "Name",
+      field: "name",
       width: 150
     },
     {
-      field: "Category",
+      field: "category",
       width: 100
     },
     {
-      field: "SubCategory",
+      field: "subcategory",
       width: 100
     },
     {
-      field: "Total (kgCO2eq)",
+      field: "gwp_total",
       filter: 'agNumberColumnFilter',
       width: 80
     },
     {
-      field: "Use (%)",
+      field: "gwp_use_ratio",
       filter: 'agNumberColumnFilter',
       width: 80
     },
     {
-      field: "Yearly TEC (kWh)",
+      field: "yearly_tec",
       hide: true,
       width: 80
     },
     {
-      field: "Lifetime",
+      field: "lifetime",
       filter: 'agNumberColumnFilter',
       width: 50
     },
     {
-      field: "Use Location",
+      field: "use_location",
       width: 100
     },
     {
-      field: "Date",
+      field: "report_date",
       hide: true,
       width: 100
     },
     {
-      field: "Sources",
+      field: "sources",
       hide: true,
       width: 100
     },
     {
-      field: "Error (%)",
-      hide: true,
-      filter: 'agNumberColumnFilter',
-      width: 100
-    },
-    {
-      field: "Manufacturing",
-      filter: 'agNumberColumnFilter',
-      width: 100
-    },
-    {
-      field: "Weight",
+      field: "gwp_error_ratio",
       hide: true,
       filter: 'agNumberColumnFilter',
       width: 100
     },
     {
-      field: "Assembly Location",
+      field: "gwp_manufacturing_ratio",
+      filter: 'agNumberColumnFilter',
       width: 100
     },
     {
-      field: "Screen size",
+      field: "weight",
       hide: true,
       filter: 'agNumberColumnFilter',
       width: 100
     },
     {
-      field: "Server Type",
+      field: "assembly_location",
       width: 100
     },
     {
-      field: "HDD/SSD",
-      hide: true,
-      width: 100
-    },
-    {
-      field: "RAM",
+      field: "screen_size",
       hide: true,
       filter: 'agNumberColumnFilter',
       width: 100
     },
     {
-      field: "CPU",
+      field: "server_type",
+      width: 100
+    },
+    {
+      field: "hard_drive",
+      hide: true,
+      width: 100
+    },
+    {
+      field: "memory",
       hide: true,
       filter: 'agNumberColumnFilter',
       width: 100
     },
     {
-      field: "U",
+      field: "number_cpu",
+      hide: true,
+      filter: 'agNumberColumnFilter',
+      width: 100
+    },
+    {
+      field: "height",
       filter: 'agNumberColumnFilter',
       width: 50
     },
@@ -118,27 +118,27 @@ function gridit(csv) {
 
   const objectsData = rowData.map((row, i) => {
     return {
-      'Manufacturer': row[0],
-      'Name': row[1],
-      'Category': row[2],
-      'SubCategory': row[3],
-      'Total (kgCO2eq)': row[4],
-      'Use (%)': row[5],
-      'Yearly TEC (kWh)': row[6],
-      'Lifetime': row[7],
-      'Use Location': row[8],
-      'Date': row[9],
-      'Sources': row[10],
-      'Error (%)': row[11],
-      'Manufacturing': row[12],
-      'Weight': row[13],
-      'Assembly Location': row[14],
-      'Screen size': row[15],
-      'Server Type': row[16],
-      'HDD/SSD': row[17],
-      'RAM': row[18],
-      'CPU': row[19],
-      'U': row[20],
+      'manufacturer': row[0],
+      'name': row[1],
+      'category': row[2],
+      'subcategory': row[3],
+      'gwp_total': row[4],
+      'gwp_use_ratio': row[5],
+      'yearly_tec': row[6],
+      'lifetime': row[7],
+      'use_location': row[8],
+      'report_date': row[9],
+      'sources': row[10],
+      'gwp_error_ratio': row[11],
+      'gwp_manufacturing_ratio': row[12],
+      'weight': row[13],
+      'assembly_location': row[14],
+      'screen_size': row[15],
+      'server_type': row[16],
+      'hard_drive': row[17],
+      'memory': row[18],
+      'number_cpu': row[19],
+      'height': row[20],
     }
   })
 
@@ -176,9 +176,9 @@ function gridit(csv) {
   let nb_lifetimes = 0;
   let per_use_loc = Object();
   for (let i = 0; i < objectsData.length; i++) {
-    if ( objectsData.indexOf("Use Location") && ! objectsData[i]["Use Location"] == "" ) {
-      if ( ! (objectsData[i]["Use Location"] in per_use_loc) ) {
-        per_use_loc[objectsData[i]["Use Location"]] = {
+    if ( objectsData.indexOf("use_location") && ! objectsData[i]["use_location"] == "" ) {
+      if ( ! (objectsData[i]["use_location"] in per_use_loc) ) {
+        per_use_loc[objectsData[i]["use_location"]] = {
             avg_use: 0,
             avg_manuf: 0,
             nb_use: 0,
@@ -186,9 +186,9 @@ function gridit(csv) {
         };
       }
     }
-    if (! objectsData[i]["Use (%)"] == "") {
-      let res_use = parseFloat(objectsData[i]["Use (%)"].replace('%', ''));
-      let res_lifetime = objectsData[i]["Lifetime"];
+    if (! objectsData[i]["gwp_use_ratio"] == "") {
+      let res_use = parseFloat(objectsData[i]["gwp_use_ratio"].replace('%', ''));
+      let res_lifetime = objectsData[i]["lifetime"];
       if (! isNaN(res_use)) {
         avg_use = avg_use + res_use;
         if ( res_lifetime != "" ) {
@@ -196,9 +196,9 @@ function gridit(csv) {
             avg_lifetime += parseFloat(res_lifetime);
             nb_lifetimes++;
         }
-        if ( objectsData[i]["Use Location"] in per_use_loc ) {
-          per_use_loc[objectsData[i]["Use Location"]]["avg_use"] = per_use_loc[objectsData[i]["Use Location"]]["avg_use"] + res_use;
-          per_use_loc[objectsData[i]["Use Location"]]["nb_use"]++;
+        if ( objectsData[i]["use_location"] in per_use_loc ) {
+          per_use_loc[objectsData[i]["use_location"]]["avg_use"] = per_use_loc[objectsData[i]["use_location"]]["avg_use"] + res_use;
+          per_use_loc[objectsData[i]["use_location"]]["nb_use"]++;
         }
       } else {
         use_fails++;
@@ -210,10 +210,10 @@ function gridit(csv) {
       let res_manuf = parseFloat(objectsData[i]["Manufacturing"].replace('%', ''));
       if (! isNaN(res_manuf)) {
         avg_manuf = avg_manuf + res_manuf;
-        if ( objectsData[i]["Use Location"] in per_use_loc ) {
+        if ( objectsData[i]["use_location"] in per_use_loc ) {
 
-          per_use_loc[objectsData[i]["Use Location"]]["avg_manuf"] = per_use_loc[objectsData[i]["Use Location"]]["avg_manuf"] + res_manuf;
-          per_use_loc[objectsData[i]["Use Location"]]["nb_manuf"]++;
+          per_use_loc[objectsData[i]["use_location"]]["avg_manuf"] = per_use_loc[objectsData[i]["use_location"]]["avg_manuf"] + res_manuf;
+          per_use_loc[objectsData[i]["use_location"]]["nb_manuf"]++;
         }
       } else {
         manuf_fails++;

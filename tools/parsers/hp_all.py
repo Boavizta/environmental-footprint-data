@@ -31,7 +31,7 @@ _HP_DESK_PATTERNS = (
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
     result = data.DeviceCarbonFootprintData()
-    result['Manufacturer'] = 'HP'
+    result['manufacturer'] = 'HP'
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
@@ -42,29 +42,29 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Convert each matched group to our format.
     if 'name' in extracted:
-        result['Name'] = extracted['name'].strip()
+        result['name'] = extracted['name'].strip()
     if 'footprint_with_error' in extracted and 'tolerance' in extracted:
-        result['Total (kgCO2eq)'] = float(extracted['footprint_with_error'])
-        result['Error (%)'] = round((float(extracted['tolerance']) / result['Total (kgCO2eq)']),4)
+        result['gwp_total'] = float(extracted['footprint_with_error'])
+        result['gwp_error_ratio'] = round((float(extracted['tolerance']) / result['gwp_total']), 4)
     if 'footprint' in extracted:
-        result['Total (kgCO2eq)'] = float(extracted['footprint'])
+        result['gwp_total'] = float(extracted['footprint'])
     if 'date' in extracted:
-        result['Date'] = extracted['date']
+        result['report_date'] = extracted['date']
     if 'weight' in extracted:
-        result['Weight'] = float(extracted['weight'])
+        result['weight'] = float(extracted['weight'])
     if 'screen_size' in extracted:
-        result['Screen size'] = float(extracted['screen_size'])
+        result['screen_size'] = float(extracted['screen_size'])
     if 'assembly_location' in extracted:
-        result['Assembly Location'] = extracted['assembly_location']
+        result['assembly_location'] = extracted['assembly_location']
     if 'lifetime' in extracted:
-        result['Lifetime'] = float(extracted['lifetime'])
+        result['lifetime'] = float(extracted['lifetime'])
     if 'use_location' in extracted:
-        result['Use Location'] = extracted['use_location']
+        result['use_location'] = extracted['use_location']
     if 'energy_demand' in extracted:
-        result['Yearly TEC (kWh)'] = float(extracted['energy_demand'])
+        result['yearly_tec'] = float(extracted['energy_demand'])
     now = datetime.datetime.now()
-    result['Added Date'] = now.strftime('%Y-%m-%d')
-    result['Add Method'] = "HP Auto Parser"
+    result['added_date'] = now.strftime('%Y-%m-%d')
+    result['add_method'] = "HP Auto Parser"
 
     # TODO(pascal): Explore images to pull out Use and Manufacturing percentages.
 

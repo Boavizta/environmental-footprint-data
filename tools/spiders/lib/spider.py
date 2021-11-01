@@ -18,8 +18,8 @@ class BoaViztaSpider(scrapy.Spider):
         with open(existing, 'rt', encoding='utf-8') as existing_file:
             reader = csv.DictReader(existing_file)
             for row in reader:
-                if row.get('Sources'):
-                    self._existing_sources.add(row['Sources'])
+                if row.get('sources'):
+                    self._existing_sources.add(row['sources'])
 
     def _should_skip(self, source: str) -> bool:
         logging.warning('Source already existing: %s', source)

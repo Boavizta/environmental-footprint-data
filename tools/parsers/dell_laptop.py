@@ -48,7 +48,7 @@ _MANUF_PERCENT_PATTERN = re.compile(r'.*Manufac(?:turing|uring|ture)([0-9]*\.*[0
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
     result = data.DeviceCarbonFootprintData()
-    result['Manufacturer'] = 'Dell'
+    result['manufacturer'] = 'Dell'
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
@@ -60,42 +60,42 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Convert each matched group to our format.
     if 'name' in extracted:
-        result['Name'] = extracted['name'].strip().removeprefix('Dell ')
+        result['name'] = extracted['name'].strip().removeprefix('Dell ')
     else:
         raise ValueError(pdf_as_text)
     for keyword, category_and_sub in _CATEGORIES.items():
-        if keyword in result['Name']:
-            result['Category'], result['Subcategory'] = category_and_sub
+        if keyword in result['name']:
+            result['category'], result['subcategory'] = category_and_sub
             break
     if 'footprint' in extracted:
-        result['Total (kgCO2eq)'] = float(extracted['footprint'])
-    if result.get('Total (kgCO2eq)') and 'error' in extracted:
-        result['Error (%)'] = round((float(extracted['error']) / result['Total (kgCO2eq)']),4)
+        result['gwp_total'] = float(extracted['footprint'])
+    if result.get('gwp_total') and 'error' in extracted:
+        result['gwp_error_ratio'] = round((float(extracted['error']) / result['gwp_total']), 4)
     else:
         raise ValueError(pdf_as_text)
     if 'date' in extracted:
-        result['Date'] = extracted['date']
+        result['report_date'] = extracted['date']
     if 'weight' in extracted:
-        result['Weight'] = float(extracted['weight'])
+        result['weight'] = float(extracted['weight'])
     if 'screen_size' in extracted:
-        result['Screen size'] = float(extracted['screen_size'])
+        result['screen_size'] = float(extracted['screen_size'])
     if 'assembly_location' in extracted:
-        result['Assembly Location'] = extracted['assembly_location']
+        result['assembly_location'] = extracted['assembly_location']
     if 'lifetime' in extracted:
-        result['Lifetime'] = float(extracted['lifetime'])
+        result['lifetime'] = float(extracted['lifetime'])
     if 'use_location' in extracted:
-        result['Use Location'] = extracted['use_location']
+        result['use_location'] = extracted['use_location']
     if 'energy_demand' in extracted:
-        result['Yearly TEC (kWh)'] = float(extracted['energy_demand'])
+        result['yearly_tec'] = float(extracted['energy_demand'])
     if 'hdd' in extracted:
-        result['HD/SSD'] = extracted['hdd']
+        result['hard_drive'] = extracted['hdd']
     if 'ram' in extracted:
-        result['RAM'] = float(extracted['ram'])
+        result['memory'] = float(extracted['ram'])
     if 'cpu' in extracted:
-        result['CPU'] = int(extracted['cpu'])
+        result['number_cpu'] = int(extracted['cpu'])
     now = datetime.datetime.now()
-    result['Added Date'] = now.strftime('%Y-%m-%d')
-    result['Add Method'] = "Dell Auto Parser"
+    result['added_date'] = now.strftime('%Y-%m-%d')
+    result['add_method'] = "Dell Auto Parser"
 
     for image in pdf.list_images(body):
         # Search "Use x%" in the left part of the graph.
@@ -111,7 +111,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             clean_text = use_text.replace('\n', '').replace(' ', '')
             match_use = _USE_PERCENT_PATTERN.match(clean_text)
             if match_use:
-                result['Use (%)'] = float(match_use.group(1))/100
+                result['gwp_use_ratio'] = float(match_use.group(1))/100
 
         # Search "Manufact... x%" in the middle part of the graph.
         cropped_right = crop(image, left=.25, right=.3)
@@ -126,7 +126,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             clean_text = manuf_text.replace('\n', '').replace(' ', '')
             match_use = _MANUF_PERCENT_PATTERN.match(clean_text)
             if match_use:
-                result['Manufacturing'] = float(match_use.group(1))/100
+                result['gwp_manufacturing_ratio'] = float(match_use.group(1))/100
 
         if manuf_block or use_block:
             break

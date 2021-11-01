@@ -28,34 +28,40 @@ If any manufacturers wish to share data with us, we will be happy to discuss wit
 
 ## Data format
 
-* Manufacturer: manufacturer name
-* Name: product name
-* Category:
+* `manufacturer`: Manufacturer name, e.g. "Dell" or "HP"
+* `name`: Product name
+* `category`:
   * Workplace: product commonly used in a workplace
   * Datacenter: product commonly used in a data center (e.g. server, network switch, etc.)
-* kgCO2eq (total): GHG emissions (estimated as CO2 equivalent) through the total lifecycle of the product (Manufacturing, Transportation, Use phase and Recycling)
-* Use (%): percentage of the GHG emissions coming from the use phase (the hypothesis for this use phase
-  are detailed in the other columns, especially the Lifetime and the Use Location)
-* Yearly TEC (kWh): Yearly estimated energy demand
-* Lifetime: expected lifetime (in years)
-* Use Location:
+* `gwp_total`: GHG emissions (estimated as CO2 equivalent, the unit is kgCO2eq) through the total lifecycle of the product (Manufacturing, Transportation, Use phase and Recycling)
+* `gwp_use_ratio`: part of the GHG emissions coming from the use phase (the hypothesis for this use phase
+  are detailed in the other columns, especially the `lifetime` and the `use_location`)
+* `yearly_tec`: Yearly estimated energy demand in kWh
+* `lifetime`: Expected lifetime (in years)
+* `use_location`: The region of the world in which the device usage footprint has been estimated.
   * US: United States of America
   * EU: Europe
   * DE: Germany
   * CN: China
   * WW: Worldwide
-
-* Error: the datasheets commonly come with a diagram that shows the error margin for the footprint
-* Weight: product weight in kg
-* Assembly Location:
+* `report_date`: the date at which the Product Carbon Footprint report of the device was published
+* `sources`: the original URLs from which the data for this row was sourced
+* `gwp_error_ratio`: the datasheets commonly come with a diagram that shows the error margin for the footprint
+* `gwp_manufacturing_ratio` part of the GHG emissions coming from the manufacturing phase
+* `weight`: product weight in kg
+* `assembly_location`: The region of the world in which the device is assembled
   * US: United States of America
   * EU: Europe
   * CN: China
   * Asia: Asia
-
-* Screen size: in inches
-* RAM: in GB
-* CPU: number of CPUs
+* `screen_size`: in inches
+* `server_type`: the type of server
+* `hard_drive`: the hard drive of the device if any
+* `memory`: RAM in GB
+* `number_cpu`: number of CPUs
+* `height`: the height of the device in a datacenter rack, in U
+* `added_date`: the date at which this row was added
+* `add_method`: how was the data for this row collected
 
 ## About Boavizta.org
 
