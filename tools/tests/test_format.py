@@ -4,7 +4,7 @@ import io
 import os
 import unittest
 
-from parsers.lib import data
+from tools.parsers.lib import data
 
 _DATA_FOLDER = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 _DATA_FILE = os.path.join(_DATA_FOLDER, 'boavizta-data-us.csv')

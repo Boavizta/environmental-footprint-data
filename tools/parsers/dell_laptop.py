@@ -8,11 +8,11 @@ import re
 import datetime
 from typing import BinaryIO, Iterator
 
-from .lib import data
-from .lib.image import crop, find_text_in_image, image_to_text
-from .lib import loader
-from .lib import pdf
-from .lib import text
+from tools.parsers.lib import data
+from tools.parsers.lib.image import crop, find_text_in_image, image_to_text
+from tools.parsers.lib import loader
+from tools.parsers.lib import pdf
+from tools.parsers.lib import text
 
 
 # A list of patterns to search in the text.

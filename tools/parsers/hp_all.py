@@ -8,10 +8,10 @@ import re
 import datetime
 from typing import BinaryIO, Iterator
 
-from .lib import data
-from .lib import loader
-from .lib import pdf
-from .lib import text
+from tools.parsers.lib import data
+from tools.parsers.lib import loader
+from tools.parsers.lib import pdf
+from tools.parsers.lib import text
 
 
 # A list of patterns to search in the text.

@@ -3,7 +3,7 @@ import io
 import sys
 from typing import Callable, BinaryIO, Iterator
 
-from .data import DeviceCarbonFootprint
+from tools.parsers.lib.data import DeviceCarbonFootprint
 
 
 def main(parse_func: Callable[[BinaryIO, str], Iterator[DeviceCarbonFootprint]]) -> None:

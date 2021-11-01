@@ -10,7 +10,7 @@ import os
 from typing import Any
 import unittest
 
-import parsers
+from tools import parsers
 
 _TESTDATA_FOLDER = os.path.join(os.path.dirname(__file__), 'testdata')
 
