@@ -21,6 +21,7 @@ import scrapy
 from scrapy import http
 
 from tools.spiders.lib import spider
+from tools.parsers import google
 
 _INDEX_PAGE_URL = 'https://sustainability.google/reports/'
 
@@ -48,5 +49,7 @@ class GoogleSpider(spider.BoaViztaSpider):
     def parse_carbon_footprint(
         self, response: http.Response, **unused_kwargs: Any,
     ) -> Iterator[Any]:
-        # TODO(pascal): Create a googlel parser and connect it here.
-        pass
+        """Parse a Google Product Carbon footprint document."""
+        for device in google(io.BytesIO(response.body), response.url):
+            device.data['sources'] = response.url
+            yield device.data

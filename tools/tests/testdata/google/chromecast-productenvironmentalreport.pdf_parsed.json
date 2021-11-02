@@ -1,0 +1,12 @@
+[{
+    "add_method": "Google Auto Parser",
+    "gwp_manufacturing_ratio": 0.13,
+    "gwp_total": 40,
+    "gwp_use_ratio": 0.85,
+    "lifetime": 4,
+    "manufacturer": "Google",
+    "name": "Chromecast",
+    "report_date": "October 9, 2018",
+    "weight": 0.04,
+    "yearly_tec": 21
+}]

@@ -1,0 +1,10 @@
+[{
+  "manufacturer": "Google",
+  "name": "Nest Protect (Battery)",
+  "gwp_total": 15.0,
+  "weight": 0.348,
+  "lifetime": 10,
+  "add_method": "Google Auto Parser",
+  "gwp_use_ratio": 0.1,
+  "gwp_manufacturing_ratio": 0.88
+}]
