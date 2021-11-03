@@ -22,5 +22,7 @@ class BoaViztaSpider(scrapy.Spider):
                     self._existing_sources.add(row['sources'])
 
     def _should_skip(self, source: str) -> bool:
-        logging.warning('Source already existing: %s', source)
-        return source in self._existing_sources
+        if source not in self._existing_sources:
+            return False
+        logging.info('Source already existing: %s', source)
+        return True
