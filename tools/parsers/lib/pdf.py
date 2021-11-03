@@ -1,7 +1,7 @@
 """Common PDF tools to be used in our scrapers."""
 from io import BytesIO
 import typing
-from typing import BinaryIO, Iterator
+from typing import BinaryIO, Iterator, Optional
 
 import fitz
 import numpy as np
@@ -13,17 +13,28 @@ if typing.TYPE_CHECKING:
     from typing import Any
 
 
-def pdf2txt(pdf_file: BinaryIO) -> str:
+def pdf2txt(pdf_file: BinaryIO, num_pages: Optional[int] = None) -> str:
     """Read all text from a PDF."""
 
     rsrcmgr = PDFResourceManager()
     with BytesIO() as retstr:
         with TextConverter(rsrcmgr, retstr) as device:
             interpreter = PDFPageInterpreter(rsrcmgr, device)
-            for page in PDFPage.get_pages(pdf_file, check_extractable=True):
+            for index_page, page in enumerate(PDFPage.get_pages(pdf_file, check_extractable=True)):
+                if num_pages and index_page >= num_pages:
+                    break
                 interpreter.process_page(page)
         text = retstr.getvalue()
         return text.decode('utf-8')
+
+
+def search_text(pdf_file: BinaryIO, needle: str) -> Iterator[tuple[fitz.Rect, fitz.Page]]:
+    """Search for a text block in a PDF."""
+    with fitz.open('pdf', pdf_file) as pdf_doc:
+        for page in pdf_doc:
+            text_page = page.get_textpage()
+            for rect in text_page.search(needle, quads=False):
+                yield rect, page
 
 
 def list_images(pdf_file: BinaryIO) -> Iterator['np.ndarray[Any, Any]']:
