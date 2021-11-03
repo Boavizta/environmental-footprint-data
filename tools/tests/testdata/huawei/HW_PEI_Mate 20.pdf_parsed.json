@@ -1,0 +1,12 @@
+[{
+  "manufacturer": "Huawei",
+  "name": "Mate 20",
+  "gwp_total": 78.9,
+  "report_date": "2018-08-17",
+  "weight": 0.188,
+  "screen_size": 6.53,
+  "lifetime": 2.0,
+  "category": "Workplace",
+  "subcategory": "Smartphone",
+  "add_method": "Huawei Auto Parser"
+}]
