@@ -11,6 +11,14 @@ Apple,15-inch MacBook Pro,Workplace,Laptop,352,0.1900,,,,November 2019,https://w
 Apple,15-inch MacBook Pro,Workplace,Laptop,385,0.1900,,,,November 2019,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf,0.0000,0.7500,,,15,,SSD 512GB,,,,01-11-2020,Initial Parsing
 Apple,16-inch MacBook Pro,Workplace,Laptop,394,0.1900,,,,November 2019,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf,0.0000,0.7500,,,16,,SSD 512GB,,,,01-11-2020,Initial Parsing
 Apple,16-inch MacBook Pro,Workplace,Laptop,465,0.1900,,,,November 2019,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf,0.0000,0.7500,,,16,,SSD 1024GB,,,,01-11-2020,Initial Parsing
+Apple,Iphone 13 Pro 128GB,Workplace,Smartphone,69,0.1200,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_PER_Sept2021.pdf,0.0000,0.8400,,,128,,,,,,10-11-2021,Manual
+Apple,Iphone 13 Pro 256GB,Workplace,Smartphone,76,0.1200,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_PER_Sept2021.pdf,0.0000,0.8400,,,256,,,,,,10-11-2021,Manual
+Apple,Iphone 13 Pro 512GB,Workplace,Smartphone,88,0.1200,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_PER_Sept2021.pdf,0.0000,0.8400,,,512,,,,,,10-11-2021,Manual
+Apple,Iphone 13 Pro 1024GB,Workplace,Smartphone,112,0.1200,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_PER_Sept2021.pdf,0.0000,0.8400,,,1024,,,,,,10-11-2021,Manual
+Apple,Iphone 13 Pro Max 128GB,Workplace,Smartphone,74,0.1500,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_Max_PER_Sept2021.pdf,0.0000,0.8000,,,128,,,,,,10-11-2021,Manual
+Apple,Iphone 13 Pro Max 256GB,Workplace,Smartphone,81,0.1500,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_Max_PER_Sept2021.pdf,0.0000,0.8000,,,256,,,,,,10-11-2021,Manual
+Apple,Iphone 13 Pro Max 512GB,Workplace,Smartphone,93,0.1500,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_Max_PER_Sept2021.pdf,0.0000,0.8000,,,512,,,,,,10-11-2021,Manual
+Apple,Iphone 13 Pro Max 1TB,Workplace,Smartphone,117,0.1500,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_Max_PER_Sept2021.pdf,0.0000,0.8000,,,1024,,,,,,10-11-2021,Manual
 Asus,Mini PC PB60,Workplace,Desktop,275,0.4620,60.53,4,,2019,https://csr.asus.com/english/file/PEP_Mini-PC_PB60.pdf,0.0000,0.4160,,,,,,,,,01-11-2020,Initial Parsing
 Asus,Notebook C423,Workplace,Laptop,113,0.3220,,4,,2019,https://csr.asus.com/english/file/PEP_Notebook_C423.pdf,0.0000,,,,14,,,,,,01-11-2020,Initial Parsing
 Dell,AW2518H Monitor,Workplace,Monitor,626,0.2570,50.9655,6,EU,December 2018,https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-AW2518H-monitor.pdf,0.1693,0.6070,11.06,CN,25,,,,,,01-11-2020,Initial Parsing
