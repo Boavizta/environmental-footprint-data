@@ -55,6 +55,6 @@ class HPSpider(spider.BoaViztaSpider):
     def parse_carbon_footprint(
         self, response: http.Response, **unused_kwargs: Any,
     ) -> Iterator[Any]:
-        for device in hp_all(io.BytesIO(response.body), response.url):
+        for device in hp_all.parse(io.BytesIO(response.body), response.url):
             device.data['sources'] = response.url
             yield device.data

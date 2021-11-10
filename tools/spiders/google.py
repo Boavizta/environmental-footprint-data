@@ -50,6 +50,6 @@ class GoogleSpider(spider.BoaViztaSpider):
         self, response: http.Response, **unused_kwargs: Any,
     ) -> Iterator[Any]:
         """Parse a Google Product Carbon footprint document."""
-        for device in google(io.BytesIO(response.body), response.url):
+        for device in google.parse(io.BytesIO(response.body), response.url):
             device.data['sources'] = response.url
             yield device.data

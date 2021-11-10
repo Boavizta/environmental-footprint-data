@@ -103,7 +103,7 @@ class LenovoSpider(spider.BoaViztaSpider):
     def parse_carbon_footprint(
         self, response: http.Response, tab_title: str, **unused_kwargs: Any,
     ) -> Iterator[Any]:
-        for device in lenovo(io.BytesIO(response.body), response.url):
+        for device in lenovo.parse(io.BytesIO(response.body), response.url):
             device.data['sources'] = response.url
             for keyword, category_and_sub in _CATEGORIES.items():
                 if keyword in tab_title:

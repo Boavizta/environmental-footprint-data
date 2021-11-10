@@ -84,6 +84,6 @@ class HPSpider(spider.BoaViztaSpider):
         self, response: http.Response, **unused_kwargs: Any,
     ) -> Iterator[Any]:
         """Parse a Huwaei Product Carbon footprint document."""
-        for device in huawei(io.BytesIO(response.body), response.url):
+        for device in huawei.parse(io.BytesIO(response.body), response.url):
             device.data['sources'] = response.url
             yield device.data
