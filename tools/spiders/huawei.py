@@ -23,6 +23,7 @@ import scrapy
 from scrapy import http
 
 from tools.spiders.lib import spider
+from tools.parsers import huawei
 
 
 _INDEX_PAGE_URL = 'https://consumer.huawei.com/en/support/product-environmental-information/'
@@ -82,5 +83,7 @@ class HPSpider(spider.BoaViztaSpider):
     def parse_carbon_footprint(
         self, response: http.Response, **unused_kwargs: Any,
     ) -> Iterator[Any]:
-        # TODO(pascal): implement a Huawei PDF scraper and connect it here.
-        ...
+        """Parse a Huwaei Product Carbon footprint document."""
+        for device in huawei(io.BytesIO(response.body), response.url):
+            device.data['sources'] = response.url
+            yield device.data

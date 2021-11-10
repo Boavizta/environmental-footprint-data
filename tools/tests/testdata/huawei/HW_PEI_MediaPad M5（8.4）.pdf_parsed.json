@@ -1,0 +1,12 @@
+[{
+  "manufacturer": "Huawei",
+  "name": "MediaPad M5",
+  "gwp_total": 122.0,
+  "report_date": "2018-03-29",
+  "weight": 0.3214,
+  "screen_size": 8.4,
+  "lifetime": 2.0,
+  "category": "Workplace",
+  "subcategory": "Tablet",
+  "add_method": "Huawei Auto Parser"
+}]
