@@ -23,6 +23,7 @@ People are encouraged to contribute to these files.
 You can easily contribute by :
 * forking this repo and submitting PRs
 * sending us an email to data@boavizta.org
+* submitting data through [dedicated form on Boavizta's website](https://boavizta.org/data-form)
 
 If any manufacturers wish to share data with us, we will be happy to discuss with them how we can efficiently synchronize this data.
 
