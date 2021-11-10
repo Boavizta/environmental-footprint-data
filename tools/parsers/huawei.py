@@ -43,7 +43,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     # Extract some text by line:
     if 'name' not in extracted:
         for rect, page in pdf.search_text(body, 'Product:'):
-            line = page.get_textbox((rect.x0, rect.y0, rect.x1 * 5 - rect.x0 * 4, rect.y1))
+            line = page.get_textbox((rect.x0, rect.y0 - 2, rect.x1 * 5 - rect.x0 * 4, rect.y1 + 2))
             if (product_match := _PRODUCT_PATTERN.search(line)):
                 extracted['name'] = product_match.group(1)
                 break
