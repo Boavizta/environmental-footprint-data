@@ -68,7 +68,7 @@ class ParsersTest(unittest.TestCase):
         for parser_name, files in self.test_files.items():
             with self.subTest(parser=parser_name):
                 self.assertTrue(hasattr(parsers, parser_name), msg='Missing parser')
-                parser = getattr(parsers, parser_name)
+                parser = getattr(parsers, parser_name).parse
                 for filename in files:
                     with self.subTest(file=filename):
                         input_filename = os.path.join(_TESTDATA_FOLDER, parser_name, filename)
