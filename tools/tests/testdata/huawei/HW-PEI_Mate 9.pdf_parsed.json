@@ -1,0 +1,12 @@
+[{ 
+  "manufacturer": "Huawei",
+  "name": "Mate9",
+  "gwp_total": 69.26,
+  "report_date": "2016-11-25",
+  "weight": 0.19,
+  "screen_size": 5.9,
+  "lifetime": 2.0,
+  "category": "Workplace",
+  "subcategory": "Smartphone",
+  "add_method": "Huawei Auto Parser"
+}]
