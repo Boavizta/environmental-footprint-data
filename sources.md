@@ -37,7 +37,8 @@
 [European Countries CO2-emission intensity from electricity generation](https://www.eea.europa.eu/data-and-maps/daviz/sds/co2-emission-intensity-from-electricity-generation-3/@@view)  
 [Electricity carbon intensity in European Member States (including Carbon Intensity of electricity consumed at Low Volumes)](https://www.sciencedirect.com/science/article/pii/S1361920916307933)  
 [Electricitymap Data Sources](https://github.com/tmrowco/electricitymap-contrib/blob/master/DATA_SOURCES.md)  
-[ADEME - Mix Electrique par pays (Données de 2011)](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/moyenne_par_pays.htm)
+[ADEME - Mix Electrique par pays (Données de 2011)](https://www.bilans-ges.ademe.fr/documentation/UPLOAD_DOC_FR/moyenne_par_pays.htm)  
+[Climatiq Data Explorer](https://explorer.climatiq.io/?category=Electricity&sector=Energy)
 
 ## 3) Energy Consumption Data
 [Energy Star qualified products for EU Market](https://ec.europa.eu/energy/topics/energy-efficiency/energy-efficient-products/energy-star_en)  
