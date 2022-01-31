@@ -7,10 +7,16 @@ Apple,13-inch MacBook Pro M1. 2020 with 256GB,Workplace,Laptop,185,0.1900,,,,Nov
 Apple,13-inch MacBook Pro M1. 2020 with 512GB,Workplace,Laptop,207,0.1900,,,,November 2020,https://www.apple.com/environment/pdf/products/notebooks/13-inch_MacBookPro_PER_Nov2020.pdf,0.0000,0.7300,,,13,,SSD 512GB,,,,01-11-2020,Initial Parsing
 Apple,13-inch MacBook Pro,Workplace,Laptop,217,0.1700,,,,May 2020,https://www.apple.com/environment/pdf/products/notebooks/13-inch_MacBookPro_PER_May2020.pdf,0.0000,0.7600,,,13,,,,,,01-11-2020,Initial Parsing
 Apple,13-inch MacBook Pro,Workplace,Laptop,251,0.1700,,,,2020,https://www.apple.com/environment/pdf/products/notebooks/13-inch_MacBookPro_PER_May2020.pdf,0.0000,,,,13,,,,,,01-11-2020,Initial Parsing
+Apple,14-inch MacBook Pro 512GB,Workplace,Laptop,271,0.22,,3,WW,October 2021,https://www.apple.com/environment/pdf/products/notebooks/14-inch_MacBook_Pro_PER_Oct2021.pdf,,0.72,,,14,,512GB,,,,20-01-2022,Manual
+Apple,14-inch MacBook Pro 1TB,Workplace,Laptop,307,0.22,,3,WW,October 2021,https://www.apple.com/environment/pdf/products/notebooks/14-inch_MacBook_Pro_PER_Oct2021.pdf,,0.72,,,14,,1024GB,,,,20-01-2022,Manual
 Apple,15-inch MacBook Pro,Workplace,Laptop,352,0.1900,,,,November 2019,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf,0.0000,0.7500,,,15,,SSD 256GB,,,,01-11-2020,Initial Parsing
 Apple,15-inch MacBook Pro,Workplace,Laptop,385,0.1900,,,,November 2019,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf,0.0000,0.7500,,,15,,SSD 512GB,,,,01-11-2020,Initial Parsing
 Apple,16-inch MacBook Pro,Workplace,Laptop,394,0.1900,,,,November 2019,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf,0.0000,0.7500,,,16,,SSD 512GB,,,,01-11-2020,Initial Parsing
 Apple,16-inch MacBook Pro,Workplace,Laptop,465,0.1900,,,,November 2019,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBookPro_PER_Nov2019.pdf,0.0000,0.7500,,,16,,SSD 1024GB,,,,01-11-2020,Initial Parsing
+Apple,16-inch MacBook Pro 512GB - 2021,Workplace,Laptop,349,0.27,,3,WW,October 2021,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBook_Pro_PER_Oct2021.pdf,,0.66,,,16,,512GB,,,,20-01-2022,Manual
+Apple,16-inch MacBook Pro 1TB - 2021,Workplace,Laptop,382,0.27,,3,WW,October 2021,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBook_Pro_PER_Oct2021.pdf,,0.66,,,16,,1024GB,,,,20-01-2022,Manual
+Apple,16-inch MacBook Pro 1TB 32 core - 2021,Workplace,Laptop,395,0.27,,3,WW,October 2021,https://www.apple.com/environment/pdf/products/notebooks/16-inch_MacBook_Pro_PER_Oct2021.pdf,,0.66,,,16,,1024GB,,,,20-01-2022,Manual
+Apple,Mac Pro 3.5GHz (8-core) 32GB memory 256GB storage,Workplace,Workstation,2765,0.67,,,,December 2019,https://www.apple.com/environment/pdf/products/desktops/Mac_Pro_PER_Dec2019.pdf,0.0000,0.26,,,32,,SSD 256GB,,,,20-10-2021,Manual
 Apple,Iphone 13 Pro 128GB,Workplace,Smartphone,69,0.1200,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_PER_Sept2021.pdf,0.0000,0.8400,,,128,,,,,,10-11-2021,Manual
 Apple,Iphone 13 Pro 256GB,Workplace,Smartphone,76,0.1200,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_PER_Sept2021.pdf,0.0000,0.8400,,,256,,,,,,10-11-2021,Manual
 Apple,Iphone 13 Pro 512GB,Workplace,Smartphone,88,0.1200,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_PER_Sept2021.pdf,0.0000,0.8400,,,512,,,,,,10-11-2021,Manual
@@ -19,7 +25,17 @@ Apple,Iphone 13 Pro Max 128GB,Workplace,Smartphone,74,0.1500,,,,September 2021,h
 Apple,Iphone 13 Pro Max 256GB,Workplace,Smartphone,81,0.1500,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_Max_PER_Sept2021.pdf,0.0000,0.8000,,,256,,,,,,10-11-2021,Manual
 Apple,Iphone 13 Pro Max 512GB,Workplace,Smartphone,93,0.1500,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_Max_PER_Sept2021.pdf,0.0000,0.8000,,,512,,,,,,10-11-2021,Manual
 Apple,Iphone 13 Pro Max 1TB,Workplace,Smartphone,117,0.1500,,,,September 2021,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_Pro_Max_PER_Sept2021.pdf,0.0000,0.8000,,,1024,,,,,,10-11-2021,Manual
-Apple,Mac Pro 3.5GHz (8-core) 32GB memory 256GB storage,Workplace,Workstation,2765,0.67,,,,December 2019,https://www.apple.com/environment/pdf/products/desktops/Mac_Pro_PER_Dec2019.pdf,0.0000,0.26,,,32,,SSD 256GB,,,,20-10-2022,Manual
+Apple,Iphone 12 64GB,Workplace,Smartphone,70,0.14,,3,WW,October 2020,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_PER_Sept2021.pdf,,0.83,,,6.1,,,64,,,20-01-2022,Manual
+Apple,Iphone 12 128GB,Workplace,Smartphone,75,0.14,,3,WW,October 2020,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_PER_Sept2021.pdf,,0.83,,,6.1,,,128,,,20-01-2022,Manual
+Apple,Iphone 12 256GB,Workplace,Smartphone,85,0.14,,3,WW,October 2020,https://www.apple.com/environment/pdf/products/iphone/iPhone_13_PER_Sept2021.pdf,,0.83,,,6.1,,,256,,,20-01-2022,Manual
+Apple,Iphone 11 64GB,Workplace,Smartphone,72,0.17,,3,WW,September 2019,https://www.apple.com/environment/pdf/products/iphone/iPhone_11_PER_sept2019.pdf,,0.79,,,6.1,,,64,,,20-01-2022,Manual
+Apple,Iphone 11 128GB,Workplace,Smartphone,77,0.17,,3,WW,September 2019,https://www.apple.com/environment/pdf/products/iphone/iPhone_11_PER_sept2019.pdf,,0.79,,,6.1,,,128,,,20-01-2022,Manual
+Apple,Iphone 11 256GB,Workplace,Smartphone,89,0.17,,3,WW,September 2019,https://www.apple.com/environment/pdf/products/iphone/iPhone_11_PER_sept2019.pdf,,0.79,,,6.1,,,256,,,20-01-2022,Manual
+Apple,Iphone 8 64GB,Workplace,Smartphone,57,0.16,,3,WW,September 2017,https://www.apple.com/environment/pdf/products/iphone/iPhone_8_PER_sept2017.pdf,,0.8,,,,,,64,,,20-01-2022,Manual
+Apple,Iphone 8 256GB,Workplace,Smartphone,71,0.16,,3,WW,September 2017,https://www.apple.com/environment/pdf/products/iphone/iPhone_8_PER_sept2017.pdf,,0.8,,,,,,256,,,20-01-2022,Manual
+Apple,iPhone SE - Gen 2 64GB,Workplace,Smartphone,57,0.12,,3,WW,April 2020,https://www.apple.com/environment/pdf/products/iphone/iPhone_SE_PER_April2020.pdf,,0.84,,,,,,64,,,20-01-2022,Manual
+Apple,iPhone SE - Gen 2 128GB,Workplace,Smartphone,62,0.12,,3,WW,April 2020,https://www.apple.com/environment/pdf/products/iphone/iPhone_SE_PER_April2020.pdf,,0.84,,,,,,128,,,20-01-2022,Manual
+Apple,iPhone SE - Gen 2 256GB,Workplace,Smartphone,73,0.12,,3,WW,April 2020,https://www.apple.com/environment/pdf/products/iphone/iPhone_SE_PER_April2020.pdf,,0.84,,,,,,256,,,20-01-2022,Manual
 Asus,Mini PC PB60,Workplace,Desktop,275,0.4620,60.53,4,,2019,https://csr.asus.com/english/file/PEP_Mini-PC_PB60.pdf,0.0000,0.4160,,,,,,,,,01-11-2020,Initial Parsing
 Asus,Notebook C423,Workplace,Laptop,113,0.3220,,4,,2019,https://csr.asus.com/english/file/PEP_Notebook_C423.pdf,0.0000,,,,14,,,,,,01-11-2020,Initial Parsing
 Dell,AW2518H Monitor,Workplace,Monitor,626,0.2570,50.9655,6,EU,December 2018,https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-AW2518H-monitor.pdf,0.1693,0.6070,11.06,CN,25,,,,,,01-11-2020,Initial Parsing
