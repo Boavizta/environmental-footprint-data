@@ -2,6 +2,7 @@
 import DataGrid from "../lib/DataGrid.svelte";
 	import { _ } from 'svelte-i18n';
 import DataExplorer from "../lib/DataExplorer.svelte";
+import EquivalentImpacts from "../lib/EquivalentImpacts.svelte";
 
 </script>
 
@@ -25,6 +26,7 @@ import DataExplorer from "../lib/DataExplorer.svelte";
 		<canvas id="camembert" width="600" height="400"></canvas>
 	</div>
 </div>
+<EquivalentImpacts gwpImpactTotal="200"/>
 
 <style>
     :global(:root) {
