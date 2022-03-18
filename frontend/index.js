@@ -111,21 +111,28 @@ var gridOptions = {
     resizable: true,
   },
   columnDefs: columnDefs,
-  rowSelection: 'single',
+  rowSelection: 'multiple',
+  onSelectionChanged: onSelectionChanged,
   rowMultiSelectWithClick: true,
   pagination: true,
   rowData: [],
-  onFilterChanged: function() {
-    buildcharts()
-    }
+  onFilterChanged: onFilterChanged
 };
 
+function onFilterChanged(ev){
+  let rowData = [];
+  gridOptions.api.forEachNodeAfterFilter(node => {
+    rowData.push(node.data);
+  });
+  buildcharts(rowData);
+}
 
-function buildcharts() {
+function buildcharts(rows) {
+
   var elmt = document.getElementById("myChart");
 
   try {
-      console.log("null");
+      console.log("reset chart with rows " + rows.length);
       elmt.remove();
   } catch {
   }
@@ -139,9 +146,11 @@ function buildcharts() {
   let avg_use = 0;
   let total_use = 0;
   let filtered_items = 0;
-  console.log("buildcharts");
-  objectsData = gridOptions.rowData;
-  console.log(gridOptions);
+  console.log("buildcharts with data from gridOptions");
+  //console.log(dataGrid);
+  //objectsData = gridOptions.rowData;
+  //console.log(gridOptions);
+  /*
   gridOptions.api.forEachNodeAfterFilter((rowNode, index) => {
     RowUse = parseFloat(rowNode.data.Use)
     if (!isNaN(RowUse)) {
@@ -150,7 +159,17 @@ function buildcharts() {
     }
     var UseLocation = rowNode.data.Use_Location;
 
-  });
+  });*/
+  rows.forEach((row) =>{
+    //console.log(row)
+    RowUse = parseFloat(row.Use)
+    TotalImpact = parseFloat(row['Total (kgCO2eq)'])
+    if (!isNaN(RowUse)) {
+      total_use = total_use + RowUse*TotalImpact;
+      filtered_items = filtered_items + 1;
+    }
+    //var UseLocation = rowNode.data.Use_Location;
+  })
   avg_use = total_use / filtered_items;
   console.log('Average use of ' + avg_use + ' on ' + filtered_items + ' items.');
   var ChartData = [
@@ -191,11 +210,19 @@ function buildcharts() {
     ],
     legend: {
       enabled: true,
-    },
+    }
   };
 
-  var chart = agCharts.AgChart.create(ChartOptions);
+  agCharts.AgChart.create(ChartOptions);
 };
+
+function onSelectionChanged() {
+  const selectedRows = gridOptions.api.getSelectedRows();
+  console.log("Selection changed");
+  console.log(selectedRows);
+  buildcharts(selectedRows)
+}
+
 function gridit(csv) {
   data = Papa.parse(csv), {
     header: true
@@ -232,8 +259,7 @@ function gridit(csv) {
   objectsData.shift();
   gridOptions.api.setRowData(objectsData);
   console.log(objectsData)
-
-  buildcharts(objectsData)
+  return Promise.resolve(objectsData)
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -241,5 +267,6 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch('../boavizta-data-us.csv')
       .then(response => response.text())
       .then(text => gridit(text))
+      .then((data)=>buildcharts(data))
   new agGrid.Grid(eGridDiv, gridOptions);
 });
