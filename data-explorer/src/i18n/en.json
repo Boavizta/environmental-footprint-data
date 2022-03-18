@@ -7,6 +7,9 @@
     "approach": "Boavizta believes that another approach is possible and that it would be much more suitable to make the impacts assessment accessible to as many people as possible.",
     "search": "Perform a search",
     "scope-ratio": "Ratio Scope 2 / Scope 3",
-    "global-mean": "Global mean"
+    "global-mean": "Global mean",
+    "title_equivalent": "CO2 equivalent",
+    "label_equivalent": "Thermal car"
   }
+
 }
