@@ -26,7 +26,6 @@ import EquivalentImpacts from "../lib/EquivalentImpacts.svelte";
 		<canvas id="camembert" width="600" height="400"></canvas>
 	</div>
 </div>
-<EquivalentImpacts gwpImpactTotal="200"/>
 
 <style>
     :global(:root) {
