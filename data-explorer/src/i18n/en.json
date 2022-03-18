@@ -1,5 +1,12 @@
 {
   "index": {
-    "title": "Data"
+    "title": "Data",
+    "sub-title": "Data repository",
+    "statement": "One of the observations that prompted us to launch Boavizta was that we were lacking relevant data to measure the environmental impacts of digital technology. Beyond the impacts linked to the electricity consumption of the equipment used to deliver digital services, it is essential to know the impacts of the manufacturing, transport and use of the equipment. Especially since for some of them, such as terminals and screens, these phases of the life cycle have a much greater impact than their electricity consumption.",
+    "impact-measure": "Until now, the impacts assesment of these phases were complex to implement or required proprietary data, and were time consuming and costly to be updated on a regularly bases, even on simple perimeters\n",
+    "approach": "Boavizta believes that another approach is possible and that it would be much more suitable to make the impacts assessment accessible to as many people as possible.",
+    "search": "Perform a search",
+    "scope-ratio": "Ratio Scope 2 / Scope 3",
+    "global-mean": "Global mean"
   }
 }

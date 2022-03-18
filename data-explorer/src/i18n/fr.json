@@ -1,5 +1,12 @@
 {
   "index": {
-    "title": "Données"
+    "title": "Données",
+    "sub-title": "Référentiel de données",
+    "statement": "Un des constats qui nous a incités à lancer Boavizta était que nous manquions cruellement de données pertinentes pour mesurer les impacts environnementaux du numérique. Au-delà des impacts liés à la consommation d'électricité des équipements permettant de délivrer des services numériques, il est primordial, pour mesurer\n\tjustement, de connaitre les impacts de la fabrication, du transport et de la fin de vie de tous ces équipements. D'autant plus que pour certains d'entre eux, comme les terminaux et les écrans, ces phases du cycle de vie ont un impact bien plus important que celui lié à leur consommation électrique.",
+    "impact-measure": "Jusqu'à présent, les mesures d'impact de ces phases étaient complexes à mettre en oeuvre ou nécessitaient des données propriétaires, et impliquaient des durées et des couts bien trop importants pour être réalisées régulièrement, même sur des périmètres simples.",
+    "approach": "Boavizta pense qu'une autre approche est possible et que celle-ci serait bien plus adaptée pour rendre\n\taccessible la mesure d'impact environnemental du numérique au plus grand nombre.",
+    "search": "Effectuer une recherche",
+    "scope-ratio": "Ratio Scope 2 / Scope 3",
+    "global-mean": "Moyenne globale"
   }
 }
