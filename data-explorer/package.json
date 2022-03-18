@@ -33,6 +33,7 @@
   "type": "module",
   "dependencies": {
     "@budibase/svelte-ag-grid": "^1.0.4",
-    "svelte-i18n": "^3.3.13"
+    "svelte-i18n": "^3.3.13",
+    "papaparse": "^5.3.1"
   }
 }

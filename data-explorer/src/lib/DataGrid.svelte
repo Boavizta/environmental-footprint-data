@@ -1,10 +1,11 @@
 <script lang="ts">
     import AgGrid from "@budibase/svelte-ag-grid";
+//    import csv from "../../static/boavizta-data-us.csv"
+    import Papa from "papaparse";
+    import {onMount} from "svelte";
 
-    let data = [
-            { Name: "Toyota", SubCategory: "1", Use: 35000 },
 
-    ];
+    let data = [];
 
 
     const columnDefs = [{
@@ -126,6 +127,49 @@
         //rowData: data,
         //onFilterChanged: onFilterChanged
     };
+
+    function gridit(csv) {
+        data = Papa.parse(csv), {
+            header: true
+        };
+
+        const rowData = data.data;
+
+        const objectsData = rowData.map((row, i) => {
+            return {
+                'Manufacturer': row[0],
+                'Name': row[1],
+                'Category': row[2],
+                'SubCategory': row[3],
+                'Total (kgCO2eq)': row[4],
+                'Use': row[5],
+                'Yearly TEC (kWh)': row[6],
+                'Lifetime': row[7],
+                'Use Location': row[8],
+                'Date': row[9],
+                'Sources': row[10],
+                'Error': row[11],
+                'Manufacturing': row[12],
+                'Weight': row[13],
+                'Assembly Location': row[14],
+                'Screen size': row[15],
+                'Server Type': row[16],
+                'HDD/SSD': row[17],
+                'RAM': row[18],
+                'CPU': row[19],
+                'U': row[20],
+            }
+        })
+
+        objectsData.shift();
+        return objectsData;
+    }
+
+    onMount(async () => {
+        const res = await fetch("./boavizta-data-us.csv");
+        const text = await res.text();
+        data = gridit(text)
+    });
 
 </script>
 
