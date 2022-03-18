@@ -4,10 +4,8 @@
     import Papa from "papaparse";
     import {onMount} from "svelte";
 
-
     let data = [];
-
-
+    let api;
     const columnDefs = [{
         field: "Manufacturer",
         width: 150
@@ -125,15 +123,21 @@
         rowMultiSelectWithClick: true,
         pagination: true,
         //rowData: data,
-        //onFilterChanged: onFilterChanged
+        onFilterChanged: onFilterChanged
     };
 
-    function gridit(csv) {
-        data = Papa.parse(csv), {
-            header: true
-        };
+    function onFilterChanged(e){
+        let rowData = [];
+        api.forEachNodeAfterFilter(node => {
+            rowData.push(node.data);
+        });
+        console.log(rowData)
+    }
 
-        const rowData = data.data;
+    function gridit(csv) {
+        const csvParsed = Papa.parse(csv)
+
+        const rowData = csvParsed.data;
 
         const objectsData = rowData.map((row, i) => {
             return {
@@ -171,6 +175,9 @@
         data = gridit(text)
     });
 
+    function onSelect(e){
+        console.log(e)
+    }
 </script>
 
-<AgGrid {options} bind:data {columnDefs}/>
+<AgGrid {options} bind:data {columnDefs} on:select={onSelect} bind:api/>
