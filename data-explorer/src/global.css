@@ -1,0 +1,82 @@
+/* Title */
+body {
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
+.title-main {
+  display:flex;
+  color: #008a8c;
+  font-weight: 800;
+  font-size: 5rem;
+  font-family: 'Maven Pro',sans-serif;
+}
+.title-second {
+  display:flex;
+  color: #008a8c;
+  font-weight: 800;
+  font-size:2rem;
+  font-family: 'Maven Pro',sans-serif;
+}
+.title-left {
+  align-items: flex-start;
+  font-size: 1.5rem!important;
+}
+/* Text */
+.text {
+  display:flex;
+  color: #003964;
+  max-width: 50em;
+  font-size: 18px;
+  font-family: 'Karla',Arial,sans-serif;
+}
+.text-legend {
+  display: flex;
+  flex-direction: column;
+}
+/* logo */
+#logo {
+ width: 3em;
+ height: 4em;
+ margin-left:10em;
+ margin-right:2em;
+ display:flex;
+}
+/* Page */
+#navbar {
+  border-bottom: 2px solid #01acaf;
+  box-sizing: border-box;
+  padding:3em;
+  display:flex;
+  flex-direction: start;
+  align-items: center;
+  width: 100vw;
+  height:5vh;
+}
+
+#stats {
+  display: grid;
+}
+
+#stats h4 {
+  text-align: center;
+}
+
+#stats p {
+  text-align: center;
+}
+
+#camembert {
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.camember-left {
+  grid-column-start: 1;
+  grid-column-end: 1;
+}
+
+.camembert-right {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
