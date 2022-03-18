@@ -1,23 +1,7 @@
 <script lang="ts">
-	import AgGrid from "@budibase/svelte-ag-grid";
+import DataGrid from "../lib/DataGrid.svelte";
 	import { _ } from 'svelte-i18n';
 
-	let data = [
-		{ make: "Toyota", model: "Celica", price: 35000 },
-		{ make: "Ford", model: "Mondeo", price: 32000 },
-		{ make: "Porsche", model: "Boxter", price: 72000 },
-	];
-
-	let columnDefs = [
-		{
-			headerName: "Make",
-			field: "make",
-			sortable: true,
-			editable: true,
-		},
-		{ headerName: "Model", field: "model", sortable: true },
-		{ headerName: "Price", field: "price", sortable: true },
-	];
 </script>
 
 <div id="navbar">
@@ -40,7 +24,7 @@
 	accessible la mesure d'impact environnemental du numérique au plus grand nombre.</p>
 <h3 class="title-second title-left">Effectuer une recherche </h3>
 
-<AgGrid bind:data {columnDefs} />
+<DataGrid />
 
 <h3 class="title-second">Ratio Scope 2 / Scope 3</h3>
 <div id="stats">
