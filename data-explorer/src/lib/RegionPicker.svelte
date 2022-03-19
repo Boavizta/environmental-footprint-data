@@ -1,5 +1,5 @@
 <script lang="ts">
-    let region = "eu"
+    export let region;
 </script>
 
 <input value="{region}" name="region" type="text">

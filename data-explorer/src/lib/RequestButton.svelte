@@ -1,6 +1,6 @@
 <script lang="ts">
-    let disabledSearchButton = false;
+    export let disabledSearchButton;
 </script>
 
-<input type="button" disabled="{disabledSearchButton}" value="Search">
+<input disabled="{disabledSearchButton}" type="button" value="Search">
 

@@ -2,14 +2,21 @@
     import AgGrid from "@budibase/svelte-ag-grid";
 //    import csv from "../../static/boavizta-data-us.csv"
     import Papa from "papaparse";
-    import {onMount} from "svelte";
+    import {createEventDispatcher, onMount} from "svelte";
 
     let data = [];
     let api;
-    const columnDefs = [{
-        field: "Manufacturer",
-        width: 150
-    },
+    const dispatcher = createEventDispatcher();
+
+    function updateDataGrid(rows){
+        dispatcher('updateDataGrid',rows)
+    }
+
+
+    const columnDefs    = [{
+            field: "Manufacturer",
+            width: 150
+        },
         {
             field: "Name",
             width: 150
@@ -34,7 +41,7 @@
         },
         {
             field: "Yearly TEC (kWh)",
-            hide: true,
+            //hide: true,
             width: 80
         },
         {
@@ -126,12 +133,14 @@
         onFilterChanged: onFilterChanged
     };
 
+
     function onFilterChanged(e){
         let rowData = [];
-        api.forEachNodeAfterFilter(node => {
+        e.api.forEachNodeAfterFilter(node => {
             rowData.push(node.data);
         });
         console.log(rowData)
+        updateDataGrid(rowData);
     }
 
     function gridit(csv) {
@@ -173,11 +182,14 @@
         const res = await fetch("./boavizta-data-us.csv");
         const text = await res.text();
         data = gridit(text)
+        updateDataGrid(data)
     });
 
     function onSelect(e){
         console.log(e)
+        updateDataGrid(e.detail)
     }
 </script>
 
-<AgGrid {options} bind:data {columnDefs} on:select={onSelect} bind:api/>
+<!--<AgGrid {options} bind:data {columnDefs} on:select={onSelect}/>-->
+<AgGrid {options} bind:data {columnDefs} />

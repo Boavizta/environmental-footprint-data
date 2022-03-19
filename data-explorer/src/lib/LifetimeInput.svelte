@@ -1,5 +1,5 @@
 <script lang="ts">
-    let lifetime=3
+    export let lifetime;
 </script>
 
 <input value="{lifetime}" name="lifetime" type="text">
