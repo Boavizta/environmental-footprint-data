@@ -4,7 +4,7 @@
     import Papa from "papaparse";
     import {createEventDispatcher, onMount} from "svelte";
 
-    let data = [];
+    let dataInit = [];
     let api;
     const dispatcher = createEventDispatcher();
 
@@ -23,34 +23,36 @@
         },
         {
             field: "Category",
-            width: 100
+            width: 120
         },
         {
             field: "SubCategory",
-            width: 100
+            width: 120
         },
         {
             field: "Total (kgCO2eq)",
             filter: 'agNumberColumnFilter',
-            width: 80
+            width: 120
         },
         {
             field: "Use",
             filter: 'agNumberColumnFilter',
-            width: 80
+            width: 120
         },
         {
             field: "Yearly TEC (kWh)",
             //hide: true,
-            width: 80
+            width: 120
         },
         {
             field: "Lifetime",
+            hide: true,
             filter: 'agNumberColumnFilter',
             width: 50
         },
         {
             field: "Use Location",
+            hide: true,
             width: 100
         },
         {
@@ -82,6 +84,7 @@
         },
         {
             field: "Assembly Location",
+            hide: true,
             width: 100
         },
         {
@@ -92,6 +95,7 @@
         },
         {
             field: "Server Type",
+            hide: true,
             width: 100
         },
         {
@@ -113,6 +117,7 @@
         },
         {
             field: "U",
+            hide: true,
             filter: 'agNumberColumnFilter',
             width: 50
         },
@@ -125,8 +130,8 @@
             resizable: true,
         },
         //columnDefs: columnDefs,
-        rowSelection: 'multiple',
-        //onSelectionChanged: onSelectionChanged,
+        rowSelection: 'single',
+        //onSelectionChanged: onSelect,
         rowMultiSelectWithClick: true,
         pagination: true,
         //rowData: data,
@@ -136,14 +141,21 @@
 
     function onFilterChanged(e){
         let rowData = [];
-        e.api.forEachNodeAfterFilter(node => {
+        console.log(e)
+        if(api ==undefined){
+            api = e.api;
+        }
+
+        //get selected row
+        api.forEachNodeAfterFilter(node => {
             rowData.push(node.data);
         });
         console.log(rowData)
         updateDataGrid(rowData);
+
     }
 
-    function gridit(csv) {
+    function toRows(csv) {
         const csvParsed = Papa.parse(csv)
 
         const rowData = csvParsed.data;
@@ -181,15 +193,21 @@
     onMount(async () => {
         const res = await fetch("./boavizta-data-us.csv");
         const text = await res.text();
-        data = gridit(text)
-        updateDataGrid(data)
+        dataInit = toRows(text)
+        updateDataGrid(dataInit)
     });
 
     function onSelect(e){
         console.log(e)
-        updateDataGrid(e.detail)
+        if(e.detail.length == 0){
+            //selection is empty, return full data
+            onFilterChanged(e)
+        }else{
+            //return selection
+            updateDataGrid(e.detail)
+        }
     }
 </script>
 
-<!--<AgGrid {options} bind:data {columnDefs} on:select={onSelect}/>-->
-<AgGrid {options} bind:data {columnDefs} />
+<AgGrid {options} data="{dataInit}" {columnDefs} on:select={onSelect}/>
+<!--<AgGrid {options} bind:data {columnDefs} />-->
