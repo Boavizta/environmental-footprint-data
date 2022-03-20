@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let region;
+    export let region = "EU";
 </script>
-
-<input value="{region}" name="region" type="text">
+Region
+<input name="region" type="text" bind:value={region}>

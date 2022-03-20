@@ -9,6 +9,7 @@
     "scope-ratio": "Ratio Scope 2 / Scope 3",
     "global-mean": "Moyenne globale",
     "title_equivalent": "Equivalence CO2",
-    "label_equivalent": "Voiture thermique"
+    "label_equivalent": "Voiture thermique",
+    "calculate": "Calculer"
   }
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let lifetime;
+    export let lifetime=3;
 </script>
-
-<input value="{lifetime}" name="lifetime" type="text">
+Lifetime
+<input bind:value="{lifetime}" name="lifetime" type="text">

@@ -5,13 +5,12 @@
     import {createEventDispatcher, onMount} from "svelte";
 
     let dataInit = [];
-    let api;
+    let _filterApi;
     const dispatcher = createEventDispatcher();
 
     function updateDataGrid(rows){
         dispatcher('updateDataGrid',rows)
     }
-
 
     const columnDefs    = [{
             field: "Manufacturer",
@@ -138,21 +137,29 @@
         onFilterChanged: onFilterChanged
     };
 
-
-    function onFilterChanged(e){
-        let rowData = [];
-        console.log(e)
-        if(api ==undefined){
-            api = e.api;
+    function getFilterRows(filterApi){
+        if(filterApi != undefined){
+            _filterApi = filterApi
         }
 
-        //get selected row
-        api.forEachNodeAfterFilter(node => {
-            rowData.push(node.data);
-        });
-        console.log(rowData)
-        updateDataGrid(rowData);
+        if(_filterApi != undefined){
+            let rowData = [];
+            //get selected row
+            _filterApi.forEachNodeAfterFilter(node => {
+                rowData.push(node.data);
+            });
+            //console.log(rowData)
+            return rowData;
+        }else{
+            //no filter has been applied return all set
+            return dataInit
+        }
+    }
 
+    function onFilterChanged(e){
+        //console.log(e)
+        let filterRows = getFilterRows(e.api)
+        updateDataGrid(filterRows);
     }
 
     function toRows(csv) {
@@ -198,10 +205,10 @@
     });
 
     function onSelect(e){
-        console.log(e)
+        //console.log(e)
         if(e.detail.length == 0){
             //selection is empty, return full data
-            onFilterChanged(e)
+            updateDataGrid(getFilterRows(e.api))
         }else{
             //return selection
             updateDataGrid(e.detail)

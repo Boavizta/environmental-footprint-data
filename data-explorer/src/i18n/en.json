@@ -9,7 +9,8 @@
     "scope-ratio": "Ratio Scope 2 / Scope 3",
     "global-mean": "Global mean",
     "title_equivalent": "CO2 equivalent",
-    "label_equivalent": "Thermal car"
+    "label_equivalent": "Thermal car",
+    "calculate": "Calculate"
   }
 
 }

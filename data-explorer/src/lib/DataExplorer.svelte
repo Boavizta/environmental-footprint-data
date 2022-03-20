@@ -8,12 +8,13 @@
     import ImpactsPieChart from "./ImpactsPieChart.svelte";
 
     let datagrid;
-    let lifetime = 3;
-    let region = "EU";
-    let disabledSearchButton = true;
+    let lifetime;
+    let region;
+    let disabledSearchButton;
     let numberRows;
     let scope2;
     let scope3;
+    let selected_rows;
 
     function impactScope3(rows_selection):number{
         let scope3 = 0;
@@ -61,27 +62,31 @@
         return scope2
     }
 
-    function updateImpacts(rows){
-        numberRows = rows.length
+    function calculateImpacts(){
         console.log("lifetime ", lifetime)
         console.log("region ", region)
+        numberRows = selected_rows.length
         console.log("numberRows ", numberRows)
-        scope2 = impactScope2(rows, lifetime, "",region);
-        scope3 = impactScope3(rows);
+        scope2 = impactScope2(selected_rows, lifetime, "",region);
+        scope3 = impactScope3(selected_rows);
         console.log("scope2 ", scope2)
         console.log("scope3 ", scope3)
     }
+
     function onDataGridUpdate(e){
-        console.log("DataExplorer:onDataGridUpdate")
-        console.log(e.detail)
-        updateImpacts(e.detail)
+        //console.log("DataExplorer:onDataGridUpdate")
+        //console.log(e.detail)
+        selected_rows = e.detail
+
+        console.log("DataExplorer:onDataGridUpdate:", numberRows.length)
     }
+
 </script>
 <div>
 <DataGrid {datagrid} on:updateDataGrid={onDataGridUpdate}/>
-<RegionPicker {region}/>
-<LifetimeInput {lifetime}/>
-<RequestButton {disabledSearchButton}/>
+<RegionPicker bind:region={region}/>
+<LifetimeInput bind:lifetime={lifetime}/>
+<RequestButton {disabledSearchButton} onClick={calculateImpacts}/>
 <EquivalentImpacts gwpImpactTotal="200"/>
 <ImpactsPieChart {scope2} {scope3} {numberRows}></ImpactsPieChart>
 </div>
