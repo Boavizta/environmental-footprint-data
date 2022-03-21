@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { _ } from 'svelte-i18n';
 
     import DataGrid from "./DataGrid.svelte";
     import LifetimeInput from "./LifetimeInput.svelte";
@@ -77,16 +78,25 @@
         //console.log("DataExplorer:onDataGridUpdate")
         //console.log(e.detail)
         selected_rows = e.detail
-
-        console.log("DataExplorer:onDataGridUpdate:", numberRows.length)
+        console.log("DataExplorer:onDataGridUpdate:", selected_rows.length)
     }
 
 </script>
 <div>
-<DataGrid {datagrid} on:updateDataGrid={onDataGridUpdate}/>
-<RegionPicker bind:region={region}/>
-<LifetimeInput bind:lifetime={lifetime}/>
-<RequestButton {disabledSearchButton} onClick={calculateImpacts}/>
-<EquivalentImpacts gwpImpactTotal="200"/>
-<ImpactsPieChart {scope2} {scope3} {numberRows}></ImpactsPieChart>
+    <DataGrid {datagrid} on:updateDataGrid={onDataGridUpdate}/>
+    <div>
+        <RegionPicker bind:region={region}/>
+    </div>
+    <div>
+        <LifetimeInput bind:lifetime={lifetime}/>
+    </div>
+    <div>
+        <RequestButton {disabledSearchButton} onClick={calculateImpacts}/>
+    </div>
+    <h3 class="title-second">Ratio Scope 2 / Scope 3</h3>
+    <div>
+        <ImpactsPieChart {scope2} {scope3} {numberRows}/>
+        <EquivalentImpacts gwpImpactTotal="200"/>
+    </div>
 </div>
+

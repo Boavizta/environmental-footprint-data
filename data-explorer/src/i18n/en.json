@@ -7,10 +7,19 @@
     "approach": "Boavizta believes that another approach is possible and that it would be much more suitable to make the impacts assessment accessible to as many people as possible.",
     "search": "Perform a search",
     "scope-ratio": "Ratio Scope 2 / Scope 3",
-    "global-mean": "Global mean",
+    "global-mean": "Global mean calculated on {n} line(s)",
     "title_equivalent": "CO2 equivalent",
     "label_equivalent": "Thermal car",
-    "calculate": "Calculate"
+    "calculate": "Calculate",
+    "select_location": "Select Location",
+    "lifetime": "Lifetime",
+    "manufacturer": "Manufacturer",
+    "name": "Name",
+    "category" : "Category",
+    "subcategory": "Subcategory",
+    "use": "Utilisation",
+    "yearlyTec" : "Yearly TEC (kWh)",
+    "manufacturing": "Manufacturing"
   }
 
 }

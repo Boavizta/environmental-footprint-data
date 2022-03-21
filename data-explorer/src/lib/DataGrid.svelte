@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { _ } from 'svelte-i18n';
     import AgGrid from "@budibase/svelte-ag-grid";
 //    import csv from "../../static/boavizta-data-us.csv"
     import Papa from "papaparse";
@@ -13,46 +14,61 @@
     }
 
     const columnDefs    = [{
+            headerName: $_('index.manufacturer'),
             field: "Manufacturer",
             width: 150
         },
         {
+            headerName: $_('index.name'),
             field: "Name",
-            width: 150
+            width: 300
         },
         {
+            headerName: $_('index.category'),
             field: "Category",
             width: 120
         },
         {
+            headerName: $_('index.subcategory'),
             field: "SubCategory",
             width: 120
         },
         {
+            headerName: "Total (kgCO2eq)",
             field: "Total (kgCO2eq)",
-            filter: 'agNumberColumnFilter',
-            width: 120
+            filter: false,
+            width: 150
         },
         {
+            headerName: $_('index.use'),
             field: "Use",
-            filter: 'agNumberColumnFilter',
+            filter: false,
             width: 120
         },
         {
+            headerName: $_('index.yearlyTec'),
             field: "Yearly TEC (kWh)",
-            //hide: true,
-            width: 120
+            hide: true,
+            filter: false,
+            width: 150
         },
         {
+            headerName: $_('index.lifetime'),
             field: "Lifetime",
-            hide: true,
-            filter: 'agNumberColumnFilter',
-            width: 50
+            //hide: true,
+            filter: false,
+            width: 120,
         },
         {
             field: "Use Location",
             hide: true,
             width: 100
+        },
+        {
+            headerName: $_('index.manufacturing'),
+            field: "Manufacturing",
+            filter: false,
+            width: 150
         },
         {
             field: "Date",
@@ -67,11 +83,6 @@
         {
             field: "Error",
             hide: true,
-            filter: 'agNumberColumnFilter',
-            width: 100
-        },
-        {
-            field: "Manufacturing",
             filter: 'agNumberColumnFilter',
             width: 100
         },
@@ -124,15 +135,16 @@
 
     let options = {
         defaultColDef: {
-            sortable: true,
+            sortable: false,
             filter: true,
-            resizable: true,
+            resizable: false,
         },
         //columnDefs: columnDefs,
         rowSelection: 'single',
         //onSelectionChanged: onSelect,
         rowMultiSelectWithClick: true,
         pagination: true,
+        paginationPageSize:10,
         //rowData: data,
         onFilterChanged: onFilterChanged
     };
@@ -217,4 +229,3 @@
 </script>
 
 <AgGrid {options} data="{dataInit}" {columnDefs} on:select={onSelect}/>
-<!--<AgGrid {options} bind:data {columnDefs} />-->
