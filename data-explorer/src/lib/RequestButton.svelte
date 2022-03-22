@@ -1,6 +1,8 @@
 <script lang="ts">
-    let disabledSearchButton = false;
+    export let disabledSearchButton;
+    export let onClick
+    import { _ } from 'svelte-i18n';
+
 </script>
 
-<input type="button" disabled="{disabledSearchButton}" value="Search">
-
+<button disabled="{disabledSearchButton}" on:click={onClick}>{$_('index.calculate')}</button>

@@ -1,6 +1,7 @@
 <script lang="ts">
     import  {Select} from "svelte-select"
-    let region = "eu"
+    export let region = "EU";
+    import { _ } from 'svelte-i18n';
 
     onMount(async () => {
         const res = await fetch("./electrical_foot_print.csv");
@@ -20,6 +21,12 @@
 
     function handleSelect(event) {
     }
+
+
 </script>
 
+{$_('index.select_location')}
+<input name="region" type="text" bind:value={region}>
+<!--
 <Select {items} {value} on:select={handleSelect}></Select>
+-->

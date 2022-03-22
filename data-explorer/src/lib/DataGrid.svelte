@@ -1,50 +1,74 @@
 <script lang="ts">
+    import { _ } from 'svelte-i18n';
     import AgGrid from "@budibase/svelte-ag-grid";
 //    import csv from "../../static/boavizta-data-us.csv"
     import Papa from "papaparse";
-    import {onMount} from "svelte";
+    import {createEventDispatcher, onMount} from "svelte";
 
-    let data = [];
-    let api;
-    const columnDefs = [{
-        field: "Manufacturer",
-        width: 150
-    },
-        {
-            field: "Name",
+    let dataInit = [];
+    let _filterApi;
+    const dispatcher = createEventDispatcher();
+
+    function updateDataGrid(rows){
+        dispatcher('updateDataGrid',rows)
+    }
+
+    const columnDefs    = [{
+            headerName: $_('index.manufacturer'),
+            field: "Manufacturer",
             width: 150
         },
         {
+            headerName: $_('index.name'),
+            field: "Name",
+            width: 300
+        },
+        {
+            headerName: $_('index.category'),
             field: "Category",
-            width: 100
+            width: 120
         },
         {
+            headerName: $_('index.subcategory'),
             field: "SubCategory",
-            width: 100
+            width: 120
         },
         {
+            headerName: "Total (kgCO2eq)",
             field: "Total (kgCO2eq)",
-            filter: 'agNumberColumnFilter',
-            width: 80
+            filter: false,
+            width: 150
         },
         {
+            headerName: $_('index.use'),
             field: "Use",
-            filter: 'agNumberColumnFilter',
-            width: 80
+            filter: false,
+            width: 120
         },
         {
+            headerName: $_('index.yearlyTec'),
             field: "Yearly TEC (kWh)",
             hide: true,
-            width: 80
+            filter: false,
+            width: 150
         },
         {
+            headerName: $_('index.lifetime'),
             field: "Lifetime",
-            filter: 'agNumberColumnFilter',
-            width: 50
+            //hide: true,
+            filter: false,
+            width: 120,
         },
         {
             field: "Use Location",
+            hide: true,
             width: 100
+        },
+        {
+            headerName: $_('index.manufacturing'),
+            field: "Manufacturing",
+            filter: false,
+            width: 150
         },
         {
             field: "Date",
@@ -63,11 +87,6 @@
             width: 100
         },
         {
-            field: "Manufacturing",
-            filter: 'agNumberColumnFilter',
-            width: 100
-        },
-        {
             field: "Weight",
             hide: true,
             filter: 'agNumberColumnFilter',
@@ -75,6 +94,7 @@
         },
         {
             field: "Assembly Location",
+            hide: true,
             width: 100
         },
         {
@@ -85,6 +105,7 @@
         },
         {
             field: "Server Type",
+            hide: true,
             width: 100
         },
         {
@@ -106,6 +127,7 @@
         },
         {
             field: "U",
+            hide: true,
             filter: 'agNumberColumnFilter',
             width: 50
         },
@@ -113,28 +135,46 @@
 
     let options = {
         defaultColDef: {
-            sortable: true,
+            sortable: false,
             filter: true,
-            resizable: true,
+            resizable: false,
         },
         //columnDefs: columnDefs,
-        rowSelection: 'multiple',
-        //onSelectionChanged: onSelectionChanged,
+        rowSelection: 'single',
+        //onSelectionChanged: onSelect,
         rowMultiSelectWithClick: true,
         pagination: true,
+        paginationPageSize:10,
         //rowData: data,
         onFilterChanged: onFilterChanged
     };
 
-    function onFilterChanged(e){
-        let rowData = [];
-        api.forEachNodeAfterFilter(node => {
-            rowData.push(node.data);
-        });
-        console.log(rowData)
+    function getFilterRows(filterApi){
+        if(filterApi != undefined){
+            _filterApi = filterApi
+        }
+
+        if(_filterApi != undefined){
+            let rowData = [];
+            //get selected row
+            _filterApi.forEachNodeAfterFilter(node => {
+                rowData.push(node.data);
+            });
+            //console.log(rowData)
+            return rowData;
+        }else{
+            //no filter has been applied return all set
+            return dataInit
+        }
     }
 
-    function gridit(csv) {
+    function onFilterChanged(e){
+        //console.log(e)
+        let filterRows = getFilterRows(e.api)
+        updateDataGrid(filterRows);
+    }
+
+    function toRows(csv) {
         const csvParsed = Papa.parse(csv)
 
         const rowData = csvParsed.data;
@@ -172,12 +212,20 @@
     onMount(async () => {
         const res = await fetch("./boavizta-data-us.csv");
         const text = await res.text();
-        data = gridit(text)
+        dataInit = toRows(text)
+        updateDataGrid(dataInit)
     });
 
     function onSelect(e){
-        console.log(e)
+        //console.log(e)
+        if(e.detail.length == 0){
+            //selection is empty, return full data
+            updateDataGrid(getFilterRows(e.api))
+        }else{
+            //return selection
+            updateDataGrid(e.detail)
+        }
     }
 </script>
 
-<AgGrid {options} bind:data {columnDefs} on:select={onSelect} bind:api/>
+<AgGrid {options} data="{dataInit}" {columnDefs} on:select={onSelect}/>

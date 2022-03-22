@@ -7,8 +7,18 @@
     "approach": "Boavizta pense qu'une autre approche est possible et que celle-ci serait bien plus adaptée pour rendre\n\taccessible la mesure d'impact environnemental du numérique au plus grand nombre.",
     "search": "Effectuer une recherche",
     "scope-ratio": "Ratio Scope 2 / Scope 3",
-    "global-mean": "Moyenne globale",
+    "global-mean": "Moyenne globale calculée sur {n} ligne(s)",
     "title_equivalent": "Equivalence CO2",
-    "label_equivalent": "Voiture thermique"
+    "label_equivalent": "Voiture thermique",
+    "calculate": "Calculer",
+    "select_location": "Sélectionner région",
+    "lifetime": "Durée de vie",
+    "manufacturer": "Fabricant",
+    "name": "Nom",
+    "category" : "Catégorie",
+    "subcategory": "Sous-catégorie",
+    "use": "Utilisation",
+    "yearlyTec" : "TEC annuel (kWh)",
+    "manufacturing": "Fabrication"
   }
 }
