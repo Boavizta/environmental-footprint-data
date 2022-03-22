@@ -10,66 +10,69 @@
 
     let datagrid;
     let lifetime;
-    let region;
+    let selectedRegion;
     let disabledSearchButton;
-    let numberRows;
     let scope2;
     let scope3;
-    let selected_rows;
+    let selectedRows =[];
 
-    function impactScope3(rows_selection):number{
+    function impactScope3(rows_selection):{result:number, lines:number}{
         let scope3 = 0;
+        let processedLineNumber = 0;
         rows_selection.forEach(row =>{
-            if(row["Total (kgCO2eq)"] != undefined) {
-                if(row["Total (kgCO2eq)"] != undefined && row["Manufacturing"] != undefined){
-                    scope3 += row["Total (kgCO2eq)"]*row["Manufacturing"];
+            if(row["gwp_total"] != undefined) {
+                if(row["gwp_total"] != undefined && row["gwp_manufacturing_ratio"] != undefined){
+                    scope3 += row["gwp_total"]*row["gwp_manufacturing_ratio"];
+                    processedLineNumber++
                 }
             }
         });
-        return scope3
+        return {result:scope3, lines:processedLineNumber}
     }
 
-    function electricalImpactFactor(location: Location):number {
-        return 1;
-    }
-
-    function impactScope2(rows_selection, lifetime, location, region):number{
+    function impactScope2(rows_selection, lifetime, electricalImpactFactor):{result:number, lines:number}{
         let scope2 = 0;
-        if(lifetime == undefined && region == undefined){
+        let processedLineNumber = 0
+        if(lifetime == undefined && electricalImpactFactor == -1){
             rows_selection.forEach(row =>{
-                if(row["Total (kgCO2eq)"] != undefined) {
-                    scope2 += row["Total (kgCO2eq)"]*row["Use"];
+                if(row["gwp_total"] != undefined && row["gwp_use_ratio"] != undefined) {
+                    scope2 += row["gwp_total"]*row["gwp_use_ratio"];
+                    processedLineNumber++;
                 }
             })
-        }else if (lifetime != undefined && region == undefined){
+        }else if (lifetime != undefined && electricalImpactFactor == -1){
             rows_selection.forEach(row => {
-                if(row["Total (kgCO2eq)"] != undefined) {
-                    scope2 += ((row["Total (kgCO2eq)"]*row["Use"])/row["Lifetime"])*lifetime
+                if(row["gwp_total"] != undefined
+                    && row["gwp_use_ratio"] != undefined
+                    && row["lifetime"] != undefined) {
+                    scope2 += ((row["gwp_total"]*row["gwp_use_ratio"])/row["lifetime"])*lifetime
+                    processedLineNumber++;
                 }
             });
-        }else if (lifetime == undefined && region != undefined){
+        }else if (lifetime == undefined && electricalImpactFactor !== -1){
             rows_selection.forEach(row => {
-                if(row["Yearly TEC (kWh)"] != undefined) {
-                    scope2 += row["Yearly TEC (kWh)"]*row["Lifetime"]*electricalImpactFactor(location)
+                if(row["yearly_tec"] != undefined) {
+                    scope2 += row["yearly_tec"]*row["lifetime"]*electricalImpactFactor
+                    processedLineNumber++;
                 }
             });
-        }else if (lifetime != undefined && region != undefined){
+        }else if (lifetime != undefined && electricalImpactFactor !== -1){
             rows_selection.forEach(row => {
-                if(row["Yearly TEC (kWh)"] != undefined){
-                    scope2 += row["Yearly TEC (kWh)"]*lifetime*electricalImpactFactor(location);
+                if(row["yearly_tec"] != undefined){
+                    scope2 += row["yearly_tec"]*lifetime*electricalImpactFactor;
+                    processedLineNumber++;
                 }
-                })
-            }
-        return scope2
+            })
+        }
+        return {result:scope2, lines:processedLineNumber}
     }
 
     function calculateImpacts(){
         console.log("lifetime ", lifetime)
-        console.log("region ", region)
-        numberRows = selected_rows.length
-        console.log("numberRows ", numberRows)
-        scope2 = impactScope2(selected_rows, lifetime, "",region);
-        scope3 = impactScope3(selected_rows);
+        console.log("selectedRowsNumber ", selectedRows.length)
+        console.log("region ", selectedRegion)
+        scope2 = impactScope2(selectedRows, lifetime, selectedRegion.value);
+        scope3 = impactScope3(selectedRows);
         console.log("scope2 ", scope2)
         console.log("scope3 ", scope3)
     }
@@ -77,26 +80,40 @@
     function onDataGridUpdate(e){
         //console.log("DataExplorer:onDataGridUpdate")
         //console.log(e.detail)
-        selected_rows = e.detail
-        console.log("DataExplorer:onDataGridUpdate:", selected_rows.length)
+        selectedRows = e.detail
+        console.log("DataExplorer:onDataGridUpdate:", selectedRows.length)
+    }
+    function handleRegionSelect(region){
+        console.log(region)
+        selectedRegion = region
     }
 
 </script>
 <div>
     <DataGrid {datagrid} on:updateDataGrid={onDataGridUpdate}/>
-    <div>
-        <RegionPicker bind:region={region}/>
-    </div>
-    <div>
-        <LifetimeInput bind:lifetime={lifetime}/>
-    </div>
-    <div>
-        <RequestButton {disabledSearchButton} onClick={calculateImpacts}/>
+    <div class="calculator">
+        <div>
+            <RegionPicker bind:value={selectedRegion} onSelect="{handleRegionSelect}"/>
+        </div>
+        <div>
+            <LifetimeInput bind:lifetime={lifetime}/>
+        </div>
+        <p>{$_('index.selected_rows',{ values: {n:selectedRows.length}})}</p>
+        <div>
+            <RequestButton {disabledSearchButton} onClick={calculateImpacts}/>
+        </div>
     </div>
     <h3 class="title-second">Ratio Scope 2 / Scope 3</h3>
     <div>
-        <ImpactsPieChart {scope2} {scope3} {numberRows}/>
-        <EquivalentImpacts gwpImpactTotal="200"/>
+        <ImpactsPieChart {scope2} {scope3} selectedRowsNumber={selectedRows?selectedRows.length:0}/>
+        <EquivalentImpacts gwpImpactTotal="--"/>
     </div>
 </div>
 
+<style>
+    .calculator{
+        background: #e7f2ff;
+        padding: 5px;
+        border-radius: .5rem;
+    }
+</style>

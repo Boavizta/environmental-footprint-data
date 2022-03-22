@@ -3,5 +3,9 @@
     import { _ } from 'svelte-i18n';
 
 </script>
-{$_('index.lifetime')}
-<input bind:value="{lifetime}" name="lifetime" type="text">
+<div>
+    {$_('index.lifetime')}
+</div>
+<div>
+    <input bind:value="{lifetime}" name="lifetime">
+</div>
