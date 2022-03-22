@@ -14,46 +14,52 @@
     }
 
     const columnDefs    = [{
-            headerName: $_('index.manufacturer'),
+            headerName: $_('datagrid.manufacturer'),
             field: "manufacturer",
             width: 150
         },
         {
-            headerName: $_('index.name'),
+            headerName: $_('datagrid.name'),
             field: "name",
             width: 300
         },
         {
-            headerName: $_('index.category'),
+            headerName: $_('datagrid.category'),
             field: "category",
             width: 120
         },
         {
-            headerName: $_('index.subcategory'),
+            headerName: $_('datagrid.subcategory'),
             field: "subcategory",
             width: 120
         },
         {
-            headerName: "Total (kgCO2eq)",
+            headerName: $_('datagrid.total'),
             field: "gwp_total",
             filter: false,
             width: 150
         },
         {
-            headerName: $_('index.use'),
+            headerName: $_('datagrid.use'),
             field: "gwp_use_ratio",
             filter: false,
             width: 120
         },
         {
-            headerName: $_('index.yearlyTec'),
+            headerName: $_('datagrid.manufacturing'),
+            field: "gwp_manufacturing_ratio",
+            filter: false,
+            width: 150
+        },
+        {
+            headerName: $_('datagrid.yearlyTec'),
             field: "yearly_tec",
             hide: true,
             filter: false,
             width: 150
         },
         {
-            headerName: $_('index.lifetime'),
+            headerName: $_('datagrid.lifetime'),
             field: "lifetime",
             //hide: true,
             filter: false,
@@ -64,12 +70,7 @@
             hide: true,
             width: 100
         },
-        {
-            headerName: $_('index.manufacturing'),
-            field: "gwp_manufacturing_ratio",
-            filter: false,
-            width: 150
-        },
+
         {
             field: "added_date",
             hide: true,

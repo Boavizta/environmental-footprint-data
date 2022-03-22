@@ -11,14 +11,17 @@
     "title_equivalent": "Equivalence CO2",
     "label_equivalent": "Voiture thermique",
     "calculate": "Calculer",
-    "select_country_elec_impact": "Sélectionner pays (pour affiner l'impact électrique) ",
+    "select_country_elec_impact": "Sélectionner pays (pour affiner l'impact électrique) "
+  },
+  "datagrid" : {
     "lifetime": "Durée de vie",
     "manufacturer": "Fabricant",
     "name": "Nom",
     "category" : "Catégorie",
     "subcategory": "Sous-catégorie",
-    "use": "Utilisation",
+    "use": "Utilisation (%)",
     "yearlyTec" : "TEC annuel (kWh)",
-    "manufacturing": "Fabrication"
+    "manufacturing": "Fabrication (%)",
+    "total": "Total (kgCO2eq)"
   }
 }
