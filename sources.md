@@ -12,7 +12,7 @@
 [Dell - Product Carbon Footprint for Servers](https://corporate.delltechnologies.com/en-us/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=3)  
 [Dell - Product Carbon Footprint for Thin Clients](https://corporate.delltechnologies.com/en-us/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=4)  
 [Dell - Product Carbon Footprint for other old products](https://corporate.delltechnologies.com/en-us/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=5)  
-[Fujitsu - Life Cycle Assessment for ESPRIMO-P957 Desktop](https://sp.ts.fujitsu.com/dmsp/Publications/public/LCA-FUJITSU-Desktop-ESPRIMO-P957.pdf)  
+[Fujitsu - Life Cycle Assessment for ESPRIMO-P9010 Desktop PC](https://www.fujitsu.com/global/documents/about/environment/Life%20cycle%20analyses%20of%20Fujitsu%20Desktop%20ESPRIMO%20P9010%20June%202021.pdf)  
 [Fujitsu - Product Carbon Footprint](https://www.fujitsu.com/global/search/?query=(PCF)&start=0&count=10&site=29QMLFR4&charset=utf-8)  
 [Google - Product Environmental Report](https://sustainability.google/reports/) + Click on Product)  
 [HP - Product Carbon footprint Reports For Desktops and PCs](https://h22235.www2.hp.com/hpinfo/globalcitizenship/environment/productdata/ProductCarbonFootprintdesktop-pc.html)  
