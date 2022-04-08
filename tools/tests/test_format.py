@@ -26,6 +26,7 @@ class FormatsTest(unittest.TestCase):
     def test_read_format(self) -> None:
         reader = csv.DictReader(io.StringIO(self.data_content))
         for row in reader:
+            print(row)
             data.DeviceCarbonFootprint.from_text(row)
 
     # TODO(pascal): Check that fr and us formats are in sync.
