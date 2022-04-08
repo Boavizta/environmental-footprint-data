@@ -18,6 +18,8 @@ class DeviceCarbonFootprintData(TypedDict, total=False):
     sources: str
     gwp_error_ratio: float
     gwp_manufacturing_ratio: float
+    gwp_transport_ratio: float
+    gwp_eol_ratio: float
     weight: float
     assembly_location: str
     screen_size: float
