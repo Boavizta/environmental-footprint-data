@@ -39,5 +39,6 @@ if not 'gwp_eol_ratio' in device:
     device["gwp_eol_ratio"]=0
 if not 'gwp_transport_ratio' in device:
     device["gwp_transport_ratio"]=0
-print(device["manufacturer"],",",device["name"],",",device["category"],",",device["subcategory"],",",device["gwp_total"],",",device["gwp_use_ratio"],",",device["yearly_tec"],",",device["lifetime"],",",device["use_location"],",",device["report_date"].replace(",",""),",",device["source"],",",device["gwp_error_ratio"],",",device["gwp_manufacturing_ratio"],",",device["weight"],",",device["assembly_location"],",",device["screen_size"],",,,,,,",device["added_date"],",",device["add_method"],",",device["gwp_transport_ratio"],",",device["gwp_eol_ratio"])
+newline=device["manufacturer"] + "," + device["name"] + "," + device["category"] + "," + device["subcategory"] + "," + str(device["gwp_total"]) + "," + str(device["gwp_use_ratio"]) + "," + str(device["yearly_tec"]) + "," + str(device["lifetime"]) + "," + device["use_location"] + "," + device["report_date"].replace(",","") + "," + device["source"] + "," + str(device["gwp_error_ratio"]) + "," + str(device["gwp_manufacturing_ratio"]) + "," + str(device["weight"]) + "," + device["assembly_location"] + "," + str(device["screen_size"]) + ",,,,,," + device["added_date"] + "," + device["add_method"] + "," + str(device["gwp_transport_ratio"]) + "," + str(device["gwp_eol_ratio"])
+print(newline)
 quit()
