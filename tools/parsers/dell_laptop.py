@@ -30,7 +30,7 @@ _DELL_LCA_PATTERNS = (
     re.compile(r' HDD\/SSD Quantity (?P<hdd>.*(?:SSD|HDD?))\s+'),
     re.compile(r' DRAM Capacity\s*(?P<ram>[0-9]*)[A-Z]{2}\s+'),
     re.compile(r' CPU Quantity\s*(?P<cpu>[0-9]*)\s+'),
-    re.compile(r' Use\s*(?P<gwp_use_ratio>[0-9]*\.*[0-9]*)%'),
+    re.compile(r'Use\s*(?P<gwp_use_ratio>[0-9]*\.*[0-9]*)%'),
     re.compile(r'Manufacturing\s*(?P<gwp_manufacturing_ratio>[0-9]*\.*[0-9]*)%'),
     re.compile(r'EoL\s*(?P<gwp_eol_ratio>[0-9]*\.*[0-9]*)%'),
     re.compile(r'Transportation\s*(?P<gwp_transport_ratio>[0-9]*\.*[0-9]*)%')
@@ -97,6 +97,8 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         result['number_cpu'] = int(extracted['cpu'])
     if 'gwp_manufacturing_ratio' in extracted:
         result['gwp_manufacturing_ratio'] = float(extracted['gwp_manufacturing_ratio'])/100
+    if 'gwp_use_ratio' in extracted:
+        result['gwp_use_ratio'] = float(extracted['gwp_use_ratio'])/100
     if 'gwp_eol_ratio' in extracted:
         result['gwp_eol_ratio'] = float(extracted['gwp_eol_ratio'])/100
     if 'gwp_transport_ratio' in extracted:

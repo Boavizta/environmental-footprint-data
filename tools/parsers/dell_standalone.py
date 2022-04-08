@@ -27,12 +27,17 @@ pdf_path = args["source"]
 url = ""
 if re.search('http(s)*\:\/\/*.', pdf_path):
     open('./tempfile.pdf', 'wb').write(requests.get(pdf_path).content)
-    result['source']=pdf_path
+    url=pdf_path
     pdf_path = "./tempfile.pdf"
 
 with open(pdf_path, 'rb') as fh:
-     for device in dell_laptop.parse(io.BytesIO(fh.read()), result['source']):
-            result=device.data
-result['manufacturer'] = 'Dell'
-print(result)
+     for result in dell_laptop.parse(io.BytesIO(fh.read()), url):
+            device=result.data
+device['manufacturer'] = 'Dell'
+device['source']=url
+if not 'gwp_eol_ratio' in device:
+    device["gwp_eol_ratio"]=0
+if not 'gwp_transport_ratio' in device:
+    device["gwp_transport_ratio"]=0
+print(device["manufacturer"],",",device["name"],",",device["category"],",",device["subcategory"],",",device["gwp_total"],",",device["gwp_use_ratio"],",",device["yearly_tec"],",",device["lifetime"],",",device["use_location"],",",device["report_date"].replace(",",""),",",device["source"],",",device["gwp_error_ratio"],",",device["gwp_manufacturing_ratio"],",",device["weight"],",",device["assembly_location"],",",device["screen_size"],",,,,,,",device["added_date"],",",device["add_method"],",",device["gwp_transport_ratio"],",",device["gwp_eol_ratio"])
 quit()
