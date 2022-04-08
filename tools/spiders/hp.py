@@ -18,7 +18,7 @@ import scrapy
 from scrapy import http
 
 from tools.spiders.lib import spider
-from tools.parsers import hp_all
+from tools.parsers import hp_workplace
 
 
 _INDEX_PAGE_URL = 'https://h22235.www2.hp.com/hpinfo/globalcitizenship/environment/productdata/ProductCarbonFootprintmonitors.html'
@@ -55,6 +55,6 @@ class HPSpider(spider.BoaViztaSpider):
     def parse_carbon_footprint(
         self, response: http.Response, **unused_kwargs: Any,
     ) -> Iterator[Any]:
-        for device in hp_all.parse(io.BytesIO(response.body), response.url):
+        for device in hp_workplace.parse(io.BytesIO(response.body), response.url):
             device.data['sources'] = response.url
             yield device.data
