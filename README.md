@@ -2,6 +2,8 @@
 
 This data repository is maintained by [Boavizta](https://www.boavizta.org) and is complementary to Boavizta's environmental footprint evaluation methology. It aims to reference as much data as possible to help organizations to evaluate the environmental footprint of their information systems, applications and digital services.
 
+To browse data, you can use https://dataviz.boavizta.org.
+
 ## License
 This dataset is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/. Any rights in individual contents of the database are licensed under the Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/This data can be freely used for any purpose including without using Boavizta's methodology.
 
