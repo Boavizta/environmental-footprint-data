@@ -2,7 +2,6 @@
 
 See an example here https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-wyse-3030.pdf
 """
-
 import logging
 import re
 import datetime
@@ -13,12 +12,13 @@ from tools.parsers.lib.image import crop, find_text_in_image, image_to_text
 from tools.parsers.lib import loader
 from tools.parsers.lib import pdf
 from tools.parsers.lib import text
+from matplotlib import pyplot as plt
 
 
 # A list of patterns to search in the text.
 _DELL_LCA_PATTERNS = (
     re.compile(r' (?P<name>.*?)\s*From design to end-of-life'),
-    re.compile(r' estimated carbon footprint\: \s*(?P<footprint>[0-9]*) kgCO2e(?: \+\/\- (?P<error>[0-9]*) kgCO2e)?'),
+    re.compile(r' estimated carbon footprint\: \s*(?P<footprint>[0-9]*) kgCO2e(?: \+\/\- (?P<error>[0-9]*)\s*kgCO2e)?'),
     re.compile(r' estimated standard deviation of \+\/\- (?P<error>[0-9]*)\s*kgCO2e'),
     re.compile(r' Report produced\s*(?P<date>[A-Z][a-z]*,* [0-9]{4}) '),
     re.compile(r' Product Weight\s*(?P<weight>[0-9]*.[0-9]*)\s*kg'),
@@ -42,6 +42,9 @@ _CATEGORIES = {
     'Latitude': ('Workplace', 'Laptop'),
     'OptiPlex': ('Workplace', 'Desktop'),
     'Precision': ('Workplace', 'Desktop'),
+    'Inspiron': ('Workplace', 'Desktop'),
+    'Vostro': ('Workplace', 'Desktop'),
+    'Chromebook': ('Workplace', 'Desktop'),
     'Wyse': ('Workplace', 'Thin client'),
     'XPS': ('Workplace', 'Laptop'),
 }
@@ -72,7 +75,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     if 'footprint' in extracted:
         result['gwp_total'] = float(extracted['footprint'])
     if result.get('gwp_total') and 'error' in extracted:
-        result['gwp_error_ratio'] = round((float(extracted['error']) / result['gwp_total']), 4)
+        result['gwp_error_ratio'] = round((float(extracted['error']) / result['gwp_total']), 3)
     else:
         raise ValueError(pdf_as_text)
     if 'date' in extracted:
@@ -81,6 +84,8 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         result['weight'] = float(extracted['weight'])
     if 'screen_size' in extracted:
         result['screen_size'] = float(extracted['screen_size'])
+    else:
+        result['screen_size'] = 0
     if 'assembly_location' in extracted:
         result['assembly_location'] = extracted['assembly_location']
     if 'lifetime' in extracted:
@@ -96,13 +101,13 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     if 'cpu' in extracted:
         result['number_cpu'] = int(extracted['cpu'])
     if 'gwp_manufacturing_ratio' in extracted:
-        result['gwp_manufacturing_ratio'] = float(extracted['gwp_manufacturing_ratio'])/100
+        result['gwp_manufacturing_ratio'] = round(float(extracted['gwp_manufacturing_ratio'])/100,3)
     if 'gwp_use_ratio' in extracted:
-        result['gwp_use_ratio'] = float(extracted['gwp_use_ratio'])/100
+        result['gwp_use_ratio'] = round(float(extracted['gwp_use_ratio'])/100,3)
     if 'gwp_eol_ratio' in extracted:
-        result['gwp_eol_ratio'] = float(extracted['gwp_eol_ratio'])/100
+        result['gwp_eol_ratio'] = round(float(extracted['gwp_eol_ratio'])/100,3)
     if 'gwp_transport_ratio' in extracted:
-        result['gwp_transport_ratio'] = float(extracted['gwp_transport_ratio'])/100  
+        result['gwp_transport_ratio'] = round(float(extracted['gwp_transport_ratio'])/100,3)  
     now = datetime.datetime.now()
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "Dell Auto Parser"
@@ -111,22 +116,38 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         for image in pdf.list_images(body):
             # Search "Use x%" in the left part of the graph.
             cropped_left = crop(image, right=.75)
-            use_block = find_text_in_image(cropped_left, re.compile('Use'), threshold=150)
+            # Usefull to debug when Use ratio cannot be retrieved
+            #plt.imshow(cropped_left, interpolation='nearest')
+            #plt.show()
+            thsh=150
+            use_block = find_text_in_image(cropped_left, re.compile('Use'), threshold=thsh)
+            while (not use_block and thsh > 20):
+                thsh= thsh - 10
+                use_block = find_text_in_image(cropped_left, re.compile('Use'), threshold=thsh)
             if use_block:
                 # Create an image a bit larger, especially below the text found where the number is.
                 use_image = cropped_left[
-                    use_block.top - 3:use_block.top + use_block.height * 3,
+                    use_block.top - 3:use_block.top + use_block.height * 3 + 3,
                     use_block.left - 20:use_block.left + use_block.width + 20,
                 ]
+                # Usefull to debug when Use ratio cannot be retrieved
+                #plt.imshow(use_image, interpolation='nearest') 
+                #plt.show()
                 use_text = image_to_text(use_image, threshold=130)
                 clean_text = use_text.replace('\n', '').replace(' ', '')
                 match_use = _USE_PERCENT_PATTERN.match(clean_text)
                 if match_use:
-                    result['gwp_use_ratio'] = float(match_use.group(1))/100
+                    result['gwp_use_ratio'] = round(float(match_use.group(1))/100,3)
 
             # Search "Manufact... x%" in the middle part of the graph.
             cropped_right = crop(image, left=.25, right=.3)
-            manuf_block = find_text_in_image(cropped_right, re.compile('Manufa'), threshold=50)
+            #plt.imshow(cropped_right, interpolation='nearest')
+            #plt.show()
+            thsh=20
+            manuf_block = find_text_in_image(cropped_right, re.compile('Manufa'), threshold=thsh)
+            while (not manuf_block and thsh < 150):
+                thsh= thsh + 10
+                manuf_block = find_text_in_image(cropped_right, re.compile('Manufa'), threshold=thsh)
             if manuf_block:
                 # Create an image a bit larger, especially below the text found where the number is.
                 manuf_image = cropped_right[
@@ -137,7 +158,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
                 clean_text = manuf_text.replace('\n', '').replace(' ', '')
                 match_use = _MANUF_PERCENT_PATTERN.match(clean_text)
                 if match_use:
-                    result['gwp_manufacturing_ratio'] = float(match_use.group(1))/100
+                    result['gwp_manufacturing_ratio'] = round(float(match_use.group(1))/100,3)
 
             if manuf_block or use_block:
                 break
