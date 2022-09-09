@@ -51,6 +51,8 @@ _CATEGORIES = {
 
 _USE_PERCENT_PATTERN = re.compile(r'.*Use([0-9]*\.*[0-9]*)\%.*')
 _MANUF_PERCENT_PATTERN = re.compile(r'.*Manufac(?:turing|uring|ture)([0-9]*\.*[0-9]*)\%.*')
+_EOL_PERCENT_PATTERN = re.compile(r'.*EoL([0-9]*\.*[0-9]*)\%.*')
+_TRANSPORT_PERCENT_PATTERN = re.compile(r'.*Transport(ation?)(.?)([0-9]*\.*[0-9]*)\%.*')
 
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
@@ -133,7 +135,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
                 # Usefull to debug when Use ratio cannot be retrieved
                 #plt.imshow(use_image, interpolation='nearest') 
                 #plt.show()
-                use_text = image_to_text(use_image, threshold=130)
+                use_text = image_to_text(use_image, threshold=thsh)
                 clean_text = use_text.replace('\n', '').replace(' ', '')
                 match_use = _USE_PERCENT_PATTERN.match(clean_text)
                 if match_use:
@@ -154,7 +156,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
                     manuf_block.top - 3:manuf_block.top + manuf_block.height * 3,
                     manuf_block.left - 8:manuf_block.left + manuf_block.width + 3,
                 ]
-                manuf_text = image_to_text(manuf_image, threshold=30)
+                manuf_text = image_to_text(manuf_image, threshold=thsh)
                 clean_text = manuf_text.replace('\n', '').replace(' ', '')
                 match_use = _MANUF_PERCENT_PATTERN.match(clean_text)
                 if match_use:
@@ -162,6 +164,58 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
             if manuf_block or use_block:
                 break
+    if not 'gwp_eol_ratio' in extracted:
+        for image in pdf.list_images(body):
+            cropped_left = crop(image, right=.50, bottom=.40)
+            #plt.imshow(cropped_left, interpolation='nearest')
+            #plt.show()
+            thsh=150
+            eol_block = find_text_in_image(cropped_left, re.compile(r'E(o|O)L'), threshold=thsh)
+            while (not eol_block and thsh > 20):
+                thsh= thsh - 10
+                eol_block = find_text_in_image(cropped_left, re.compile(r'E(o|O)L'), threshold=thsh)
+            if eol_block:
+                # Create an image a bit larger, especially below the text found where the number is.
+                eol_image = cropped_left[
+                    eol_block.top - 3:eol_block.top + eol_block.height * 3 + 3,
+                    eol_block.left - 20:eol_block.left + eol_block.width + 20,
+                ]
+                #plt.imshow(eol_image, interpolation='nearest') 
+                #plt.show()
+                eol_text = image_to_text(eol_image, threshold=thsh)
+                clean_text = eol_text.replace('\n', '').replace(' ', '')
+                match_eol = _EOL_PERCENT_PATTERN.match(clean_text)
+                if match_eol:
+                    result['gwp_eol_ratio'] = round(float(match_eol.group(1))/100,3)
+            if eol_block:
+                break
+    if not 'gwp_transport_ratio' in extracted:
+        for image in pdf.list_images(body):
+            cropped_left = crop(image, right=.50, bottom=.40)
+            #plt.imshow(cropped_left, interpolation='nearest')
+            #plt.show()
+            thsh=150
+            transport_block = find_text_in_image(cropped_left, re.compile(r'(T?)ransp(ortation?)'), threshold=thsh)
+            while (not transport_block and thsh > 10):
+                thsh= thsh - 10
+                transport_block = find_text_in_image(cropped_left, re.compile(r'(T?)ransp(ortation?)'), threshold=thsh)
+            if transport_block:
+                print(thsh)
+                # Create an image a bit larger, especially below the text found where the number is.
+                transport_image = cropped_left[
+                    transport_block.top - 3:transport_block.top + transport_block.height * 3 + 3,
+                    transport_block.left - 20:transport_block.left + transport_block.width + 20,
+                ]
+                #plt.imshow(transport_image, interpolation='nearest') 
+                #plt.show()
+                transport_text = image_to_text(transport_image, threshold=thsh)
+                clean_text = transport_text.replace('\n', '').replace(' ', '')
+                match_transport = _TRANSPORT_PERCENT_PATTERN.match(clean_text)
+                if match_transport:
+                    result['gwp_transport_ratio'] = round(float(match_transport.group(3))/100,3)
+            if transport_block:
+                break
+
 
     yield data.DeviceCarbonFootprint(result)
 

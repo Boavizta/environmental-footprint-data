@@ -3,6 +3,8 @@ import re
 import typing
 
 from typing import NamedTuple, Optional, Pattern
+from matplotlib import pyplot as plt
+
 
 import cv2
 import pytesseract
