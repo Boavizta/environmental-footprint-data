@@ -3,5 +3,5 @@ __pycache__
 /.mypy_cache/
 */.env
 test-romain
-tempfile.pdf
+*/tempfile.pdf
 .DS_Store
