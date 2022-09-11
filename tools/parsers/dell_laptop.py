@@ -50,9 +50,9 @@ _CATEGORIES = {
 }
 
 _USE_PERCENT_PATTERN = re.compile(r'.*Use([0-9]*\.*[0-9]*)\%.*')
-_MANUF_PERCENT_PATTERN = re.compile(r'.*Manufac(?:turing|uring|ture)([0-9]*\.*[0-9]*)\%.*')
+_MANUF_PERCENT_PATTERN = re.compile(r'.*nufac[a-z0-9]*[a-z][^0-9\.]([0-9]*\.*[0-9]*)\%.*')
 _EOL_PERCENT_PATTERN = re.compile(r'.*EoL([0-9]*\.*[0-9]*)\%.*')
-_TRANSPORT_PERCENT_PATTERN = re.compile(r'.*Transport(ation?)(.?)([0-9]*\.*[0-9]*)\%.*')
+_TRANSPORT_PERCENT_PATTERN = re.compile(r'.*port[A-Za-z]*[^0-9\.]?([0-9]*\.*[0-9]*)\%.*')
 
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
@@ -116,106 +116,82 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     if not 'gwp_use_ratio' in extracted:
         for image in pdf.list_images(body):
-            # Search "Use x%" in the left part of the graph.
-            cropped_left = crop(image, right=.75)
-            # Usefull to debug when Use ratio cannot be retrieved
-            #plt.imshow(cropped_left, interpolation='nearest')
+            #plt.imshow(image, interpolation='nearest', ) 
             #plt.show()
-            thsh=150
-            use_block = find_text_in_image(cropped_left, re.compile('Use'), threshold=thsh)
-            while (not use_block and thsh > 20):
+            use_thsh, manuf_thsh, eol_thsh, transport_thsh, thsh = 150, 150, 150, 150, 150
+            use_block = find_text_in_image(image, re.compile('Use'), threshold=thsh)
+            manuf_block = find_text_in_image(image, re.compile(r'(M?)anufa(cturing?)'), threshold=thsh)
+            eol_block = find_text_in_image(image, re.compile(r'E(o|O)L'), threshold=thsh)
+            transport_block = find_text_in_image(image, re.compile(r'(T?)ransp(ortation?)'), threshold=thsh)
+            while (not (use_block and manuf_block and eol_block and transport_block) and thsh > 10):
                 thsh= thsh - 10
-                use_block = find_text_in_image(cropped_left, re.compile('Use'), threshold=thsh)
+                if not use_block:
+                    use_block = find_text_in_image(image, re.compile('Use'), threshold=thsh)
+                    use_thsh = thsh
+                if not manuf_block:
+                    manuf_block = find_text_in_image(image, re.compile(r'(M?)anufa(cturing?)'), threshold=thsh)
+                    manuf_thsh = thsh
+                if not eol_block:
+                    eol_block = find_text_in_image(image, re.compile(r'E(o|O)L'), threshold=thsh)
+                    eol_thsh = thsh
+                if not transport_block:
+                    transport_block = find_text_in_image(image, re.compile(r'(T?)ransp(ortation?)'), threshold=thsh)
+                    transport_thsh = thsh
             if use_block:
                 # Create an image a bit larger, especially below the text found where the number is.
-                use_image = cropped_left[
-                    use_block.top - 3:use_block.top + use_block.height * 3 + 3,
+                use_image = image[
+                    use_block.top - 1:use_block.top + use_block.height * 3 + 3,
                     use_block.left - 20:use_block.left + use_block.width + 20,
                 ]
                 # Usefull to debug when Use ratio cannot be retrieved
                 #plt.imshow(use_image, interpolation='nearest') 
                 #plt.show()
-                use_text = image_to_text(use_image, threshold=thsh)
+                use_text = image_to_text(use_image, threshold=use_thsh)
                 clean_text = use_text.replace('\n', '').replace(' ', '')
                 match_use = _USE_PERCENT_PATTERN.match(clean_text)
                 if match_use:
                     result['gwp_use_ratio'] = round(float(match_use.group(1))/100,3)
-
-            # Search "Manufact... x%" in the middle part of the graph.
-            cropped_right = crop(image, left=.25, right=.3)
-            #plt.imshow(cropped_right, interpolation='nearest')
-            #plt.show()
-            thsh=20
-            manuf_block = find_text_in_image(cropped_right, re.compile('Manufa'), threshold=thsh)
-            while (not manuf_block and thsh < 150):
-                thsh= thsh + 10
-                manuf_block = find_text_in_image(cropped_right, re.compile('Manufa'), threshold=thsh)
             if manuf_block:
                 # Create an image a bit larger, especially below the text found where the number is.
-                manuf_image = cropped_right[
-                    manuf_block.top - 3:manuf_block.top + manuf_block.height * 3,
+                manuf_image = image[
+                    manuf_block.top - 1:manuf_block.top + manuf_block.height * 3,
                     manuf_block.left - 8:manuf_block.left + manuf_block.width + 3,
                 ]
-                manuf_text = image_to_text(manuf_image, threshold=thsh)
+                #plt.imshow(manuf_image, interpolation='nearest') 
+                #plt.show()
+                manuf_text = image_to_text(manuf_image, threshold=manuf_thsh)
                 clean_text = manuf_text.replace('\n', '').replace(' ', '')
-                match_use = _MANUF_PERCENT_PATTERN.match(clean_text)
-                if match_use:
-                    result['gwp_manufacturing_ratio'] = round(float(match_use.group(1))/100,3)
-
-            if manuf_block or use_block:
-                break
-    if not 'gwp_eol_ratio' in extracted:
-        for image in pdf.list_images(body):
-            cropped_left = crop(image, right=.50, bottom=.40)
-            #plt.imshow(cropped_left, interpolation='nearest')
-            #plt.show()
-            thsh=150
-            eol_block = find_text_in_image(cropped_left, re.compile(r'E(o|O)L'), threshold=thsh)
-            while (not eol_block and thsh > 20):
-                thsh= thsh - 10
-                eol_block = find_text_in_image(cropped_left, re.compile(r'E(o|O)L'), threshold=thsh)
+                match_manuf = _MANUF_PERCENT_PATTERN.match(clean_text)
+                if match_manuf:
+                    result['gwp_manufacturing_ratio'] = round(float(match_manuf.group(1))/100,3)
             if eol_block:
                 # Create an image a bit larger, especially below the text found where the number is.
-                eol_image = cropped_left[
-                    eol_block.top - 3:eol_block.top + eol_block.height * 3 + 3,
-                    eol_block.left - 20:eol_block.left + eol_block.width + 20,
+                eol_image = image[
+                    eol_block.top - 1:eol_block.top + eol_block.height * 3 + 3,
+                    eol_block.left - 10:eol_block.left + eol_block.width + 20,
                 ]
                 #plt.imshow(eol_image, interpolation='nearest') 
                 #plt.show()
-                eol_text = image_to_text(eol_image, threshold=thsh)
+                eol_text = image_to_text(eol_image, threshold=eol_thsh)
                 clean_text = eol_text.replace('\n', '').replace(' ', '')
                 match_eol = _EOL_PERCENT_PATTERN.match(clean_text)
                 if match_eol:
                     result['gwp_eol_ratio'] = round(float(match_eol.group(1))/100,3)
-            if eol_block:
-                break
-    if not 'gwp_transport_ratio' in extracted:
-        for image in pdf.list_images(body):
-            cropped_left = crop(image, right=.50, bottom=.40)
-            #plt.imshow(cropped_left, interpolation='nearest')
-            #plt.show()
-            thsh=150
-            transport_block = find_text_in_image(cropped_left, re.compile(r'(T?)ransp(ortation?)'), threshold=thsh)
-            while (not transport_block and thsh > 10):
-                thsh= thsh - 10
-                transport_block = find_text_in_image(cropped_left, re.compile(r'(T?)ransp(ortation?)'), threshold=thsh)
             if transport_block:
-                print(thsh)
-                # Create an image a bit larger, especially below the text found where the number is.
-                transport_image = cropped_left[
-                    transport_block.top - 3:transport_block.top + transport_block.height * 3 + 3,
-                    transport_block.left - 20:transport_block.left + transport_block.width + 20,
+                transport_image = image[
+                    transport_block.top - 1:transport_block.top + transport_block.height * 3 + 3,
+                    transport_block.left:transport_block.left + transport_block.width + 20,
                 ]
                 #plt.imshow(transport_image, interpolation='nearest') 
                 #plt.show()
-                transport_text = image_to_text(transport_image, threshold=thsh)
+                transport_text = image_to_text(transport_image, threshold=transport_thsh)
                 clean_text = transport_text.replace('\n', '').replace(' ', '')
+                #print(clean_text)
                 match_transport = _TRANSPORT_PERCENT_PATTERN.match(clean_text)
                 if match_transport:
-                    result['gwp_transport_ratio'] = round(float(match_transport.group(3))/100,3)
-            if transport_block:
+                    result['gwp_transport_ratio'] = round(float(match_transport.group(1))/100,3)
+            if ('gwp_use_ratio' in result and 'gwp_manuf_ratio' in result):
                 break
-
 
     yield data.DeviceCarbonFootprint(result)
 
