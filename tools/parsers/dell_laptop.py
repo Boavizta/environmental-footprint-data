@@ -115,29 +115,31 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['add_method'] = "Dell Auto Parser"
 
     if not 'gwp_use_ratio' in extracted:
+        use_ok=False
+        manuf_ok=False
+        eol_ok=False
+        transport_ok=False
         for image in pdf.list_images(body):
             #plt.imshow(image, interpolation='nearest', ) 
             #plt.show()
             use_thsh, manuf_thsh, eol_thsh, transport_thsh, thsh = 150, 150, 150, 150, 150
-            use_block = find_text_in_image(image, re.compile('Use'), threshold=thsh)
-            manuf_block = find_text_in_image(image, re.compile(r'(M?)anufa(cturing?)'), threshold=thsh)
-            eol_block = find_text_in_image(image, re.compile(r'E(o|O)L'), threshold=thsh)
-            transport_block = find_text_in_image(image, re.compile(r'(T?)ransp(ortation?)'), threshold=thsh)
-            while (not (use_block and manuf_block and eol_block and transport_block) and thsh > 10):
+            while ((use_ok == False) and (manuf_ok == False) and (eol_ok == False) and (transport_ok == False) and thsh > 10):
                 thsh= thsh - 10
-                if not use_block:
+                if use_ok == False:
                     use_block = find_text_in_image(image, re.compile('Use'), threshold=thsh)
                     use_thsh = thsh
-                if not manuf_block:
+                if manuf_ok == False:
                     manuf_block = find_text_in_image(image, re.compile(r'(M?)anufa(cturing?)'), threshold=thsh)
                     manuf_thsh = thsh
-                if not eol_block:
-                    eol_block = find_text_in_image(image, re.compile(r'E(o|O)L'), threshold=thsh)
+                if eol_ok == False:
+                    eol_block = find_text_in_image(image, re.compile(r'E(o|O|0)L'), threshold=thsh)
                     eol_thsh = thsh
-                if not transport_block:
+                if transport_ok == False:
                     transport_block = find_text_in_image(image, re.compile(r'(T?)ransp(ortation?)'), threshold=thsh)
                     transport_thsh = thsh
-            if use_block:
+
+            if use_block and (use_ok == False):
+                use_ok=True
                 # Create an image a bit larger, especially below the text found where the number is.
                 use_image = image[
                     use_block.top - 1:use_block.top + use_block.height * 3 + 3,
@@ -151,7 +153,8 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
                 match_use = _USE_PERCENT_PATTERN.match(clean_text)
                 if match_use:
                     result['gwp_use_ratio'] = round(float(match_use.group(1))/100,3)
-            if manuf_block:
+            if manuf_block and (manuf_ok == False):
+                manuf_ok=True
                 # Create an image a bit larger, especially below the text found where the number is.
                 manuf_image = image[
                     manuf_block.top - 1:manuf_block.top + manuf_block.height * 3,
@@ -164,7 +167,8 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
                 match_manuf = _MANUF_PERCENT_PATTERN.match(clean_text)
                 if match_manuf:
                     result['gwp_manufacturing_ratio'] = round(float(match_manuf.group(1))/100,3)
-            if eol_block:
+            if eol_block and (eol_ok == False):
+                eol_ok=True
                 # Create an image a bit larger, especially below the text found where the number is.
                 eol_image = image[
                     eol_block.top - 1:eol_block.top + eol_block.height * 3 + 3,
@@ -177,7 +181,8 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
                 match_eol = _EOL_PERCENT_PATTERN.match(clean_text)
                 if match_eol:
                     result['gwp_eol_ratio'] = round(float(match_eol.group(1))/100,3)
-            if transport_block:
+            if transport_block and (transport_ok == False):
+                transport_ok=True
                 transport_image = image[
                     transport_block.top - 1:transport_block.top + transport_block.height * 3 + 3,
                     transport_block.left:transport_block.left + transport_block.width + 20,

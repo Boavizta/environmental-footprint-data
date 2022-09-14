@@ -1,7 +1,7 @@
 import csv
 import io
+from sre_compile import isstring
 from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict
-
 
 class DeviceCarbonFootprintData(TypedDict, total=False):
     """The carbon footprint data for one device model."""
@@ -18,8 +18,6 @@ class DeviceCarbonFootprintData(TypedDict, total=False):
     sources: str
     gwp_error_ratio: float
     gwp_manufacturing_ratio: float
-    gwp_transport_ratio: float
-    gwp_eol_ratio: float
     weight: float
     assembly_location: str
     screen_size: float
@@ -30,6 +28,8 @@ class DeviceCarbonFootprintData(TypedDict, total=False):
     height: int
     added_date: str
     add_method: str
+    gwp_transport_ratio: float
+    gwp_eol_ratio: float
 
 
 def _format_csv_row(row: Iterable[Any], csv_format: Literal['us', 'fr']) -> str:
@@ -80,6 +80,15 @@ class DeviceCarbonFootprint:
         """Headers to build a CSV with data."""
         return _format_csv_row(
             DeviceCarbonFootprintData.__annotations__.keys(), csv_format=csv_format)
+
+    def reorder(self) -> 'DeviceCarbonFootprint':
+        typed_data: DeviceCarbonFootprintData = {}
+        for key in DeviceCarbonFootprintData.__annotations__.keys():
+            if isstring(self.get(key)):
+                typed_data[key]=self.get(key).replace(",","").replace("\"","").replace(";","")
+            else:
+                typed_data[key]=self.get(key)
+        return DeviceCarbonFootprint(typed_data)
 
     def as_csv_row(self, csv_format: Literal['us', 'fr'] = 'us') -> str:
         """Render the CSV row corresponding to this device model."""
