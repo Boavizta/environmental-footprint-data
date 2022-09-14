@@ -52,4 +52,4 @@ class GoogleSpider(spider.BoaViztaSpider):
         """Parse a Google Product Carbon footprint document."""
         for device in google.parse(io.BytesIO(response.body), response.url):
             device.data['sources'] = response.url
-            yield device.data
+            yield device.reorder().data
