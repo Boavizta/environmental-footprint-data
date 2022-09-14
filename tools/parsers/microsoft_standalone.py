@@ -3,6 +3,7 @@
 See an example here https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-wyse-3030.pdf
 """
 
+from curses.ascii import US
 import logging
 import re
 import datetime
@@ -32,9 +33,5 @@ if re.search('http(s)*\:\/\/*.', pdf_path):
 
 with open(pdf_path, 'rb') as fh:
      for result in microsoft.parse(io.BytesIO(fh.read()), url):
-            device=result.data
-device['manufacturer'] = 'Microsoft'
-device['source']=url
-newline=device["manufacturer"] + "," + device["name"] + "," + device["category"] + "," + device["subcategory"] + "," + str(device["gwp_total"]) + "," + (str(device["gwp_use_ratio"]) if "gwp_use_ratio" in device else '') + "," + str(device["yearly_tec"]) + "," + str(device["lifetime"]) + "," + device["use_location"] + "," + device["report_date"].replace(",","") + "," + device["source"] + "," + (str(device["gwp_error_ratio"]) if "gwp_error_ratio" in device else '') + "," + (str(device["gwp_manufacturing_ratio"]) if "gwp_manufacturing_ratio" in device else '') + "," + str(device["weight"]) + "," + device["assembly_location"] + "," + str(device["screen_size"]) + ",,,,,," + device["added_date"] + "," + device["add_method"] + "," + (str(device["gwp_transport_ratio"]) if "gwp_transport_ratio" in device else '') + "," + (str(device["gwp_eol_ratio"]) if "gwp_eol_ratio" in device else '')
-print(newline)
+        print(result.as_csv_row(US))
 quit()

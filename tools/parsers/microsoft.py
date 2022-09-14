@@ -14,7 +14,7 @@ from tools.parsers.lib import text
 # A list of patterns to search in the text.
 _MS_PATTERNS = (
     re.compile(r'(Ecoprofile)|(ECOPROFILE)\s*(?P<name>.{5,30})\s*Our commitment'),
-    re.compile(r'(?P<lifetime>[a-z]+) three years of product use'),
+    re.compile(r'(?P<lifetime>[a-z]+) years of product use'),
     re.compile(r'Global warming potential\s*(?P<footprint>[0-9]*.[0-9]*)\s*kg\s*CO2.equivalent'),
     re.compile(r'Greenhouse gas emissions\s*(?P<footprint>[0-9]*.[0-9]*)\s*kg\s*CO2.equivalent'),
     re.compile(r'(?P<energy_demand>[0-9]*.[0-9]*)\s*kW[h]*\s*ENERGY STAR'),
@@ -80,7 +80,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         for block, page in pdf.search_text(body, 'Microsoft Corporation. All rights reserved'):
             date_text = page.get_textbox((block.x0 - 30, block.y0 - 10, block.x1, block.y1 * 2.1 - block.y0))
             if (date_match := _DATE_PATTERN.search(date_text)):
-                result['date'] = date_match.group(1)
+                result['report_date'] = date_match.group(1)
                 break
     for block, page in pdf.search_text(body, 'Physical features'):
         weight_text = page.get_textbox((block.x0, block.y0, block.x1 + 10, block.y1 - 30 ))
@@ -103,7 +103,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         if 'gwp_transport' in extracted:
             result['gwp_transport_ratio']=round(float(extracted['gwp_transport']) / result['gwp_total'],3)
         if 'gwp_manuf' in extracted:
-            result['gwp_manuf_ratio']=round(float(extracted['gwp_manuf']) / result['gwp_total'],3)
+            result['gwp_manufacturing_ratio']=round(float(extracted['gwp_manuf']) / result['gwp_total'],3)
     now = datetime.datetime.now()
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "Microsoft Auto Parser"
