@@ -27,7 +27,7 @@
 [Lenovo - Product Carbon Footprint](http://lenovo.com/fr/fr/compliance/eco-declaration)  
 [Lexmark - Environmental Product Declarations](https://csr.lexmark.com/env-epd.php)  
 [Logitech - Carbon Transparency reports](https://www.logitech.com/fr-fr/sustainability/carbon-transparency.html)  
-[Microsoft - Eco Profiles](https://www.microsoft.com/en-us/legal/compliance/environmental-compliance/documentation)  
+[Microsoft - Eco Profiles](https://www.microsoft.com/en-us/download/details.aspx?id=55974)  
 [Lexmark - Environmental Product Declarations](https://csr.lexmark.com/env-epd.php)  
 [Seagate - Product Sustainability Reports for Hard Drives](https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/)  
 [Seagate - Life Cycle Assessment for Extensible Storage Platform](https://www.seagate.com/files/www-content/global-citizenship/en-us/docs/lca-summary-onestor-sp-2584s-20150309.pdf)  
