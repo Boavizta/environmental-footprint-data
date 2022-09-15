@@ -13,7 +13,6 @@ from tools.parsers.lib import text
 
 # A list of patterns to search in the text.
 _MS_PATTERNS = (
-    re.compile(r'(Ecoprofile)|(ECOPROFILE)\s*(?P<name>.{5,30})\s*Our commitment'),
     re.compile(r'(?P<lifetime>[a-z]+) years of product use'),
     re.compile(r'Global warming potential\s*(?P<footprint>[0-9]*.[0-9]*)\s*kg\s*CO2.equivalent'),
     re.compile(r'Greenhouse gas emissions\s*(?P<footprint>[0-9]*.[0-9]*)\s*kg\s*CO2.equivalent'),
@@ -22,11 +21,20 @@ _MS_PATTERNS = (
     re.compile(r' Screen size\s*(?P<screen_size>[0-9]*.[0-9]*)\s*inches'),
     re.compile(r' Final manufacturing location\s*(?P<assembly_location>[A-Za-z]*)\s+'),
     re.compile(r'(?P<date>[A-Z][a-z]+(?:\s+[0-9]?[0-9],)? [0-9]{4})\s*©\s*[0-9]{4}\s*Microsoft\s*Corporatio'),
-    re.compile(r'Product use\s*\((?P<gwp_use>[0-9]*\.*[0-9]*)\skg\sCO2eq\)'),
-    re.compile(r'Manufacturing\s*\(\<?(?P<gwp_manuf>[0-9]*\.*[0-9]*)\skg\sCO2eq\)'),
-    re.compile(r'Transport\s*\(\<?(?P<gwp_transport>[0-9]*\.*[0-9]*)\skg\sCO2eq\)'),
-    re.compile(r'Disposal\s*\(\<?(?P<gwp_eol>[0-9]*\.*[0-9]*)\skg\sCO2eq\)'),
-    re.compile(r'End of life\s*\(\<?(?P<gwp_eol>[0-9]*\.*[0-9]*)\skg\sCO2eq\)')
+    re.compile(r'Product (U|u)se\s*\((?P<gwp_use>[0-9]*\.*[0-9]*)\s*%'),
+    re.compile(r'Manufacturing\s*\(\<?(?P<gwp_manuf_ratio>[0-9]*\.*[0-9]*)\s*%'),
+    re.compile(r'Production\s*\(\<?(?P<gwp_manuf_ratio>[0-9]*\.*[0-9]*)\s*%'),
+    re.compile(r'Transport(ation)?\s*\(\<?(?P<gwp_transport_ratio>[0-9]*\.*[0-9]*)\s*%'),
+    re.compile(r'Distribution\s*\(\<?(?P<gwp_transport_ratio>[0-9]*\.*[0-9]*)\s*%'),
+    re.compile(r'Disposal\s*\(\<?(?P<gwp_eol_ratio>[0-9]*\.*[0-9]*)\s*%'),
+    re.compile(r'End of (L|l)ife\s*\(\<?(?P<gwp_eol_ratio>[0-9]*\.*[0-9]*)\s*%'),
+    re.compile(r'Product (U|u)se\s*\((?P<gwp_use>[0-9]*\.*[0-9]*)\skg\sCO'),
+    re.compile(r'Manufacturing\s*\(\<?(?P<gwp_manuf>[0-9]*\.*[0-9]*)\skg\sCO'),
+    re.compile(r'Production\s*\(\<?(?P<gwp_manuf>[0-9]*\.*[0-9]*)\skg\sCO'),
+    re.compile(r'Transport(ation)?\s*\(\<?(?P<gwp_transport>[0-9]*\.*[0-9]*)\skg\sCO'),
+    re.compile(r'Distribution\s*\(\<?(?P<gwp_transport>[0-9]*\.*[0-9]*)\skg\sCO'),
+    re.compile(r'Disposal\s*\(\<?(?P<gwp_eol>[0-9]*\.*[0-9]*)\skg\sCO'),
+    re.compile(r'End of (L|l)ife\s*\(\<?(?P<gwp_eol>[0-9]*\.*[0-9]*)\skg\sCO')
 )
 
 _ENGLISH_TO_NUMERIC = {
@@ -43,6 +51,10 @@ _ENGLISH_TO_NUMERIC = {
 }
 
 _CATEGORIES = {
+    'Hub': ('Workplace', 'Monitor'),
+    'Book': ('Workplace', 'Laptop'),
+    'Laptop': ('Workplace', 'Laptop'),
+    'Studio': ('Workplace', 'Workstation'),
     'Surface': ('Workplace', 'Tablet'),
     'Xbox': ('Home', 'Gaming')
 }
@@ -62,12 +74,10 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         return
 
     # Convert each matched group to our format.
-    if 'name' in extracted:
-        result['name'] = extracted['name'].strip()
-    else:
-        first_page_text = pdf.pdf2txt(body, num_pages=1)
-        result['name'] = first_page_text\
-            .replace('ECOPROFILE', '').strip()
+    
+    first_page_text = pdf.pdf2txt(body, num_pages=1)
+    result['name'] = first_page_text\
+        .replace('ECOPROFILE', '').strip()
     for keyword, category_and_sub in _CATEGORIES.items():
         if keyword in result['name']:
             result['category'], result['subcategory'] = category_and_sub
@@ -95,15 +105,31 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             raise ValueError(f'Could not convert "{lifetime}" to a numeric value')
     if 'energy_demand' in extracted:
         result['yearly_tec'] = float(extracted['energy_demand'])
-    if 'gwp_total' in result:
-        if 'gwp_use' in extracted:
-            result['gwp_use_ratio']=round(float(extracted['gwp_use']) / result['gwp_total'],3)
-        if 'gwp_eol' in extracted:
-            result['gwp_eol_ratio']=round(float(extracted['gwp_eol']) / result['gwp_total'],3)
-        if 'gwp_transport' in extracted:
-            result['gwp_transport_ratio']=round(float(extracted['gwp_transport']) / result['gwp_total'],3)
-        if 'gwp_manuf' in extracted:
-            result['gwp_manufacturing_ratio']=round(float(extracted['gwp_manuf']) / result['gwp_total'],3)
+    if 'gwp_use_ratio' in extracted:
+        result['gwp_use_ratio']=round(float(extracted['gwp_use_ratio']) / 100,3)
+    else:
+        if 'gwp_total' in result:
+            if 'gwp_use' in extracted:
+                result['gwp_use_ratio']=round(float(extracted['gwp_use']) / result['gwp_total'],3)
+    if 'gwp_manuf_ratio' in extracted:
+        result['gwp_manufacturing_ratio']=round(float(extracted['gwp_manuf_ratio']) / 100,3)
+    else:
+        if 'gwp_total' in result:
+            if 'gwp_manuf' in extracted:
+                result['gwp_manufacturing_ratio']=round(float(extracted['gwp_manuf']) / result['gwp_total'],3)
+    if 'gwp_eol_ratio' in extracted:
+        result['gwp_eol_ratio']=round(float(extracted['gwp_eol_ratio']) / 100,3)
+    else:
+        if 'gwp_total' in result:
+            if 'gwp_eol' in extracted:
+                result['gwp_eol_ratio']=round(float(extracted['gwp_eol']) / result['gwp_total'],3)
+    if 'gwp_transport_ratio' in extracted:
+        result['gwp_transport_ratio']=round(float(extracted['gwp_transport_ratio']) / 100,3)
+    else:
+        if 'gwp_total' in result:
+            if 'gwp_transport' in extracted:
+                result['gwp_transport_ratio']=round(float(extracted['gwp_transport']) / result['gwp_total'],3)
+        
     now = datetime.datetime.now()
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "Microsoft Auto Parser"
