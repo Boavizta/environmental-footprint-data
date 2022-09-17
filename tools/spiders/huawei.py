@@ -18,6 +18,7 @@ import json
 import time
 from typing import Any, Iterator
 from urllib import parse
+from tools.parsers.lib import data
 
 import scrapy
 from scrapy import http
@@ -86,4 +87,5 @@ class HPSpider(spider.BoaViztaSpider):
         """Parse a Huwaei Product Carbon footprint document."""
         for device in huawei.parse(io.BytesIO(response.body), response.url):
             device.data['sources'] = response.url
+            device.data['sources_hash']=data.md5(io.BytesIO(response.body))
             yield device.data

@@ -16,6 +16,7 @@ import html
 import io
 import re
 from typing import Any, Iterator
+from tools.parsers.lib import data
 
 import scrapy
 from scrapy import http
@@ -52,4 +53,5 @@ class GoogleSpider(spider.BoaViztaSpider):
         """Parse a Google Product Carbon footprint document."""
         for device in google.parse(io.BytesIO(response.body), response.url):
             device.data['sources'] = response.url
+            device.data['sources_hash']=data.md5(io.BytesIO(response.body))
             yield device.reorder().data

@@ -16,6 +16,7 @@ import html
 import io
 import re
 from typing import Any, Iterator
+from tools.parsers.lib import data
 
 import scrapy
 from scrapy import http
@@ -105,6 +106,7 @@ class LenovoSpider(spider.BoaViztaSpider):
     ) -> Iterator[Any]:
         for device in lenovo.parse(io.BytesIO(response.body), response.url):
             device.data['sources'] = response.url
+            device.data['sources_hash']=data.md5(io.BytesIO(response.body))
             for keyword, category_and_sub in _CATEGORIES.items():
                 if keyword in tab_title:
                     device.data['category'], device.data['subcategory'] = category_and_sub

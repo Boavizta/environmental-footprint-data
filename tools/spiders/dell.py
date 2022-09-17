@@ -48,7 +48,7 @@ class DellSpider(spider.BoaViztaSpider):
 
     def start_requests(self):
         options = Options()
-        options.add_argument("--headless")
+        #options.add_argument("--headless")
         browser = webdriver.Chrome(options=options)
         pdfs=[]
         for url in self.start_urls:
