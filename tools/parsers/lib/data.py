@@ -1,5 +1,6 @@
 import csv
 import io
+import hashlib
 from sre_compile import isstring
 from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict
 
@@ -32,6 +33,18 @@ class DeviceCarbonFootprintData(TypedDict, total=False):
     gwp_transport_ratio: float
     gwp_eol_ratio: float
 
+def md5_file(fname):
+    hash_md5 = hashlib.md5()
+    with open(fname, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+
+def md5(pdf):
+    hash_md5 = hashlib.md5()
+    for chunk in iter(lambda: pdf.read(4096), b""):
+        hash_md5.update(chunk)
+    return hash_md5.hexdigest()
 
 def _format_csv_row(row: Iterable[Any], csv_format: Literal['us', 'fr']) -> str:
     output = io.StringIO()

@@ -7,6 +7,7 @@ import logging
 import re
 import datetime
 from typing import BinaryIO, Iterator
+import os
 
 from tools.parsers.lib import data
 from tools.parsers.lib.image import crop, find_text_in_image, image_to_text
@@ -32,5 +33,8 @@ if re.search('http(s)*\:\/\/*.', pdf_path):
 
 with open(pdf_path, 'rb') as fh:
      for result in microsoft.parse(io.BytesIO(fh.read()), url):
+        result.data['sources_hash']=data.md5_file('./tempfile.pdf')
+        result.data['sources']=url
         print(result.as_csv_row())
+os.remove('./tempfile.pdf')
 quit()

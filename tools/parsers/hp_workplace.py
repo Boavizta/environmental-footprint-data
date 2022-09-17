@@ -170,7 +170,8 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     now = datetime.datetime.now()
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "HP Auto Parser"
-    result['category'] 
+    result['manufacturer'] = "HP"
+     
 
     yield data.DeviceCarbonFootprint(result)
 

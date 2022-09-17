@@ -71,4 +71,5 @@ class DellSpider(spider.BoaViztaSpider):
         for device in dell_laptop.parse(io.BytesIO(response.body), response.url):
             device.data['manufacturer'] = "Dell"
             device.data['sources'] = response.url
+            device.data['sources_hash']=data.md5(io.BytesIO(response.body))
             yield device.reorder().data

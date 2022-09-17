@@ -79,4 +79,5 @@ class DellSpider(spider.BoaViztaSpider):
         for device in microsoft.parse(io.BytesIO(response.body), response.url):
             device.data['manufacturer'] = "Mircosoft"
             device.data['sources'] = response.url
+            device.data['sources_hash']=data.md5(io.BytesIO(response.body))
             yield device.reorder().data

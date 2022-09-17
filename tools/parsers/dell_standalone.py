@@ -7,6 +7,7 @@ import logging
 import re
 import datetime
 from typing import BinaryIO, Iterator
+import os
 
 from tools.parsers.lib import data
 from tools.parsers.lib.image import crop, find_text_in_image, image_to_text
@@ -30,11 +31,11 @@ if re.search('http(s)*\:\/\/*.', pdf_path):
     url=pdf_path
     pdf_path = "./tempfile.pdf"
 
+
 with open(pdf_path, 'rb') as fh:
      for result in dell_laptop.parse(io.BytesIO(fh.read()), url):
-            device=result.data
-device['manufacturer'] = 'Dell'
-device['source']=url
-newline=device["manufacturer"] + "," + device["name"] + "," + device["category"] + "," + device["subcategory"] + "," + str(device["gwp_total"]) + "," + (str(device["gwp_use_ratio"]) if "gwp_use_ratio" in device else '') + "," + str(device["yearly_tec"]) + "," + str(device["lifetime"]) + "," + device["use_location"] + "," + device["report_date"].replace(",","") + "," + device["source"] + "," + (str(device["gwp_error_ratio"]) if "gwp_error_ratio" in device else '') + "," + (str(device["gwp_manufacturing_ratio"]) if "gwp_manufacturing_ratio" in device else '') + "," + str(device["weight"]) + "," + device["assembly_location"] + "," + str(device["screen_size"]) + ",,,,,," + device["added_date"] + "," + device["add_method"] + "," + (str(device["gwp_transport_ratio"]) if "gwp_transport_ratio" in device else '') + "," + (str(device["gwp_eol_ratio"]) if "gwp_eol_ratio" in device else '')
-print(newline)
+        result.data['sources_hash']=data.md5_file('./tempfile.pdf')
+        result.data['sources']=url
+        print(result.as_csv_row())
+os.remove('./tempfile.pdf')
 quit()
