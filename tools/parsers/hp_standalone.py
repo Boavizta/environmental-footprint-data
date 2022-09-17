@@ -2,7 +2,6 @@
 
 See an example here https://h20195.www2.hp.com/v2/getpdf.aspx/c07779859.pdf
 """
-
 import logging
 import re
 import datetime
@@ -33,15 +32,6 @@ if re.search('http(s)*\:\/\/*.', pdf_path):
     pdf_path = "./tempfile.pdf"
 
 with open(pdf_path, 'rb') as fh:
-    for result in hp_workplace.parse(io.BytesIO(fh.read()), url):
-        device=result.data
-
-device['manufacturer'] = 'HP'
-device['category'] = 'Workplace'
-device['subcategory'] = args["category"]
-if 'date' in args:
-    device['report_date'] = args["date"]
-device['source']=url
-newline=device["manufacturer"] + "," + device["name"] + "," + device["category"] + "," + device["subcategory"] + "," + str(device["gwp_total"]) + "," + (str(device["gwp_use_ratio"]) if "gwp_use_ratio" in device else '') + "," + str(device["yearly_tec"]) + "," + str(device["lifetime"]) + "," + device["use_location"] + "," + device["report_date"].replace(",","") + "," + device["source"] + "," + (str(device["gwp_error_ratio"]) if "gwp_error_ratio" in device else '') + "," + (str(device["gwp_manufacturing_ratio"]) if "gwp_manufacturing_ratio" in device else '') + "," + str(device["weight"]) + "," + device["assembly_location"] + "," + str(device["screen_size"]) + ",,,,,," + device["added_date"] + "," + device["add_method"] + "," + (str(device["gwp_transport_ratio"]) if "gwp_transport_ratio" in device else '') + "," + (str(device["gwp_eol_ratio"]) if "gwp_eol_ratio" in device else '')
-print(newline)
+     for result in hp_workplace.parse(io.BytesIO(fh.read()), url):
+        print(result.as_csv_row())
 quit()

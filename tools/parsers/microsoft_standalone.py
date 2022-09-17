@@ -3,7 +3,6 @@
 See an example here https://i.dell.com/sites/csdocuments/CorpComm_Docs/en/carbon-footprint-wyse-3030.pdf
 """
 
-from curses.ascii import US
 import logging
 import re
 import datetime
@@ -33,5 +32,5 @@ if re.search('http(s)*\:\/\/*.', pdf_path):
 
 with open(pdf_path, 'rb') as fh:
      for result in microsoft.parse(io.BytesIO(fh.read()), url):
-        print(result.as_csv_row(US))
+        print(result.as_csv_row())
 quit()

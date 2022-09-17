@@ -16,6 +16,7 @@ class DeviceCarbonFootprintData(TypedDict, total=False):
     use_location: str
     report_date: str
     sources: str
+    sources_hash: str
     gwp_error_ratio: float
     gwp_manufacturing_ratio: float
     weight: float

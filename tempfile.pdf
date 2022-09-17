@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="fr-fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="fb:pages" content="27335728124">
+    <script>
+    	var isPDPPage = false;
+    </script>
+	
+<script type="text/javascript">
+var drBrand ="seagate";
+var ecommLocaleMap = {"ecommLocalesList":[{"ecommLocale":"pl-pl","seaLocale":"pl-pl","drLocale":"pl_PL","currency":"PLN","ecommActive":false},{"ecommLocale":"en-ca","seaLocale":"en-ca","drLocale":"en_CA","currency":"CAD","ecommActive":false},{"ecommLocale":"en-us","seaLocale":"en-us","drLocale":"en_US","currency":"USD","ecommActive":false},{"ecommLocale":"en-ie","seaLocale":"en-gb","drLocale":"en_IE","currency":"EUR","ecommActive":false},{"ecommLocale":"de-de","seaLocale":"de-de","drLocale":"de_DE","currency":"EUR","ecommActive":false},{"ecommLocale":"es-es","seaLocale":"es-es","drLocale":"es_ES","currency":"EUR","ecommActive":false},{"ecommLocale":"fr-fr","seaLocale":"fr-fr","drLocale":"fr_FR","currency":"EUR","ecommActive":false},{"ecommLocale":"en-se","seaLocale":"en-gb","drLocale":"en_IE","currency":"SEK","ecommActive":false},{"ecommLocale":"en-au","seaLocale":"en-au","drLocale":"en_AU","currency":"AUD","ecommActive":false},{"ecommLocale":"it-it","seaLocale":"it-it","drLocale":"it_IT","currency":"EUR","ecommActive":false},{"ecommLocale":"en-gb","seaLocale":"en-gb","drLocale":"en_GB","currency":"GBP","ecommActive":false}]};
+var ciLocaleMap = {"locales":[
+{'name':'pl-pl','embed':'','xml':''},{'name':'en-in','embed':'5203','xml':'5204'},{'name':'en-ca','embed':'5898','xml':'5886'},{'name':'ru-ru','embed':'4632','xml':'4641'},{'name':'en-ie','embed':'','xml':''},{'name':'fr-be','embed':'','xml':''},{'name':'pt-br','embed':'4634','xml':'4638'},{'name':'en-em','embed':'','xml':''},{'name':'tr-tr','embed':'4633','xml':'4643'},{'name':'zh-tw','embed':'','xml':''},{'name':'ja-jp','embed':'','xml':''},{'name':'fr-fr','embed':'4448','xml':'4452'},{'name':'nl-nl','embed':'','xml':''},{'name':'en-cz','embed':'','xml':''},{'name':'in-id','embed':'','xml':''},{'name':'en-sg','embed':'4631','xml':'4642'},{'name':'zh-cn','embed':'','xml':''},{'name':'en-as','embed':'','xml':''},{'name':'en-us','embed':'4399','xml':'4450'},{'name':'nl-hu','embed':'','xml':''},{'name':'es-es','embed':'5062','xml':'5063'},{'name':'en-se','embed':'','xml':''},{'name':'en-au','embed':'','xml':''},{'name':'en-dk','embed':'','xml':''},{'name':'id-id','embed':'','xml':''},{'name':'ar-em','embed':'','xml':''},{'name':'nl-be','embed':'','xml':''},{'name':'ko-kr','embed':'','xml':''},{'name':'de-de','embed':'4447','xml':'4453'},{'name':'en-ro','embed':'','xml':''},{'name':'en-lt','embed':'','xml':''},{'name':'it-it','embed':'','xml':''},{'name':'en-gb','embed':'4449','xml':'4451'},{'name':'es-la','embed':'','xml':''}
+]};
+</script>
+<script type="text/javascript">
+
+
+var wtbHostname = "http://wheretobuy.seagate.com/";
+var LacieWtbHostname = "http://wheretobuy.lacie.com/";
+
+var labels = {
+    "shop" :  "BOUTIQUE",
+  "seagate_direct_home" : "Accueil de Seagate Direct",
+  "spp_home" : "Accueil SPP",
+  "standart_model" : "Modèle standard",
+  "select_options" : "Combiner les options...",
+  "customize"    : "Personnaliser",
+  "model_numbers"  : "Références du modèle",
+  "select_drive"   : "Sélectionner un disque",
+  "model_number"  : "Référence du modèle",
+  "serial_number": "Numéro de série",
+  "do_you_own_this": "Possédez-vous ces éléments&nbsp;?",
+  "your_product": "Votre produit",
+  "get_personalized_support_experience": "Bénéficier d'une aide personnalisée",
+  "get_support_now": "Obtenir de l'aide maintenant",
+  "add_to_shortlist": "Ajouter à la liste",
+  "buy_from_seagate_online" : "Acheter sur Seagate en ligne",
+  "qty"     : "Qté",
+  "comparison_shop" : "Outil de comparaison",
+  "find_a_distributor" : "Rechercher un distributeur",
+  "find_a_store_nearby" : "Rechercher un magasin à proximité",
+  "find":"Rechercher",
+  "add_to_cart" :"Ajouter au panier",
+  "back_order" : "Livraison différée",
+  "pre_order" :"Précommande",
+    "not_available"  : "Désolé&nbsp;! Aucune option sur les tarifs et l'achat n'est actuellement disponible pour ce produit.",
+  "dr_in_stock" :"En stock",
+  "dr_out_of_stock" :"En rupture de stock",
+  "dr_back_order" :"Livraison différée",
+  "dr_pre_order" :"Précommande",
+  "back_order_desc" :"Livraison différée possible",
+       "pre_order_desc" :"Disponible en précommande",
+       "configure_and_buy" :"Configurer et acheter",
+       "none" :"Aucun",
+       "color" :"Couleur",
+  "on_sale" :"Promo",
+  "price"  : "Prix",
+  "suggested_price"  : "Prix conseillé",
+  "compare_prices"  : "Comparer les prix",
+  "unitedStates"  : "États-Unis",
+  "china"  : "Chine",
+  "compare_prices"  : "Comparer les prix",
+  "partner_offerings" : "Offres de nos partenaires",
+  "buy" : "Acheter",
+  "buy_now"  : "ACHETER MAINTENANT",
+  "not_selected"  : "Modèle non sélectionné",
+  "select_value"  : "Veuillez sélectionner une valeur pour chacune des options ci-dessus.",
+  "wait_message"  : "Récupération des informations sur les tarifs et les options d&rsquo;achat.",
+  "more_resellers"  : "Autres revendeurs",
+  "unitedStates"  : "États-Unis",
+  "china"  : "Chine",
+  "japan"  : "Japon",
+  "republicofKorea"  : "République de Corée",
+  "taiwan"  : "Taïwan",
+  "germany"  : "Allemagne",
+  "spain"  : "Espagne",
+  "france"  : "France",
+  "italy"  : "Italie",
+  "russia"  : "Russie",
+  "poland"  : "Pologne",
+  "turkey"  : "Turquie",
+  "Portugal"  : "Portugal",
+  "find_a_store_url" : "http://wheretobuy.seagate.com/",
+  "select_model" : "Sélectionnez votre modèle",
+  "model_not_selected" : "Modèle non sélectionné",
+  "select_option_value" : "Veuillez sélectionner une valeur pour chacune des options de configuration.",
+  "not_available_resellers" : "Nous ajoutons régulièrement des revendeurs, essayez avec un autre modèle ou revérifiez dans quelques temps.",
+  "not_available_seagate" : "Désolé, mais le modèle que vous avez sélectionné n'est pour l'instant pas disponible à l'achat sur Seagate.com.",
+  "show_more_resellers" : "Afficher d'autres revendeurs",
+  "buy_from_reseller" : "Acheter auprès d'un revendeur",
+  "buy_from_seagate" : "Acheter auprès de Seagate",
+  "available"  : "Disponible",
+  "unavailable"  : "Indisponible",
+  "selected"  : "Sélectionné",
+  "preorder"  : "Précommande      ",
+  "instock"  : "En stock",
+  "outofstock"  : "En rupture de stock",
+  "backorder"  : "Livraison différée",
+  "get_alert"  : "Recevoir une notification de type en stock",
+  "notavailable"  : "Non disponible						",
+  "sale"  : "VENTE",
+  "consumer_identity_url"  : "https://myportal.seagate.com/consumer-identity",
+  "consumer_util_url"  : "https://myportal.seagate.com/consumer-identity/common/consumerUtil.jsp",
+  "my_profile_url_non_consumer"  : "https://partnerreg.seagate.com/partnerprofile/myaccount.jsp",
+  "my_dashboard_url_sd"  : "https://seagatecommunity.force.com/seagatedirect/s/",
+  "my_profile_url_sd"  : "https://seagatecommunity.force.com/seagatedirect/s/myprofile",
+  "my_dashboard_url_emp"  : "https://www.seagate.com/",
+  "my_profile_url_emp"  : "https://www.seagate.com/",
+  "my_dashboard_url_supplier"  : "https://www.seagate.com/portal/site/supplier ",
+  "my_profile_url_supplier"  : "https://www.seagate.com/portal/site/supplier/myprofile",
+  "my_dashboard_url_spp"  : "https://www.seagate.com/partners/my-spp-dashboard/",
+  "my_profile_url_spp"  : "https://seagate.my.salesforce.com/apex/SPP_CompanyProfile_VF",
+  "my_dashboard_url_t2"  : "https://program.seagate.com/s",
+  "my_profile_url_t2"  : "https://program.seagate.com/s/editprofile",
+  "my_dashboard_url_ci"  : "https://myportal.seagate.com/consumer-identity/home.jsp",
+  "my_profile_url_ci"  : "https://myportal.seagate.com/consumer-identity/profile/",
+  "t2_locales"  : "",
+  "sessionCookieName"  : "OAM_GITO",
+  "login_url"  : "https://ssologin.seagate.com/oam/server/authentication",
+  "logout_url"  : "https://ssologin.seagate.com/oam/server/logout?end_url=",
+  "logout_url_ci"  : "https://myportal.seagate.com/consumer-identity/logout",
+  "partnersLoggedInUserMsg"  : "<strong>Vous êtes connecté en tant que{0} ({1}).</strong>",
+  "partnersInternalSeagateUserMsg"  : "Pour vous connecter au portail, vous devez tout d'abord vous déconnecter du compte my.seagate en cliquant sur le bouton de déconnexion ci-dessous.",
+  "get_support_now_url"  : "http://support2.seagate.com/CSO_Customer_GetSupport",
+  "resellers_only"  : "Disponible uniquement chez nos revendeurs",
+  "original"  : "Orig.",
+  "including_taxes"  : "taxes incluses",
+  "notify_me"  : "Recevoir une notification de type en stock",
+  "lacie_consumer_domain"  : "https://myportal.lacie.com",
+  "consumer_webroot"  : "consumer-identity",
+  "consumer_dashboard"  : "home.jsp",
+  "consumer_profile"  : "profile",
+  "consumer_logout"  : "logout",
+  "consumer_util"  : "common/consumerUtil.jsp",
+  "starting_at"  : "À partir de",
+  "learnMore":"En savoir plus",
+  "hideKBTab":"false",
+  "tpsccError":"No results found.",
+  "tpsccDownloadDataSheet":"Download Data Sheet",
+  "knowledge_base_ck":"knowledge_base",
+  "currency":"€ ",
+  "searchpageLoadingMessage":"La page est en cours de chargement",
+  "searchpageError":"La fonction de recherche n'est pas disponible pour l'instant, veuillez réessayer ultérieurement.",
+  "searchpageResultsReturned"  : "Résultats trouvés pour",
+  "searchpageSearchedFor"  : "Recherche pour",
+  "searchpageCorrectedSearch"  : "Affichage des résultats pour",
+  "searchpageOriginalSearch"  : "Rechercher",
+  "searchpageSelectFilters"  : "Sélectionnez des filtres +",
+  "searchpageClearAllFilters"  : "Tout effacer ",
+  "searchpageSupportLink":"Support",
+  "searchpageProductInformation":"Informations produits",
+  "searchpageLoadMore":"Charger plus de résultats",
+  "searchpageFilters":"Filtres ",
+  "searchpageApply":"Appliquer",
+  "searchpageClear":"Effacer",
+  "searchpageAllResults":"Tous les résultats",
+  "searchpageProducts":"Produits",
+  "searchpageSoftwareDownloads":"Téléchargement de logiciels",
+  "searchpageKnowledgeBase":"Base de connaissances",
+  "searchpageDocuments":"Documents",
+  "searchpageArticles":"Articles",
+  "typeaheadDocumentationHeading": "Documentation",
+  "typeaheadPopularSearchesHeading": "Recherches fréquentes",
+  "typeaheadKnowledgeBaseHeading": "Base de connaissances",
+  "typeaheadMoreIn": "En savoir plus",
+  "typeaheadSupportDownloadsHeading": "Support et téléchargements",
+  "typeaheadProductInformation": "Informations produits",
+  "typeaheadSupportLink": "Support",
+  "typeaheadSearch": "Rechercher",
+  "typeaheadPlaceholder": "Rechercher sur Seagate.com",
+  "CAPACITY_0_300" : decodeHtmlString("300&nbsp;Go ou moins"),
+  "CAPACITY_301_499" : decodeHtmlString("301&nbsp;à 499&nbsp;Go"),
+  "CAPACITY_500_999" : decodeHtmlString("500&nbsp;à 999&nbsp;Go"),
+  "CAPACITY_1000_2999" : decodeHtmlString("1&nbsp;à 2,9&nbsp;To"),
+  "CAPACITY_3000_9999999" : decodeHtmlString("Plus de 3&nbsp;To"),
+  "CAPACITY_1000_1999" : decodeHtmlString("1&nbsp;à 1,9&nbsp;To"),
+  "CAPACITY_2000_2999" : decodeHtmlString("2 à 2,9&nbsp;To"),
+  "CAPACITY_3000_3999" : decodeHtmlString("3 à 3,9&nbsp;To"),
+  "CAPACITY_4000_4999" : decodeHtmlString("4 à 4,9&nbsp;To"),
+  "CAPACITY_5000_5999" : decodeHtmlString("5&nbsp;à 5,9&nbsp;To"),
+  "CAPACITY_6000_6999" : decodeHtmlString("6 à 6,9&nbsp;To"),
+  "CAPACITY_7000_7999" : decodeHtmlString("7 à 7,9&nbsp;To"),
+  "CAPACITY_8000_8999" : decodeHtmlString("8 à 8,9&nbsp;To"),
+  "CAPACITY_9000_9999" : decodeHtmlString("9 à 9,9&nbsp;To"),
+  "CAPACITY_10000_10999" : decodeHtmlString("10&nbsp;à 10,9&nbsp;To"),
+  "CAPACITY_11000_11999" : decodeHtmlString("11 à 11,9&nbsp;To"),
+  "CAPACITY_12000_9999999" : decodeHtmlString("12&nbsp;To et plus"),
+  "CAPACITY_0_500" : decodeHtmlString("500&nbsp;Go ou moins"),
+  "CAPACITY_501_1999" : decodeHtmlString("501 à 1&nbsp;999&nbsp;Go"),
+  "CAPACITY_2000_4999" : decodeHtmlString("2 à 4,9&nbsp;To"),
+  "CAPACITY_5000_9999" : decodeHtmlString("5&nbsp;à 9,9&nbsp;To"),
+  "CAPACITY_10000_9999999" : decodeHtmlString("10&nbsp;To et plus"),
+  "CATEGORY_KEY": "Catégorie",
+  "SUBCATEGORY_KEY": "Sous-catégorie de produit",
+  "CAPACITY_KEY": "Capacité",
+  "INTERFACETECH_KEY": "Interface",
+  "SPIN_KEY": "Vitesse de rotation",
+  "FORMFACTOR_KEY": "Format",
+  "CACHESIZE_KEY": "Taille de la mémoire cache",
+  "RESET_FILTER": "RÉINITIALISER LES FILTRES",
+  "search.Products": "Produits",
+  "search.Documents": "Documents",
+  "search.Articles": "Articles",  
+  "search.NoResults": decodeHtmlString("Aucun résultat pour ce critère de recherche. Sélectionnez un autre critère."),
+  "search.SomeSuggestions": decodeHtmlString("Quelques suggestions&nbsp;:"),
+  "search.MakeSure": decodeHtmlString("Assurez-vous que tous les mots sont correctement orthographiés."),
+  "search.TryDifferent": decodeHtmlString("Essayez avec des mots clés différents."),
+  "search.TryMore": decodeHtmlString("Essayez avec des mots clés plus généraux."),
+  "wtb_selectcountry": "Pays / Région",
+  "wtb_allproducts": "Tous les produits",
+  "wtb_externaldrives": "Disques externes",
+  "wtb_internaldrives": "Disques durs internes",
+  "wtb_desktop": "Bureau",
+  "wtb_portable": "Portable",
+  "wtb_gaming": "Jeux",
+  "wtb_desktopharddrive": "Disque dur pour ordinateurs de bureau",
+  "wtb_laptopharddrive": "Disque dur pour PC portables",
+  "wtb_networkattachedstoragenasharddrive": "Disque dur de stockage en réseau (NAS)",
+  "wtb_surveillanceharddrive": "Disque dur de surveillance",
+  "wtb_enterpriseharddrive": "Disque dur d'entreprise",
+  "wtb_enterprisesolidstatedrivessd": "SSD (Solid State Drive) d'entreprise",
+  "wtb_solidstatedrivessd": "SSD",
+  "wtb_gamingstorage": "Disque de stockage pour jeux vidéo",
+  "wtb_porsche": "Porsche",
+  "wtb_rugged": "Rugged",
+  "wtb_d2": "d2",
+  "wtb_big": "big",
+  "wtb_mobiledrive": "Mobile Drive",
+  "wtb_copilot": "Copilot",
+  "wtb_mobilessd": "SSD mobile",
+  "wtb_portablessd": "SSD portable",
+  "wtb_mobiledrivemoonsilver": "Mobile Drive - Moon Silver",
+  "wtb_mobiledrivespacegray": "Mobile Drive - Space Gray",
+  "wtb_ruggedbossssd": "Rugged BOSS SSD",
+  "countryCodes": "AF|ZA|AL|DZ|DE|AD|AO|AI|AQ|AG|AN|SA|AR|AM|AW|AU|AT|AZ|BS|BH|BD|BB|BE|BZ|BJ|BM|BT|BY|MM|BO|BQ|BA|BW|BR|BN|BG|BF|BI|KH|CM|CA|CV|CL|CN|CY|CO|KM|CG|CD|KR|CR|CI|HR|CW|DK|DJ|DM|EG|SV|AE|EC|ER|ES|EE|US|ET|RU|FJ|FI|FR|GA|GM|GE|GS|GH|GI|GR|GD|GL|GP|GU|GT|GG|GN|GQ|GW|GY|GF|HT|HN|HK|HU|BV|CX|IM|MU|NF|SH|AX|KY|CC|CK|FK|FO|HM|MP|MH|UM|PN|SB|SJ|TC|VG|VI|WF|IN|ID|IQ|IE|IS|IL|IT|LY|JM|JP|JE|JO|KZ|KE|KG|KI|XK|KW|LS|LV|LB|LR|LI|LT|LU|MO|MK|MG|MY|MW|MV|ML|MT|MA|MQ|MR|YT|MX|FM|MD|MC|MN|ME|MS|MZ|NA|NR|NP|NI|NE|NG|NU|NO|NC|NZ|OM|UG|UZ|PK|PW|PA|PG|PY|NL|PE|PH|PL|PF|PR|PT|QA|CF|LA|DO|CZ|RE|RO|GB|RW|EH|VA|KN|SM|MF|PM|VC|LC|WS|AS|ST|SN|RS|SC|SL|SG|SK|SI|SO|LK|SE|CH|SR|SZ|TJ|TW|TZ|TD|TF|IO|PS|TH|TL|TG|TK|TO|TT|TN|TM|TR|TV|UA|UY|VU|VE|VN|YE|ZM|ZW",
+  "countryNames": "AFGHANISTAN|AFRIQUE DU SUD|ALBANIE|ALGÉRIE|ALLEMAGNE|ANDORRE|ANGOLA|ANGUILLA|ANTARCTIQUE|ANTIGUA-ET-BARBUDA|ANTILLES NÉERLANDAISES|ARABIE SAOUDITE|ARGENTINE|ARMÉNIE|ARUBA|AUSTRALIE|AUTRICHE|AZERBAÏDJAN|BAHAMAS|BAHREÏN|BANGLADESH|BARBADE|BELGIQUE|BELIZE|BÉNIN|BERMUDES|BHOUTAN|BIÉLORUSSIE|BIRMANIE|BOLIVIE|BONAIRE, SAINT-EUSTACHE ET SABA|BOSNIE-HERZÉGOVINE|BOTSWANA|BRÉSIL|BRUNEI DARUSSALAM|BULGARIE|BURKINA FASO|BURUNDI|CAMBODGE|CAMEROUN|CANADA|CAP-VERT|CHILI|CHINE|CHYPRE|COLOMBIE|COMORES|CONGO|CONGO, RÉPUBLIQUE DÉMOCRATIQUE DU|CORÉE, RÉPUBLIQUE DE|COSTA RICA|CÔTE D'IVOIRE|CROATIE|CURAÇAO|DANEMARK|DJIBOUTI|DOMINIQUE|ÉGYPTE|EL SALVADOR|ÉMIRATS ARABES UNIS|ÉQUATEUR|ÉRYTHRÉE|ESPAGNE|ESTONIE|ÉTATS-UNIS|ÉTHIOPIE|FÉDÉRATION DE RUSSIE|FIDJI|FINLANDE|FRANCE|GABON|GAMBIE|GÉORGIE|GÉORGIE DU SUD ET ÎLES SANDWICH DU SUD|GHANA|GIBRALTAR|GRÈCE|GRENADE|GROENLAND|GUADELOUPE|GUAM|GUATEMALA|GUERNESEY|GUINÉE|GUINÉE ÉQUATORIALE|GUINÉE-BISSAU|GUYANE|GUYANE FRANÇAISE|HAÏTI|HONDURAS|HONG KONG|HONGRIE|ÎLE BOUVET|ÎLE CHRISTMAS|ÎLE DE MAN|ÎLE MAURICE|ÎLE NORFOLK|ÎLE SAINTE-HÉLÈNE|ÎLES ALAND|ÎLES CAÏMANS|ÎLES COCOS (KEELING)|ÎLES COOK|ÎLES FALKLAND (MALOUINES)|ÎLES FÉROÉ|ÎLES HEARD ET MCDONALD|ÎLES MARIANNES DU NORD|ÎLES MARSHALL|ÎLES MINEURES ÉLOIGNÉES DES ÉTATS-UNIS|ÎLES PITCAIRN|ÎLES SALOMON|ÎLES SVALBARD ET JAN MAYEN|ÎLES TURKS-ET-CAICOS|ÎLES VIERGES BRITANNIQUES|ÎLES VIERGES DES ÉTATS-UNIS|ÎLES WALLIS ET FUTUNA|INDE|INDONÉSIE|IRAK|IRLANDE|ISLANDE|ISRAËL|ITALIE|JAMAHIRIYA ARABE LIBYENNE|JAMAÏQUE|JAPON|JERSEY|JORDANIE|KAZAKHSTAN|KENYA|KIRGHIZISTAN|KIRIBATI|KOSOVO|KOWEÏT|LESOTHO|LETTONIE|LIBAN|LIBÉRIA|LIECHTENSTEIN|LITUANIE|LUXEMBOURG|MACAO|MACÉDOINE DU NORD|MADAGASCAR|MALAISIE|MALAWI|MALDIVES|MALI|MALTE|MAROC|MARTINIQUE|MAURITANIE|MAYOTTE|MEXIQUE|MICRONÉSIE, ÉTATS FÉDÉRÉS DE|MOLDAVIE, RÉPUBLIQUE DE|MONACO|MONGOLIE|MONTÉNÉGRO|MONTSERRAT|MOZAMBIQUE|NAMIBIE|NAURU|NÉPAL|NICARAGUA|NIGER|NIGÉRIA|NIUÉ|NORVÈGE|NOUVELLE-CALÉDONIE|NOUVELLE-ZÉLANDE|OMAN|OUGANDA|OUZBÉKISTAN|PAKISTAN|PALAOS|PANAMA|PAPOUASIE-NOUVELLE-GUINÉE|PARAGUAY|PAYS-BAS|PÉROU|PHILIPPINES|POLOGNE|POLYNÉSIE FRANÇAISE|PORTO RICO|PORTUGAL|QATAR|RÉPUBLIQUE CENTRAFRICAINE|RÉPUBLIQUE DÉMOCRATIQUE LAO|RÉPUBLIQUE DOMINICAINE|RÉPUBLIQUE TCHÈQUE|RÉUNION|ROUMANIE|ROYAUME-UNI|RWANDA|SAHARA OCCIDENTAL|SAINT SIÈGE (ÉTAT DU VATICAN)|SAINT-CHRISTOPHE-ET-NIÉVÈS|SAINT-MARIN|SAINT-MARTIN|SAINT-PIERRE-ET-MIQUELON|SAINT-VINCENT-ET-LES-GRENADINES|SAINTE-LUCIE|SAMOA|SAMOA AMÉRICAINES|SÃO TOMÉ ET PRINCIPE|SÉNÉGAL|SERBIE|SEYCHELLES|SIERRA LEONE|SINGAPOUR|SLOVAQUIE|SLOVÉNIE|SOMALIE|SRI LANKA|SUÈDE|SUISSE|SURINAM|SWAZILAND|TADJIKISTAN|TAÏWAN|TANZANIE, RÉPUBLIQUE UNIE DE|TCHAD|TERRES AUSTRALES FRANÇAISES|TERRITOIRE BRITANNIQUE DE L'OCÉAN INDIEN|TERRITOIRES PALESTINIENS OCCUPÉS|THAÏLANDE|TIMOR ORIENTAL|TOGO|TOKELAU|TONGA|TRINITÉ-ET-TOBAGO|TUNISIE|TURKMÉNISTAN|TURQUIE|TUVALU|UKRAINE|URUGUAY|VANUATU|VENEZUELA|VIETNAM|YÉMEN|ZAMBIE|ZIMBABWE",
+  "countryDefault": "FR",
+  "wtb_findaretailer": "Trouver un revendeur",
+  "is_blueboard_locale": "en-us,en-ca,fr-ca",
+  "is_blueboard_emea_country": "AT,RO,DE,DZ,BH,CY,EG,IQ,JO,KW,LB,MA,OM,PS,QA,SA,AE,YE,LI,CH,GH,GR,IR,IL,KE,NG,SD,SY,AF,AX,AO,BQ,BA,BW,BV,IO,BG,HR,CW,CZ,DK,em,ER,EE,ET,FO,FK,FI,GM,GE,GI,GB,GL,GD,GG,HU,IS,IE,IM,JE,LV,LS,LR,LT,MK,MW,MT,YT,MD,ME,MS,MZ,NA,NL,AN,NO,PT,RS,SL,SK,SI,SO,ZA,GS,SS,SR,SJ,SZ,SE,TZ,TM,UG,UA,GB,UZ,VG,WF,EH,ZM,ZW,GQ,ES,AL,AD,BE,BJ,BF,BI,CM,CF,TD,KM,CG,CD,CI,DJ,FR,GF,PF,TF,GA,GP,GN,LU,MG,ML,MR,MU,MC,NC,NE,RE,RW,BL,MF,ST,SN,SC,TG,TN,IT,LY,SM,VA,PL,AM,AZ,BY,KZ,KG,RU,TJ,TR",
+  "wtb_noresellerlist": "Liste des revendeurs indisponible",
+  "selectYourCountryRegion": "SÉLECTIONNEZ VOTRE PAYS/RÉGION",
+  "wtb_storage_device": "Périphérique de stockage",
+  "wtb_enterprise_data_storage_systems": "Systèmes de stockage de données d'entreprise"
+};
+
+window.labels = {
+    "shop" :  "BOUTIQUE",
+  "seagate_direct_home" : "Accueil de Seagate Direct",
+  "spp_home" : "Accueil SPP",
+  "standart_model" : "Modèle standard",
+  "select_options" : "Combiner les options...",
+  "customize"    : "Personnaliser",
+  "model_numbers"  : "Références du modèle",
+  "select_drive"   : "Sélectionner un disque",
+  "model_number"  : "Référence du modèle",
+  "serial_number": "Numéro de série",
+  "do_you_own_this": "Possédez-vous ces éléments&nbsp;?",
+  "your_product": "Votre produit",
+  "get_personalized_support_experience": "Bénéficier d'une aide personnalisée",
+  "get_support_now": "Obtenir de l'aide maintenant",
+  "add_to_shortlist": "Ajouter à la liste",
+  "buy_from_seagate_online" : "Acheter sur Seagate en ligne",
+  "qty"     : "Qté",
+  "comparison_shop" : "Outil de comparaison",
+  "find_a_distributor" : "Rechercher un distributeur",
+  "find_a_store_nearby" : "Rechercher un magasin à proximité",
+  "find":"Rechercher",
+  "add_to_cart" :"Ajouter au panier",
+  "back_order" : "Livraison différée",
+  "pre_order" :"Précommande",
+    "not_available"  : "Désolé&nbsp;! Aucune option sur les tarifs et l'achat n'est actuellement disponible pour ce produit.",
+  "dr_in_stock" :"En stock",
+  "dr_out_of_stock" :"En rupture de stock",
+  "dr_back_order" :"Livraison différée",
+  "dr_pre_order" :"Précommande",
+  "back_order_desc" :"Livraison différée possible",
+       "pre_order_desc" :"Disponible en précommande",
+       "configure_and_buy" :"Configurer et acheter",
+       "none" :"Aucun",
+       "color" :"Couleur",
+  "on_sale" :"Promo",
+  "price"  : "Prix",
+  "suggested_price"  : "Prix conseillé",
+  "compare_prices"  : "Comparer les prix",
+  "unitedStates"  : "États-Unis",
+  "china"  : "Chine",
+  "compare_prices"  : "Comparer les prix",
+  "partner_offerings" : "Offres de nos partenaires",
+  "buy" : "Acheter",
+  "buy_now"  : "ACHETER MAINTENANT",
+  "not_selected"  : "Modèle non sélectionné",
+  "select_value"  : "Veuillez sélectionner une valeur pour chacune des options ci-dessus.",
+  "wait_message"  : "Récupération des informations sur les tarifs et les options d&rsquo;achat.",
+  "more_resellers"  : "Autres revendeurs",
+  "unitedStates"  : "États-Unis",
+  "china"  : "Chine",
+  "japan"  : "Japon",
+  "republicofKorea"  : "République de Corée",
+  "taiwan"  : "Taïwan",
+  "germany"  : "Allemagne",
+  "spain"  : "Espagne",
+  "france"  : "France",
+  "italy"  : "Italie",
+  "russia"  : "Russie",
+  "poland"  : "Pologne",
+  "turkey"  : "Turquie",
+  "Portugal"  : "Portugal",
+  "find_a_store_url" : "http://wheretobuy.seagate.com/",
+  "select_model" : "Sélectionnez votre modèle",
+  "model_not_selected" : "Modèle non sélectionné",
+  "select_option_value" : "Veuillez sélectionner une valeur pour chacune des options de configuration.",
+  "not_available_resellers" : "Nous ajoutons régulièrement des revendeurs, essayez avec un autre modèle ou revérifiez dans quelques temps.",
+  "not_available_seagate" : "Désolé, mais le modèle que vous avez sélectionné n'est pour l'instant pas disponible à l'achat sur Seagate.com.",
+  "show_more_resellers" : "Afficher d'autres revendeurs",
+  "buy_from_reseller" : "Acheter auprès d'un revendeur",
+  "buy_from_seagate" : "Acheter auprès de Seagate",
+  "available"  : "Disponible",
+  "unavailable"  : "Indisponible",
+  "selected"  : "Sélectionné",
+  "preorder"  : "Précommande      ",
+  "instock"  : "En stock",
+  "outofstock"  : "En rupture de stock",
+  "backorder"  : "Livraison différée",
+  "get_alert"  : "Recevoir une notification de type en stock",
+  "notavailable"  : "Non disponible						",
+  "sale"  : "VENTE",
+  "consumer_identity_url"  : "https://myportal.seagate.com/consumer-identity",
+  "consumer_util_url"  : "https://myportal.seagate.com/consumer-identity/common/consumerUtil.jsp",
+  "my_profile_url_non_consumer"  : "https://partnerreg.seagate.com/partnerprofile/myaccount.jsp",
+  "my_dashboard_url_sd"  : "https://seagatecommunity.force.com/seagatedirect/s/",
+  "my_profile_url_sd"  : "https://seagatecommunity.force.com/seagatedirect/s/myprofile",
+  "my_dashboard_url_emp"  : "https://www.seagate.com/",
+  "my_profile_url_emp"  : "https://www.seagate.com/",
+  "my_dashboard_url_supplier"  : "https://www.seagate.com/portal/site/supplier ",
+  "my_profile_url_supplier"  : "https://www.seagate.com/portal/site/supplier/myprofile",
+  "my_dashboard_url_spp"  : "https://www.seagate.com/partners/my-spp-dashboard/",
+  "my_profile_url_spp"  : "https://seagate.my.salesforce.com/apex/SPP_CompanyProfile_VF",
+  "my_dashboard_url_t2"  : "https://program.seagate.com/s",
+  "my_profile_url_t2"  : "https://program.seagate.com/s/editprofile",
+  "my_dashboard_url_ci"  : "https://myportal.seagate.com/consumer-identity/home.jsp",
+  "my_profile_url_ci"  : "https://myportal.seagate.com/consumer-identity/profile/",
+  "t2_locales"  : "",
+  "sessionCookieName"  : "OAM_GITO",
+  "login_url"  : "https://ssologin.seagate.com/oam/server/authentication",
+  "logout_url"  : "https://ssologin.seagate.com/oam/server/logout?end_url=",
+  "logout_url_ci"  : "https://myportal.seagate.com/consumer-identity/logout",
+  "partnersLoggedInUserMsg"  : "<strong>Vous êtes connecté en tant que{0} ({1}).</strong>",
+  "partnersInternalSeagateUserMsg"  : "Pour vous connecter au portail, vous devez tout d'abord vous déconnecter du compte my.seagate en cliquant sur le bouton de déconnexion ci-dessous.",
+  "get_support_now_url"  : "http://support2.seagate.com/CSO_Customer_GetSupport",
+  "resellers_only"  : "Disponible uniquement chez nos revendeurs",
+  "original"  : "Orig.",
+  "including_taxes"  : "taxes incluses",
+  "notify_me"  : "Recevoir une notification de type en stock",
+  "lacie_consumer_domain"  : "https://myportal.lacie.com",
+  "consumer_webroot"  : "consumer-identity",
+  "consumer_dashboard"  : "home.jsp",
+  "consumer_profile"  : "profile",
+  "consumer_logout"  : "logout",
+  "consumer_util"  : "common/consumerUtil.jsp",
+  "starting_at"  : "À partir de",
+  "learnMore":"En savoir plus",
+  "hideKBTab":"false",
+  "tpsccError":"No results found.",
+  "tpsccDownloadDataSheet":"Download Data Sheet",
+  "knowledge_base_ck":"knowledge_base",
+  "currency":"€ ",
+  "searchpageLoadingMessage":"La page est en cours de chargement",
+  "searchpageError":"La fonction de recherche n'est pas disponible pour l'instant, veuillez réessayer ultérieurement.",
+  "searchpageResultsReturned"  : "Résultats trouvés pour",
+  "searchpageSearchedFor"  : "Recherche pour",
+  "searchpageCorrectedSearch"  : "Affichage des résultats pour",
+  "searchpageOriginalSearch"  : "Rechercher",
+  "searchpageSelectFilters"  : "Sélectionnez des filtres +",
+  "searchpageClearAllFilters"  : "Tout effacer ",
+  "searchpageSupportLink":"Support",
+  "searchpageProductInformation":"Informations produits",
+  "searchpageLoadMore":"Charger plus de résultats",
+  "searchpageFilters":"Filtres ",
+  "searchpageApply":"Appliquer",
+  "searchpageClear":"Effacer",
+  "searchpageAllResults":"Tous les résultats",
+  "searchpageProducts":"Produits",
+  "searchpageSoftwareDownloads":"Téléchargement de logiciels",
+  "searchpageKnowledgeBase":"Base de connaissances",
+  "searchpageDocuments":"Documents",
+  "searchpageArticles":"Articles",
+  "typeaheadDocumentationHeading": "Documentation",
+  "typeaheadPopularSearchesHeading": "Recherches fréquentes",
+  "typeaheadKnowledgeBaseHeading": "Base de connaissances",
+  "typeaheadMoreIn": "En savoir plus",
+  "typeaheadSupportDownloadsHeading": "Support et téléchargements",
+  "typeaheadProductInformation": "Informations produits",
+  "typeaheadSupportLink": "Support",
+  "typeaheadSearch": "Rechercher",
+  "typeaheadPlaceholder": "Rechercher sur Seagate.com",
+  "CAPACITY_0_300" : decodeHtmlString("300&nbsp;Go ou moins"),
+  "CAPACITY_301_499" : decodeHtmlString("301&nbsp;à 499&nbsp;Go"),
+  "CAPACITY_500_999" : decodeHtmlString("500&nbsp;à 999&nbsp;Go"),
+  "CAPACITY_1000_2999" : decodeHtmlString("1&nbsp;à 2,9&nbsp;To"),
+  "CAPACITY_3000_9999999" : decodeHtmlString("Plus de 3&nbsp;To"),
+  "CAPACITY_1000_1999" : decodeHtmlString("1&nbsp;à 1,9&nbsp;To"),
+  "CAPACITY_2000_2999" : decodeHtmlString("2 à 2,9&nbsp;To"),
+  "CAPACITY_3000_3999" : decodeHtmlString("3 à 3,9&nbsp;To"),
+  "CAPACITY_4000_4999" : decodeHtmlString("4 à 4,9&nbsp;To"),
+  "CAPACITY_5000_5999" : decodeHtmlString("5&nbsp;à 5,9&nbsp;To"),
+  "CAPACITY_6000_6999" : decodeHtmlString("6 à 6,9&nbsp;To"),
+  "CAPACITY_7000_7999" : decodeHtmlString("7 à 7,9&nbsp;To"),
+  "CAPACITY_8000_8999" : decodeHtmlString("8 à 8,9&nbsp;To"),
+  "CAPACITY_9000_9999" : decodeHtmlString("9 à 9,9&nbsp;To"),
+  "CAPACITY_10000_10999" : decodeHtmlString("10&nbsp;à 10,9&nbsp;To"),
+  "CAPACITY_11000_11999" : decodeHtmlString("11 à 11,9&nbsp;To"),
+  "CAPACITY_12000_9999999" : decodeHtmlString("12&nbsp;To et plus"),
+  "CAPACITY_0_500" : decodeHtmlString("500&nbsp;Go ou moins"),
+  "CAPACITY_501_1999" : decodeHtmlString("501 à 1&nbsp;999&nbsp;Go"),
+  "CAPACITY_2000_4999" : decodeHtmlString("2 à 4,9&nbsp;To"),
+  "CAPACITY_5000_9999" : decodeHtmlString("5&nbsp;à 9,9&nbsp;To"),
+  "CAPACITY_10000_9999999" : decodeHtmlString("10&nbsp;To et plus"),
+  "CATEGORY_KEY": "Catégorie",
+  "SUBCATEGORY_KEY": "Sous-catégorie de produit",
+  "CAPACITY_KEY": "Capacité",
+  "INTERFACETECH_KEY": "Interface",
+  "SPIN_KEY": "Vitesse de rotation",
+  "FORMFACTOR_KEY": "Format",
+  "CACHESIZE_KEY": "Taille de la mémoire cache",
+  "RESET_FILTER": "RÉINITIALISER LES FILTRES",
+  "search.Products": "Produits",
+  "search.Documents": "Documents",
+  "search.Articles": "Articles",  
+  "search.NoResults": decodeHtmlString("Aucun résultat pour ce critère de recherche. Sélectionnez un autre critère."),
+  "search.SomeSuggestions": decodeHtmlString("Quelques suggestions&nbsp;:"),
+  "search.MakeSure": decodeHtmlString("Assurez-vous que tous les mots sont correctement orthographiés."),
+  "search.TryDifferent": decodeHtmlString("Essayez avec des mots clés différents."),
+  "search.TryMore": decodeHtmlString("Essayez avec des mots clés plus généraux."),
+  "search.results.view.search.instead": "Rechercher plutôt",
+  "wtb_selectcountry": "Pays / Région",
+  "wtb_allproducts": "Tous les produits",
+  "wtb_externaldrives": "Disques externes",
+  "wtb_internaldrives": "Disques durs internes",
+  "wtb_desktop": "Bureau",
+  "wtb_portable": "Portable",
+  "wtb_gaming": "Jeux",
+  "wtb_desktopharddrive": "Disque dur pour ordinateurs de bureau",
+  "wtb_laptopharddrive": "Disque dur pour PC portables",
+  "wtb_networkattachedstoragenasharddrive": "Disque dur de stockage en réseau (NAS)",
+  "wtb_surveillanceharddrive": "Disque dur de surveillance",
+  "wtb_enterpriseharddrive": "Disque dur d'entreprise",
+  "wtb_enterprisesolidstatedrivessd": "SSD (Solid State Drive) d'entreprise",
+  "wtb_solidstatedrivessd": "SSD",
+  "wtb_gamingstorage": "Disque de stockage pour jeux vidéo",
+  "wtb_porsche": "Porsche",
+  "wtb_rugged": "Rugged",
+  "wtb_d2": "d2",
+  "wtb_big": "big",
+  "wtb_mobiledrive": "Mobile Drive",
+  "wtb_copilot": "Copilot",
+  "wtb_mobilessd": "SSD mobile",
+  "wtb_portablessd": "SSD portable",
+  "wtb_mobiledrivemoonsilver": "Mobile Drive - Moon Silver",
+  "wtb_mobiledrivespacegray": "Mobile Drive - Space Gray",
+  "wtb_ruggedbossssd": "Rugged BOSS SSD",
+  "countryCodes": "AF|ZA|AL|DZ|DE|AD|AO|AI|AQ|AG|AN|SA|AR|AM|AW|AU|AT|AZ|BS|BH|BD|BB|BE|BZ|BJ|BM|BT|BY|MM|BO|BQ|BA|BW|BR|BN|BG|BF|BI|KH|CM|CA|CV|CL|CN|CY|CO|KM|CG|CD|KR|CR|CI|HR|CW|DK|DJ|DM|EG|SV|AE|EC|ER|ES|EE|US|ET|RU|FJ|FI|FR|GA|GM|GE|GS|GH|GI|GR|GD|GL|GP|GU|GT|GG|GN|GQ|GW|GY|GF|HT|HN|HK|HU|BV|CX|IM|MU|NF|SH|AX|KY|CC|CK|FK|FO|HM|MP|MH|UM|PN|SB|SJ|TC|VG|VI|WF|IN|ID|IQ|IE|IS|IL|IT|LY|JM|JP|JE|JO|KZ|KE|KG|KI|XK|KW|LS|LV|LB|LR|LI|LT|LU|MO|MK|MG|MY|MW|MV|ML|MT|MA|MQ|MR|YT|MX|FM|MD|MC|MN|ME|MS|MZ|NA|NR|NP|NI|NE|NG|NU|NO|NC|NZ|OM|UG|UZ|PK|PW|PA|PG|PY|NL|PE|PH|PL|PF|PR|PT|QA|CF|LA|DO|CZ|RE|RO|GB|RW|EH|VA|KN|SM|MF|PM|VC|LC|WS|AS|ST|SN|RS|SC|SL|SG|SK|SI|SO|LK|SE|CH|SR|SZ|TJ|TW|TZ|TD|TF|IO|PS|TH|TL|TG|TK|TO|TT|TN|TM|TR|TV|UA|UY|VU|VE|VN|YE|ZM|ZW",
+  "countryNames": "AFGHANISTAN|AFRIQUE DU SUD|ALBANIE|ALGÉRIE|ALLEMAGNE|ANDORRE|ANGOLA|ANGUILLA|ANTARCTIQUE|ANTIGUA-ET-BARBUDA|ANTILLES NÉERLANDAISES|ARABIE SAOUDITE|ARGENTINE|ARMÉNIE|ARUBA|AUSTRALIE|AUTRICHE|AZERBAÏDJAN|BAHAMAS|BAHREÏN|BANGLADESH|BARBADE|BELGIQUE|BELIZE|BÉNIN|BERMUDES|BHOUTAN|BIÉLORUSSIE|BIRMANIE|BOLIVIE|BONAIRE, SAINT-EUSTACHE ET SABA|BOSNIE-HERZÉGOVINE|BOTSWANA|BRÉSIL|BRUNEI DARUSSALAM|BULGARIE|BURKINA FASO|BURUNDI|CAMBODGE|CAMEROUN|CANADA|CAP-VERT|CHILI|CHINE|CHYPRE|COLOMBIE|COMORES|CONGO|CONGO, RÉPUBLIQUE DÉMOCRATIQUE DU|CORÉE, RÉPUBLIQUE DE|COSTA RICA|CÔTE D'IVOIRE|CROATIE|CURAÇAO|DANEMARK|DJIBOUTI|DOMINIQUE|ÉGYPTE|EL SALVADOR|ÉMIRATS ARABES UNIS|ÉQUATEUR|ÉRYTHRÉE|ESPAGNE|ESTONIE|ÉTATS-UNIS|ÉTHIOPIE|FÉDÉRATION DE RUSSIE|FIDJI|FINLANDE|FRANCE|GABON|GAMBIE|GÉORGIE|GÉORGIE DU SUD ET ÎLES SANDWICH DU SUD|GHANA|GIBRALTAR|GRÈCE|GRENADE|GROENLAND|GUADELOUPE|GUAM|GUATEMALA|GUERNESEY|GUINÉE|GUINÉE ÉQUATORIALE|GUINÉE-BISSAU|GUYANE|GUYANE FRANÇAISE|HAÏTI|HONDURAS|HONG KONG|HONGRIE|ÎLE BOUVET|ÎLE CHRISTMAS|ÎLE DE MAN|ÎLE MAURICE|ÎLE NORFOLK|ÎLE SAINTE-HÉLÈNE|ÎLES ALAND|ÎLES CAÏMANS|ÎLES COCOS (KEELING)|ÎLES COOK|ÎLES FALKLAND (MALOUINES)|ÎLES FÉROÉ|ÎLES HEARD ET MCDONALD|ÎLES MARIANNES DU NORD|ÎLES MARSHALL|ÎLES MINEURES ÉLOIGNÉES DES ÉTATS-UNIS|ÎLES PITCAIRN|ÎLES SALOMON|ÎLES SVALBARD ET JAN MAYEN|ÎLES TURKS-ET-CAICOS|ÎLES VIERGES BRITANNIQUES|ÎLES VIERGES DES ÉTATS-UNIS|ÎLES WALLIS ET FUTUNA|INDE|INDONÉSIE|IRAK|IRLANDE|ISLANDE|ISRAËL|ITALIE|JAMAHIRIYA ARABE LIBYENNE|JAMAÏQUE|JAPON|JERSEY|JORDANIE|KAZAKHSTAN|KENYA|KIRGHIZISTAN|KIRIBATI|KOSOVO|KOWEÏT|LESOTHO|LETTONIE|LIBAN|LIBÉRIA|LIECHTENSTEIN|LITUANIE|LUXEMBOURG|MACAO|MACÉDOINE DU NORD|MADAGASCAR|MALAISIE|MALAWI|MALDIVES|MALI|MALTE|MAROC|MARTINIQUE|MAURITANIE|MAYOTTE|MEXIQUE|MICRONÉSIE, ÉTATS FÉDÉRÉS DE|MOLDAVIE, RÉPUBLIQUE DE|MONACO|MONGOLIE|MONTÉNÉGRO|MONTSERRAT|MOZAMBIQUE|NAMIBIE|NAURU|NÉPAL|NICARAGUA|NIGER|NIGÉRIA|NIUÉ|NORVÈGE|NOUVELLE-CALÉDONIE|NOUVELLE-ZÉLANDE|OMAN|OUGANDA|OUZBÉKISTAN|PAKISTAN|PALAOS|PANAMA|PAPOUASIE-NOUVELLE-GUINÉE|PARAGUAY|PAYS-BAS|PÉROU|PHILIPPINES|POLOGNE|POLYNÉSIE FRANÇAISE|PORTO RICO|PORTUGAL|QATAR|RÉPUBLIQUE CENTRAFRICAINE|RÉPUBLIQUE DÉMOCRATIQUE LAO|RÉPUBLIQUE DOMINICAINE|RÉPUBLIQUE TCHÈQUE|RÉUNION|ROUMANIE|ROYAUME-UNI|RWANDA|SAHARA OCCIDENTAL|SAINT SIÈGE (ÉTAT DU VATICAN)|SAINT-CHRISTOPHE-ET-NIÉVÈS|SAINT-MARIN|SAINT-MARTIN|SAINT-PIERRE-ET-MIQUELON|SAINT-VINCENT-ET-LES-GRENADINES|SAINTE-LUCIE|SAMOA|SAMOA AMÉRICAINES|SÃO TOMÉ ET PRINCIPE|SÉNÉGAL|SERBIE|SEYCHELLES|SIERRA LEONE|SINGAPOUR|SLOVAQUIE|SLOVÉNIE|SOMALIE|SRI LANKA|SUÈDE|SUISSE|SURINAM|SWAZILAND|TADJIKISTAN|TAÏWAN|TANZANIE, RÉPUBLIQUE UNIE DE|TCHAD|TERRES AUSTRALES FRANÇAISES|TERRITOIRE BRITANNIQUE DE L'OCÉAN INDIEN|TERRITOIRES PALESTINIENS OCCUPÉS|THAÏLANDE|TIMOR ORIENTAL|TOGO|TOKELAU|TONGA|TRINITÉ-ET-TOBAGO|TUNISIE|TURKMÉNISTAN|TURQUIE|TUVALU|UKRAINE|URUGUAY|VANUATU|VENEZUELA|VIETNAM|YÉMEN|ZAMBIE|ZIMBABWE",
+  "countryDefault": "FR",
+  "wtb_findaretailer": "Trouver un revendeur",
+  "is_blueboard_locale": "en-us,en-ca,fr-ca",
+  "is_blueboard_emea_country": "AT,RO,DE,DZ,BH,CY,EG,IQ,JO,KW,LB,MA,OM,PS,QA,SA,AE,YE,LI,CH,GH,GR,IR,IL,KE,NG,SD,SY,AF,AX,AO,BQ,BA,BW,BV,IO,BG,HR,CW,CZ,DK,em,ER,EE,ET,FO,FK,FI,GM,GE,GI,GB,GL,GD,GG,HU,IS,IE,IM,JE,LV,LS,LR,LT,MK,MW,MT,YT,MD,ME,MS,MZ,NA,NL,AN,NO,PT,RS,SL,SK,SI,SO,ZA,GS,SS,SR,SJ,SZ,SE,TZ,TM,UG,UA,GB,UZ,VG,WF,EH,ZM,ZW,GQ,ES,AL,AD,BE,BJ,BF,BI,CM,CF,TD,KM,CG,CD,CI,DJ,FR,GF,PF,TF,GA,GP,GN,LU,MG,ML,MR,MU,MC,NC,NE,RE,RW,BL,MF,ST,SN,SC,TG,TN,IT,LY,SM,VA,PL,AM,AZ,BY,KZ,KG,RU,TJ,TR",
+  "wtb_noresellerlist": "Liste des revendeurs indisponible",
+  "selectYourCountryRegion": "SÉLECTIONNEZ VOTRE PAYS/RÉGION",
+  "wtb_storage_device": "Périphérique de stockage",
+  "wtb_enterprise_data_storage_systems": "Systèmes de stockage de données d'entreprise"
+  
+};
+
+function decodeHtmlString(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
+</script>
+    <script type="text/javascript" src="/ww/js/app/localeChooser.min.js?v=20220824" ></script>
+	<script>
+	var pgTitle = "";
+	var sppFilter = "";
+	var callSppFilter = false;
+	var UserCountryCode = "US";
+	var defaultStr = "Saisissez le nom d'un produit ou un mot clé";
+    defaultStr = defaultStr || "";
+	</script>
+
+<!-- role1 -  -->
+
+<!-- lang : -->
+<!-- country : -->
+<!-- role2 :  ||   || false || -->
+
+<!-- isUserSPPMember : false-->
+
+<!-- com.cust.contentbean.ChannelInfoMasterImpl@e7687a44 .... exos-10e2400-report -->
+
+<script type="text/javascript">
+	var rcLocaleJS = "fr-fr";
+	//define varaible isArEm for arabic project, if locale is ar-em, the value is true;
+	var isArEm = rcLocaleJS == "ar-em";
+	var spp_ProfileURL = "https://seagate.my.salesforce.com/apex/SPP_CompanyProfile_VF";
+	var gsaSite = "crawl_collection";
+	var gsaURL = "okprd1487.okla.seagate.com:8983/solr/";
+	currentCountry = getCountryForLocale(rcLocaleJS);
+	var loggedinUserName = getCookie("USERDETAIL");
+	var serverHost = "www.seagate.com";
+	var IsSppUser = "false";
+	var sppLocale = getCookie("SPPLOCALE");
+ 
+</script>
+
+<!-- pdpData  -->
+
+<script>
+var pdh_data={'collections':'product,pdh',
+		'locale':'fr-fr',
+		'start':'0',
+        'num':'10',
+        'sort':'date desc',
+        'brand':'seagate'
+		};
+</script>
+
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    
+<title>exos-10e2400-report-master-ci | Seagate France</title>
+<script> pgTitle = 'exos-10e2400-report-master-ci | Seagate France'; </script>
+
+<meta property="og:title" content="exos-10e2400-report-master-ci | Seagate France">
+<meta property="og:keywords" content="">
+<meta property="og:description"  content="">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/exos-10e2400-report/">
+<meta property="og:image" content="">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Seagate.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@seagate">
+<meta name="twitter:title" content="exos-10e2400-report-master-ci | Seagate France">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="">
+<meta name="twitter:image:alt" content="">
+
+
+<link rel="canonical" href="https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/exos-10e2400-report/" />
+
+<link rel="alternate" href="https://www.seagate.com/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="en" />
+
+<link rel="alternate" href="https://www.seagate.com/gb/en/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="en-gb" />
+
+<link rel="alternate" href="https://www.seagate.com/as/en/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="en-as" />
+
+<link rel="alternate" href="https://www.seagate.com/cn/zh/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="zh-cn" />
+
+<link rel="alternate" href="https://www.seagate.com/tw/zh/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="zh-tw" />
+
+<link rel="alternate" href="https://www.seagate.com/jp/ja/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="ja-jp" />
+
+<link rel="alternate" href="https://www.seagate.com/kr/ko/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="ko-kr" />
+
+<link rel="alternate" href="https://www.seagate.com/la/es/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="es-la" />
+
+<link rel="alternate" href="https://www.seagate.com/es/es/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="es-es" />
+
+<link rel="alternate" href="https://www.seagate.com/it/it/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="it-it" />
+
+<link rel="alternate" href="https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="fr-fr" />
+
+<link rel="alternate" href="https://www.seagate.com/tr/tr/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="tr-tr" />
+
+<link rel="alternate" href="https://www.seagate.com/pl/pl/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="pl-pl" />
+
+<link rel="alternate" href="https://www.seagate.com/ru/ru/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="ru-ru" />
+
+<link rel="alternate" href="https://www.seagate.com/de/de/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="de-de" />
+
+<link rel="alternate" href="https://www.seagate.com/br/pt/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="pt-br" />
+
+<link rel="alternate" href="https://www.seagate.com/in/en/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="en-in" />
+
+<link rel="alternate" href="https://www.seagate.com/sg/en/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="en-sg" />
+
+<link rel="alternate" href="https://www.seagate.com/au/en/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="en-au" />
+
+<link rel="alternate" href="https://www.seagate.com/em/en/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="en-em" />
+
+<link rel="alternate" href="https://www.seagate.com/id/id/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="id-id" />
+
+<link rel="alternate" href="https://www.seagate.com/ca/en/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="en-ca" />
+
+<link rel="alternate" href="https://www.seagate.com/nl/nl/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="nl-nl" />
+
+<link rel="alternate" href="https://www.seagate.com/ca/fr/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="fr-ca" />
+
+<link rel="alternate" href="https://www.seagate.com/be/nl/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="nl-be" />
+
+<link rel="alternate" href="https://www.seagate.com/be/fr/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="fr-be" />
+
+<link rel="alternate" href="https://www.seagate.com/pt/pt/global-citizenship/product-sustainability/exos-10e2400-report/" hreflang="pt-pt" />
+
+    <script type="text/javascript">
+	  var currentLocale, currentCountry, currentLanguage;
+	  var homePageBannerFlash='';
+	  if (typeof(setLocaleOnLoad) == "function") {
+		  setLocaleOnLoad();
+	  } else {
+		  currentLocale = "en-us";
+	      currentCountry = "us";
+	  }
+	  var loginVar = {
+	    'smUserDn' : '',
+	    'userName' : ''
+	  };
+	  var httpsURL = "https://www.seagate.com";
+	  var serverHost = "www.seagate.com";
+	</script>
+    <!-- Styles -->
+	<link href="/ww/redesign/css/stx-external.css?v=20220824" rel="stylesheet">
+    <link href="/ww/universal/css/conflict.css?v=20220824" rel="stylesheet">
+    <link href="/ww/universal/css/stx-bootstrap-min.css?v=20220824" rel="stylesheet">
+    <link href="/www-content/redesign/redesign.css?v=20220824" rel="stylesheet">
+    
+	
+
+
+
+<link href="/ww/universal/css/stx-bootstrap-responsive-min.css" rel="stylesheet" type="text/css" />
+
+    <!--[if IE 8]><link href="/ww/universal/css/styles_ie8.css?v=20220824" rel="stylesheet"><![endif]-->
+	<!--[if IE 9]><link href="/ww/universal/css/styles_ie9.css?v=20220824" rel="stylesheet"><![endif]-->	
+	
+	<link rel="canonical" href="https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/exos-10e2400-report/"/>
+        
+    <script>
+        var _console = window.console;
+        var www = JSON.parse('{"rclocale":"fr_FR","LOCALE_COOKIE_NAME_PERMANENT":"permanentLocaleCookie","locale":"fr-fr","defaultdomianforCookie":".seagate.com","LOCALE_COOKIE_NAME_TEMP":"userSelectedLocaleCookie"}');
+    </script>
+      
+    <script src="/ww/redesign/js/www.js?v=20220824"></script>
+    <script src="/ww/redesign/js/iife/minified.js?v=20220824"></script>
+    <script src="/ww/redesign/js/iife/fetch.umd.js?v=20220824"></script>
+    
+<!-- Google Tag Manager -->
+<script> dataLayer = [];
+</script>
+
+	<script>var googleTagManagerCode = "GTM-TLTHSGL";</script> 
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer',googleTagManagerCode);</script>
+<!-- End Google Tag Manager -->
+
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/ww/universal/js/html5.js?v=20220824"></script>
+    <![endif]-->
+     <!-- Adding Metadata tags for Facets -->	
+
+
+
+	
+    <script>
+        window.dataLayer.push({
+            'stxContentTags': {
+                'assetType': 'not-defined',
+                'campaignType': 'not-defined',
+                'productFamily': 'not-defined',
+                'useCase': 'not-defined',
+                'vertical': 'not-defined'
+            }
+        });
+    </script>
+ <!-- Begin insert headerCode from Channel Info Child -->	<style type="text/css" media="print">
+    div.page {
+        page-break-after: always;
+        page-break-inside: avoid;
+    }
+
+</style>
+
+<style>
+    @media (max-width:767px) {
+        .round-text {
+            padding-bottom: 29%!important;
+            padding-top: 22%!important;
+            text-align: center!important;
+            padding-right: 50%!important;
+        }
+
+        .round-img1 ,
+		.round-img2 ,
+		.round-img3 ,
+		.round-img4   {
+            background-size: 50%!important;
+        }
+
+       
+    }
+
+    @media (max-width: 979px) and (min-width: 768px) {
+        .round-text {
+            padding-bottom: 47%!important;
+            padding-top: 44%!important;
+            text-align: center!important;
+            padding-right: 2%!important;
+        }
+
+        .round-img1 ,
+		.round-img2 ,
+		.round-img3 ,
+		.round-img4  {
+            background-size: 100%!important;
+        }
+
+    }
+
+    .round-text {
+        padding-bottom: 41%;
+        padding-top: 37%;
+        text-align: center;
+        padding-right: 12%;
+    }
+
+
+    .round-img1 {
+        background-image: url(/www-content/global-citizenship/_shared/product-sustainability/exos-10e2400/exos-10e2400-gas-emissions-357x357.jpg);
+        background-repeat: no-repeat;
+        background-size: 87%;
+    }
+
+    .round-img2 {
+        background-image: url(/www-content/global-citizenship/_shared/product-sustainability/exos-10e2400/exos-10e2400-human-toxicity-357x357.jpg);
+        background-repeat: no-repeat;
+        background-size: 87%;
+    }
+
+    .round-img3 {
+        background-image: url(/www-content/global-citizenship/_shared/product-sustainability/exos-10e2400/exos-10e2400-metal-depletion-357x357.jpg);
+        background-repeat: no-repeat;
+        background-size: 87%;
+    }
+	
+	.round-img4 {
+        background-image: url(/www-content/global-citizenship/_shared/product-sustainability/exos-10e2400/exos-10e2400-water-depletion-357x357.jpg);
+        background-repeat: no-repeat;
+        background-size: 87%;
+    }
+
+    .custom-table {
+        border-collapse: collapse!important;
+        width: 100%!important;
+    }
+
+    #Slogo {
+        margin-bottom: 20%;
+    }
+
+    #print-report {
+        margin-left: 16%;
+    }
+
+    @media (max-width: 767px) {
+        #print-report {
+            margin-left: 1%!important;
+        }
+    }
+ .center {
+        text-align: center;
+    }
+</style>	<!-- End insert headerCode from Channel Info Child --> </head> <body>
+<!-- Google Tag Manager (noscript) -->
+
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLTHSGL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+<!-- End Google Tag Manager (noscript) -->
+    	<!--   <div class="wrapper nav-header-wrapper">
+    		<div class="container">
+		       	<div class="row">
+		       		<div id="r-nav-header" class="r-nav-header span12"> -->
+		               	
+
+<header>
+<div class="ShyNav-shim"></div>
+<div class="ShyNav" data-shy-nav>
+	<div class="SecondaryNav">
+		<div class="Container Container-row">
+			<div class="SecondaryNav-items">
+				
+				<button class="SecondaryNav-region" data-micromodal-trigger="modal-locale-selector">
+	            	<img src="/ww/redesign/assets/globe.svg" alt="Region Select">
+	            	<span class="currentCountryText"></span>
+	            </button>
+	            <a href='/fr/fr/resources/' class=' SecondaryNav-link gtm-nav-header'>Centre de ressources</a><a href='/fr/fr/blog/' class=' SecondaryNav-link gtm-nav-header'>Blog</a><a href='/fr/fr/open-source/' class=' SecondaryNav-link gtm-nav-header'>Open Source</a><a href='/fr/fr/partner-programs/' class=' SecondaryNav-link gtm-nav-header'>Partenaires</a>
+	            
+				<button class="SecondaryNav-link" data-micromodal-trigger="login">Connexion</button>	
+				<button class="Search-button" type="button" data-search-trigger>
+	              <i class="Search-button-icon">Search</i>
+	            </button>
+	            
+			</div>
+		</div>
+	</div>
+	
+	<div class="Search" data-search>
+	    <div class="Search-input">
+	        <form class="Container Container--row">
+	            <input type="text" class="Search-input-keyword" placeholder="Que recherchez-vous ?" tabindex="0" data-search-input aria-label="Que recherchez-vous ?">
+	            <input type="reset" class="Search-input-clear" value="×">
+	        </form>
+	    </div>
+	    <div class="Search-results">
+	        <div class="Container Container--row">
+	            <div class="Search-results-main">
+	                <div class="Search-results-container" data-search-results="products">
+	                    <h6 class="Search-results-title h6">Produits</h6>
+	                    <a class="Search-results-featured" href="#" style="display: none;">
+						    <img class="Search-results-featured-background" src="">
+						    <div class="Search-results-featured-inner">
+						        <img class="Search-results-featured-icon" src="" alt="">
+						        <div class="Search-results-featured-copy">
+						            <div class="Button Button-tertiary Button-tertiary--inverted"></div>
+						            <p class="copy"></p>
+						        </div>
+						    </div>
+						</a>
+	                </div>
+	            </div>
+	            <div class="Search-results-secondary">
+	                <div class="Search-results-container" data-search-results="knowledge">
+	                    <h6 class="Search-results-title h6">Base de connaissances</h6>
+	                </div>
+	                <div class="Search-results-container" data-search-results="downloads">
+	                    <h6 class="Search-results-title h6">Support et téléchargements</h6>
+	                </div>
+	                <div class="Search-results-container" data-search-results="articles">
+	                    <h6 class="Search-results-title h6">Articles</h6>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="Search-suggestions Container Container--row">
+	            <h6 class="Search-results-title h6" style="text-transform: capitalize;">suggestions de recherche</h6>
+	            <div class="Search-suggestions-list"></div>
+	        </div>
+	    </div>
+	</div>
+	
+	
+	
+	<nav class="PrimaryNav">
+		<div class="Container Container--row" style="justify-content: flex-start;">
+			<a class="PrimaryNav-logo" href="/fr/fr"><img class="PrimaryNav-logo" src="/ww/redesign/assets/seagate-logo-text.svg" alt="Seagate Logo"></a>
+			
+			<div class="PrimaryNav-links">
+				
+							<button class="PrimaryNav-link gtm-nav-header" data-navigationmenu-section="981bf46b64894710VgnVCM1000003d88040aRCRD">Produits</button>	
+							<button class="PrimaryNav-link gtm-nav-header" data-navigationmenu-section="f0daf46b64894710VgnVCM1000003d88040aRCRD">Solutions</button>	
+							<button class="PrimaryNav-link gtm-nav-header" data-navigationmenu-section="956bf46b64894710VgnVCM1000003d88040aRCRD">Innovation</button>	
+							<button class="PrimaryNav-link gtm-nav-header" data-navigationmenu-section="3deaf46b64894710VgnVCM1000003d88040aRCRD">Support</button>	
+							<button class="PrimaryNav-link gtm-nav-header" data-navigationmenu-section="667c1e422368b710VgnVCM100000d538a8c0RCRD">À propos</button>	
+			</div>
+			<div class="Search-button" data-search-trigger>
+              	<i class="Search-button-icon"></i>
+            </div>
+			<button class="PrimaryNav-menu-trigger" data-mobilemenu-trigger>
+				<div class="PrimaryNav-menu-trigger-inner">Menu</div>
+			</button>
+		</div>
+	
+		
+			
+			<section class="NavigationMenu" data-navigationmenu="981bf46b64894710VgnVCM1000003d88040aRCRD">
+				
+				<div class="NavigationMenu-separator">
+					<div class="Container">
+						<h5 class="h5">Produits</h5>
+						<div class="NavigationMenu-tabs">
+							
+								<button class="NavigationMenu-tab Button-secondary is-active" data-id="630bf46b64894710VgnVCM1000003d88040aRCRD" data-navigationmenu-tab="630bf46b64894710VgnVCM1000003d88040aRCRD">Cloud, périphérie et centre de données</button>	
+								<button class="NavigationMenu-tab Button-secondary " data-id="0dabf46b64894710VgnVCM1000003d88040aRCRD" data-navigationmenu-tab="0dabf46b64894710VgnVCM1000003d88040aRCRD">Disques spécialisés</button>	
+								<button class="NavigationMenu-tab Button-secondary " data-id="fddbf46b64894710VgnVCM1000003d88040aRCRD" data-navigationmenu-tab="fddbf46b64894710VgnVCM1000003d88040aRCRD">Personal Storage</button>		</div>	</div>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row is-active" data-navigationmenu-content="630bf46b64894710VgnVCM1000003d88040aRCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/products/cloud/lyve-mass-storage-platform/' class=' Button Button-tertiary gtm-nav-header'>Lyve&nbsp;: plate-forme de stockage de masse de la périphérie vers le cloud <i class="Button-arrow"></i></a><p class="copy copy-small">Palliez le coût et la complexité du stockage, du transfert et de l&rsquo;activation des données à grande échelle. </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<p class=' Button Button-tertiary gtm-nav-header NavigationMenu-linkHeading'>Services</p><a href='/fr/fr/services/cloud/storage/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Lyve Cloud&nbsp;: système de stockage d'objets conçu pour le multicloud </a><a href='/fr/fr/services/data/data-migration/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Lyve Managed Migration Services</a><a href='/fr/fr/products/data-transport/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Lyve Mobile&nbsp;: transfert de données en tant que service</a>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<p class=' Button Button-tertiary gtm-nav-header NavigationMenu-linkHeading'>Logiciels</p><a href='/fr/fr/products/storage/object-storage-software/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>CORTX&nbsp;: Logiciel de stockage d'objets intelligent</a>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<p class=' Button Button-tertiary gtm-nav-header NavigationMenu-linkHeading'>Matériel</p><a href='/fr/fr/products/data-transport/lyve-drive-shuttle/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Lyve Mobile&nbsp;Shuttle</a><a href='/fr/fr/products/data-transport/lyve-mobile-array/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Lyve Mobile Array</a><a href='/fr/fr/products/storage/object-storage-solutions/lyve-drive-rack/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Lyve Rack&nbsp;: infrastructure convergée de stockage d'objets S3</a><a href='/fr/fr/products/storage/data-storage-systems/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Systèmes de stockage des données</a><a href='/fr/fr/products/enterprise-drives/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Disques d'entreprise </a>	</div>	</div><a href='/fr/fr/news/news-archive/zoom-selects-seagates-lyve-cloud-master-pr/' class=' NavigationMenu-card gtm-nav-header'><img src='/www-content/global-nav-2020/primary-nav/solutions/lyve-cloud_zoom-partnership-social-media-350x460.jpg' alt='lyve-cloud_zoom-partnership-social-media-350x460.jpg'>
+									<h3 class="h3">Zoom Selects Seagate’s Lyve Cloud for S3 Storage as a Service</h3>
+									<p class="Button Button-tertiary--inverted">
+										Learn More <i class="Button-arrow"></i>
+									</p>
+								</a>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row " data-navigationmenu-content="0dabf46b64894710VgnVCM1000003d88040aRCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/products/gaming-drives/' class=' Button Button-tertiary gtm-nav-header'>Disques durs et SSD de jeu <i class="Button-arrow"></i></a><p class="copy copy-small">Trouvez des disques de jeu fiables pour PlayStation, Xbox et PC. </p><a href='/fr/fr/products/gaming-drives/xbox-gaming/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Xbox</a><a href='/fr/fr/products/gaming-drives/playstation-gaming/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>PlayStation </a><a href='/fr/fr/products/gaming-drives/pc-gaming/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Jeux sur PC </a><a href='/fr/fr/products/gaming-drives/special-editions/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Disques en édition spéciale </a>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/products/nas-drives/' class=' Button Button-tertiary gtm-nav-header'>NAS<i class="Button-arrow"></i></a><a href='/fr/fr/products/nas-drives/ironwolf-hard-drive/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Disques durs IronWolf</a><a href='/fr/fr/products/nas-drives/ironwolf-ssd/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>SSD IronWolf</a>	</div>	</div><div class='NavigationMenu-linkGroups column-3'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/internal-hard-drives/surveillance/' class=' Button Button-tertiary gtm-nav-header'>Analyse vidéo<i class="Button-arrow"></i></a><a href='/fr/fr/products/surveillance-drives/skyhawk-hard-drive/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Disques durs SkyHawk</a>	</div>	</div>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row " data-navigationmenu-content="fddbf46b64894710VgnVCM1000003d88040aRCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/products/external-hard-drives/' class=' Button Button-tertiary gtm-nav-header'>Disques externes<i class="Button-arrow"></i></a><a href='/fr/fr/products/external-hard-drives/ultra-touch-external-drives/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Gamme Ultra&nbsp;Touch</a><a href='/fr/fr/products/external-hard-drives/one-touch-external-drives/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Gamme One&nbsp;Touch</a><a href='/fr/fr/products/external-hard-drives/expansion-external-drives/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Expansion</a><a href='/fr/fr/consumer/backup/barracuda-fast-ssd/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>BarraCuda Fast SSD</a><a href='/fr/fr/consumer/backup/backup-plus/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Backup&nbsp;Plus</a><a href='/fr/fr/products/external-hard-drives/basic-external-hard-drive/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Basic</a><a href='/fr/fr/consumer/backup/backup-plus-desk/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Backup Plus Hub</a>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/products/hard-drives/' class=' Button Button-tertiary gtm-nav-header'>Montée en gamme de PC<i class="Button-arrow"></i></a><a href='/fr/fr/products/hard-drives/barracuda-hard-drive/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>BarraCuda&nbsp;HDD</a><a href='/fr/fr/products/hard-drives/barracuda-qlc-ssd/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>BarraCuda QLC SSD</a>	</div>	</div><a href='/fr/fr/consumer/backup/one-touch-ssd/' class=' NavigationMenu-card gtm-nav-header'><img src='/www-content/global-nav-2020/primary-nav/products/personal/2020_Website-Redesign_Global-Nav-Images_One-Touch-SSD.jpg' alt='2020_Website-Redesign_Global-Nav-Images_One-Touch-SSD.jpg'>
+									<h3 class="h3">Petit, mais costaud.</h3>
+									<p class="Button Button-tertiary--inverted">
+										En savoir plus <i class="Button-arrow"></i>
+									</p>
+								</a>	</div>	
+					<div class="NavigationMenu-wideCallout">
+						
+							<div class="Container Container--row is-active" data-navigationmenu-callout="630bf46b64894710VgnVCM1000003d88040aRCRD">
+					            <a href='/services/cloud/storage/' class=' Button Button-secondary--inverted gtm-nav-header'>Lyve&nbsp;Cloud<i class="Button-arrow"></i>
+								</a>
+								<p class="copy">Un cloud facile, disponible en périphérie de réseau urbain </p> </div>		</div>		</section>	
+			
+			<section class="NavigationMenu" data-navigationmenu="f0daf46b64894710VgnVCM1000003d88040aRCRD">
+				
+				<div class="NavigationMenu-separator">
+					<div class="Container">
+						<h5 class="h5">Solutions</h5>
+						<div class="NavigationMenu-tabs">
+							
+								<button class="NavigationMenu-tab Button-secondary is-active" data-id="a19af46b64894710VgnVCM1000003d88040aRCRD" data-navigationmenu-tab="a19af46b64894710VgnVCM1000003d88040aRCRD">Par cas d'utilisation</button>	
+								<button class="NavigationMenu-tab Button-secondary " data-id="ce680afb233b7710VgnVCM1000003d88040aRCRD" data-navigationmenu-tab="ce680afb233b7710VgnVCM1000003d88040aRCRD">Par environnement</button>	
+								<button class="NavigationMenu-tab Button-secondary " data-id="1e89f46b64894710VgnVCM1000003d88040aRCRD" data-navigationmenu-tab="1e89f46b64894710VgnVCM1000003d88040aRCRD">Par partenaire</button>	
+								<button class="NavigationMenu-tab Button-secondary " data-id="06eaf46b64894710VgnVCM1000003d88040aRCRD" data-navigationmenu-tab="06eaf46b64894710VgnVCM1000003d88040aRCRD">Par secteur</button>		</div>	</div>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row is-active" data-navigationmenu-content="a19af46b64894710VgnVCM1000003d88040aRCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/backup/backup-and-recovery/' class=' Button Button-tertiary gtm-nav-header'>Sauvegarde et restauration<i class="Button-arrow"></i></a><p class="copy copy-small">Garantissez la continuité des activités grâce à une protection des données innovante</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/data/big-data/' class=' Button Button-tertiary gtm-nav-header'>Analyse de Big Data (AI/ML)<i class="Button-arrow"></i></a><p class="copy copy-small">Choisissez un stockage optimisé pour les environnements à capacité élevée pour vos charges d'analyse</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/cloud/cloud-backup/' class=' Button Button-tertiary gtm-nav-header'>Sauvegarde dans le cloud<i class="Button-arrow"></i></a><p class="copy copy-small">Activez les sauvegardes afin d'améliorer la sécurité, l'efficacité et la conformité des données</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/services/data/data-migration/' class=' Button Button-tertiary gtm-nav-header'>Migration de données<i class="Button-arrow"></i></a><p class="copy copy-small">Valorisez vos anciens contenus grâce aux services de migration gérée</p>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/services/data/data-transfer/' class=' Button Button-tertiary gtm-nav-header'>Transfert des données <i class="Button-arrow"></i></a><p class="copy copy-small">La capacité adaptée à tous les transferts de données </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/edge/edge-storage/' class=' Button Button-tertiary gtm-nav-header'>Périphérie<i class="Button-arrow"></i></a><p class="copy copy-small">Déployez des solutions de stockage et de transfert des données économiques à la périphérie </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/high-performance-computing/' class=' Button Button-tertiary gtm-nav-header'>Solutions de calcul hautes performances (HPC)<i class="Button-arrow"></i></a><p class="copy copy-small">Maximisez les performances pour gérer les charges de travail intensives</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/cloud/multicloud/' class=' Button Button-tertiary gtm-nav-header'>Multicloud<i class="Button-arrow"></i></a><p class="copy copy-small">Transférez, stockez et affichez les données de plusieurs environnements multicloud </p>	</div>	</div><div class='NavigationMenu-linkGroups column-3'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/cloud/private-cloud/' class=' Button Button-tertiary gtm-nav-header'>Cloud privé<i class="Button-arrow"></i></a><p class="copy copy-small">Réduisez sensiblement votre coût total de possession grâce à un stockage cloud sécurisé et évolutif</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/cloud/public-cloud/' class=' Button Button-tertiary gtm-nav-header'>Cloud public<i class="Button-arrow"></i></a><p class="copy copy-small">Solutions de stockage de données offrant la prévisibilité des coûts et la flexibilité du cloud</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/services/cloud/storage/' class=' Button Button-tertiary gtm-nav-header'>Stockage en tant que service<i class="Button-arrow"></i></a><p class="copy copy-small">Un cloud facile, disponible en périphérie de réseau urbain </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/video-surveillance/' class=' Button Button-tertiary gtm-nav-header'>Analyse vidéo<i class="Button-arrow"></i></a><p class="copy copy-small">Bénéficiez d&rsquo;informations précieuses pour vos vidéos et analyses de la périphérie au cloud.</p>	</div>	</div><a href='/fr/fr/news/news-archive/zoom-selects-seagates-lyve-cloud-master-pr/' class=' NavigationMenu-card gtm-nav-header'><img src='/www-content/global-nav-2020/primary-nav/solutions/lyve-cloud_zoom-partnership-social-media-350x460.jpg' alt='lyve-cloud_zoom-partnership-social-media-350x460.jpg'>
+									<h3 class="h3">Zoom Selects Seagate’s Lyve Cloud for S3 Storage as a Service</h3>
+									<p class="Button Button-tertiary--inverted">
+										Learn More <i class="Button-arrow"></i>
+									</p>
+								</a>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row " data-navigationmenu-content="ce680afb233b7710VgnVCM1000003d88040aRCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/edge/edge-storage/' class=' Button Button-tertiary gtm-nav-header'>Périphérie<i class="Button-arrow"></i></a><p class="copy copy-small">Déployez des solutions de stockage et de transfert des données économiques à la périphérie </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/cloud/multicloud/' class=' Button Button-tertiary gtm-nav-header'>Multicloud<i class="Button-arrow"></i></a><p class="copy copy-small">Transférez, stockez et affichez les données de plusieurs environnements multicloud </p>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/cloud/private-cloud/' class=' Button Button-tertiary gtm-nav-header'>Cloud privé<i class="Button-arrow"></i></a><p class="copy copy-small">Réduisez sensiblement votre coût total de possession grâce à un stockage cloud sécurisé et évolutif</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/cloud/public-cloud/' class=' Button Button-tertiary gtm-nav-header'>Cloud public<i class="Button-arrow"></i></a><p class="copy copy-small">Solutions de stockage de données offrant la prévisibilité des coûts et la flexibilité du cloud</p>	</div>	</div><a href='/fr/fr/news/news-archive/zoom-selects-seagates-lyve-cloud-master-pr/' class=' NavigationMenu-card gtm-nav-header'><img src='/www-content/global-nav-2020/primary-nav/solutions/lyve-cloud_zoom-partnership-social-media-350x460.jpg' alt='lyve-cloud_zoom-partnership-social-media-350x460.jpg'>
+									<h3 class="h3">Zoom Selects Seagate’s Lyve Cloud for S3 Storage as a Service</h3>
+									<p class="Button Button-tertiary--inverted">
+										Learn More <i class="Button-arrow"></i>
+									</p>
+								</a>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row " data-navigationmenu-content="1e89f46b64894710VgnVCM1000003d88040aRCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/ardis/' class=' Button Button-tertiary gtm-nav-header'>Ardis<i class="Button-arrow"></i></a><p class="copy copy-small">Évitez toute interruption des flux de travail multimédias critiques</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/equinix/' class=' Button Button-tertiary gtm-nav-header'>Equinix<i class="Button-arrow"></i></a><p class="copy copy-small">Stockage facile en tant que service, en périphérie de réseau urbain</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/intel/' class=' Button Button-tertiary gtm-nav-header'>Intel<i class="Button-arrow"></i></a><p class="copy copy-small">Répondez aux défis inhérents aux données grâce à des solutions de stockage professionnelles d'avant-garde</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/networkoptix/' class=' Button Button-tertiary gtm-nav-header'>Network Optix <i class="Button-arrow"></i></a><p class="copy copy-small">Des solutions centralisées haute densité adaptées à vos besoins de vidéosurveillance </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/platina/' class=' Button Button-tertiary gtm-nav-header'>Platina<i class="Button-arrow"></i></a><p class="copy copy-small">Créez des archives actives économiques</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/rubrik/' class=' Button Button-tertiary gtm-nav-header'>Rubrik<i class="Button-arrow"></i></a><p class="copy copy-small">Gérez et protégez facilement d'énormes quantités de données grâce à une solution cloud native globale</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/veritas/' class=' Button Button-tertiary gtm-nav-header'>Veritas <i class="Button-arrow"></i></a><p class="copy copy-small">Stockage évolutif, fiable et sécurisé, garant de sauvegardes et de récupérations rapides </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/zadara/' class=' Button Button-tertiary gtm-nav-header'>Zadara<i class="Button-arrow"></i></a><p class="copy copy-small">Déployez des ressources de calcul pour les charges de travail liées aux données dans Lyve&nbsp;Cloud.</p>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/cohesity/' class=' Button Button-tertiary gtm-nav-header'>Cohesity<i class="Button-arrow"></i></a><p class="copy copy-small">Simplifiez les sauvegardes, la conservation des données à long terme et la reprise après sinistre</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/genetec/' class=' Button Button-tertiary gtm-nav-header'>Genetec <i class="Button-arrow"></i></a><p class="copy copy-small">Stockage de gestion vidéo centralisé et performant  </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/milestone/' class=' Button Button-tertiary gtm-nav-header'>Milestone<i class="Button-arrow"></i></a><p class="copy copy-small">Bénéficiez de solutions de stockage centralisées, sécurisées et évolutives</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/ni/' class=' Button Button-tertiary gtm-nav-header'>NI<i class="Button-arrow"></i></a><p class="copy copy-small">Architecture de bout en bout pour la collecte, le transfert et le stockage de données. </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/qnap/' class=' Button Button-tertiary gtm-nav-header'>QNAP<i class="Button-arrow"></i></a><p class="copy copy-small">Solutions de stockage offrant une capacité immense, une densité élevée et des fonctions de gestion efficaces</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/tiger-technology/' class=' Button Button-tertiary gtm-nav-header'>Tiger Technology <i class="Button-arrow"></i></a><p class="copy copy-small">  Augmentez facilement votre capacité de stockage en local dans un environnement multi-niveaux.</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/vmware/' class=' Button Button-tertiary gtm-nav-header'>VMware<i class="Button-arrow"></i></a><p class="copy copy-small">Stockage de données hautes performances et évolutif pour machines virtuelles</p>	</div>	</div><div class='NavigationMenu-linkGroups column-3'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/commvault/' class=' Button Button-tertiary gtm-nav-header'>Commvault<i class="Button-arrow"></i></a><p class="copy copy-small">Stockage des sauvegardes modulaire et évolutif</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/ibm/' class=' Button Button-tertiary gtm-nav-header'>IBM<i class="Button-arrow"></i></a><p class="copy copy-small">Garantissez la continuité de vos activités grâce à une récupération des données automatisée. </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/minio/' class=' Button Button-tertiary gtm-nav-header'>MinIO<i class="Button-arrow"></i></a><p class="copy copy-small">Obtenez de meilleures performances en termes de rapidité et une plus grande évolutivité</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/pixitmedia/' class=' Button Button-tertiary gtm-nav-header'>pixitmedia<i class="Button-arrow"></i></a><p class="copy copy-small">Une solution sur mesure. Un coût total de possession hors pair. Conception éprouvée</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/red-hat/' class=' Button Button-tertiary gtm-nav-header'>Red Hat<i class="Button-arrow"></i></a><p class="copy copy-small">Stockage logiciel efficace de plusieurs exaoctets</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/veeam/' class=' Button Button-tertiary gtm-nav-header'>Veeam <i class="Button-arrow"></i></a><p class="copy copy-small">Solutions avancées de protection des données pour aujourd'hui et demain </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/partners/weka/' class=' Button Button-tertiary gtm-nav-header'>Weka<i class="Button-arrow"></i></a><p class="copy copy-small">Solutions hautes performances économiques pour charges de travail intenses </p>	</div>	</div><a href='/fr/fr/news/news-archive/zoom-selects-seagates-lyve-cloud-master-pr/' class=' NavigationMenu-card gtm-nav-header'><img src='/www-content/global-nav-2020/primary-nav/solutions/lyve-cloud_zoom-partnership-social-media-350x460.jpg' alt='lyve-cloud_zoom-partnership-social-media-350x460.jpg'>
+									<h3 class="h3">Zoom Selects Seagate’s Lyve Cloud for S3 Storage as a Service</h3>
+									<p class="Button Button-tertiary--inverted">
+										Learn More <i class="Button-arrow"></i>
+									</p>
+								</a>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row " data-navigationmenu-content="06eaf46b64894710VgnVCM1000003d88040aRCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/industry/autonomous-vehicles/' class=' Button Button-tertiary gtm-nav-header'>Véhicules autonomes<i class="Button-arrow"></i></a><p class="copy copy-small">Solutions en périphérie modulaires embarquant d'énormes capacités de stockage</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/industry/healthcare/' class=' Button Button-tertiary gtm-nav-header'>Santé<i class="Button-arrow"></i></a><p class="copy copy-small">Gérez et organisez efficacement les données scientifiques</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/industry/media-and-entertainment/' class=' Button Button-tertiary gtm-nav-header'>Multimédia et divertissement<i class="Button-arrow"></i></a><p class="copy copy-small">Simplifiez vos flux de travail de contenus et stockez efficacement les données multimédias</p>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/industry/surveillance-and-security/' class=' Button Button-tertiary gtm-nav-header'>Surveillance et sécurité<i class="Button-arrow"></i></a><p class="copy copy-small">Obtenez des informations de surveillance précieuses, de la périphérie au cloud</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/solutions/industry/telecommunications/' class=' Button Button-tertiary gtm-nav-header'>Télécommunications<i class="Button-arrow"></i></a><p class="copy copy-small">Répondez aux besoins de haut débit et d'évolution à l'échelle de l'exaoctet</p>	</div>	</div><a href='/fr/fr/news/news-archive/zoom-selects-seagates-lyve-cloud-master-pr/' class=' NavigationMenu-card gtm-nav-header'><img src='/www-content/global-nav-2020/primary-nav/solutions/lyve-cloud_zoom-partnership-social-media-350x460.jpg' alt='lyve-cloud_zoom-partnership-social-media-350x460.jpg'>
+									<h3 class="h3">Zoom Selects Seagate’s Lyve Cloud for S3 Storage as a Service</h3>
+									<p class="Button Button-tertiary--inverted">
+										Learn More <i class="Button-arrow"></i>
+									</p>
+								</a>	</div>	
+					<div class="NavigationMenu-wideCallout">
+						
+							<div class="Container Container--row is-active" data-navigationmenu-callout="a19af46b64894710VgnVCM1000003d88040aRCRD">
+					            <a href='/fr/fr/our-story/rethink-data/' class=' Button Button-secondary--inverted gtm-nav-header'>Le rapport Rethink Data<i class="Button-arrow"></i>
+								</a>
+								<p class="copy">Exploitez davantage vos données d'entreprise, de la périphérie jusqu'au cloud</p> </div>	
+							<div class="Container Container--row " data-navigationmenu-callout="ce680afb233b7710VgnVCM1000003d88040aRCRD">
+					            <a href='/fr/fr/our-story/rethink-data/' class=' Button Button-secondary--inverted gtm-nav-header'>Le rapport Rethink Data<i class="Button-arrow"></i>
+								</a>
+								<p class="copy">Exploitez davantage vos données d'entreprise, de la périphérie jusqu'au cloud</p> </div>	
+							<div class="Container Container--row " data-navigationmenu-callout="1e89f46b64894710VgnVCM1000003d88040aRCRD">
+					            <a href='/fr/fr/our-story/rethink-data/' class=' Button Button-secondary--inverted gtm-nav-header'>Le rapport Rethink Data<i class="Button-arrow"></i>
+								</a>
+								<p class="copy">Exploitez davantage vos données d'entreprise, de la périphérie jusqu'au cloud</p> </div>	
+							<div class="Container Container--row " data-navigationmenu-callout="06eaf46b64894710VgnVCM1000003d88040aRCRD">
+					            <a href='/fr/fr/our-story/rethink-data/' class=' Button Button-secondary--inverted gtm-nav-header'>Le rapport Rethink Data<i class="Button-arrow"></i>
+								</a>
+								<p class="copy">Exploitez davantage vos données d'entreprise, de la périphérie jusqu'au cloud</p> </div>		</div>		</section>	
+			
+			<section class="NavigationMenu" data-navigationmenu="956bf46b64894710VgnVCM1000003d88040aRCRD">
+				
+				<div class="NavigationMenu-separator">
+					<div class="Container">
+						<h5 class="h5">Innovation</h5>
+						<div class="NavigationMenu-tabs">
+							
+								<button class="NavigationMenu-tab Button-secondary is-active" data-id="a34af46b64894710VgnVCM1000003d88040aRCRD" data-navigationmenu-tab="a34af46b64894710VgnVCM1000003d88040aRCRD">Nos innovations</button>		</div>	</div>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row is-active" data-navigationmenu-content="a34af46b64894710VgnVCM1000003d88040aRCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/innovation/hamr/' class=' Button Button-tertiary gtm-nav-header'>Enregistrement magnétique assisté par la chaleur - HAMR<i class="Button-arrow"></i></a><p class="copy copy-small">Heat-Assisted Magnetic Recording (enregistrement magnétique assisté par laser)</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/innovation/multi-actuator-hard-drives/' class=' Button Button-tertiary gtm-nav-header'>Disques durs MACH.2 Multi Actuator<i class="Button-arrow"></i></a><p class="copy copy-small">Technologie Multi&nbsp;Actuator</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/innovation/risc-v/' class=' Button Button-tertiary gtm-nav-header'>RISC-V <i class="Button-arrow"></i></a><p class="copy copy-small">Développer un système sur une puce </p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='https://labs.seagate.com/' class=' Button Button-tertiary gtm-nav-header' target='stx-popup'>Lyve Labs<i class="Button-arrow"></i></a><p class="copy copy-small">Un programme destiné aux startups et autres entreprises innovantes.</p>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/enterprise-storage/enterprise-security/' class=' Button Button-tertiary gtm-nav-header'>Seagate&nbsp;Secure<i class="Button-arrow"></i></a><p class="copy copy-small">Solutions de protection des données de pointe fiables</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/open-source/' class=' Button Button-tertiary gtm-nav-header'>Communauté de développeurs Open Source<i class="Button-arrow"></i></a><p class="copy copy-small">Créer des solutions de stockage accessibles de manière collaborative</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/innovation/composable-infrastructure/' class=' Button Button-tertiary gtm-nav-header'>Infrastructure composable<i class="Button-arrow"></i></a><p class="copy copy-small">Configurez des ressources et allouez-les à tout processus d'application, le tout de manière dynamique. </p>	</div>	</div><a href='/fr/fr/news/news-archive/zoom-selects-seagates-lyve-cloud-master-pr/' class=' NavigationMenu-card gtm-nav-header'><img src='/www-content/global-nav-2020/primary-nav/solutions/lyve-cloud_zoom-partnership-social-media-350x460.jpg' alt='lyve-cloud_zoom-partnership-social-media-350x460.jpg'>
+									<h3 class="h3">Zoom Selects Seagate’s Lyve Cloud for S3 Storage as a Service</h3>
+									<p class="Button Button-tertiary--inverted">
+										Learn More <i class="Button-arrow"></i>
+									</p>
+								</a>	</div>	
+					<div class="NavigationMenu-wideCallout">
+						
+							<div class="Container Container--row is-active" data-navigationmenu-callout="a34af46b64894710VgnVCM1000003d88040aRCRD">
+					            <a href='/fr/fr/our-story/rethink-data/' class=' Button Button-secondary--inverted gtm-nav-header'>Le rapport Rethink&nbsp;Data<i class="Button-arrow"></i>
+								</a>
+								<p class="copy">Exploitez davantage vos données d'entreprise, de la périphérie jusqu'au cloud</p> </div>		</div>		</section>	
+			
+			<section class="NavigationMenu" data-navigationmenu="3deaf46b64894710VgnVCM1000003d88040aRCRD">
+				
+				<div class="NavigationMenu-separator">
+					<div class="Container">
+						<h5 class="h5">Support</h5>
+						<div class="NavigationMenu-tabs">
+							
+								<button class="NavigationMenu-tab Button-secondary is-active" data-id="9d99f46b64894710VgnVCM1000003d88040aRCRD" data-navigationmenu-tab="9d99f46b64894710VgnVCM1000003d88040aRCRD">Toutes les options de support</button>		</div>	</div>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row is-active" data-navigationmenu-content="9d99f46b64894710VgnVCM1000003d88040aRCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/support/' class=' Button Button-tertiary gtm-nav-header'>PAGE D'ACCUEIL DU SUPPORT<i class="Button-arrow"></i></a><p class="copy copy-small">Page d'accueil du support Seagate&nbsp;&ndash; Retrouvez des documents importants sur le support, les attestations de conformité Seagate, les téléchargements les plus populaires et nos meilleurs articles de support, ou <a href="https://myportal.seagate.com/consumer-identity/product-reg/product-reg-base.jsp">enregistrez</a> votre produit.</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/support/products/' class=' Button Button-tertiary gtm-nav-header'>Produits<i class="Button-arrow"></i></a><p class="copy copy-small">Retrouvez des documents spécifiques aux produits, des articles de la base de connaissances, des vidéos et d'autres outils en libre service.</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/support/downloads/' class=' Button Button-tertiary gtm-nav-header'>Téléchargement de logiciels<i class="Button-arrow"></i></a><p class="copy copy-small">Parcourez et téléchargez les dernières versions des logiciels, applications, utilitaires, plug-ins et autres contenus.</p>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/support/warranty-and-replacements/' class=' Button Button-tertiary gtm-nav-header'>Garantie et remplacements<i class="Button-arrow"></i></a><p class="copy copy-small">Vérifiez si la garantie de votre disque est encore valide et consultez nos documents sur la garantie.</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/support/lyve-data-transfer-services/' class=' Button Button-tertiary gtm-nav-header'>Lyve&nbsp;Mobile<i class="Button-arrow"></i></a><p class="copy copy-small">Trouvez des documents, des articles, des vidéos et d'autres outils en libre-service dédiés au transfert de données de masse et au stockage en périphérie haute capacité</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/support/lyve-cloud/' class=' Button Button-tertiary gtm-nav-header'>Lyve&nbsp;Cloud<i class="Button-arrow"></i></a><p class="copy copy-small">Vous recherchez une documentation d'aide sur Lyve&nbsp;Cloud ou avez besoin d'assistance&nbsp;? Parcourez nos articles de support sur Lyve Cloud.</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='https://myportal.seagate.com/consumer-identity/product-reg/product-reg-base.jsp' class=' Button Button-tertiary gtm-nav-header' target='stx-popup'>Enregistrement du produit<i class="Button-arrow"></i></a><p class="copy copy-small">Enregistrez votre produit Seagate. </p>	</div>	</div><a href='/fr/fr/contacts/' class=' NavigationMenu-card gtm-nav-header'><img src='/www-content/global-nav-2020/primary-nav/support/get-support-banner.png' alt='Get Support'>
+									<h3 class="h3">Obtenir de l'aide maintenant</h3>
+									<p class="Button Button-tertiary--inverted">
+										Contactez un spécialiste Seagate. <i class="Button-arrow"></i>
+									</p>
+								</a>	</div>		</section>	
+			
+			<section class="NavigationMenu" data-navigationmenu="667c1e422368b710VgnVCM100000d538a8c0RCRD">
+				
+				<div class="NavigationMenu-separator">
+					<div class="Container">
+						<h5 class="h5">À propos</h5>
+						<div class="NavigationMenu-tabs">
+							
+								<button class="NavigationMenu-tab Button-secondary is-active" data-id="568c1e422368b710VgnVCM100000d538a8c0RCRD" data-navigationmenu-tab="568c1e422368b710VgnVCM100000d538a8c0RCRD">À propos de Seagate</button>		</div>	</div>	</div>	
+					
+					<div class="NavigationMenu-elements Container Container--row is-active" data-navigationmenu-content="568c1e422368b710VgnVCM100000d538a8c0RCRD">
+						<div class='NavigationMenu-linkGroups column-1'>
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/our-story/' class=' Button Button-tertiary gtm-nav-header'>Notre aventure<i class="Button-arrow"></i></a><p class="copy copy-small">Découvrez l'héritage que nous construisons téraoctet après téraoctet.</p><a href='/fr/fr/our-story/?#execs' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Équipe dirigeante</a><a href='/fr/fr/our-story/?#bod' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Conseil d'administration</a><a href='/fr/fr/global-citizenship/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Citoyenneté mondiale</a><a href='/fr/fr/trust/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Centre de confiance</a><a href='/our-story/product-quality-assurance/ ' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Assurance qualité</a>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<a href='/fr/fr/jobs/' class=' Button Button-tertiary gtm-nav-header'>Rejoignez notre équipe Seagate<i class="Button-arrow"></i></a><p class="copy copy-small">Vous êtes créatif, passionné et aimez travailler en équipe ? Rejoignez-nous&nbsp;!</p><a href='/fr/fr/jobs/life-at-seagate/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>La vie chez Seagate</a><a href='/fr/fr/jobs/diversity-and-inclusion/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Diversité, équité et intégration</a><a href='/fr/fr/jobs/diversity-and-inclusion/employee-resource-groups/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Groupes de ressources destinées aux collaborateurs</a><a href='/fr/fr/jobs/university-programs/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Programmes avec les universités</a>	</div>	</div><div class='NavigationMenu-linkGroups column-2'>
+									
+									<div class="NavigationMenu-links">
+										<a href='https://investors.seagate.com/overview/default.aspx' class=' Button Button-tertiary gtm-nav-header' target='stx-popup'>Investisseurs<i class="Button-arrow"></i></a><p class="copy copy-small">Tenez-vous informé sur les événements à venir, la bourse, les finances, etc.</p>	</div>	
+									
+									<div class="NavigationMenu-links">
+										<p class=' Button Button-tertiary gtm-nav-header NavigationMenu-linkHeading'>Centre de presse</p><p class="copy copy-small">Accédez aux actualités et ressources dont vous avez besoin.</p><a href='/fr/fr/news/' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Actualités</a><a href='/news/media-kits/ ' class=' NavigationMenu-link Button Button-link gtm-nav-header'>Kits média</a><a href='https://branding.seagate.com/ ' class=' NavigationMenu-link Button Button-link gtm-nav-header' target='_blank'>Portail de la marque</a>	</div>	</div><a href='/files/www-content/global-citizenship/en-us/docs/fy2021-gcar-final.pdf' class='gtm-download NavigationMenu-card gtm-nav-header' target='_blank'><img src='/www-content/global-nav-2020/primary-nav/about/fy2021-gcar-cover-image.jpg' alt='fy2021-gcar-cover-image'>
+									<h3 class="h3"><span style="color: #000;">Rapport annuel sur la citoyenneté mondiale</span></h3>
+									<p class="Button Button-tertiary--inverted">
+										<span style="color: #000;">Lire maintenant<span> <i class="Button-arrow"></i>
+									</p>
+								</a>	</div>		</section>	
+	</nav>
+</div>
+
+
+<nav class="MobileMenu" id="MobileMenu" role="navigation" data-mobilemenu>
+    
+    <section class="MobileMenu-mainMenu">
+    	<div class="MobileMenu-top">
+	        <button class="SecondaryNav-region" data-micromodal-trigger="modal-locale-selector">
+	            <img src="/ww/redesign/assets/icons/globe-dark.svg" alt="Region Select" />
+	            <span class="currentCountryText"></span>
+	        </button>
+	        <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+	            <div class="MobileMenu-trigger-inner"></div>
+	        </button>
+        </div>
+        <ul class="MobileMenu-items">
+        	
+				<li data-submenu-trigger="981bf46b64894710VgnVCM1000003d88040aRCRD">
+					<a class="gtm-nav-header">Produits</a>
+					<button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+	            </li>
+			
+				<li data-submenu-trigger="f0daf46b64894710VgnVCM1000003d88040aRCRD">
+					<a class="gtm-nav-header">Solutions</a>
+					<button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+	            </li>
+			
+				<li data-submenu-trigger="956bf46b64894710VgnVCM1000003d88040aRCRD">
+					<a class="gtm-nav-header">Innovation</a>
+					<button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+	            </li>
+			
+				<li data-submenu-trigger="3deaf46b64894710VgnVCM1000003d88040aRCRD">
+					<a class="gtm-nav-header">Support</a>
+					<button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+	            </li>
+			
+				<li data-submenu-trigger="667c1e422368b710VgnVCM100000d538a8c0RCRD">
+					<a class="gtm-nav-header">À propos</a>
+					<button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+	            </li>
+			 </ul> 
+	        <ul class="MobileMenu-topNav">
+					<li><a href='/fr/fr/resources/' class=' gtm-nav-header'>Centre de ressources</a></li>		<li><a href='/fr/fr/blog/' class=' gtm-nav-header'>Blog</a></li>		<li><a href='/fr/fr/open-source/' class=' gtm-nav-header'>Open Source</a></li>		<li><a href='/fr/fr/partner-programs/' class=' gtm-nav-header'>Partenaires</a></li>	
+				<li><button class="gtm-nav-header" data-micromodal-trigger="login">Connexion</button></li> </ul>	
+    </section>
+
+    <section class="MobileMenu-subMenus">
+    	
+			<div class="MobileMenu-subMenus-menu" data-submenu="981bf46b64894710VgnVCM1000003d88040aRCRD">
+				<div class="MobileMenu-top">
+		            <div class="MobileMenu-subMenus-title" data-submenu-trigger>
+	                	<button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+	                	Principal
+		            </div>
+		            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+			            <div class="MobileMenu-trigger-inner"></div>
+			        </button>
+	            </div>
+	            <ul class="MobileMenu-items">
+	                <li>Produits</li> 
+				                <li data-submenu-trigger="630bf46b64894710VgnVCM1000003d88040aRCRD">
+				               	<a class="gtm-nav-header">Cloud, périphérie et centre de données</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                
+				                <li data-submenu-trigger="0dabf46b64894710VgnVCM1000003d88040aRCRD">
+				               	<a class="gtm-nav-header">Disques spécialisés</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                
+				                <li data-submenu-trigger="fddbf46b64894710VgnVCM1000003d88040aRCRD">
+				               	<a class="gtm-nav-header">Personal Storage</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                 </ul> </div>	
+			<div class="MobileMenu-subMenus-menu" data-submenu="f0daf46b64894710VgnVCM1000003d88040aRCRD">
+				<div class="MobileMenu-top">
+		            <div class="MobileMenu-subMenus-title" data-submenu-trigger>
+	                	<button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+	                	Principal
+		            </div>
+		            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+			            <div class="MobileMenu-trigger-inner"></div>
+			        </button>
+	            </div>
+	            <ul class="MobileMenu-items">
+	                <li>Solutions</li> 
+				                <li data-submenu-trigger="a19af46b64894710VgnVCM1000003d88040aRCRD">
+				               	<a class="gtm-nav-header">Par cas d'utilisation</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                
+				                <li data-submenu-trigger="ce680afb233b7710VgnVCM1000003d88040aRCRD">
+				               	<a class="gtm-nav-header">Par environnement</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                
+				                <li data-submenu-trigger="1e89f46b64894710VgnVCM1000003d88040aRCRD">
+				               	<a class="gtm-nav-header">Par partenaire</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                
+				                <li data-submenu-trigger="06eaf46b64894710VgnVCM1000003d88040aRCRD">
+				               	<a class="gtm-nav-header">Par secteur</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                 </ul> </div>	
+			<div class="MobileMenu-subMenus-menu" data-submenu="956bf46b64894710VgnVCM1000003d88040aRCRD">
+				<div class="MobileMenu-top">
+		            <div class="MobileMenu-subMenus-title" data-submenu-trigger>
+	                	<button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+	                	Principal
+		            </div>
+		            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+			            <div class="MobileMenu-trigger-inner"></div>
+			        </button>
+	            </div>
+	            <ul class="MobileMenu-items">
+	                <li>Innovation</li> 
+				                <li data-submenu-trigger="a34af46b64894710VgnVCM1000003d88040aRCRD">
+				               	<a class="gtm-nav-header">Nos innovations</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                 </ul> </div>	
+			<div class="MobileMenu-subMenus-menu" data-submenu="3deaf46b64894710VgnVCM1000003d88040aRCRD">
+				<div class="MobileMenu-top">
+		            <div class="MobileMenu-subMenus-title" data-submenu-trigger>
+	                	<button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+	                	Principal
+		            </div>
+		            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+			            <div class="MobileMenu-trigger-inner"></div>
+			        </button>
+	            </div>
+	            <ul class="MobileMenu-items">
+	                <li>Support</li> 
+				                <li data-submenu-trigger="9d99f46b64894710VgnVCM1000003d88040aRCRD">
+				               	<a class="gtm-nav-header">Toutes les options de support</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                 </ul> </div>	
+			<div class="MobileMenu-subMenus-menu" data-submenu="667c1e422368b710VgnVCM100000d538a8c0RCRD">
+				<div class="MobileMenu-top">
+		            <div class="MobileMenu-subMenus-title" data-submenu-trigger>
+	                	<button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+	                	Principal
+		            </div>
+		            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+			            <div class="MobileMenu-trigger-inner"></div>
+			        </button>
+	            </div>
+	            <ul class="MobileMenu-items">
+	                <li>À propos</li> 
+				                <li data-submenu-trigger="568c1e422368b710VgnVCM100000d538a8c0RCRD">
+				               	<a class="gtm-nav-header">À propos de Seagate</a>
+					                <button class="MobileMenu-arrow MobileMenu-arrow--right gtm-nav-header"></button>
+				                </li>
+			                 </ul> </div>	
+    </section>
+
+    <section class="MobileMenu-subMenus-subMenus">
+    	
+					<div class="MobileMenu-subMenus-menu" data-submenu="630bf46b64894710VgnVCM1000003d88040aRCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="981bf46b64894710VgnVCM1000003d88040aRCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                Produits
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>Cloud, périphérie et centre de données</li>		<li>	<a href='/fr/fr/products/cloud/lyve-mass-storage-platform/' class=' Button Button-tertiary gtm-nav-header'>Lyve&nbsp;: plate-forme de stockage de masse de la périphérie vers le cloud <i class="Button-arrow"></i></a>	</li>		<li>	<p class=' Button Button-tertiary gtm-nav-header NavigationMenu-linkHeading'>Services</p><a href='/fr/fr/services/cloud/storage/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Lyve Cloud&nbsp;: système de stockage d'objets conçu pour le multicloud </a><a href='/fr/fr/services/data/data-migration/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Lyve Managed Migration Services</a><a href='/fr/fr/products/data-transport/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Lyve Mobile&nbsp;: transfert de données en tant que service</a>	</li>		<li>	<p class=' Button Button-tertiary gtm-nav-header NavigationMenu-linkHeading'>Logiciels</p><a href='/fr/fr/products/storage/object-storage-software/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>CORTX&nbsp;: Logiciel de stockage d'objets intelligent</a>	</li>		<li>	<p class=' Button Button-tertiary gtm-nav-header NavigationMenu-linkHeading'>Matériel</p><a href='/fr/fr/products/data-transport/lyve-drive-shuttle/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Lyve Mobile&nbsp;Shuttle</a><a href='/fr/fr/products/data-transport/lyve-mobile-array/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Lyve Mobile Array</a><a href='/fr/fr/products/storage/object-storage-solutions/lyve-drive-rack/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Lyve Rack&nbsp;: infrastructure convergée de stockage d'objets S3</a><a href='/fr/fr/products/storage/data-storage-systems/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Systèmes de stockage des données</a><a href='/fr/fr/products/enterprise-drives/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Disques d'entreprise </a>	</li>		<li>		</li>	 </ul> </div>	
+					<div class="MobileMenu-subMenus-menu" data-submenu="0dabf46b64894710VgnVCM1000003d88040aRCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="981bf46b64894710VgnVCM1000003d88040aRCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                Produits
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>Disques spécialisés</li>		<li>	<a href='/fr/fr/products/gaming-drives/' class=' Button Button-tertiary gtm-nav-header'>Disques durs et SSD de jeu <i class="Button-arrow"></i></a><a href='/fr/fr/products/gaming-drives/xbox-gaming/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Xbox</a><a href='/fr/fr/products/gaming-drives/playstation-gaming/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>PlayStation </a><a href='/fr/fr/products/gaming-drives/pc-gaming/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Jeux sur PC </a><a href='/fr/fr/products/gaming-drives/special-editions/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Disques en édition spéciale </a>	</li>		<li>	<a href='/fr/fr/products/nas-drives/' class=' Button Button-tertiary gtm-nav-header'>NAS<i class="Button-arrow"></i></a><a href='/fr/fr/products/nas-drives/ironwolf-hard-drive/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Disques durs IronWolf</a><a href='/fr/fr/products/nas-drives/ironwolf-ssd/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>SSD IronWolf</a>	</li>		<li>	<a href='/fr/fr/internal-hard-drives/surveillance/' class=' Button Button-tertiary gtm-nav-header'>Analyse vidéo<i class="Button-arrow"></i></a><a href='/fr/fr/products/surveillance-drives/skyhawk-hard-drive/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Disques durs SkyHawk</a>	</li>	 </ul> </div>	
+					<div class="MobileMenu-subMenus-menu" data-submenu="fddbf46b64894710VgnVCM1000003d88040aRCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="981bf46b64894710VgnVCM1000003d88040aRCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                Produits
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>Personal Storage</li>		<li>	<a href='/fr/fr/products/external-hard-drives/' class=' Button Button-tertiary gtm-nav-header'>Disques externes<i class="Button-arrow"></i></a><a href='/fr/fr/products/external-hard-drives/ultra-touch-external-drives/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Gamme Ultra&nbsp;Touch</a><a href='/fr/fr/products/external-hard-drives/one-touch-external-drives/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Gamme One&nbsp;Touch</a><a href='/fr/fr/products/external-hard-drives/expansion-external-drives/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Expansion</a><a href='/fr/fr/consumer/backup/barracuda-fast-ssd/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>BarraCuda Fast SSD</a><a href='/fr/fr/consumer/backup/backup-plus/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Backup&nbsp;Plus</a><a href='/fr/fr/products/external-hard-drives/basic-external-hard-drive/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Basic</a><a href='/fr/fr/consumer/backup/backup-plus-desk/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Backup Plus Hub</a>	</li>		<li>	<a href='/fr/fr/products/hard-drives/' class=' Button Button-tertiary gtm-nav-header'>Montée en gamme de PC<i class="Button-arrow"></i></a><a href='/fr/fr/products/hard-drives/barracuda-hard-drive/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>BarraCuda&nbsp;HDD</a><a href='/fr/fr/products/hard-drives/barracuda-qlc-ssd/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>BarraCuda QLC SSD</a>	</li>		<li>		</li>	 </ul> </div>	
+					<div class="MobileMenu-subMenus-menu" data-submenu="a19af46b64894710VgnVCM1000003d88040aRCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="f0daf46b64894710VgnVCM1000003d88040aRCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                Solutions
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>Par cas d'utilisation</li>		<li>	<a href='/fr/fr/solutions/backup/backup-and-recovery/' class=' Button Button-tertiary gtm-nav-header'>Sauvegarde et restauration<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/data/big-data/' class=' Button Button-tertiary gtm-nav-header'>Analyse de Big Data (AI/ML)<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/cloud/cloud-backup/' class=' Button Button-tertiary gtm-nav-header'>Sauvegarde dans le cloud<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/services/data/data-migration/' class=' Button Button-tertiary gtm-nav-header'>Migration de données<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/services/data/data-transfer/' class=' Button Button-tertiary gtm-nav-header'>Transfert des données <i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/edge/edge-storage/' class=' Button Button-tertiary gtm-nav-header'>Périphérie<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/high-performance-computing/' class=' Button Button-tertiary gtm-nav-header'>Solutions de calcul hautes performances (HPC)<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/cloud/multicloud/' class=' Button Button-tertiary gtm-nav-header'>Multicloud<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/cloud/private-cloud/' class=' Button Button-tertiary gtm-nav-header'>Cloud privé<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/cloud/public-cloud/' class=' Button Button-tertiary gtm-nav-header'>Cloud public<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/services/cloud/storage/' class=' Button Button-tertiary gtm-nav-header'>Stockage en tant que service<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/video-surveillance/' class=' Button Button-tertiary gtm-nav-header'>Analyse vidéo<i class="Button-arrow"></i></a>	</li>		<li>		</li>	 </ul> </div>	
+					<div class="MobileMenu-subMenus-menu" data-submenu="ce680afb233b7710VgnVCM1000003d88040aRCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="f0daf46b64894710VgnVCM1000003d88040aRCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                Solutions
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>Par environnement</li>		<li>	<a href='/fr/fr/solutions/edge/edge-storage/' class=' Button Button-tertiary gtm-nav-header'>Périphérie<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/cloud/multicloud/' class=' Button Button-tertiary gtm-nav-header'>Multicloud<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/cloud/private-cloud/' class=' Button Button-tertiary gtm-nav-header'>Cloud privé<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/cloud/public-cloud/' class=' Button Button-tertiary gtm-nav-header'>Cloud public<i class="Button-arrow"></i></a>	</li>		<li>		</li>	 </ul> </div>	
+					<div class="MobileMenu-subMenus-menu" data-submenu="1e89f46b64894710VgnVCM1000003d88040aRCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="f0daf46b64894710VgnVCM1000003d88040aRCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                Solutions
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>Par partenaire</li>		<li>	<a href='/fr/fr/solutions/partners/ardis/' class=' Button Button-tertiary gtm-nav-header'>Ardis<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/equinix/' class=' Button Button-tertiary gtm-nav-header'>Equinix<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/intel/' class=' Button Button-tertiary gtm-nav-header'>Intel<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/networkoptix/' class=' Button Button-tertiary gtm-nav-header'>Network Optix <i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/platina/' class=' Button Button-tertiary gtm-nav-header'>Platina<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/rubrik/' class=' Button Button-tertiary gtm-nav-header'>Rubrik<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/veritas/' class=' Button Button-tertiary gtm-nav-header'>Veritas <i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/zadara/' class=' Button Button-tertiary gtm-nav-header'>Zadara<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/cohesity/' class=' Button Button-tertiary gtm-nav-header'>Cohesity<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/genetec/' class=' Button Button-tertiary gtm-nav-header'>Genetec <i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/milestone/' class=' Button Button-tertiary gtm-nav-header'>Milestone<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/ni/' class=' Button Button-tertiary gtm-nav-header'>NI<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/qnap/' class=' Button Button-tertiary gtm-nav-header'>QNAP<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/tiger-technology/' class=' Button Button-tertiary gtm-nav-header'>Tiger Technology <i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/vmware/' class=' Button Button-tertiary gtm-nav-header'>VMware<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/commvault/' class=' Button Button-tertiary gtm-nav-header'>Commvault<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/ibm/' class=' Button Button-tertiary gtm-nav-header'>IBM<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/minio/' class=' Button Button-tertiary gtm-nav-header'>MinIO<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/pixitmedia/' class=' Button Button-tertiary gtm-nav-header'>pixitmedia<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/red-hat/' class=' Button Button-tertiary gtm-nav-header'>Red Hat<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/veeam/' class=' Button Button-tertiary gtm-nav-header'>Veeam <i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/partners/weka/' class=' Button Button-tertiary gtm-nav-header'>Weka<i class="Button-arrow"></i></a>	</li>		<li>		</li>	 </ul> </div>	
+					<div class="MobileMenu-subMenus-menu" data-submenu="06eaf46b64894710VgnVCM1000003d88040aRCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="f0daf46b64894710VgnVCM1000003d88040aRCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                Solutions
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>Par secteur</li>		<li>	<a href='/fr/fr/solutions/industry/autonomous-vehicles/' class=' Button Button-tertiary gtm-nav-header'>Véhicules autonomes<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/industry/healthcare/' class=' Button Button-tertiary gtm-nav-header'>Santé<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/industry/media-and-entertainment/' class=' Button Button-tertiary gtm-nav-header'>Multimédia et divertissement<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/industry/surveillance-and-security/' class=' Button Button-tertiary gtm-nav-header'>Surveillance et sécurité<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/solutions/industry/telecommunications/' class=' Button Button-tertiary gtm-nav-header'>Télécommunications<i class="Button-arrow"></i></a>	</li>		<li>		</li>	 </ul> </div>	
+					<div class="MobileMenu-subMenus-menu" data-submenu="a34af46b64894710VgnVCM1000003d88040aRCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="956bf46b64894710VgnVCM1000003d88040aRCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                Innovation
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>Nos innovations</li>		<li>	<a href='/fr/fr/innovation/hamr/' class=' Button Button-tertiary gtm-nav-header'>Enregistrement magnétique assisté par la chaleur - HAMR<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/innovation/multi-actuator-hard-drives/' class=' Button Button-tertiary gtm-nav-header'>Disques durs MACH.2 Multi Actuator<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/innovation/risc-v/' class=' Button Button-tertiary gtm-nav-header'>RISC-V <i class="Button-arrow"></i></a>	</li>		<li>	<a href='https://labs.seagate.com/' class=' Button Button-tertiary gtm-nav-header' target='stx-popup'>Lyve Labs<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/enterprise-storage/enterprise-security/' class=' Button Button-tertiary gtm-nav-header'>Seagate&nbsp;Secure<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/open-source/' class=' Button Button-tertiary gtm-nav-header'>Communauté de développeurs Open Source<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/innovation/composable-infrastructure/' class=' Button Button-tertiary gtm-nav-header'>Infrastructure composable<i class="Button-arrow"></i></a>	</li>		<li>		</li>	 </ul> </div>	
+					<div class="MobileMenu-subMenus-menu" data-submenu="9d99f46b64894710VgnVCM1000003d88040aRCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="3deaf46b64894710VgnVCM1000003d88040aRCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                Support
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>Toutes les options de support</li>		<li>	<a href='/fr/fr/support/' class=' Button Button-tertiary gtm-nav-header'>PAGE D'ACCUEIL DU SUPPORT<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/support/products/' class=' Button Button-tertiary gtm-nav-header'>Produits<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/support/downloads/' class=' Button Button-tertiary gtm-nav-header'>Téléchargement de logiciels<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/support/warranty-and-replacements/' class=' Button Button-tertiary gtm-nav-header'>Garantie et remplacements<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/support/lyve-data-transfer-services/' class=' Button Button-tertiary gtm-nav-header'>Lyve&nbsp;Mobile<i class="Button-arrow"></i></a>	</li>		<li>	<a href='/fr/fr/support/lyve-cloud/' class=' Button Button-tertiary gtm-nav-header'>Lyve&nbsp;Cloud<i class="Button-arrow"></i></a>	</li>		<li>	<a href='https://myportal.seagate.com/consumer-identity/product-reg/product-reg-base.jsp' class=' Button Button-tertiary gtm-nav-header' target='stx-popup'>Enregistrement du produit<i class="Button-arrow"></i></a>	</li>		<li>		</li>	 </ul> </div>	
+					<div class="MobileMenu-subMenus-menu" data-submenu="568c1e422368b710VgnVCM100000d538a8c0RCRD" data-submenu-child="true">
+			            <div class="MobileMenu-top">
+				            <div class="MobileMenu-subMenus-title" data-submenu-trigger="667c1e422368b710VgnVCM100000d538a8c0RCRD">
+				                <button class="MobileMenu-arrow MobileMenu-arrow--left"></button>
+				                À propos
+				            </div>
+				            <button class="MobileMenu-trigger" data-mobilemenu-trigger>
+					            <div class="MobileMenu-trigger-inner"></div>
+					        </button>
+			            </div>
+			            <ul class="MobileMenu-subMenus-items">
+							<li>À propos de Seagate</li>		<li>	<a href='/fr/fr/our-story/' class=' Button Button-tertiary gtm-nav-header'>Notre aventure<i class="Button-arrow"></i></a><a href='/fr/fr/our-story/?#execs' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Équipe dirigeante</a><a href='/fr/fr/our-story/?#bod' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Conseil d'administration</a><a href='/fr/fr/global-citizenship/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Citoyenneté mondiale</a><a href='/fr/fr/trust/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Centre de confiance</a><a href='/our-story/product-quality-assurance/ ' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Assurance qualité</a>	</li>		<li>	<a href='/fr/fr/jobs/' class=' Button Button-tertiary gtm-nav-header'>Rejoignez notre équipe Seagate<i class="Button-arrow"></i></a><a href='/fr/fr/jobs/life-at-seagate/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>La vie chez Seagate</a><a href='/fr/fr/jobs/diversity-and-inclusion/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Diversité, équité et intégration</a><a href='/fr/fr/jobs/diversity-and-inclusion/employee-resource-groups/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Groupes de ressources destinées aux collaborateurs</a><a href='/fr/fr/jobs/university-programs/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Programmes avec les universités</a>	</li>		<li>	<a href='https://investors.seagate.com/overview/default.aspx' class=' Button Button-tertiary gtm-nav-header' target='stx-popup'>Investisseurs<i class="Button-arrow"></i></a>	</li>		<li>	<p class=' Button Button-tertiary gtm-nav-header NavigationMenu-linkHeading'>Centre de presse</p><a href='/fr/fr/news/' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Actualités</a><a href='/news/media-kits/ ' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header'>Kits média</a><a href='https://branding.seagate.com/ ' class=' MobileMenu-subMenus-link Button Button-link gtm-nav-header' target='_blank'>Portail de la marque</a>	</li>		<li>		</li>	 </ul> </div>	
+    </section>
+    
+</nav>
+
+<div class="Modal micromodal-slide" id="modal-locale-selector" aria-hidden="false">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close="">
+        <div class="modal__container u-btlbr-small" role="dialog" aria-modal="true" aria-labelledby="modal-locale-selector">
+            <header class="modal__header">
+                <h3 class="h3">SÉLECTIONNEZ VOTRE PAYS/RÉGION</h3>
+                <div class="Form-group">
+                    <label class="Form-checkbox">
+                        Mémoriser mon pays/ma région et la sélection de la langue
+                        <input type="checkbox" name="rememberMe" id="rememberMe" checked="checked">
+                        <div class="Form-control"></div>
+                    </label>
+                </div>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close=""></button>
+            </header>
+            <div class="modal__content Modal-groups">
+                <div class="Modal-group">
+                    <p class="copy copy-bold">Asia-Pacific (APAC)</p>
+                    <button data-locale="en-as" class="Button Button-link gtm-nav-locale-selector">ASEAN (English)</button>
+                    <button data-locale="en-au" class="Button Button-link gtm-nav-locale-selector">Australia/New Zealand (English)</button>
+                    <button data-locale="en-in" class="Button Button-link gtm-nav-locale-selector">India (English)</button>
+                    <button data-locale="id-id" class="Button Button-link gtm-nav-locale-selector">Indonesia (Indonesian)</button>
+                    <button data-locale="en-sg" class="Button Button-link gtm-nav-locale-selector">Singapore (English)</button>
+                    <button data-locale="ko-kr" class="Button Button-link gtm-nav-locale-selector">대한민국 (한국어)</button>
+                    <button data-locale="ja-jp" class="Button Button-link gtm-nav-locale-selector">日本 (日本語)</button>
+                    <button data-locale="zh-tw" class="Button Button-link gtm-nav-locale-selector">台灣 (繁體中文)</button>
+                    <button data-locale="zh-cn" class="Button Button-link gtm-nav-locale-selector">中国 (简体中文)</button>
+                </div>
+                <div class="Modal-group">
+                    <p class="copy copy-bold">Europe</p>
+                    <button data-locale="nl-be" class="Button Button-link gtm-nav-locale-selector">België (Nederlands)</button>
+                    <button data-locale="fr-be" class="Button Button-link gtm-nav-locale-selector">Belgique (Français)</button>
+                    <button data-locale="de-de" class="Button Button-link gtm-nav-locale-selector">Deutschland (Deutsch)</button>
+                    <button data-locale="es-es" class="Button Button-link gtm-nav-locale-selector">España (Español)</button>
+                    <button data-locale="fr-fr" class="Button Button-link gtm-nav-locale-selector">France (Français)</button>
+                    <button data-locale="it-it" class="Button Button-link gtm-nav-locale-selector">Italia (Italiano)</button>
+                    <button data-locale="nl-nl" class="Button Button-link gtm-nav-locale-selector">Nederland (Nederlands)</button> 
+                    <button data-locale="pl-pl" class="Button Button-link gtm-nav-locale-selector">Polska (Polski)</button>
+                    <button data-locale="pt-pt" class="Button Button-link gtm-nav-locale-selector">Portugal (Português)</button>
+                    <button data-locale="en-gb" class="Button Button-link gtm-nav-locale-selector">United Kingdom (English)</button>
+                </div>
+                <div class="Modal-group">
+                    <p class="copy copy-bold">Middle East/North Africa</p>
+                    <button data-locale="en-em" class="Button Button-link gtm-nav-locale-selector">Middle East/North Africa (English)</button>
+                    <button data-locale="tr-tr" class="Button Button-link gtm-nav-locale-selector">Türkiye (Türkçe)</button>
+                </div>
+                <div class="Modal-group">
+                    <p class="copy copy-bold">Latin America</p>
+                    <button data-locale="pt-br" class="Button Button-link gtm-nav-locale-selector">Brasil (Português)</button>
+                    <button data-locale="es-la" class="Button Button-link gtm-nav-locale-selector">Latinoamérica (Español)</button>
+                </div>
+                <div class="Modal-group">
+                    <p class="copy copy-bold">North America</p>
+                    <button data-locale="en-ca" class="Button Button-link gtm-nav-locale-selector">Canada (English)</button>
+                    <button data-locale="fr-ca" class="Button Button-link gtm-nav-locale-selector">Canada (Français)</button>
+                    <button data-locale="en-us" class="Button Button-link gtm-nav-locale-selector">United States (English)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="Modal Modal--login micromodal-slide" id="login" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container u-btlbr-small" role="dialog" aria-modal="true" aria-labelledby="login">
+            <header class="modal__header">
+            	<div class="login-loading" style=" text-align: center;"><img src="/ww/universal/images/seagate-spinner.gif"></div>
+                <h3 class="h3"></h3>
+                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+            </header>
+            <div class="modal__content Modal-groups login" style="display: none;">
+				<div class="Modal-group">
+					<div class="Modal-group--object">
+						<img src="/ww/redesign/assets/images/Seagate_Login-Modal-Window_Lyve-Cloud_Seagate-Partner-Program-Portal.png">
+					</div>
+					<div class="Modal-group--body">
+						<a href="/partners/" class="Button Button-tertiary"><span>Portail Seagate Partner Program <i class="Button-arrow"></i></span></a>
+						<p class="copy copy-small">Donne accès, entre autres, aux formations sur les produits, aux ressources de vente et marketing, et à l'enregistrement des opportunités à nos revendeurs à valeur ajoutée, nos intégrateurs, nos revendeurs et nos autres partenaires de distribution.</p>
+					</div>
+				</div>
+				<div class="Modal-group">
+					<div class="Modal-group--object">
+						<img src="/ww/redesign/assets/images/Seagate_Login-Modal-Window_Lyve-Cloud_Lyve-Cloud-Portal.png">
+					</div>
+					<div class="Modal-group--body">
+						<a href="https://login.lyvecloud.seagate.com/" class="Button Button-tertiary"><span>Portail Lyve Cloud <i class="Button-arrow"></i></span></a>
+						<p class="copy copy-small">Utilisez le portail Lyve Cloud pour configurer et gérer votre stockage d'objets et vos services.</p>
+					</div>
+				</div>
+				<div class="Modal-group">
+					<div class="Modal-group--object">
+						<img src="/ww/redesign/assets/images/Seagate_Login-Modal-Window_Lyve-Cloud_Seagate-Direct-Customer-Portal.png">
+					</div>
+					<div class="Modal-group--body">
+						<a href="/direct-partners/" class="Button Button-tertiary"><span>Portail Seagate destiné aux clients directs <i class="Button-arrow"></i></span></a>
+						<p class="copy copy-small">Fournit aux clients directs des outils en libre-service B2B, tels que les tarifs, les programmes, les commandes, les retours et la facturation.</p>
+					</div>
+				</div>
+				<div class="Modal-group">
+					<div class="Modal-group--object">
+						<img src="/ww/redesign/assets/images/Seagate_Login-Modal-Window_Lyve-Cloud_Lyve-Management-Portal.png">
+					</div>
+					<div class="Modal-group--body">
+						<a href="https://lyve.seagate.com/" class="Button Button-tertiary"><span>Portail Lyve Management <i class="Button-arrow"></i></span></a>
+						<p class="copy copy-small">Permet de s'abonner, et d'accéder aux services, abonnements et projets Lyve Mobile, mais également de les gérer.</p>
+					</div>
+				</div>
+				<div class="Modal-group">
+					<div class="Modal-group--object">
+						<img src="/ww/redesign/assets/images/Seagate_Login-Modal-Window_Lyve-Cloud_Seagate-Supplier-Portal.png">
+					</div>
+					<div class="Modal-group--body">
+						<a href="/direct-partners/" class="Button Button-tertiary"><span>Portail Seagate destiné aux fournisseurs <i class="Button-arrow"></i></span></a>
+						<p class="copy copy-small">Fournit aux fournisseurs des outils en libre-service conçus spécialement pour répondre à leurs besoins.</p>
+					</div>
+				</div>
+				<div class="Modal-group">
+					<div class="Modal-group--object">
+						<img src="/ww/redesign/assets/images/Seagate_Login-Modal-Window_Lyve-Cloud_Consumer-Portal.png">
+					</div>
+					<div class="Modal-group--body">
+						<a href="/consumer-login/" class="Button Button-tertiary"><span>Portail destiné aux particuliers <i class="Button-arrow"></i></span></a>
+						<p class="copy copy-small">Permet d'afficher les produits enregistrés, d'enregistrer de nouveaux produits et d'obtenir de l'aide sur un produit en particulier.</p>
+					</div>
+				</div>
+            </div>
+            <div class="modal__content Modal-groups my-account" style="display: none;">
+                <div class="Modal-group">
+                    <p class="copy copy-large username"></p>
+                </div>
+                <div class="Modal-group">
+                    <a href="#" class="Button Button-tertiary my-profile">
+                        <span>Mon profil <i class="Button-arrow"></i></span>
+                    </a>
+                    <p class="copy copy-small">Afficher/modifier les informations de votre profil.</p>
+                </div>
+                <div class="Modal-group">
+                    <a href="#" class="Button Button-tertiary my-dashboard">
+                        <span>Mon tableau de bord <i class="Button-arrow"></i></span>
+                    </a>
+                    <p class="copy copy-small">Afficher votre tableau de bord.</p>
+                </div>
+                <div class="Modal-group">
+                    <a href="#" class="Button Button-tertiary logout">
+                        <span>Déconnexion <i class="Button-arrow"></i></span>
+                    </a>
+                    <p class="copy copy-small">Vous déconnecter de votre compte.</p> </div> </div> </div> </div>
+</div>
+	
+</header>
+
+
+<script>
+if (typeof(www) != "undefined") {
+	www.labels = JSON.parse('{"my_dashboard_url_t2":"https://program.seagate.com/s","my_profile_url_ci":"https://myportal.seagate.com/consumer-identity/profile/","logout_url_ci":"https://myportal.seagate.com/consumer-identity/logout","logoutUrl":"https://ssologin.seagate.com/oam/server/logout?end_url\\u003d","my_profile_url_non_consumer":"https://partnerreg.seagate.com/partnerprofile/myaccount.jsp","search_Support":"Support","my_dashboard_url_ci":"https://myportal.seagate.com/consumer-identity/home.jsp","my_profile_url_sd":"https://seagatecommunity.force.com/seagatedirect/s/myprofile","loginProperty_MyAccount":"Mon compte","my_dashboard_url_supplier":"https://www.seagate.com/portal/site/supplier ","header_Login":"Connexion","my_dashboard_url_sd":"https://seagatecommunity.force.com/seagatedirect/s/","my_profile_url_t2":"https://program.seagate.com/s/editprofile","search_ViewAllResults":"Afficher tous les résultats","my_profile_url_supplier":"https://www.seagate.com/portal/site/supplier/myprofile"}');
+	if (typeof(www.labels) == "undefined") {
+		www.labels = {};
+	}
+		
+	// login & my account
+	var loginTags = document.querySelectorAll("[data-micromodal-trigger=login]");
+	var loginModal = document.getElementById("login");
+	
+	if (!(/^partnerreg.*\.(seagate|lacie)\.com$/.test(document.location.host) || /^seagate.*force\.com$/.test(document.location.host))) {
+		setTimeout(function () {
+			www.userDetail = www.getCookie("USERDETAIL");
+			www.userRole = www.getCookie("USERROLE");
+			if (www.userDetail != undefined && www.userDetail != "") {
+				loginTags.forEach(function (loginTag) {
+					loginTag.innerText = www.labels.loginProperty_MyAccount;
+				});
+				loginModal.querySelector(".modal__header h3").innerText = www.labels.loginProperty_MyAccount;
+				var myAccount = loginModal.querySelector(".modal__content.Modal-groups.my-account");
+				myAccount.querySelector("p.username").innerText = www.userDetail;
+				if (www.userRole != undefined && www.userRole != "") {
+					var myProfile = myAccount.querySelector("a.my-profile");
+					var mDashboard = myAccount.querySelector("a.my-dashboard");
+					var logout = myAccount.querySelector("a.logout");
+					if (www.userRole == "CI") {
+						myProfile.setAttribute("href", www.labels.my_profile_url_ci);
+						mDashboard.setAttribute("href", www.labels.my_dashboard_url_ci);
+						logout.setAttribute("href", "javascript: www.logout('" + www.labels.logout_url_ci + "');");
+					} else if (www.userRole == "Employee") {
+						mDashboard.parentElement.style.display = "none";
+						myProfile.parentElement.style.display = "none";
+						logout.setAttribute("href", "javascript: www.logout('" + www.labels.logoutUrl + "');");
+					} else if (www.userRole == "Supplier") {
+						myProfile.setAttribute("href", www.labels.my_profile_url_supplier);
+						mDashboard.setAttribute("href", www.labels.my_dashboard_url_supplier);
+						logout.setAttribute("href", "javascript: www.logout('" + www.labels.logoutUrl + "');");
+					} else if (www.userRole == "d" || www.userRole == "o") {
+						myProfile.setAttribute("href", www.labels.my_profile_url_sd);
+						mDashboard.setAttribute("href", www.labels.my_dashboard_url_sd);
+						logout.setAttribute("href", "javascript: www.logout('" + www.labels.logoutUrl + "');");
+					} else if (www.userRole.indexOf("spp") != -1) {
+						myProfile.setAttribute("href", www.labels.my_profile_url_t2);
+						mDashboard.setAttribute("href", www.labels.my_dashboard_url_t2);
+						logout.setAttribute("href", "javascript: www.logout('" + www.labels.logoutUrl + "');");
+					} else {
+						mDashboard.parentElement.style.display = "none";
+						myProfile.setAttribute("href", www.labels.my_profile_url_non_consumer);
+						logout.setAttribute("href", "javascript: www.logout('" + www.labels.logoutUrl + "');");
+					}
+				}
+				loginModal.classList.add("Modal--my-account");
+				loginModal.querySelector(".modal__content.Modal-groups.my-account").style.display = "flex";
+			} else {
+				loginTags.forEach(function (loginTag) {
+					loginTag.innerText = www.labels.header_Login;
+				});
+				loginModal.querySelector(".modal__header h3").innerText = www.labels.header_Login;
+				loginModal.querySelector(".modal__content.Modal-groups.login").style.display = "flex";
+			}
+			loginModal.querySelector(".login-loading").style.display = "none";
+		}, 8888);
+	}
+	
+	
+	// locale selector
+	var displayLocaleSelector = false;
+	if (/^(origin-www|www|partnerreg).*\.(seagate|lacie)\.com$/.test(document.location.host) 
+			|| /^.*\.force\.com$/.test(document.location.host)) {
+		displayLocaleSelector = true;
+	}
+	
+	if (displayLocaleSelector) {
+		var currentCountryText = document.querySelector("#modal-locale-selector [data-locale='" + www.locale + "'").innerText;
+		document.querySelectorAll(".currentCountryText").forEach(function (element) {
+			element.innerText = currentCountryText;
+		});
+		
+		document.querySelectorAll("#modal-locale-selector [data-locale]").forEach(function (element) {
+			element.addEventListener("click", function (e) {
+				e.preventDefault();
+				var locale = this.getAttribute("data-locale");
+				if (/^partnerreg.*\.(seagate|lacie)\.com$/.test(document.location.host) ) {
+					    window.location = document.location.pathname + "?languageselect=" + locale;
+				} else {
+					if (!/^[a-zA-Z]{2,2}-[a-zA-Z]{2,2}$/.test(locale)) {
+						locale = "en-us";
+					}
+					var rememberMe = document.getElementById("rememberMe").checked;
+					www.setSessionCookie(www.LOCALE_COOKIE_NAME_TEMP, locale);
+					if (rememberMe) {
+						www.setPermanentCookie(www.LOCALE_COOKIE_NAME_PERMANENT, locale, 60);
+					}
+					www.goToLocale(locale);
+				}
+			}, false);
+		});
+	} else {
+		document.querySelectorAll(".SecondaryNav-region").forEach(function (element) {
+			element.style.display = "none";
+		});
+	}
+}
+</script>
+
+
+
+	<!-- </div>	</div>	</div>	</div> -->	
+<!--start of regions body content-->
+<div class="container">
+    
+    
+    <div class="row">
+    
+        	<!--start of region a-->
+        	<div id="r-region-a" class="r-region-a span12">
+                
+
+	<!-- start of com.cust.contentbean.RichContentBlockMasterImpl -->	
+                <!-- start of ContnetRow -->
+				<div class="content-row clearfix ">
+					
+							<div class="content-row-1-column">
+									<!-- Ephox content start -->	<div class="page">
+<div class="container">
+<div class="row-fluid">
+<div class="span10">
+<h1 style="color: #00a1dd;">Disque Exos&nbsp;10E2400</h1>
+<p>(anciennement Enterprise Performance&nbsp;10K&nbsp;HDD)</p>
+<p>&nbsp;</p>
+</div>
+<div class="span2">
+<p><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/green-logo-208x55.png" /></p>
+<p id="print-report"><a style="float: right;" target="_blank" href="/files/www-content/global-citizenship/_shared/product-sustainability/exos-10e2400/exos-10e2400-report-fr-fr.pdf">Imprimer le rapport</a></p>
+</div>
+</div>
+</div>
+<div class="container">
+<p style="color: grey;">Rapport de durabilit&eacute;*</p>
+<div class="row-fluid">
+<div class="span3"><img src="/www-content/global-citizenship/_shared/product-sustainability/exos-10e2400/exos-10e2400-10k-hdd-197x228.jpg" /></div>
+<div class="span9">
+<p style="margin-bottom: 2%;"><strong>Durabilit&eacute; @ Seagate</strong><br /> Seagate s'engage &agrave; fournir un stockage durable. Notre ing&eacute;nierie s'efforce d'augmenter la capacit&eacute; de stockage et son utilisation, tout en contr&ocirc;lant la quantit&eacute; et les types de mat&eacute;riaux employ&eacute;s, et en visant &agrave; am&eacute;liorer l'efficacit&eacute; &eacute;nerg&eacute;tique et la recyclabilit&eacute;.</p>
+<strong>Caract&eacute;ristiques de conception durable</strong>
+<ul>
+<li>Ses capacit&eacute;s &eacute;lev&eacute;es et son format compact 2,5&nbsp;pouces permettent de r&eacute;pondre aux besoins croissants en termes de stockage des centres de traitement des donn&eacute;es et d'optimiser l'espace disponible dans les locaux.</li>
+<li>Interfaces avanc&eacute;es de type &eacute;mulation 512 et 4K natif pour des solutions de stockage &eacute;volutives.</li>
+<li>Interface SAS 12&nbsp;Gbits/s pour une &eacute;volutivit&eacute; am&eacute;lior&eacute;e.</li>
+<li>Capacit&eacute; sup&eacute;rieure &agrave; 2&nbsp;anciens disques 3,5&nbsp;pouces de 10&nbsp;000&nbsp;tr/min dans un bo&icirc;tier &agrave; faible consommation &eacute;nerg&eacute;tique.</li>
+<li>La technologie Seagate PowerChoice&trade; pour une gestion de l'&eacute;nergie conforme au T10 permet aux soci&eacute;t&eacute;s informatiques d'optimiser la consommation &eacute;nerg&eacute;tique de leurs syst&egrave;mes.</li>
+<li>Le mod&egrave;le Seagate Secure FIPS&nbsp;140-2 offre une s&eacute;curit&eacute; optimale conforme aux exigences des pouvoirs publics pour les donn&eacute;es au repos et contribue &agrave; diminuer les co&ucirc;ts de mise au rebut.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>&Eacute;nergie et gaz &agrave; effet de serre</strong><br /> La fabrication et l'utilisation de nos produits n&eacute;cessitent de l'&eacute;nergie et g&eacute;n&egrave;rent des &eacute;missions de gaz &agrave; effet de serre. Nous &eacute;valuons l'impact de l'&eacute;nergie utilis&eacute;e pendant le cycle de vie et des gaz &agrave; effet de serre &eacute;mis, et nous effor&ccedil;ons d'am&eacute;liorer l'efficacit&eacute; &eacute;nerg&eacute;tique et de limiter les &eacute;missions, ainsi que de r&eacute;duire les co&ucirc;ts de possession &agrave; chaque nouvelle g&eacute;n&eacute;ration de produits.</p>
+<p>&nbsp;</p>
+<table class="custom-table" style="border-collapse: collapse; width: inherit;" border="1" cellpadding="4">
+<tbody>
+<tr><th style="background-color: black; color: white;"><strong style="padding: 5px;">Consommation</strong></th><th class="center" style="background-color: black; color: white;"><strong style="padding: 5px;">Par unit&eacute;</strong></th><th class="center" style="background-color: black; color: white;"><strong style="padding: 5px;">Par To</strong></th></tr>
+<tr>
+<td style="padding: 5px;">En fonctionnement, moyenne (W)</td>
+<td class="center" style="padding: 5px;">6,3</td>
+<td class="center" style="padding: 5px;">21,0</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Consommation au repos, moyenne (W)</td>
+<td class="center" style="padding: 5px;">3,1</td>
+<td class="center" style="padding: 5px;">10,3</td>
+</tr>
+<tr>
+<td style="padding: 5px;">En veille/veille prolong&eacute;e, moyenne (W)</td>
+<td class="center" style="padding: 5px;">1,26</td>
+<td class="center" style="padding: 5px;">4,2</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Moyenne annuelle (kWh)</td>
+<td class="center" style="padding: 5px;">29,04</td>
+<td class="center" style="padding: 5px;">96,8</td>
+</tr>
+</tbody>
+</table>
+<div class="container" style="margin-top: 3%;">
+<div class="row-fluid">
+<div class="span2">&nbsp;</div>
+<div class="span6">
+<p>&Eacute;missions de gaz &agrave; effet de serre &agrave; chaque &eacute;tape du cycle de vie</p>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row-fluid">
+<div class="span2">&nbsp;</div>
+<div class="span6">
+<table class="custom-table">
+<tbody>
+<tr>
+<td style="padding: 2%;">5,5&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/bill-of-materials-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Nomenclature</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,4&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/distribution-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Distribution</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,2&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/distribution-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Fin de vie</td>
+</tr>
+<tr>
+<td style="padding: 2%;">5,6&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/manufacturing-energy-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">&Eacute;nergie pour la fabrication</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,05&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/packaging-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Emballage</td>
+</tr>
+<tr>
+<td style="padding: 2%;">88&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/use-phase-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Phase d'utilisation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="span4 round-img1">
+<p class="round-text">78,5<br />kg &eacute;q. CO2/To-an</p>
+</div>
+</div>
+<div class="row-fluid">
+<p><sup>* ST300MM0048&nbsp;; THUNDERBUG,300&nbsp;Go,128&nbsp;Mo,SAS,1D/2H</sup></p>
+</div>
+</div>
+</div>
+<div class="page">
+<h4>Mat&eacute;riaux plus s&ucirc;rs</h4>
+<p>En tant que principal fournisseur des grands fabricants d'&eacute;quipements d'origine, Seagate contribue &agrave; &eacute;tablir des normes pour les mat&eacute;riaux directs (les composants qui constituent nos produits) de fa&ccedil;on &agrave; r&eacute;pondre aux exigences les plus strictes de ses clients. Nous enregistrons les substances restreintes de fa&ccedil;on m&eacute;ticuleuse et nous disposons actuellement d'une liste de plus de 2&nbsp;000 substances.</p>
+<div class="container">
+<div class="row-fluid">
+<div class="span2">&nbsp;</div>
+<div class="span6">
+<p>Toxicit&eacute; pour l'homme &agrave; chaque &eacute;tape du cycle de vie</p>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row-fluid">
+<div class="span2">&nbsp;</div>
+<div class="span6">
+<table class="custom-table">
+<tbody>
+<tr>
+<td style="padding: 2%;">34&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/bill-of-materials-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Nomenclature</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,04&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/distribution-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Distribution</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,08&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/distribution-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Fin de vie</td>
+</tr>
+<tr>
+<td style="padding: 2%;">2,9&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/manufacturing-energy-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">&Eacute;nergie pour la fabrication</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,02&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/packaging-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Emballage</td>
+</tr>
+<tr>
+<td style="padding: 2%;">63&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/use-phase-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Phase d'utilisation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="span4 round-img2">
+<p class="round-text">47,8<br />kg &eacute;q. 1,4-DCB/To-an</p>
+</div>
+</div>
+</div>
+<h4>Ressources rares</h4>
+<p>Nous visons &agrave; r&eacute;duire notre utilisation de ressources rares tout au long du cycle de vie de nos produits. Nous &eacute;valuons l'impact de nos produits sur l'&eacute;puisement des ressources en eau et en m&eacute;tal afin de minimiser la d&eacute;pendance sur ces ressources naturelles essentielles et de r&eacute;duire les co&ucirc;ts de fabrication et de possession des produits.</p>
+<div class="container">
+<div class="row-fluid">
+<div class="span2">&nbsp;</div>
+<div class="span6">
+<p>&Eacute;puisement des ressources en m&eacute;tal &agrave; chaque &eacute;tape du cycle de vie</p>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row-fluid">
+<div class="span2">&nbsp;</div>
+<div class="span6">
+<table class="custom-table">
+<tbody>
+<tr>
+<td style="padding: 2%;">85&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/bill-of-materials-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Nomenclature</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,02&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/distribution-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Distribution</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,01&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/distribution-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Fin de vie</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,7&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/manufacturing-energy-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">&Eacute;nergie pour la fabrication</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,01%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/packaging-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Emballage</td>
+</tr>
+<tr>
+<td style="padding: 2%;">14,2&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/use-phase-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Phase d'utilisation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="span4 round-img3">
+<p class="round-text">14,3<br />kg &eacute;q. Fe/To-an</p>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row-fluid">
+<div class="span2">&nbsp;</div>
+<div class="span6">
+<p>&Eacute;puisement des ressources en eau &agrave; chaque &eacute;tape du cycle de vie</p>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row-fluid">
+<div class="span2">&nbsp;</div>
+<div class="span6">
+<table class="custom-table">
+<tbody>
+<tr>
+<td style="padding: 2%;">11,8&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/bill-of-materials-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Nomenclature</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,04&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/distribution-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Distribution</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,1&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/distribution-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Fin de vie</td>
+</tr>
+<tr>
+<td style="padding: 2%;">4,2&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/manufacturing-energy-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">&Eacute;nergie pour la fabrication</td>
+</tr>
+<tr>
+<td style="padding: 2%;">0,08&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/packaging-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Emballage</td>
+</tr>
+<tr>
+<td style="padding: 2%;">83,8&nbsp;%</td>
+<td style="padding: 2%;"><img src="/www-content/global-citizenship/_shared/product-sustainability/skyhawk-3tb-sustainability/use-phase-square-image-17x17.jpg" /></td>
+<td style="padding: 2%;">Phase d'utilisation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="span4 round-img4">
+<p class="round-text">0,36<br />m<sup>3</sup>/To-an</p>
+</div>
+</div>
+</div>
+</div>
+<div class="page">
+<h4>Efficacit&eacute; et circularit&eacute; des mat&eacute;riaux</h4>
+<p>Seagate reconna&icirc;t que l'approche lin&eacute;aire traditionnelle, qui consiste &agrave; prendre, fabriquer et jeter, n'est pas durable. Nous mesurons notre avancement vers une &eacute;conomie circulaire gr&acirc;ce &agrave; divers indicateurs, y compris le volume de mat&eacute;riaux employ&eacute;s par t&eacute;raoctet de stockage, l'utilisation de mati&egrave;res recycl&eacute;es, le taux de r&eacute;utilisation et le type de recyclage et son efficacit&eacute;.</p>
+<table class="custom-table" style="border-collapse: collapse; width: inherit;" border="1" cellpadding="4">
+<tbody>
+<tr><th style="background-color: black; color: white;" colspan="2"><strong style="padding: 5px;">Poids du p&eacute;riph&eacute;rique - Exp&eacute;di&eacute; (g)</strong></th><th class="center" style="background-color: black; color: white;"><strong style="padding: 5px;">Par unit&eacute;</strong></th><th class="center" style="background-color: black; color: white;"><strong style="padding: 5px;">Par To</strong></th></tr>
+<tr>
+<td style="padding: 5px;" rowspan="4">Disque</td>
+<td style="padding: 5px;">Bo&icirc;tier</td>
+<td class="center" style="padding: 5px;">140</td>
+<td class="center" style="padding: 5px;">467</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Support</td>
+<td class="center" style="padding: 5px;">48,8</td>
+<td class="center" style="padding: 5px;">163</td>
+</tr>
+<tr>
+<td style="padding: 5px;">&Eacute;lectronique</td>
+<td class="center" style="padding: 5px;">16,6</td>
+<td class="center" style="padding: 5px;">55</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Autres &eacute;l&eacute;ments</td>
+<td class="center" style="padding: 5px;">0</td>
+<td class="center" style="padding: 5px;">0</td>
+</tr>
+<tr>
+<td style="padding: 5px;" rowspan="2">Emballage</td>
+<td style="padding: 5px;">Carton et papier</td>
+<td class="center" style="padding: 5px;">16,7</td>
+<td class="center" style="padding: 5px;">56</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Autres mat&eacute;riaux</td>
+<td class="center" style="padding: 5px;">9,2</td>
+<td class="center" style="padding: 5px;">31</td>
+</tr>
+<tr>
+<td style="padding: 5px;" colspan="2">Total</td>
+<td class="center" style="padding: 5px;">231</td>
+<td class="center" style="padding: 5px;">771</td>
+</tr>
+</tbody>
+</table>
+<p><br /><br /></p>
+<div style="text-align: center;">
+<p>Indicateur de circularit&eacute; des mat&eacute;riaux</p>
+<img src="/www-content/global-citizenship/_shared/product-sustainability/exos-10e2400/exos-10e2400-10k-materials-circularity-580x80.jpg" /></div>
+<p><br /><br /></p>
+<table class="custom-table" style="border-collapse: collapse; width: inherit;" border="1" cellpadding="4">
+<tbody>
+<tr><th style="background-color: black; color: white;"><strong style="padding: 5px;">Principaux param&egrave;tres de circularit&eacute;</strong></th><th class="center" style="background-color: black; color: white;"><strong style="padding: 5px;">Par unit&eacute;</strong></th></tr>
+<tr>
+<td style="padding: 5px;">Dur&eacute;e de vie en fonctionnement estim&eacute;e</td>
+<td class="center" style="padding: 5px;">5&nbsp;ans</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Quantit&eacute; d'aluminium et d'acier recycl&eacute;e</td>
+<td class="center" style="padding: 5px;">moyenne mondiale</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Carton recycl&eacute;</td>
+<td class="center" style="padding: 5px;">100&nbsp;%</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Volume r&eacute;utilis&eacute;</td>
+<td class="center" style="padding: 5px;">z&eacute;ro</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Taux de recyclage</td>
+<td class="center" style="padding: 5px;">25&nbsp;%</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Mise au rebut des mat&eacute;riaux restants</td>
+<td class="center" style="padding: 5px;">50&nbsp;% en incin&eacute;ration/50&nbsp;% en enfouissement</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Taux de r&eacute;utilisation</td>
+<td class="center" style="padding: 5px;">z&eacute;ro</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Efficacit&eacute; de recyclage</td>
+<td class="center" style="padding: 5px;">95&nbsp;%</td>
+</tr>
+<tr>
+<td style="padding: 5px;">Efficacit&eacute; des collectes de recyclage</td>
+<td class="center" style="padding: 5px;">90&nbsp;%</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>Seagate mesure et pr&eacute;sente les performances de ses produits en mati&egrave;re de durabilit&eacute; sur une unit&eacute; de To-an. Les disques de Seagate sont disponibles en capacit&eacute;s de stockage vari&eacute;es et l'estimation de leur dur&eacute;e de vie utile diff&egrave;re. En termes de capacit&eacute; de disque, un t&eacute;raoctet (ou &laquo;&nbsp;To&nbsp;&raquo;) &eacute;quivaut &agrave; mille milliards d'octets. La mesure en To-an associe ces facteurs de sorte que les donn&eacute;es de performance en mati&egrave;re de durabilit&eacute; soient comparables entre les produits et que nous puissions indiquer directement l'impact annuel.</p>
+<p style="margin-top: 3%;">Les outils d'&eacute;valuation de la durabilit&eacute; de Seagate utilis&eacute;s pour g&eacute;n&eacute;rer l'analyse de la durabilit&eacute; des produits ont &eacute;t&eacute; v&eacute;rifi&eacute;s par la soci&eacute;t&eacute; UL conform&eacute;ment aux normes ISO 14040, ISO 14044 et GHG Protocol Product Life Cycle Accounting and Reporting Standard du World Resources Institute and World Business Council for Sustainable Development.</p>
+<p style="margin-top: 6%;"><sup>&copy; 2017 Seagate Technology LLC. Tous droits r&eacute;serv&eacute;s. Imprim&eacute; aux &Eacute;tats-Unis. Seagate, Seagate Technology et le logo Wave sont des marques d&eacute;pos&eacute;es de Seagate Technology&nbsp;LLC aux &Eacute;tats-Unis et/ou dans d&rsquo;autres pays. Seagate se r&eacute;serve le droit de modifier sans pr&eacute;avis les offres ou les caract&eacute;ristiques de ses produits. DS1663.4-0911FR, mars&nbsp;2016 </sup></p>
+<a style="float: right;" target="_blank" href="/files/www-content/global-citizenship/_shared/product-sustainability/exos-10e2400/exos-10e2400-report-fr-fr.pdf">Imprimer le rapport</a></div>	<!-- Ephox content end -->		</div>		</div>	<!-- end of ContnetRow -->		<!-- end of com.cust.contentbean.RichContentBlockMasterImpl -->	
+
+	</div>	<!--end of region a--> 
+    </div>
+    
+    
+    <div class="row">
+    
+        	<!--start of region b-->
+        	<div id="r-region-b" class="r-region-b span12">
+                
+
+
+
+	</div>	<!--start of region b--> 
+    </div>
+    
+    
+    <div class="row">
+    
+        	<!--start of region c-->
+        	<div id="r-region-c" class="r-region-c span12">
+                
+
+
+
+	</div>	<!--end of region c--> 
+    </div>
+
+    <div class="row">
+    
+        	<!--start of region d-->
+        	<div id="r-region-d" class="r-region-d span12">
+                
+
+
+
+	</div>	<!--end of region d--> 
+    </div>
+
+    <div class="row">
+    
+        	<!--start of region e-->
+        	<div id="r-region-e" class="r-region-e span12">
+                
+
+
+
+	</div>	<!--end of region e--> 
+    </div>
+    
+    <div class="row">
+    
+        	<!--start of region f-->
+        	<div id="r-region-f" class="r-region-f span12">
+                
+
+
+
+	</div>	<!--end of region f--> 
+    </div>
+
+    <div class="row">
+    
+        	<!--start of region g-->
+        	<div id="r-region-g" class="r-region-g span12">
+                
+
+
+
+	</div>	<!--end of region g--> 
+    </div>
+
+    <div class="row">
+    
+        	<!--start of region h-->
+        	<div id="r-region-h" class="r-region-h span12">
+                
+
+
+
+	</div>	<!--end of region h--> 
+ </div>
+</div>
+<!--end of regions body content-->
+
+		
+	<section class="Footer">
+	    <div class="Container">
+	      <!--Home/global-citizenship/product-sustainability/exos-10e2400-report-->
+
+	    	  <a href="/fr/fr"><img class="Footer-logo" src="/ww/redesign/assets/seagate-logo.svg" alt="Seagate Logo"></a>
+	    	  
+
+<!-- footer 1 -->
+<div class="Footer-callouts">
+
+	
+						<div class="Footer-callout">
+                            
+								<p class="Eyebrow">Un rapport Seagate</p>	<a href='/fr/fr/our-story/rethink-data/' class=' Button Button-secondary--inverted   gtm-nav-footer'>Rethink Data&nbsp;: Exploitez davantage vos données <span class="no-wrap">d'entreprise<i class="Button-arrow"></i></span></a>	</div>	
+</div>
+<!-- footer 1 -->
+
+<div class="Footer-linkGroups">
+
+<!-- footer 2 -->
+<div style="
+    display: flex;
+    flex-wrap: wrap;
+">
+					
+				<div class="Footer-links ">
+				<span class=' Footer-link Footer-link--main  gtm-nav-footer'>À propos de Seagate</span><a href='/fr/fr/our-story/' class=' Footer-link  Footer-link  gtm-nav-footer'>Notre aventure</a><a href='/fr/fr/global-citizenship/' class=' Footer-link  Footer-link  gtm-nav-footer'>Citoyenneté mondiale</a><a href='/fr/fr/trust/' class=' Footer-link  Footer-link  gtm-nav-footer'>Centre de confiance</a><a href='/our-story/product-quality-assurance/' class=' Footer-link  Footer-link  gtm-nav-footer'>Assurance qualité</a>	</div>					
+				<div class="Footer-links ">
+				<a href='/fr/fr/support/' class=' Footer-link Footer-link--main  gtm-nav-footer'>Support</a><a href='/fr/fr/support/products/' class=' Footer-link  Footer-link  gtm-nav-footer'>Support produit</a><a href='/fr/fr/support/downloads/' class=' Footer-link  Footer-link  gtm-nav-footer'>Téléchargement de logiciels</a><a href='/fr/fr/support/warranty-and-replacements/' class=' Footer-link  Footer-link  gtm-nav-footer'>Garantie et remplacements</a><a href='/fr/fr/contacts/' class=' Footer-link  Footer-link  gtm-nav-footer'>Nous contacter</a>	</div>					
+				<div class="Footer-links ">
+				<span class=' Footer-link Footer-link--main  gtm-nav-footer'>Centre de presse</span><a href='/fr/fr/news/' class=' Footer-link  Footer-link  gtm-nav-footer'>Actualités</a><a href='/fr/fr/news/media-kits/' class=' Footer-link  Footer-link  gtm-nav-footer'>Kits média</a><a href='https://branding.seagate.com/' class=' Footer-link  Footer-link  gtm-nav-footer' target='_blank'>Portail de la marque <img class="u-external" src="/ww/redesign/assets/icons/arrow-link-white.svg" alt=""></a>	</div>					
+				<div class="Footer-links ">
+				<a href='https://investors.seagate.com/overview/default.aspx' class=' Footer-link Footer-link--main  gtm-nav-footer' target='_blank'>Investisseurs <img class="u-external" src="/ww/redesign/assets/icons/arrow-link-white.svg" alt=""></a>	</div>					
+				<div class="Footer-links ">
+				<a href='/fr/fr/partner-programs/' class=' Footer-link Footer-link--main  gtm-nav-footer'>Partenaires</a><a href='/fr/fr/partners/' class=' Footer-link  Footer-link  gtm-nav-footer'>Partenaires et revendeurs indirects</a><a href='https://champions.seagate.com/' class=' Footer-link  Footer-link  gtm-nav-footer' target='_blank'>Seagate&nbsp;Champions <img class="u-external" src="/ww/redesign/assets/icons/arrow-link-white.svg" alt=""></a><a href='/fr/fr/direct-partners/' class=' Footer-link  Footer-link  gtm-nav-footer'>Seagate Direct et fournisseurs</a><a href='/fr/fr/partners/technology-alliance-program/' class=' Footer-link  Footer-link  gtm-nav-footer'>Programme Seagate Technology Alliance Program</a>	</div>					
+				<div class="Footer-links ">
+				<a href='/fr/fr/jobs/' class=' Footer-link Footer-link--main  gtm-nav-footer'>Postes</a><a href='/fr/fr/jobs/life-at-seagate/' class=' Footer-link  Footer-link  gtm-nav-footer'>La vie chez Seagate</a><a href='/fr/fr/jobs/diversity-and-inclusion/' class=' Footer-link  Footer-link  gtm-nav-footer'>Diversité, équité et intégration</a><a href='/fr/fr/jobs/university-programs/' class=' Footer-link  Footer-link  gtm-nav-footer'>Programmes avec les universités</a>	</div>					
+				<div class="Footer-links ">
+				<a href='/fr/fr/where-to-buy/' class=' Footer-link Footer-link--main  gtm-nav-footer'>Où acheter</a><a href='/fr/fr/product-finder/external-hard-drives/' class=' Footer-link  Footer-link  gtm-nav-footer'>Recherche de produits</a>	</div>					
+				<div class="Footer-links Footer-links--row">
+				<a href='http://www.facebook.com/seagate' class=' Footer-link  Footer-link--icon  gtm-nav-footer' title='Facebook' target='stx-popup'><img src="/www-content/_shared/_masters/social-media/facebook.svg" alt="facebook.svg"></a><a href='http://www.linkedin.com/company/2868?trk=tyah' class=' Footer-link  Footer-link--icon  gtm-nav-footer' title='LinkedIn' target='stx-popup'><img src="/www-content/_shared/_masters/social-media/linkedin.svg" alt="linkedin.svg"></a><a href='http://www.youtube.com/user/SeagateTechnology' class=' Footer-link  Footer-link--icon  gtm-nav-footer' title='YouTube' target='stx-popup'><img src="/www-content/_shared/_masters/social-media/youtube.svg" alt="youtube.svg"></a><a href='http://twitter.com/#!/SEAGATE' class=' Footer-link  Footer-link--icon  gtm-nav-footer' title='Twitter' target='stx-popup'><img src="/www-content/_shared/_masters/social-media/twitter.svg" alt="twitter.svg"></a><a href='https://instagram.com/seagate' class=' Footer-link  Footer-link--icon  gtm-nav-footer' title='Instagram' target='stx-popup'><img src="/www-content/_shared/_masters/social-media/instagram.svg" alt="instagram.svg"></a>	</div>		
+</div>
+<!-- footer 2 -->
+
+</div>
+
+	    </div>
+	    <div class="Container">
+	      <div class="Footer-bottom">
+	       <div class="Footer-legal">
+
+<!-- footer 4 -->
+          <span class="Footer-legal-text">&#xA9;2022&nbsp;Seagate Technology&nbsp;LLC</span> <a href='/fr/fr/legal-privacy/' class=' Footer-legal-link   gtm-nav-footer'>Informations juridiques et confidentialité</a><a href='/fr/fr/legal-privacy/responsible-vulnerability-disclosure-policy/' class=' Footer-legal-link   gtm-nav-footer'>Divulgation des failles</a>
+		<a id="ot-sdk-btn" class="Footer-legal-link gtm-nav-footer ot-sdk-show-settings">Cookies Settings</a>
+<!-- footer 4 -->
+
+</div>
+<div class="Footer-bottom-links">
+
+<!-- footer 3 -->
+<a href='https://www.lacie.com/' class=' Footer-bottom-link   gtm-nav-footer' target='_blank'>LaCie <img class="u-external" src="/ww/redesign/assets/icons/arrow-link-white.svg" alt=""></a><a href='https://maxtor.seagate.com/ ' class=' Footer-bottom-link   gtm-nav-footer' target='_blank'>Maxtor <img class="u-external" src="/ww/redesign/assets/icons/arrow-link-white.svg" alt=""></a><a href='https://labs.seagate.com/' class=' Footer-bottom-link   gtm-nav-footer' target='_blank'>Lyve Labs <img class="u-external" src="/ww/redesign/assets/icons/arrow-link-white.svg" alt=""></a><a href='https://www.seagategov.com/' class=' Footer-bottom-link   gtm-nav-footer' target='_blank'>Solutions gouvernementales Seagate <img class="u-external" src="/ww/redesign/assets/icons/arrow-link-white.svg" alt=""></a><a href='/fr/fr/site-index/' class=' Footer-bottom-link   gtm-nav-footer' target='_blank'>Plan du site <img class="u-external" src="/ww/redesign/assets/icons/arrow-link-white.svg" alt=""></a> 
+<!-- footer 3 -->
+
+</div>
+
+	      </div>
+	    </div>
+ 	</section>
+ 	
+<script>
+document.querySelectorAll("a.u-external").forEach(function (element) {
+	element.classList.remove("u-external");
+	element.innerHTML += ' <img class="u-external" src="/ww/redesign/assets/icons/arrow-link-white.svg">';
+});
+</script>
+		 <!-- Javascript ================================================== --> <!-- Placed at the end of the document so the pages load faster --> 
+
+    <script src="/ww/universal/js/library-min.js?v=20220824"></script>
+    <script src="/ww/universal/js/video.js?v=20220824"></script>
+    <script src="/ww/universal/js/wtb.js?v=20220824"></script>
+    
+	<script>
+	(function($) {
+	    if (typeof (contactsData) != "undefined") {
+	        var script = document.createElement('script');
+	        script.src = '/www-content/contact-us/_shared/javascript-css/contacts.js?v=20220824';
+	        script.type = 'text/javascript';
+	        script.addEventListener("load", function() {
+	            var contacts = new Contacts();
+	            contacts.init();
+	        });
+	        document.getElementsByTagName('body')[0].appendChild(script);
+	    }
+	}
+	)(jQuery);
+	</script>
+	
+    <script src="/ww/redesign/js/iife/main.js?v=20220824"></script>
+	<script src="/ww/redesign/js/seagate-nomodule-external.js?v=20220824"></script>
+	<script src="/ww/redesign/js/seagate-search.js?v=20220824"></script>
+	
+	
+	<script src="/www-content/redesign/redesign.js?v=20220824"></script>
+      
+    
+
+<script type="text/javascript">
+	//Analytics: Page Name variables
+	var sea_pagename = 'stx:' + rcLocaleJS;
+	var sea_comparelist = ''; //blank string
+	var sea_comparebuystate = ''; //blank string
+	var sea_solutionproviderstate = ''; //blank string
+	//Analytics: Measurement Page Name variable
+	var measurementPageName = 'stx';
+
+	
+		var topmostChannelName = new String('exos-10e2400-report');
+		while(topmostChannelName.indexOf(' ') != -1) {
+			topmostChannelName = topmostChannelName.replace(' ','-');
+		}
+		var windowLocationStr = new String(window.location);
+		if(windowLocationStr.indexOf(topmostChannelName) >= 0) {
+			var channelPath = windowLocationStr.substring(windowLocationStr.indexOf(topmostChannelName),windowLocationStr.length);
+			var pathLength = channelPath.length;
+			if(channelPath.indexOf('?') != -1) {
+				pathLength = Math.min(pathLength, channelPath.indexOf('?'));
+			}
+			if(channelPath.indexOf('#') != -1) {
+				pathLength = Math.min(pathLength, channelPath.indexOf('#'));
+			}
+			channelPath = channelPath.substring(0,pathLength);
+			var var_pagename = channelPath;
+			/*while(var_pagename.indexOf('/') != -1) {
+				var_pagename = var_pagename.replace('/',':');
+			}*/
+				var_pagename = var_pagename.replace(/\//g,':');	
+
+			sea_pagename = sea_pagename + ':' + var_pagename;
+
+			var var_salesstage = '';
+			var var_audience = '';
+			if(channelPath == "support" || channelPath.indexOf("support/") == 0) {
+				var_salesstage = "Loyalty";
+				var_audience = "All";
+			} else if(channelPath == "external-hard-drives" || channelPath.indexOf("external-hard-drives/") == 0) {
+				var_salesstage = "Research";
+				var_audience = "Consumer";
+			} else if(channelPath == "about/investors" || channelPath.indexOf("about/investors/") == 0) {
+				var_salesstage = "Research";
+				var_audience = "Investor";
+			} else if(channelPath == "about" || channelPath.indexOf("about/") == 0) {
+				var_salesstage = "Research";
+				var_audience = "Corporate";
+			} else if(channelPath == "Search" || channelPath.indexOf("Search/") == 0) {
+				var_salesstage = "Research";
+				var_audience = "All";
+			} else if(channelPath == "partners" || channelPath.indexOf("partners/") == 0) {
+				var_salesstage = "Research";
+				var_audience = "Indirect";
+			} else if(channelPath == "my-spp-dashboard" || channelPath.indexOf("my-spp-dashboard/") == 0) {
+				var_salesstage = "Consideration";
+				var_audience = "Indirect";
+			}
+
+			measurementPageName = measurementPageName + ':' + var_audience + ':' + var_salesstage;
+
+			//alert('sea_pagename='+sea_pagename+', measurementPageName='+measurementPageName);
+		}
+	
+</script>
+<script>
+var ciLocaleMap = {"locales":[
+{'name':'pl-pl','embed':'','xml':''},{'name':'en-in','embed':'5203','xml':'5204'},{'name':'en-ca','embed':'5898','xml':'5886'},{'name':'ru-ru','embed':'4632','xml':'4641'},{'name':'en-ie','embed':'','xml':''},{'name':'fr-be','embed':'','xml':''},{'name':'pt-br','embed':'4634','xml':'4638'},{'name':'en-em','embed':'','xml':''},{'name':'tr-tr','embed':'4633','xml':'4643'},{'name':'zh-tw','embed':'','xml':''},{'name':'ja-jp','embed':'','xml':''},{'name':'fr-fr','embed':'4448','xml':'4452'},{'name':'nl-nl','embed':'','xml':''},{'name':'en-cz','embed':'','xml':''},{'name':'in-id','embed':'','xml':''},{'name':'en-sg','embed':'4631','xml':'4642'},{'name':'zh-cn','embed':'','xml':''},{'name':'en-as','embed':'','xml':''},{'name':'en-us','embed':'4399','xml':'4450'},{'name':'nl-hu','embed':'','xml':''},{'name':'es-es','embed':'5062','xml':'5063'},{'name':'en-se','embed':'','xml':''},{'name':'en-au','embed':'','xml':''},{'name':'en-dk','embed':'','xml':''},{'name':'id-id','embed':'','xml':''},{'name':'ar-em','embed':'','xml':''},{'name':'nl-be','embed':'','xml':''},{'name':'ko-kr','embed':'','xml':''},{'name':'de-de','embed':'4447','xml':'4453'},{'name':'en-ro','embed':'','xml':''},{'name':'en-lt','embed':'','xml':''},{'name':'it-it','embed':'','xml':''},{'name':'en-gb','embed':'4449','xml':'4451'},{'name':'es-la','embed':'','xml':''}
+]};
+var rclocale = "fr-fr";
+</script>		
+
+
+<script>
+if (typeof(showSppMaintenance) == 'undefined')	var showSppMaintenance = 'no';
+</script>
+
+<style>
+h2.spp-down-alert { display: block; background-color: #f9f2f4; color: #c7254e; padding: 10px; font-size: 16px; line-height: 24px;
+}
+</style>
+
+<script>
+	//SPP Maintaince Page 
+	$(document).ready(function() {
+		//set default variable if not set
+		if (showSppMaintenance=='yes') {
+			var currentSppPage = window.location.pathname;
+			if (currentSppPage.includes("/partners/")) {
+				$('#enrollNowBtn').hide();
+				$('.sppForm:first').html('<h2 class="spp-down-alert">The Partner Program portal is down for maintenance. Please come back again soon. Thank you.<h2>');
+			}
+			$('a[href*="/sppregnewuser/"]').each(function() {
+			    $(this).hide();
+			});
+			$('div[id$="-CALL-TO-ACTION"]').each(function() {
+			    $(this).hide();
+			});
+		}
+});
+	
+	
+</script>
+<!-- End Temporary Hardcode of PDP Javascript -->
+
+<!-- Page load in 206 -->	<!-- Begin insert footerCode from Channel Info Child -->		<script src=/ww/js/cwssearch.chunk-vendors.js></script> <script src=/ww/js/cwssearch.main.js></script>	<!-- End insert footerCode from Channel Info Child -->	
+  
+  <div class="modal fade" id="vidModal" style="display:none;">
+    <button class="close" data-dismiss="modal">&#215;</button>
+      <div class="modal-body">
+        <div class="video-body">
+          <iframe class="youtubeEmbed" height="400" width="560" src=""></iframe>
+        </div>
+      </div>
+  </div>  
+      </body>
+</html>
+<!-- Seagate Monitor -->
+
