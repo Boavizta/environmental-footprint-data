@@ -91,6 +91,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             if keyword in result['name']:
                 result['category'], result['subcategory'] = category_and_sub
                 break
+        result['name']=result['name'].replace("HP ","")
     else:
         logging.error('The file "%s" did not match the HP pattern (no name extracted)', pdf_filename)
     if not "category" in result:
