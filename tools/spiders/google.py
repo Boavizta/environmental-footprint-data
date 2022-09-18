@@ -31,12 +31,6 @@ class GoogleSpider(spider.BoaViztaSpider):
 
     name = 'Google'
 
-    custom_settings = {
-        'USER_AGENT': (
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 '
-            '(KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36')
-    }
-
     start_urls = [_INDEX_PAGE_URL]
 
     def parse(self, response: http.Response, **unused_kwargs: Any) -> Iterator[scrapy.Request]:

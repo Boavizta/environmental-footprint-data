@@ -36,13 +36,6 @@ _INDEX_PAGE_URL = 'https://www.dell.com/en-us/dt/corporate/social-impact/advanci
 class DellSpider(spider.BoaViztaSpider):
 
     name = 'Dell'
-    
-    custom_settings = {
-        'USER_AGENT': (
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 '
-            '(KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'),
-        'CONCURRENT_REQUESTS' : 1
-    }
 
     start_urls = [_INDEX_PAGE_URL + "#tab0=0", _INDEX_PAGE_URL + "#tab0=1", _INDEX_PAGE_URL + "#tab0=2" ]
 

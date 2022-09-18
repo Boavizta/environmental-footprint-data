@@ -36,12 +36,6 @@ class HPSpider(spider.BoaViztaSpider):
 
     name = 'Huawei'
 
-    custom_settings = {
-        'USER_AGENT': (
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 '
-            '(KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36')
-    }
-
     start_urls = [_INDEX_PAGE_URL]
 
     def _create_list_files_request(self, url: str, product_id: str) -> str:

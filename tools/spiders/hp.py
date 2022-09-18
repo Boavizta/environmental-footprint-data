@@ -29,26 +29,19 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-import time
+
 
 _INDEX_PAGE_URL = 'https://h20195.www2.hp.com/v2/library.aspx?doctype=95&footer=95&filter_doctype=no&filter_country=no&cc=us&lc=en&filter_oid=no&filter_prodtype=rw&prodtype=ij&showproductcompatibility=yes&showregion=yes&showreglangcol=yes&showdescription=yes3doctype-95&sortorder-popular&teasers-off&isRetired-false&isRHParentNode-false&titleCheck-false#doctype-95&sortorder-revision_date&teasers-off&isRetired-false&isRHParentNode-false&titleCheck-false'
 
 class DellSpider(spider.BoaViztaSpider):
 
     name = 'HP'
-    
-    custom_settings = {
-        'USER_AGENT': (
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 '
-            '(KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'),
-        'CONCURRENT_REQUESTS' : 1
-    }
 
     start_urls = [_INDEX_PAGE_URL]
 
     def start_requests(self):
         options = Options()
-        #options.add_argument("--headless")
+        options.add_argument("--headless")
         options.add_argument("--incognito")
         browser = webdriver.Chrome(options=options)
         pdfs=[]

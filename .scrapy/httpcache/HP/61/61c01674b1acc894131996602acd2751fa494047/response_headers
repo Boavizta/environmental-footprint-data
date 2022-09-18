@@ -1,0 +1,10 @@
+Content-Length: 172
+Date: Sun, 18 Sep 2022 19:17:56 GMT
+Content-Type: text/html; charset=utf-8
+Set-Cookie: AWSALB=2wIjh6Chadu0EIbWwR1Qjisz56QpvJXqXGGNcbvLXMfrnCUvumJ1zATge2N5pLZ4k03tLLVEZfl3Uie0qhL6GNUNf3dDkP4K9vuzGl8i4P6ww/gHPXiiQOuYYePR; Expires=Sun, 25 Sep 2022 19:17:56 GMT; Path=/
+Set-Cookie: AWSALBCORS=2wIjh6Chadu0EIbWwR1Qjisz56QpvJXqXGGNcbvLXMfrnCUvumJ1zATge2N5pLZ4k03tLLVEZfl3Uie0qhL6GNUNf3dDkP4K9vuzGl8i4P6ww/gHPXiiQOuYYePR; Expires=Sun, 25 Sep 2022 19:17:56 GMT; Path=/; SameSite=None; Secure
+Server: Microsoft-IIS/8.5
+Cache-Control: private
+Location: https://h20195.www2.hp.com/v2/getpdf.aspx/c08361999.pdf
+X-Aspnet-Version: 4.0.30319
+X-Powered-By: ASP.NET

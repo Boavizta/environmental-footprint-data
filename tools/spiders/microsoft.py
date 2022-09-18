@@ -36,13 +36,6 @@ _INDEX_PAGE_URL = 'https://www.microsoft.com/en-us/download/details.aspx?id=5597
 class DellSpider(spider.BoaViztaSpider):
 
     name = 'Microsoft'
-    
-    custom_settings = {
-        'USER_AGENT': (
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 '
-            '(KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'),
-        'CONCURRENT_REQUESTS' : 1
-    }
 
     start_urls = [_INDEX_PAGE_URL]
 
