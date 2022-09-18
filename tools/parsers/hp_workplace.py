@@ -87,10 +87,12 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     # Convert each matched group to our format.
     if 'name' in extracted:
         result['name'] = extracted['name'].strip()
-    for keyword, category_and_sub in _CATEGORIES.items():
-        if keyword in result['name']:
-            result['category'], result['subcategory'] = category_and_sub
-            break
+        for keyword, category_and_sub in _CATEGORIES.items():
+            if keyword in result['name']:
+                result['category'], result['subcategory'] = category_and_sub
+                break
+    else:
+        logging.error('The file "%s" did not match the HP pattern (no name extracted)', pdf_filename)
     if not "category" in result:
             result['category'] = "Workplace"
             if 'screen_size' in extracted:
@@ -171,8 +173,6 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "HP Auto Parser"
     result['manufacturer'] = "HP"
-     
-
     yield data.DeviceCarbonFootprint(result)
 
 

@@ -41,7 +41,7 @@ class DellSpider(spider.BoaViztaSpider):
 
     def start_requests(self):
         options = Options()
-        options.add_argument("--headless")
+        #options.add_argument("--headless")
         options.add_argument("--incognito")
         browser = webdriver.Chrome(options=options)
         pdfs=[]

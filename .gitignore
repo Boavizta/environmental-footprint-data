@@ -5,3 +5,4 @@ __pycache__
 test-romain
 */tempfile.pdf
 .DS_Store
+*.pdf

@@ -2,6 +2,8 @@ import csv
 import logging
 from typing import Any, Optional
 from scrapy.extensions.httpcache import DummyPolicy
+import os
+from urllib.parse import urlparse
 
 import scrapy
 
@@ -17,17 +19,16 @@ class BoaViztaSpider(scrapy.Spider):
     class CachePolicy(DummyPolicy):
         def should_cache_response(self, response, request):
             if '.pdf' in response.url:
-                print(response.url + " cached.")
                 return True
             else:
-                print(response.url + " not cached.")
                 return False
 
-    def __init__(self, existing: Optional[str] = None, *args: Any, **kwargs: Any) -> None:
+    def __init__(self, existing: Optional[str] = None, blacklist: Optional[str] = None, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self._existing_sources = set()
         if not existing:
             return
+        self._existing_blacklist = set()
 
         # Load existing sources from CSV file (pass in argument with -a existing=filename.csv).
         with open(existing, 'rt', encoding='utf-8') as existing_file:
@@ -35,9 +36,17 @@ class BoaViztaSpider(scrapy.Spider):
             for row in reader:
                 if row.get('sources'):
                     self._existing_sources.add(row['sources'])
+        if blacklist:
+            # Load existing files to blacklis
+            with open(blacklist, 'rt', encoding='utf-8') as blacklist_file:
+                for line in blacklist_file:
+                    self._existing_blacklist.add(line)
 
     def _should_skip(self, source: str) -> bool:
-        if source not in self._existing_sources:
-            return False
-        logging.info('Source already existing: %s', source)
-        return True
+        if source in self._existing_sources:
+            logging.info('Source already existing: %s', source)
+            return True
+        if os.path.basename(urlparse(source).path) in self._existing_blacklist:
+            logging.info('Source is blacklisted: %s', source)
+            return True
+        return False
