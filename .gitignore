@@ -6,3 +6,4 @@ test-romain
 */tempfile.pdf
 .DS_Store
 *.pdf
+.scrapy/*
