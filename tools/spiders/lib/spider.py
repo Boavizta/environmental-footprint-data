@@ -26,9 +26,9 @@ class BoaViztaSpider(scrapy.Spider):
     def __init__(self, existing: Optional[str] = None, blacklist: Optional[str] = None, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
         self._existing_sources = set()
+        self._existing_blacklist = set()
         if not existing:
             return
-        self._existing_blacklist = set()
 
         # Load existing sources from CSV file (pass in argument with -a existing=filename.csv).
         with open(existing, 'rt', encoding='utf-8') as existing_file:
@@ -37,7 +37,7 @@ class BoaViztaSpider(scrapy.Spider):
                 if row.get('sources'):
                     self._existing_sources.add(row['sources'])
         if blacklist:
-            # Load existing files to blacklis
+            # Load existing files to blacklist
             with open(blacklist, 'rt', encoding='utf-8') as blacklist_file:
                 for line in blacklist_file:
                     self._existing_blacklist.add(line)
