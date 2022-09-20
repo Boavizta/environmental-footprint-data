@@ -34,6 +34,12 @@ class DeviceCarbonFootprintData(TypedDict, total=False):
     add_method: str
     gwp_transport_ratio: float
     gwp_eol_ratio: float
+    gwp_ssd_ratio: float
+    gwp_mainboard_ratio: float
+    gwp_mainboard_ratio: float
+    gwp_daughterboard_ratio: float
+    gwp_enclosure_ratio: float
+    
 
 def md5_file(fname):
     hash_md5 = hashlib.md5()

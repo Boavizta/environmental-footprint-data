@@ -27,15 +27,13 @@ class BoaViztaSpider(scrapy.Spider):
         super().__init__(*args, **kwargs)
         self._existing_sources = set()
         self._existing_blacklist = set()
-        if not existing:
-            return
-
-        # Load existing sources from CSV file (pass in argument with -a existing=filename.csv).
-        with open(existing, 'rt', encoding='utf-8') as existing_file:
-            reader = csv.DictReader(existing_file)
-            for row in reader:
-                if row.get('sources'):
-                    self._existing_sources.add(row['sources'])
+        if existing:
+            # Load existing sources from CSV file (pass in argument with -a existing=filename.csv).
+            with open(existing, 'rt', encoding='utf-8') as existing_file:
+                reader = csv.DictReader(existing_file)
+                for row in reader:
+                    if row.get('sources'):
+                        self._existing_sources.add(row['sources'])
         if blacklist:
             # Load existing files to blacklist
             with open(blacklist, 'rt', encoding='utf-8') as blacklist_file:
