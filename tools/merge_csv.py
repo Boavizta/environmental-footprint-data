@@ -41,7 +41,7 @@ def main(string_args: Optional[List[str]] = None) -> None:
     args = argparser.parse_args(string_args)
     conflict = 'interactive' if args.interactive else 'keep2nd'
     devices = load_csv(args.files[1]) + load_csv(args.files[0])
-    result = dict()
+    result :Dict[str,data.DeviceCarbonFootprint] = {}
     for device in devices:
         key = device.get('name').lower()
         if key in result:
