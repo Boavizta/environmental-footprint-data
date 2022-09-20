@@ -79,7 +79,7 @@ class DeviceCarbonFootprint:
             try:
                 typed_data[key] = data_type(value)  # type: ignore
             except ValueError as error:
-                raise ValueError(f'Value error for "{key}": "{value}"\n{data}') from error
+                raise ValueError(f'Value error for converting "{key}": "{value}" as"{data_type}"\n{data}') from error
         return DeviceCarbonFootprint(typed_data)
 
     def get(self, key: str) -> Union[float, str, int]:
