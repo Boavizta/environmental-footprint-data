@@ -1,6 +1,8 @@
 import csv
 import io
 import hashlib
+import math
+import re
 from sre_compile import isstring
 from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict
 
@@ -57,6 +59,25 @@ def _format_csv_row(row: Iterable[Any], csv_format: Literal['us', 'fr']) -> str:
     ])
     return output.getvalue()
 
+def is_empty(x):
+  return isinstance(x,str) and x=='' or not isinstance(x,str) and (math.isnan(x) or x==0)
+
+def are_equal(a: Union[float, str, int], b: Union[float, str, int]):
+    if isinstance(a, str) and isinstance(b, str):
+        return a.strip()==b.strip()
+    elif (not isinstance(a, str)) and (not isinstance(b, str)):
+        return abs(a-b) <= 2e-3 * max(a,b)
+    return False
+
+def are_close_enough(a: Union[float, str, int], b: Union[float, str, int]):
+    if isinstance(a, str) and isinstance(b, str):
+        aval = re.sub(r'\s\s+', ' ', a.replace('”','in')).strip().lower()
+        bval = re.sub(r'\s\s+', ' ', b.replace('”','in')).strip().lower()
+        return aval==bval
+    elif (not isinstance(a, str)) and (not isinstance(b, str)):
+        # tolerate a 5% relative error
+        return abs(a-b) <= 0.05 * max(a,b)
+    return False
 
 class DeviceCarbonFootprint:
     """A class to manipulate device carbon footprint."""
@@ -110,3 +131,55 @@ class DeviceCarbonFootprint:
             [self.get(key)
              for key in DeviceCarbonFootprintData.__annotations__.keys()],
             csv_format=csv_format)
+
+    @staticmethod
+    def merge(device1: 'DeviceCarbonFootprint', device2: 'DeviceCarbonFootprint',
+              conflict: Literal['keep2nd','interactive'] = 'keep2nd', verbose: bool = False) -> 'DeviceCarbonFootprint':
+        """Merge two carbon footprints that are expected to correspond to the same device"""
+        result: DeviceCarbonFootprintData = {}
+        ignore_keys = ['added_date', 'add_method']
+        conflicts = []
+        for key in DeviceCarbonFootprintData.__annotations__.keys():
+            v1 = device1.get(key)
+            v2 = device2.get(key)
+            if not is_empty(v1) and is_empty(v2):
+                result[key]=v1
+            elif is_empty(v1) and not is_empty(v2):
+                result[key]=v2
+            elif are_equal(v1,v2):
+                result[key]=v2
+            elif are_close_enough(v1,v2):
+                if verbose:
+                    print("WARNING, in merge,", key, ":", v1, "and", v2, "are considered close enough ->", v2)
+                result[key]=v2
+            elif key in ignore_keys:
+                if verbose:
+                    print("WARNING, in merge, ignore difference in field", key, ":", v1, "<->", v2)
+                result[key]=v2
+            elif key=='sources':
+                if verbose:
+                    print("WARNING, in merge source urls are different:")
+                    print("  ignored: ", v1)
+                    print("  retained:", v2)
+                result[key]=v2
+            else:
+                conflicts.append(key)
+
+        if len(conflicts)>0:
+            k = 'n'
+            if conflict=='interactive' or verbose:
+                print("CONFLICT detected when merging", device1.get('manufacturer'), device1.get('name'), ":")
+                for key in conflicts:
+                    v1 = device1.get(key)
+                    v2 = device2.get(key)
+                    print(" | {0: >25} | {1: >30} -> {2: >30} |".format(key,v1,v2))
+                if conflict=='interactive':
+                    print("Press 'o' to keep the first column, or any other key to keep the second one...")
+                    k = input()
+            if k=='o':
+                for key in conflicts:
+                    result[key] = device1.get(key)
+            else:
+                for key in conflicts:
+                    result[key] = device2.get(key)
+        return DeviceCarbonFootprint(result)
