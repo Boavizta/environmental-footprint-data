@@ -1,0 +1,96 @@
+
+{
+"profiles": {
+
+  "HP": {
+    "opt":["EOL","packaging"],
+    "ocr patterns legend": {
+      "board":        ".*Main.*board.*",
+      "SSD":          "Solid.*State.*Drive",
+      "HDD":          "Hard.*Drive",
+      "disp":         "Display",
+      "use":          "Use",
+      "power":        "(?:Power|PSU)",
+      "box":          "Chassis",
+      "transp":       "Transport",
+      "battery":      "Battery",
+      "packaging":    "Packaging",
+      "EOL":          "(?:End.*of.*Life|E.[Ll])",
+      "optical_drive":"Optical.*Drive",
+      "electronics":  ".*Electronics.*",
+      "housing":      ".*Hou.*ing.*",
+      "panel":        ".*Panel.*",
+      "materials":    ".*Material.*",
+      "assembly":     ".*Assembly.*",
+      "IC":           "IC.*",
+      "PWBs":         "PWB.*",
+      "lcd_assembly": "LCD.*manu.*"
+    },
+    "vertical dilation": 8,
+    "map":{}
+  },
+
+  "DELL": {
+    "opt": ["EOL", "optical_drive", "transp", "HDD", "SSD"],
+    "ocr patterns direct": {
+      "use":          ".*Use",
+      "prod":         "Man.(?:fa|af)c",
+      "transp":       "Transpor",
+      "EOL":          "E.[Ll]"
+    },
+    "ocr patterns legend": {
+      "use":          ".*Use",
+      "prod":         "Man.(?:fa|af)c",
+      "transp":       "Transpor",
+      "EOL":          "E.[Ll]",
+
+      "board":        ".*Mainboard",
+      "SSD":          "Solid.*State.*Drive",
+      "HDD":          "Hard.*Drive",
+      "disp":         ".*Display",
+      "power":        "(?:Power.*Supply|PSU)",
+      "box":          "Chassis",
+      "battery":      "Battery",
+      "packaging":    "Packaging",
+      "optical_drive":"Optical.*Drive",
+      "housing":      ".*Housing",
+      "electronics":  ".*Electronics",
+      "panel":        ".*Panel",
+      "assembly":     ".*Assembly",
+      "materials":    ".*Material"
+    },
+    "vertical dilation": 6,
+    "color_th": 40,
+    "map": {}
+  },
+
+  "Lenovo": {
+    "opt": ["EOL", "optical_drive", "transp", "HDD", "SSD"],
+    "ocr patterns direct": {
+      "board":        ".*Mainboard",
+      "SSD":          "Solid.*State.*Drive",
+      "HDD":          "Hard.*Drive",
+      "disp":         ".*Display",
+      "use":          ".*Use",
+      "prod":         "Man.(?:fa|af)c",
+      "power":        "(?:Power.*Supply|PSU)",
+      "box":          "Chassis",
+      "transp":       "T\\s?rans\\s?por",
+      "battery":      "Battery",
+      "packaging":    ".*ackaging",
+      "EOL":          "E.[Ll]",
+      "optical_drive":"Optical.*Drive",
+      "housing":      ".*Housing",
+      "electronics":  ".*Electronics",
+      "panel":        ".*Panel",
+      "assembly":     ".*Assembly",
+      "materials":    ".*Material"
+    },
+    "vertical dilation": 3,
+    "ocr percent letter select method": "average",
+    "ocr percent dilate size": [0.06,0.09],
+    "ocr percent gamma": 1.2,
+    "map": {}
+  }
+}
+}

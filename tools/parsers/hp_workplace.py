@@ -7,11 +7,13 @@ import logging
 import re
 import datetime
 from typing import BinaryIO, Iterator
+import hashlib
 
 from tools.parsers.lib import data
 from tools.parsers.lib import loader
 from tools.parsers.lib import pdf
 from tools.parsers.lib import text
+from tools.parsers.lib import piechart_analyser
 
 
 # A list of patterns to search in the text.
@@ -174,6 +176,25 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "HP Auto Parser"
     result['manufacturer'] = "HP"
+
+    if not 'gwp_use_ratio' in extracted:
+        unpie = piechart_analyser.PiechartAnalyzer(debug=1)
+
+        pie_data = {}
+        for image in pdf.list_images(body):
+            md5 = hashlib.md5(image).hexdigest()
+            if (md5 == 'aa44d95aad83a5871bd7974cafd63a06'):
+                continue
+            unpie_output = unpie.analyze(image, ocrprofile='HP')
+            if unpie_output and len(unpie_output.keys()) > len(pie_data.keys()):
+                pie_data = unpie_output
+                if 'use' in pie_data:
+                    break
+        if pie_data:
+            if not 'prod' in pie_data:
+                pie_data = unpie.auto_prod(pie_data)
+            result = unpie.append_to_boavizta(result, pie_data)
+
     yield data.DeviceCarbonFootprint(result)
 
 

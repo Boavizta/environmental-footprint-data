@@ -12,7 +12,7 @@ from tools.parsers.lib import data
 from tools.parsers.lib import loader
 from tools.parsers.lib import pdf
 from tools.parsers.lib import text
-
+from tools.parsers.lib import piechart_analyser
 
 # A list of patterns to search in the text.
 _LENOVO_LCA_PATTERNS = (
@@ -75,7 +75,20 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "Lenovo Auto Parser"
 
-    # TODO(pascal): Explore images to pull out Use and Manufacturing percentages.
+    if not 'gwp_use_ratio' in extracted:
+        unpie = piechart_analyser.PiechartAnalyzer(debug=1)
+
+        pie_data = {}
+        for image in pdf.list_images(body):
+            unpie_output = unpie.analyze(image, ocrprofile='Lenovo')
+            if unpie_output and len(unpie_output.keys()) > len(pie_data.keys()):
+                # print(unpie_output)
+                pie_data = unpie_output
+                if 'use' in pie_data and 'prod' in pie_data:
+                    break
+        if pie_data:
+            print(pie_data)
+            result = unpie.append_to_boavizta(result, pie_data)
 
     yield data.DeviceCarbonFootprint(result)
 

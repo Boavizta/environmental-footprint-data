@@ -13,6 +13,7 @@ from tools.parsers.lib import loader
 from tools.parsers.lib import pdf
 from tools.parsers.lib import text
 from matplotlib import pyplot as plt
+from tools.parsers.lib import piechart_analyser
 
 
 # A list of patterns to search in the text.
@@ -115,88 +116,18 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['add_method'] = "Dell Auto Parser"
 
     if not 'gwp_use_ratio' in extracted:
-        use_ok=False
-        manuf_ok=False
-        eol_ok=False
-        transport_ok=False
-        for image in pdf.list_images(body):
-            #plt.imshow(image, interpolation='nearest', ) 
-            #plt.show()
-            use_thsh, manuf_thsh, eol_thsh, transport_thsh, thsh = 150, 150, 150, 150, 150
-            while ((use_ok == False) and (manuf_ok == False) and (eol_ok == False) and (transport_ok == False) and thsh > 10):
-                thsh= thsh - 10
-                if use_ok == False:
-                    use_block = find_text_in_image(image, re.compile('Use'), threshold=thsh)
-                    use_thsh = thsh
-                if manuf_ok == False:
-                    manuf_block = find_text_in_image(image, re.compile(r'(M?)anufa(cturing?)'), threshold=thsh)
-                    manuf_thsh = thsh
-                if eol_ok == False:
-                    eol_block = find_text_in_image(image, re.compile(r'E(o|O|0)L'), threshold=thsh)
-                    eol_thsh = thsh
-                if transport_ok == False:
-                    transport_block = find_text_in_image(image, re.compile(r'(T?)ransp(ortation?)'), threshold=thsh)
-                    transport_thsh = thsh
+        unpie = piechart_analyser.PiechartAnalyzer(debug=0)
 
-            if use_block and (use_ok == False):
-                use_ok=True
-                # Create an image a bit larger, especially below the text found where the number is.
-                use_image = image[
-                    use_block.top - 1:use_block.top + use_block.height * 3 + 3,
-                    use_block.left - 20:use_block.left + use_block.width + 20,
-                ]
-                # Usefull to debug when Use ratio cannot be retrieved
-                #plt.imshow(use_image, interpolation='nearest') 
-                #plt.show()
-                use_text = image_to_text(use_image, threshold=use_thsh)
-                clean_text = use_text.replace('\n', '').replace(' ', '')
-                match_use = _USE_PERCENT_PATTERN.match(clean_text)
-                if match_use:
-                    result['gwp_use_ratio'] = round(float(match_use.group(1))/100,3)
-            if manuf_block and (manuf_ok == False):
-                manuf_ok=True
-                # Create an image a bit larger, especially below the text found where the number is.
-                manuf_image = image[
-                    manuf_block.top - 1:manuf_block.top + manuf_block.height * 3,
-                    manuf_block.left - 8:manuf_block.left + manuf_block.width + 3,
-                ]
-                #plt.imshow(manuf_image, interpolation='nearest') 
-                #plt.show()
-                manuf_text = image_to_text(manuf_image, threshold=manuf_thsh)
-                clean_text = manuf_text.replace('\n', '').replace(' ', '')
-                match_manuf = _MANUF_PERCENT_PATTERN.match(clean_text)
-                if match_manuf:
-                    result['gwp_manufacturing_ratio'] = round(float(match_manuf.group(1))/100,3)
-            if eol_block and (eol_ok == False):
-                eol_ok=True
-                # Create an image a bit larger, especially below the text found where the number is.
-                eol_image = image[
-                    eol_block.top - 1:eol_block.top + eol_block.height * 3 + 3,
-                    eol_block.left - 10:eol_block.left + eol_block.width + 20,
-                ]
-                #plt.imshow(eol_image, interpolation='nearest') 
-                #plt.show()
-                eol_text = image_to_text(eol_image, threshold=eol_thsh)
-                clean_text = eol_text.replace('\n', '').replace(' ', '')
-                match_eol = _EOL_PERCENT_PATTERN.match(clean_text)
-                if match_eol:
-                    result['gwp_eol_ratio'] = round(float(match_eol.group(1))/100,3)
-            if transport_block and (transport_ok == False):
-                transport_ok=True
-                transport_image = image[
-                    transport_block.top - 1:transport_block.top + transport_block.height * 3 + 3,
-                    transport_block.left:transport_block.left + transport_block.width + 20,
-                ]
-                #plt.imshow(transport_image, interpolation='nearest') 
-                #plt.show()
-                transport_text = image_to_text(transport_image, threshold=transport_thsh)
-                clean_text = transport_text.replace('\n', '').replace(' ', '')
-                #print(clean_text)
-                match_transport = _TRANSPORT_PERCENT_PATTERN.match(clean_text)
-                if match_transport:
-                    result['gwp_transport_ratio'] = round(float(match_transport.group(1))/100,3)
-            if ('gwp_use_ratio' in result and 'gwp_manuf_ratio' in result):
-                break
+        pie_data = {}
+        for image in pdf.list_images(body):
+            unpie_output = unpie.analyze(image, ocrprofile='DELL')
+            if unpie_output and len(unpie_output.keys()) > len(pie_data.keys()):
+                # print(unpie_output)
+                pie_data = unpie_output
+                if 'use' in pie_data and 'prod' in pie_data:
+                    break
+        if pie_data:
+            result = unpie.append_to_boavizta(result, pie_data)
 
     yield data.DeviceCarbonFootprint(result)
 
