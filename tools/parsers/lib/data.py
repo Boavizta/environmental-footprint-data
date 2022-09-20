@@ -99,7 +99,7 @@ class DeviceCarbonFootprint:
         typed_data: DeviceCarbonFootprintData = {}
         for key in DeviceCarbonFootprintData.__annotations__.keys():
             if isstring(self.get(key)):
-                typed_data[key]=self.get(key).replace(",","").replace("\"","").replace(";","")
+                typed_data[key]=self.get(key).replace(",","").replace("\"","").replace(";","").strip()
             else:
                 typed_data[key]=self.get(key)
         return DeviceCarbonFootprint(typed_data)
