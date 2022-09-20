@@ -32,8 +32,7 @@ def load_csv(filename: str):
 def main(string_args: Optional[List[str]] = None) -> None:
     argparser = argparse.ArgumentParser(
         description='Merge two Boavizta csv file',
-        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        exit_on_error=False)
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     argparser.add_argument('files', nargs=2, help='Oldest and newest .csv files (in case of conflict, priority will be given to the newest file).')
     argparser.add_argument('-v', '--verbose', action='store_true', help='Print automatic conflict resolutions')
     argparser.add_argument('-i', '--interactive', action='store_true', help='Ask user how ot resolve conflicts')
