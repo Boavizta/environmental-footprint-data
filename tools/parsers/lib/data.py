@@ -36,7 +36,6 @@ class DeviceCarbonFootprintData(TypedDict, total=False):
     gwp_eol_ratio: float
     gwp_ssd_ratio: float
     gwp_mainboard_ratio: float
-    gwp_mainboard_ratio: float
     gwp_daughterboard_ratio: float
     gwp_enclosure_ratio: float
     
