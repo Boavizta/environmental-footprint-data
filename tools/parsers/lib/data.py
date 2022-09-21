@@ -4,7 +4,7 @@ import hashlib
 import math
 import re
 from sre_compile import isstring
-from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict
+from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict, Tuple, List, Set
 
 class DeviceCarbonFootprintData(TypedDict, total=False):
     """The carbon footprint data for one device model."""
@@ -139,34 +139,43 @@ class DeviceCarbonFootprint:
 
     @staticmethod
     def merge(device1: 'DeviceCarbonFootprint', device2: 'DeviceCarbonFootprint',
-              conflict: Literal['keep2nd','interactive'] = 'keep2nd', verbose: bool = False) -> 'DeviceCarbonFootprint':
+              conflict: Literal['keep2nd','interactive'] = 'keep2nd', verbose: bool = False
+              ) -> Tuple['DeviceCarbonFootprint',List[Set]]:
         """Merge two carbon footprints that are expected to correspond to the same device"""
         result: DeviceCarbonFootprintData = {}
         ignore_keys = ['added_date', 'add_method']
+        # gather attributes coming from device1 and device2
+        report = [set(),set()]
         conflicts = []
         for key in DeviceCarbonFootprintData.__annotations__.keys():
             v1 = device1.get(key)
             v2 = device2.get(key)
             if not is_empty(v1) and is_empty(v2):
                 result[key]=v1
+                report[0].add(key)
             elif is_empty(v1) and not is_empty(v2):
                 result[key]=v2
+                report[1].add(key)
             elif are_equal(v1,v2):
                 result[key]=v2
+                report[1].add(key)
             elif are_close_enough(v1,v2):
                 if verbose:
                     print("WARNING, in merge,", key, ":", v1, "and", v2, "are considered close enough ->", v2)
                 result[key]=v2
+                report[1].add(key)
             elif key in ignore_keys:
                 if verbose:
                     print("WARNING, in merge, ignore difference in field", key, ":", v1, "<->", v2)
                 result[key]=v2
+                report[1].add(key)
             elif key=='sources':
                 if verbose:
                     print("WARNING, in merge source urls are different:")
                     print("  ignored: ", v1)
                     print("  retained:", v2)
                 result[key]=v2
+                report[1].add(key)
             else:
                 conflicts.append(key)
 
@@ -184,7 +193,9 @@ class DeviceCarbonFootprint:
             if k=='o':
                 for key in conflicts:
                     result[key] = device1.get(key)
+                    report[0].add(key)
             else:
                 for key in conflicts:
                     result[key] = device2.get(key)
-        return DeviceCarbonFootprint(result)
+                    report[1].add(key)
+        return DeviceCarbonFootprint(result), report
