@@ -156,7 +156,7 @@ class DeviceCarbonFootprint:
             elif is_empty(v1) and not is_empty(v2):
                 result[key]=v2
                 report[1].add(key)
-            elif are_equal(v1,v2):
+            elif is_empty(v1) and is_empty(v2) or are_equal(v1,v2):
                 result[key]=v2
                 report[1].add(key)
             elif are_close_enough(v1,v2):
