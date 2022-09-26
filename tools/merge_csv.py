@@ -36,6 +36,7 @@ def main(string_args: Optional[List[str]] = None) -> None:
     argparser.add_argument('files', nargs=2, help='Oldest and newest .csv files (in case of conflict, priority will be given to the newest file).')
     argparser.add_argument('-v', '--verbose', default=0, type=int, help='Verbosity level (0=none, 1=print automatic conflict resolutions, 2=print pedantic warnings')
     argparser.add_argument('-i', '--interactive', action='store_true', help='Ask user how ot resolve conflicts')
+    argparser.add_argument('-k', '--key', default='name', help='Name of the field used to find duplicates')
     argparser.add_argument('-o', '--output', help='Output .csv file')
     args = argparser.parse_args(string_args)
     conflict = 'interactive' if args.interactive else 'keep2nd'
@@ -45,10 +46,16 @@ def main(string_args: Optional[List[str]] = None) -> None:
     nb_mixed_fusions = 0
     nb_attributes_in_mixed_fusions = 0
     nb_duplicates = [0]*2
+
+    key_name = args.key
+    get_key = lambda d: d.get(key_name).lower()
+    if key_name=='sources':
+        get_key = lambda d: re.search(r'([^\/]*\.pdf)', d.get(key_name))[0]
+
     for i in reversed(range(2)):
         devices = load_csv(args.files[i])
-        for device in devices:
-            key = device.get('name').lower()
+        for device in reversed(devices):
+            key = get_key(device)
             if key in result:
                 # merge the twos while giving priority to the one that is already present in result
                 device2 = result[key]
