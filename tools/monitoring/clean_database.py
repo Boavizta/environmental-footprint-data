@@ -13,7 +13,7 @@ def main(string_args: Optional[List[str]] = None) -> None:
             description='Cleanup a Boavizta csv file',
             formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     argparser.add_argument('-f', '--file', help='.csv file to clean')
-    argparser.add_argument('-v', '--verbose', action='store_true', help='Print automatic conflict resolutions')
+    argparser.add_argument('-v', '--verbose', default=0, type=int, help='Verbosity level (0=none, 1=print automatic conflict resolutions, 2=print pedantic warnings')
     argparser.add_argument('-i', '--interactive', action='store_true', help='Ask user how ot resolve conflicts')
     argparser.add_argument('-o', '--output', help='Output .csv file')
     args = argparser.parse_args(string_args)
