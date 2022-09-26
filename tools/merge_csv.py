@@ -34,7 +34,7 @@ def main(string_args: Optional[List[str]] = None) -> None:
         description='Merge two Boavizta csv file',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     argparser.add_argument('files', nargs=2, help='Oldest and newest .csv files (in case of conflict, priority will be given to the newest file).')
-    argparser.add_argument('-v', '--verbose', action='store_true', help='Print automatic conflict resolutions')
+    argparser.add_argument('-v', '--verbose', default=0, type=int, help='Verbosity level (0=none, 1=print automatic conflict resolutions, 2=print pedantic warnings')
     argparser.add_argument('-i', '--interactive', action='store_true', help='Ask user how ot resolve conflicts')
     argparser.add_argument('-o', '--output', help='Output .csv file')
     args = argparser.parse_args(string_args)

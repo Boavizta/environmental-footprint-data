@@ -139,7 +139,7 @@ class DeviceCarbonFootprint:
 
     @staticmethod
     def merge(device1: 'DeviceCarbonFootprint', device2: 'DeviceCarbonFootprint',
-              conflict: Literal['keep2nd','interactive'] = 'keep2nd', verbose: bool = False
+              conflict: Literal['keep2nd','interactive'] = 'keep2nd', verbose: int = 0
               ) -> Tuple['DeviceCarbonFootprint',List[Set]]:
         """Merge two carbon footprints that are expected to correspond to the same device"""
         result: DeviceCarbonFootprintData = {}
@@ -165,7 +165,7 @@ class DeviceCarbonFootprint:
                 result[key]=v2
                 report[1].add(key)
             elif key in ignore_keys:
-                if verbose:
+                if verbose>1:
                     print("WARNING, in merge, ignore difference in field", key, ":", v1, "<->", v2)
                 result[key]=v2
                 report[1].add(key)
