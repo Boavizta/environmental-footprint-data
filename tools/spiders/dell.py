@@ -37,32 +37,43 @@ class DellSpider(spider.BoaViztaSpider):
 
     name = 'Dell'
 
-    start_urls = [_INDEX_PAGE_URL + "#tab0=0", _INDEX_PAGE_URL + "#tab0=1", _INDEX_PAGE_URL + "#tab0=2" ]
+    start_urls = [('Monitor', _INDEX_PAGE_URL + "#tab0=0"),
+                  ('Laptop', _INDEX_PAGE_URL + "#tab0=1"),
+                  ('Desktop', _INDEX_PAGE_URL + "#tab0=2")]
 
     def start_requests(self):
         options = Options()
         #options.add_argument("--headless")
         browser = webdriver.Chrome(options=options)
-        pdfs=[]
-        for url in self.start_urls:
+        pdfs={}
+        for subcategory,url in self.start_urls:
             browser.get(url)
-            WebDriverWait(browser, 10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'div[class=list-component]')))
+            browser.refresh()
+            WebDriverWait(browser, 50).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'div[class=list-component]')))
             all_pdfs = browser.find_elements(By.XPATH,"//a[contains(@href,'.pdf')]")
-            pdfs.append(i.get_attribute("href") for i in all_pdfs)
-        for pdf_group in pdfs:
+            for i in all_pdfs:
+                url = i.get_attribute("href")
+            pdfs[subcategory] = [i.get_attribute("href") for i in all_pdfs]
+        for subcategory,pdf_group in pdfs.items():
             for pdf_link in pdf_group:
                 if (not 'lca-' in pdf_link) and (not 'Statement' in pdf_link) :
                     if (not 'http:' in pdf_link) and (not 'https:' in pdf_link):
                         pdf_link="https:" + pdf_link
                     if self._should_skip(pdf_link):
                         continue
-                    yield scrapy.Request(pdf_link, callback=self.parse_carbon_footprint)
+                    yield scrapy.Request(pdf_link, callback=self.parse_carbon_footprint,
+                                         cb_kwargs=dict(subcategory=subcategory))
 
     def parse_carbon_footprint(
-        self, response, **unused_kwargs: Any,
+        self, response, subcategory, **unused_kwargs: Any,
     ) -> Iterator[Any]:
         for device in dell_laptop.parse(io.BytesIO(response.body), response.url):
             device.data['manufacturer'] = "Dell"
             device.data['sources'] = response.url
-            device.data['sources_hash']=data.md5(io.BytesIO(response.body))
+            device.data['sources_hash'] = data.md5(io.BytesIO(response.body))
+            device.data['subcategory'] = subcategory
+            if subcategory in ['Server','Storage']:
+                device.data['category'] = 'Datacenter'
+            else:
+                device.data['category'] = 'Workplace'
             yield device.reorder().data
