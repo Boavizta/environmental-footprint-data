@@ -70,7 +70,7 @@ class DellSpider(spider.BoaViztaSpider):
         self, response, **unused_kwargs: Any,
     ) -> Iterator[Any]:
         for device in microsoft.parse(io.BytesIO(response.body), response.url):
-            device.data['manufacturer'] = "Mircosoft"
+            device.data['manufacturer'] = "Microsoft"
             device.data['sources'] = response.url
             device.data['sources_hash']=data.md5(io.BytesIO(response.body))
             yield device.reorder().data

@@ -38,6 +38,7 @@ class DeviceCarbonFootprintData(TypedDict, total=False):
     gwp_mainboard_ratio: float
     gwp_daughterboard_ratio: float
     gwp_enclosure_ratio: float
+    comment: str
     
 
 def md5_file(fname):
@@ -143,7 +144,7 @@ class DeviceCarbonFootprint:
               ) -> Tuple['DeviceCarbonFootprint',List[Set]]:
         """Merge two carbon footprints that are expected to correspond to the same device"""
         result: DeviceCarbonFootprintData = {}
-        ignore_keys = ['added_date', 'add_method']
+        ignore_keys = ['added_date', 'add_method','comment']
         # gather attributes coming from device1 and device2
         report = [set(),set()]
         conflicts = []
