@@ -39,7 +39,10 @@ class DellSpider(spider.BoaViztaSpider):
 
     start_urls = [('Monitor', _INDEX_PAGE_URL + "#tab0=0"),
                   ('Laptop', _INDEX_PAGE_URL + "#tab0=1"),
-                  ('Desktop', _INDEX_PAGE_URL + "#tab0=2")]
+                  ('Desktop', _INDEX_PAGE_URL + "#tab0=2"),
+                  ('Server', _INDEX_PAGE_URL + "#tab0=3"),
+                  ('Storage', _INDEX_PAGE_URL + "#tab0=4"),
+                  ('Thin client', _INDEX_PAGE_URL + "#tab0=5")]
 
     def start_requests(self):
         options = Options()
