@@ -36,19 +36,6 @@ _DELL_LCA_PATTERNS = (
     re.compile(r'Transportation\s*(?P<gwp_transport_ratio>[0-9]*\.*[0-9]*)%')
 )
 
-_CATEGORIES = {
-    'Monitor': ('Workplace', 'Monitor'),
-    'Poweredge': ('Datacenter', 'Server'),
-    'Latitude': ('Workplace', 'Laptop'),
-    'OptiPlex': ('Workplace', 'Desktop'),
-    'Precision': ('Workplace', 'Desktop'),
-    'Inspiron': ('Workplace', 'Desktop'),
-    'Vostro': ('Workplace', 'Desktop'),
-    'Chromebook': ('Workplace', 'Desktop'),
-    'Wyse': ('Workplace', 'Thin client'),
-    'XPS': ('Workplace', 'Laptop'),
-}
-
 _USE_PERCENT_PATTERN = re.compile(r'.*Use([0-9]*\.*[0-9]*)\%.*')
 _MANUF_PERCENT_PATTERN = re.compile(r'.*nufac[a-z0-9]*[a-z][^0-9\.]([0-9]*\.*[0-9]*)\%.*')
 _EOL_PERCENT_PATTERN = re.compile(r'.*EoL([0-9]*\.*[0-9]*)\%.*')
@@ -70,10 +57,6 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         result['name'] = extracted['name'].strip().removeprefix('Dell ')
     else:
         raise ValueError(pdf_as_text)
-    for keyword, category_and_sub in _CATEGORIES.items():
-        if keyword in result['name']:
-            result['category'], result['subcategory'] = category_and_sub
-            break
     if 'footprint' in extracted:
         result['gwp_total'] = float(extracted['footprint'])
     if result.get('gwp_total') and 'error' in extracted:
