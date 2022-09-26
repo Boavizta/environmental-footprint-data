@@ -1,7 +1,7 @@
 """Common PDF tools to be used in our scrapers."""
 from io import BytesIO
 import typing
-from typing import BinaryIO, Iterator, Optional
+from typing import BinaryIO, Iterator, Optional, Tuple
 
 import fitz
 import numpy as np
@@ -28,7 +28,7 @@ def pdf2txt(pdf_file: BinaryIO, num_pages: Optional[int] = None) -> str:
         return text.decode('utf-8')
 
 
-def search_text(pdf_file: BinaryIO, needle: str) -> Iterator[tuple[fitz.Rect, fitz.Page]]:
+def search_text(pdf_file: BinaryIO, needle: str) -> Iterator[Tuple[fitz.Rect, fitz.Page]]:
     """Search for a text block in a PDF."""
     with fitz.open('pdf', pdf_file) as pdf_doc:
         for page in pdf_doc:
