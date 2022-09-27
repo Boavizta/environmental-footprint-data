@@ -26,16 +26,18 @@ argparser.add_argument("-s", "--source", required=True, help="URL to .pdf to be 
 args = vars(argparser.parse_args())
 pdf_path = args["source"]
 url = ""
+rm_tempfile = False
 if re.search('http(s)*\:\/\/*.', pdf_path):
     open('./tempfile.pdf', 'wb').write(requests.get(pdf_path).content)
     url=pdf_path
     pdf_path = "./tempfile.pdf"
-
+    rm_tempfile = True
 
 with open(pdf_path, 'rb') as fh:
      for result in dell_laptop.parse(io.BytesIO(fh.read()), url):
-        result.data['sources_hash']=data.md5_file('./tempfile.pdf')
+        result.data['sources_hash']=data.md5_file(pdf_path)
         result.data['sources']=url
         print(result.as_csv_row())
-os.remove('./tempfile.pdf')
+if rm_tempfile:
+    os.remove('./tempfile.pdf')
 quit()

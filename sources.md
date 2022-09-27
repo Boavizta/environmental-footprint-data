@@ -28,10 +28,14 @@
 [Lexmark - Environmental Product Declarations](https://csr.lexmark.com/env-epd.php)  
 [Logitech - Carbon Transparency reports](https://www.logitech.com/fr-fr/sustainability/carbon-transparency.html)  
 [Microsoft - Eco Profiles](https://www.microsoft.com/en-us/download/details.aspx?id=55974)  
-[Lexmark - Environmental Product Declarations](https://csr.lexmark.com/env-epd.php)  
+[Panasonic - Product Carbon Footprint](https://panasonic.net/cns/pc/carbon-footprint/)  
+[Samsung - Life Cycle Assessment for HHP and Display](https://www.samsung.com/us/smg/content/dam/samsung/us/aboutsamsung/2019/2018-Life-Cycle-Assessment-for-HHP-and-Display.pdf)  
+[Samsung - Life Cycle Assessment for Mobile](https://images.samsung.com/is/content/samsung/p5/ve/dd/environment/files/2018_Life_Cycle_Assessment_for_Mobile_Phones_180622.pdf)  
+[Samsung - Lice Cycle Assessment for Galaxy Watch](https://www.researchgate.net/publication/338801291_Life_Cycle_Assessment_Summary_Samsung_Galaxy_Watch)  
 [Seagate - Product Sustainability Reports for Hard Drives](https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/)  
 [Seagate - Life Cycle Assessment for Extensible Storage Platform](https://www.seagate.com/files/www-content/global-citizenship/en-us/docs/lca-summary-onestor-sp-2584s-20150309.pdf)  
 [SK Hynix - Life Cycle Assessment and Carbon Footprint for DRAM and NAND Flash](https://www.skhynix.com/eng/sustain/prdEnviImpact.jsp)  
+[Western Digital - Life Cycle Assessment](https://www.westerndigital.com/fr-fr/search?q=life%20cycle%20assessment)  
 
 ## 2) Electricity Carbon Intensity
 

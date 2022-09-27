@@ -14,7 +14,7 @@ browser = webdriver.Chrome(options=options)
 
 
 # get source code
-browser.get("https://www.dell.com/en-us/dt/corporate/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=1")
+browser.get("https://www.dell.com/en-us/dt/corporate/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm#tab0=0")
 # Implicit wait
 test=WebDriverWait(browser, 10).until(
         EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'div[class=list-component]'))
