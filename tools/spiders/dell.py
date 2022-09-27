@@ -37,9 +37,9 @@ class DellSpider(spider.BoaViztaSpider):
 
     name = 'Dell'
 
-    start_urls = [('Monitor', _INDEX_PAGE_URL + "#tab0=0"),
+    start_urls = [('Desktop', _INDEX_PAGE_URL + "#tab0=0"),
                   ('Laptop', _INDEX_PAGE_URL + "#tab0=1"),
-                  ('Desktop', _INDEX_PAGE_URL + "#tab0=2"),
+                  ('Monitor', _INDEX_PAGE_URL + "#tab0=2"),
                   ('Server', _INDEX_PAGE_URL + "#tab0=3"),
                   ('Storage', _INDEX_PAGE_URL + "#tab0=4"),
                   ('Thin client', _INDEX_PAGE_URL + "#tab0=5")]
