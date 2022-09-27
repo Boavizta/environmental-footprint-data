@@ -32,6 +32,7 @@
 [Seagate - Product Sustainability Reports for Hard Drives](https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/)  
 [Seagate - Life Cycle Assessment for Extensible Storage Platform](https://www.seagate.com/files/www-content/global-citizenship/en-us/docs/lca-summary-onestor-sp-2584s-20150309.pdf)  
 [SK Hynix - Life Cycle Assessment and Carbon Footprint for DRAM and NAND Flash](https://www.skhynix.com/eng/sustain/prdEnviImpact.jsp)  
+[Western Digital - Life Cycle Assessment](https://www.westerndigital.com/fr-fr/search?q=life%20cycle%20assessment)  
 
 ## 2) Electricity Carbon Intensity
 
