@@ -18,8 +18,12 @@ from matplotlib import pyplot as plt
 # A list of patterns to search in the text.
 _DELL_LCA_PATTERNS = (
     re.compile(r' (?P<name>.*?)\s*From design to end-of-life'),
+    re.compile(r' page 1 (?P<name>.*?)\s*From design to end-of-life'),
+    re.compile(r'(?P<name>VxRail.*?)\s*Report'),
     re.compile(r' estimated carbon footprint\: \s*(?P<footprint>[0-9]*) kgCO2e(?: \+\/\- (?P<error>[0-9]*)\s*kgCO2e)?'),
-    re.compile(r' estimated standard deviation of \+\/\- (?P<error>[0-9]*)\s*kgCO2e'),
+    re.compile(r' estimated ?standard deviation (of )?\+\/\- (?P<error>[0-9]*)\s*kgCO2e'),
+    re.compile(r'mean of (?P<footprint>[0-9]+)\s*kg'),
+    re.compile(r'standard deviation of (?P<error>[0-9]+)\s*kg'),
     re.compile(r' Report produced\s*(?P<date>[A-Z][a-z]*,* [0-9]{4}) '),
     re.compile(r' Product Weight\s*(?P<weight>[0-9]*.[0-9]*)\s*kg'),
     re.compile(r' Screen Size\s*(?P<screen_size>[0-9]*)'),
@@ -28,7 +32,8 @@ _DELL_LCA_PATTERNS = (
     re.compile(r' Use Location\s*(?P<use_location>[A-Za-z]*)\s+'),
     re.compile(r' Energy Demand \(Yearly TEC\)\s*(?P<energy_demand>[0-9]*.[0-9]*)\s*kWh'),
     re.compile(r' HDD\/SSD Quantity (?P<hdd>.*(?:SSD|HDD?))\s+'),
-    re.compile(r' DRAM Capacity\s*(?P<ram>[0-9]*)[A-Z]{2}\s+'),
+    re.compile(r' HDD\/SSD Quantity (?P<hdd>.*)\sDRAM'),
+    re.compile(r' DRAM Capacity\s*(?P<ram>[0-9]*)\s*[A-Z]{2}\s+'),
     re.compile(r' CPU Quantity\s*(?P<cpu>[0-9]*)\s+'),
     re.compile(r'Use\s*(?P<gwp_use_ratio>[0-9]*\.*[0-9]*)%'),
     re.compile(r'Manufacturing\s*(?P<gwp_manufacturing_ratio>[0-9]*\.*[0-9]*)%'),
@@ -59,9 +64,11 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         raise ValueError(pdf_as_text)
     if 'footprint' in extracted:
         result['gwp_total'] = float(extracted['footprint'])
+    else:
+        raise ValueError(pdf_as_text)
     if result.get('gwp_total') and 'error' in extracted:
         result['gwp_error_ratio'] = round((float(extracted['error']) / result['gwp_total']), 3)
-    else:
+    elif not "GaBi" in pdf_as_text:
         raise ValueError(pdf_as_text)
     if 'date' in extracted:
         result['report_date'] = extracted['date']
