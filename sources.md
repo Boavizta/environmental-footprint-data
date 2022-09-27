@@ -28,7 +28,7 @@
 [Lexmark - Environmental Product Declarations](https://csr.lexmark.com/env-epd.php)  
 [Logitech - Carbon Transparency reports](https://www.logitech.com/fr-fr/sustainability/carbon-transparency.html)  
 [Microsoft - Eco Profiles](https://www.microsoft.com/en-us/download/details.aspx?id=55974)  
-[Lexmark - Environmental Product Declarations](https://csr.lexmark.com/env-epd.php)  
+[Panasonic - Product Carbon Footprint](https://panasonic.net/cns/pc/carbon-footprint/)  
 [Seagate - Product Sustainability Reports for Hard Drives](https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/)  
 [Seagate - Life Cycle Assessment for Extensible Storage Platform](https://www.seagate.com/files/www-content/global-citizenship/en-us/docs/lca-summary-onestor-sp-2584s-20150309.pdf)  
 [SK Hynix - Life Cycle Assessment and Carbon Footprint for DRAM and NAND Flash](https://www.skhynix.com/eng/sustain/prdEnviImpact.jsp)  
