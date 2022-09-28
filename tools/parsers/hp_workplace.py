@@ -190,6 +190,13 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
                 pie_data = unpie_output
                 if 'use' in pie_data:
                     break
+        if not pie_data:
+            # try with full page rendering
+            image = pdf.pdf2img(body, 0)
+            rows, columns, depth = image.shape
+            bottom_half = image[int(rows/2):, :, :].copy()
+            pie_data = unpie.analyze(bottom_half, ocrprofile='HP')
+        
         if pie_data:
             if not 'prod' in pie_data:
                 pie_data = unpie.auto_prod(pie_data)

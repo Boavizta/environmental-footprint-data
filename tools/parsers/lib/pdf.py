@@ -48,3 +48,16 @@ def list_images(pdf_file: BinaryIO) -> Iterator['np.ndarray[Any, Any]']:
             numpy_array = numpy_array.reshape(pix_image.h, pix_image.w, pix_image.n)
             numpy_image = np.ascontiguousarray(numpy_array[..., [2, 1, 0]])  # rgb to bgr
             yield numpy_image
+
+def pdf2img(pdf_file: BinaryIO, page_num: int = 0):
+    """Converts pdf page page_num to an image"""
+    with fitz.open('pdf', pdf_file) as pdf_doc:
+        page = pdf_doc[page_num]
+        rotate = int(0)
+        zoom = 3
+        mat = fitz.Matrix(zoom, zoom).preRotate(rotate)
+        pix = page.getPixmap(matrix=mat, alpha=False)
+        numpy_array = np.frombuffer(pix.samples, dtype=np.uint8)
+        numpy_array = numpy_array.reshape(pix.h, pix.w, pix.n)
+        numpy_image = np.ascontiguousarray(numpy_array[..., [2, 1, 0]])  # rgb to bgr
+        return numpy_image
