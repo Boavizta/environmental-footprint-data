@@ -8,6 +8,7 @@ import re
 import datetime
 from typing import BinaryIO, Iterator
 import hashlib
+import math
 
 from tools.parsers.lib import data
 from tools.parsers.lib import loader
@@ -201,6 +202,41 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             if not 'prod' in pie_data:
                 pie_data = unpie.auto_prod(pie_data)
             result = unpie.append_to_boavizta(result, pie_data)
+
+    # Apply some automatic fixes
+    if 'gwp_use_ratio' in result and 'yearly_tec' in result:
+        # compute electricity factor assuming 100% of the 'use' phase comes from the electricity consumption,
+        elec_factor = result['gwp_use_ratio'] * result['gwp_total'] / (result['lifetime'] * result['yearly_tec'])
+        if math.isfinite(elec_factor):
+            # Fix #1: for some items, the reported lifetime does not
+            # match the one used for the computation, leading to odd elecfactor.
+            # Those can be identified by computing what would have been the
+            # lifetime for a factor of 0.686kgCO2e/kWh and checking this
+            # number is roughly an integer
+            for expected_factor in [0.686, 0.525]:
+                expected_lifetime = elec_factor * result['lifetime'] / expected_factor
+                print(expected_lifetime)
+                if (elec_factor<0.52 or elec_factor>0.695) and (abs(expected_lifetime-result['lifetime'])>0.6) and abs(expected_lifetime-round(expected_lifetime))<0.1:
+                    result['lifetime'] = round(expected_lifetime)
+                    result['comment'] = ' '.join([result['comment'], "fixed lifetime"])
+                    elec_factor = result['gwp_use_ratio'] * result['gwp_total'] / (result['lifetime'] * result['yearly_tec'])
+                    break
+
+            # Problem #2: for many items, there is a odd discrepancy between
+            # the reported CO2e values (mean & percentiles) and the mean gwp_total obtained
+            # by summing up the values of the bar plots. For those items, we can
+            # also observe that the percentages of the pie-chart match the percentage
+            # of the bar plot. Moreover, the 'use' phase of the bar-plot can also be
+            # properly recovered from "yearly_tec * lifetime * 0.525kgCO2e/kWh"
+            # -> Those observations suggest that the bar plots are corrects,
+            #    but that the global mean (and percentiles) are not correct.
+            # -> It is important to correct this error as it also impact the embodied values.
+            # Those items can be found from the estimated electricity factor which is around
+            # 0.42 for those erroneous files.
+            if elec_factor > 0.34 and elec_factor < 0.46:
+                correction_factor = 0.525 / elec_factor
+                result['gwp_total'] *= correction_factor
+                result['comment'] = ' '.join([result['comment'], "fixed gwp_total"])
 
     yield data.DeviceCarbonFootprint(result)
 
