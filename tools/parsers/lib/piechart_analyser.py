@@ -231,8 +231,9 @@ class PiechartAnalyzer:
           if ret:
             label_out = k
             break
-        if not label_out and len(text)>2:
-          self.print(1, "WARNING failed to find matching label for ", text)
+        if not label_out:
+          if len(text)>2:
+            self.print(1, "WARNING failed to find matching label for ", text)
           continue
 
         if label_out in res and res[label_out] > 0:
