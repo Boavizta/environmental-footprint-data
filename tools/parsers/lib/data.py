@@ -141,7 +141,7 @@ class DeviceCarbonFootprint:
     @staticmethod
     def merge(device1: 'DeviceCarbonFootprint', device2: 'DeviceCarbonFootprint',
               conflict: Literal['keep2nd','interactive'] = 'keep2nd', verbose: int = 0
-              ) -> Tuple['DeviceCarbonFootprint',List[Set]]:
+              ) -> Tuple['DeviceCarbonFootprint',List[Set],List[str]]:
         """Merge two carbon footprints that are expected to correspond to the same device"""
         result: DeviceCarbonFootprintData = {}
         ignore_keys = ['added_date', 'add_method','comment']
@@ -199,4 +199,4 @@ class DeviceCarbonFootprint:
                 for key in conflicts:
                     result[key] = device2.get(key)
                     report[1].add(key)
-        return DeviceCarbonFootprint(result), report
+        return DeviceCarbonFootprint(result), report, conflicts
