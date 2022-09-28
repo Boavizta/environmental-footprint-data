@@ -58,20 +58,14 @@ class DellSpider(spider.BoaViztaSpider):
                 url = i.get_attribute("href")
             pdfs[subcategory] = [i.get_attribute("href") for i in all_pdfs]
         for subcategory,pdf_group in pdfs.items():
-            if subcategory in ['Server','Storage']:
-                category = 'Datacenter'
-            else:
-                category = 'Workplace'
             for pdf_link in pdf_group:
                 if (not 'lca-' in pdf_link) and (not 'Statement' in pdf_link) :
                     if (not 'http:' in pdf_link) and (not 'https:' in pdf_link):
                         pdf_link="https:" + pdf_link
                     if self._should_skip(pdf_link):
                         continue
-                    if category == 'Workplace':
-                        yield scrapy.Request(pdf_link, callback=self.parse_carbon_footprint,
-                                            cb_kwargs=dict(subcategory=subcategory))
-                    # Should add a specific parser call for Datacenter devices
+                    yield scrapy.Request(pdf_link, callback=self.parse_carbon_footprint,
+                                         cb_kwargs=dict(subcategory=subcategory))
 
     def parse_carbon_footprint(
         self, response, subcategory, **unused_kwargs: Any,
@@ -81,4 +75,8 @@ class DellSpider(spider.BoaViztaSpider):
             device.data['sources'] = response.url
             device.data['sources_hash'] = data.md5(io.BytesIO(response.body))
             device.data['subcategory'] = subcategory
+            if subcategory in ['Server','Storage']:
+                device.data['category'] = 'Datacenter'
+            else:
+                device.data['category'] = 'Workplace'
             yield device.reorder().data
