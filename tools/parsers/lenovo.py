@@ -86,8 +86,14 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
                 pie_data = unpie_output
                 if 'use' in pie_data and 'prod' in pie_data:
                     break
-        if pie_data:
+        if not pie_data:
+            # try with full page rendering
+            image = pdf.pdf2img(body, 0)
+            rows, columns, depth = image.shape
+            crop = image[:int(rows/2), int(columns/2):, :].copy()
+            pie_data = unpie.analyze(crop, ocrprofile='Lenovo')
             print(pie_data)
+        if pie_data:
             result = unpie.append_to_boavizta(result, pie_data)
 
     yield data.DeviceCarbonFootprint(result)
