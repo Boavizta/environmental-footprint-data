@@ -117,21 +117,48 @@ class PiechartAnalyzer:
   
   def append_to_boavizta(self, boaitem, piedata):
 
+    main = ['use', 'prod', 'transp', 'EOL']
     toBoa = {
-      'use': 'gwp_use_ratio',
-      'prod': 'gwp_manufacturing_ratio',
-      'transp': 'gwp_transport_ratio',
-      'EOL': 'gwp_eol_ratio',
+      'use':          'gwp_use_ratio',
+      'prod':         'gwp_manufacturing_ratio',
+      'transp':       'gwp_transport_ratio',
+      'EOL':          'gwp_eol_ratio',
+      'board':        'gwp_mainboard_ratio',
+      'SSD':          'gwp_ssd_ratio',
+      'HDD':          'gwp_hdd_ratio',
+      'disp':         'gwp_display_ratio',
+      'power':        'gwp_psu_ratio',
+      'box':          'gwp_chassis_ratio',
+      'battery':      'gwp_battery_ratio',
+      'packaging':    'gwp_packaging_ratio',
+      'optical_drive':'gwp_opticaldrive_ratio',
+      'electronics':  'gwp_electronics_ratio',
+      'housing':      'gwp_chassis_ratio',
+      'panel':        'gwp_display_ratio',
+      'materials':    'gwp_othercomponents_ratio',
+      'assembly':     'gwp_othercomponents_ratio',
+      'IC':           'gwp_othercomponents_ratio',
+      'PWBs':         'gwp_othercomponents_ratio',
+      'lcd_assembly': 'gwp_display_ratio',
     }
-    sum = 0
+    main_sum = 0
+    other_sum = 0
     for k,v in toBoa.items():
       if k in piedata:
-        sum += piedata[k]
-        boaitem[v] = round(piedata[k]/100., 3)
+        if k in main:
+          main_sum += piedata[k]
+        else:
+          other_sum += piedata[k]
+        if v in boaitem:
+          boaitem[v] = round(boaitem[v] + piedata[k]/100., 3)
+        else:
+          boaitem[v] = round(piedata[k]/100., 3)
         
     # sanity checks
-    if abs(100. - sum) > 0.5:
-      self.print(1, "WARNING sum of use+prod+transport+eol != 100 (", sum, ")")
+    if abs(100. - main_sum) > 0.5:
+      self.print(1, "WARNING sum of use+manufacturing+transport+eol != 100 (", main_sum, ")")
+    if 'prod' in piedata and abs(piedata['prod'] - other_sum) > 1e-2*other_sum:
+      self.print(1, "WARNING sum of sub manufacturing components != manufacturing (", other_sum, "vs", piedata['prod'], ")")
 
     return boaitem
   
