@@ -77,11 +77,11 @@ _MANUF_LOCATION_PATTERNS = {
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
     result = data.DeviceCarbonFootprintData()
-
+    result['comment'] = ''
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
-    #print(pdf_as_text)
+
     extracted = text.search_all_patterns(_HP_DESK_PATTERNS, pdf_as_text)
     if not extracted:
         logging.error('The file "%s" did not match the HP pattern', pdf_filename)
@@ -179,7 +179,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['manufacturer'] = "HP"
 
     if not 'gwp_use_ratio' in extracted:
-        unpie = piechart_analyser.PiechartAnalyzer(debug=1)
+        unpie = piechart_analyser.PiechartAnalyzer(debug=0)
 
         pie_data = {}
         for image in pdf.list_images(body):
@@ -215,7 +215,6 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             # number is roughly an integer
             for expected_factor in [0.686, 0.525]:
                 expected_lifetime = elec_factor * result['lifetime'] / expected_factor
-                print(expected_lifetime)
                 if (elec_factor<0.52 or elec_factor>0.695) and (abs(expected_lifetime-result['lifetime'])>0.6) and abs(expected_lifetime-round(expected_lifetime))<0.1:
                     result['lifetime'] = round(expected_lifetime)
                     result['comment'] = ' '.join([result['comment'], "fixed lifetime"])
