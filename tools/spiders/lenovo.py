@@ -91,6 +91,8 @@ class LenovoSpider(spider.BoaViztaSpider):
                 pcf_url = match.group(1)
                 if self._should_skip(pcf_url):
                     continue
+                if (not 'http:' in pcf_url) and (not 'https:' in pcf_url):
+                    pcf_url="https:" + pcf_url
                 yield scrapy.Request(
                     pcf_url, callback=self.parse_carbon_footprint,
                     cb_kwargs={'tab_title': tab_title})
