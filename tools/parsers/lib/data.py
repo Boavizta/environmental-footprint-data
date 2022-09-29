@@ -112,6 +112,8 @@ class DeviceCarbonFootprint:
             if not (value := data.get(key)):
                 continue
             try:
+                if data_type==int and type(value)==str:
+                    value = re.sub(r'\.0*$', '', value)
                 typed_data[key] = data_type(value)  # type: ignore
             except ValueError as error:
                 raise ValueError(f'Value error for converting "{key}": "{value}" as"{data_type}"\n{data}') from error
