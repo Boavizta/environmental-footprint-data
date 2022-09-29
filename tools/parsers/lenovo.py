@@ -76,7 +76,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['add_method'] = "Lenovo Auto Parser"
 
     if not 'gwp_use_ratio' in extracted:
-        unpie = piechart_analyser.PiechartAnalyzer(debug=1)
+        unpie = piechart_analyser.PiechartAnalyzer(debug=0)
 
         pie_data = {}
         for image in pdf.list_images(body):
