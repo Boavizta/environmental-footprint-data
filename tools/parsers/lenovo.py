@@ -21,7 +21,7 @@ _LENOVO_LCA_PATTERNS = (
     re.compile(
         r' report this value as\s*(?P<footprint>[0-9]+)\s*'
         r'\+/-\s*(?P<error>[0-9]+) kg of CO2e'),
-    re.compile(r' Product Weight\s*kg\s*(Input\s*)?(?P<weight>[0-9]*.[0-9]*)'),
+    re.compile(r' Product Weight\s*kg\s*(Input\s*)?(?P<weight>[0-9]*\.[0-9]*)'),
     re.compile(r' Screen Size\s*inches\s*(?P<screen_size>[0-9]+\.[0-9]+)'),
     re.compile(r'Assembly Location\s*no unit\s*(?P<assembly_location>[A-Za-z]*)\s+'),
     re.compile(r'Product Lifetime\s*years\s*(Input\s*)?(?P<lifetime>[0-9]*)'),
