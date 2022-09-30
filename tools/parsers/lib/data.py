@@ -181,7 +181,14 @@ class DeviceCarbonFootprint:
                 result[key]=v2
                 report[1].add(key)
             elif key=='sources':
-                if verbose:
+                file1:str
+                file2:str
+                try:
+                    file1=re.search(r'([^\/]*\.pdf)', v1)[0]
+                    file2=re.search(r'([^\/]*\.pdf)', v2)[0]
+                except:
+                    file1,file2='1','2'
+                if verbose>1 or (verbose and file1!=file2):
                     print("WARNING, in merge source urls are different:")
                     print("  ignored: ", v1)
                     print("  retained:", v2)
