@@ -33,20 +33,21 @@ def main(string_args: Optional[List[str]] = None) -> None:
     argparser = argparse.ArgumentParser(
         description='Merge two Boavizta csv file',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    argparser.add_argument('files', nargs=2, help='Oldest and newest .csv files (in case of conflict, priority will be given to the newest file).')
+    argparser.add_argument('files', nargs='+', help='Oldest to newest .csv files (in case of conflict, priority will be given to the newest files).')
     argparser.add_argument('-v', '--verbose', default=0, type=int, help='Verbosity level (0=none, 1=print automatic conflict resolutions, 2=print pedantic warnings')
     argparser.add_argument('-i', '--interactive', action='store_true', help='Ask user how ot resolve conflicts')
     argparser.add_argument('-k', '--key', default='name', help='Name of the field used to find duplicates')
     argparser.add_argument('-o', '--output', help='Output .csv file')
     args = argparser.parse_args(string_args)
     conflict = 'interactive' if args.interactive else 'keep2nd'
+    nb_files = len(args.files)
     result :Dict[str,data.DeviceCarbonFootprint] = {}
     origins :Dict[str,Set[int]] = {}
     nb_truly_clean_fusions = 0
     nb_clean_fusions_with_conflicts = 0
     nb_mixed_fusions = 0
     nb_attributes_in_mixed_fusions = 0
-    nb_duplicates = [0]*2
+    nb_duplicates = [0]*nb_files
     conflict_count :Dict[str,int] = {}
 
     key_name = args.key
@@ -54,7 +55,7 @@ def main(string_args: Optional[List[str]] = None) -> None:
     if key_name=='sources':
         get_key = lambda d: re.search(r'([^\/]*\.pdf)', d.get(key_name))[0]
 
-    for i in reversed(range(2)):
+    for i in reversed(range(nb_files)):
         devices = load_csv(args.files[i])
         for device in reversed(devices):
             key = get_key(device)
@@ -98,14 +99,14 @@ def main(string_args: Optional[List[str]] = None) -> None:
     else:
         sys.stdout.write(content)
     
-    nb_singletons = [0]*2
-    for i in range(2):
+    nb_singletons = [0]*nb_files
+    for i in range(nb_files):
         nb_singletons[i] = sum(map(lambda x: len(x)==1 and i in x, origins.values()))
     print("\n------------------------------------------------------------")
     print(  "| Summary report                                           |")
     print(  "------------------------------------------------------------")
-    print(  "Number of singletons: ", nb_singletons[0], ", ", nb_singletons[1], sep='')
-    print(  "Number of self duplicates: ", nb_duplicates[0], ", ", nb_duplicates[1], sep='')
+    print(  "Number of singletons: ", nb_singletons, sep='')
+    print(  "Number of self duplicates: ", nb_duplicates, sep='')
     print(  "Number of truly clean fusions:            ", nb_truly_clean_fusions, sep='')
     print(  "Number of clean fusions hiding conflicts: ", nb_clean_fusions_with_conflicts, sep='')
     print(  "Number of mixed fusions:                  ", nb_mixed_fusions, sep='')
