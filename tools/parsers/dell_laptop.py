@@ -88,7 +88,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     if 'energy_demand' in extracted:
         result['yearly_tec'] = float(extracted['energy_demand'])
     if 'hdd' in extracted:
-        result['hard_drive'] = extracted['hdd']
+        result['hard_drive'] = extracted['hdd'].replace('BG','GB')
     if 'ram' in extracted:
         result['memory'] = float(extracted['ram'])
     if 'cpu' in extracted:
