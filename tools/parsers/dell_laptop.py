@@ -27,7 +27,7 @@ _DELL_LCA_PATTERNS = (
     re.compile(r'standard deviation of (?P<error>[0-9]+)\s*kg'),
     re.compile(r' Report produced\s*(?P<date>[A-Z][a-z]*,* [0-9]{4}) '),
     re.compile(r' Product Weight\s*(?P<weight>[0-9]*.[0-9]*)\s*kg'),
-    re.compile(r' Screen Size\s*(?P<screen_size>[0-9]*)'),
+    re.compile(r' Screen Size\s*(?P<screen_size>[0-9]+\.?[0-9]*)'),
     re.compile(r'Assembly Location\s*(?P<assembly_location>[A-Za-z]*)\s+'),
     re.compile(r'Product Lifetime\s*(?P<lifetime>[0-9]*) years'),
     re.compile(r' Use Location\s*(?P<use_location>[A-Za-z]*)\s+'),
