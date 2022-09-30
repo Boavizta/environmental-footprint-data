@@ -13,10 +13,8 @@ This spider:
 Note that extracting the whole info is quite long, so be patient.
 """
 
-import csv
 import io
-import logging
-import time
+import re
 from os import link
 from typing import Any, Iterator
 
@@ -32,6 +30,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 _INDEX_PAGE_URL = 'https://www.dell.com/en-us/dt/corporate/social-impact/advancing-sustainability/sustainable-products-and-services/product-carbon-footprints.htm'
+
+_ALLINONE_PATTERN = re.compile(r'(?i)(all.in.one|aio)')
 
 class DellSpider(spider.BoaViztaSpider):
 
@@ -74,9 +74,6 @@ class DellSpider(spider.BoaViztaSpider):
             device.data['manufacturer'] = "Dell"
             device.data['sources'] = response.url
             device.data['sources_hash'] = data.md5(io.BytesIO(response.body))
-            device.data['subcategory'] = subcategory
-            if subcategory in ['Server','Storage']:
-                device.data['category'] = 'Datacenter'
-            else:
-                device.data['category'] = 'Workplace'
+            device.data['subcategory'] = 'AllInOne' if _ALLINONE_PATTERN.search(device.data['name']) else subcategory
+            device.data['category'] = 'Datacenter' if subcategory in ['Server','Storage'] else 'Workplace'
             yield device.reorder().data
