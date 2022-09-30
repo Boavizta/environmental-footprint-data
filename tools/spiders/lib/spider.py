@@ -33,15 +33,15 @@ class BoaViztaSpider(scrapy.Spider):
                 reader = csv.DictReader(existing_file)
                 for row in reader:
                     if row.get('sources'):
-                        self._existing_sources.add(row['sources'])
+                        self._existing_sources.add(os.path.basename(urlparse(row['sources']).path))
         if blacklist:
             # Load existing files to blacklist
             with open(blacklist, 'rt', encoding='utf-8') as blacklist_file:
                 for line in blacklist_file:
-                    self._existing_blacklist.add(line)
+                    self._existing_blacklist.add(line.strip())
 
     def _should_skip(self, source: str) -> bool:
-        if source in self._existing_sources:
+        if os.path.basename(urlparse(source).path) in self._existing_sources:
             logging.info('Source already existing: %s', source)
             return True
         if os.path.basename(urlparse(source).path) in self._existing_blacklist:
