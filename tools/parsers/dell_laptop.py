@@ -18,7 +18,7 @@ from tools.parsers.lib import piechart_analyser
 
 # A list of patterns to search in the text.
 _DELL_LCA_PATTERNS = (
-    re.compile(r' (?P<name>.*?)(?: \))?\s*From design to end-of-life'),
+    re.compile(r'(?P<name>[^\s]{3}.*?)(?: \))?\s*From design to end-of-life'),
     re.compile(r' page 1 (?P<name>.*?)\s*From design to end-of-life'),
     re.compile(r'(?P<name>VxRail.*?)\s*Report'),
     re.compile(r' estimated carbon footprint\: \s*(?P<footprint>[0-9]*) kgCO2e(?: \+\/\- (?P<error>[0-9]*)\s*kgCO2e)?'),
