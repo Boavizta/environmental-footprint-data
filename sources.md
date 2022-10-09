@@ -29,6 +29,7 @@
 [Logitech - Carbon Transparency reports](https://www.logitech.com/fr-fr/sustainability/carbon-transparency.html)  
 [Microsoft - Eco Profiles](https://www.microsoft.com/en-us/download/details.aspx?id=55974)  
 [Panasonic - Product Carbon Footprint](https://panasonic.net/cns/pc/carbon-footprint/)  
+[Philips - Product Carbon Footprint](https://www.philips.fr/c-w/search.html#q=Philips%20Product%20Carbon%20Footprint&cq=%40ps_contenttype_key%3C%3Eproduct)  
 [Samsung - Life Cycle Assessment for HHP and Display](https://www.samsung.com/us/smg/content/dam/samsung/us/aboutsamsung/2019/2018-Life-Cycle-Assessment-for-HHP-and-Display.pdf)  
 [Samsung - Life Cycle Assessment for Mobile](https://images.samsung.com/is/content/samsung/p5/ve/dd/environment/files/2018_Life_Cycle_Assessment_for_Mobile_Phones_180622.pdf)  
 [Samsung - Lice Cycle Assessment for Galaxy Watch](https://www.researchgate.net/publication/338801291_Life_Cycle_Assessment_Summary_Samsung_Galaxy_Watch)  
