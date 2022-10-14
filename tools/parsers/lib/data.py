@@ -156,7 +156,7 @@ class DeviceCarbonFootprint:
         result: DeviceCarbonFootprintData = {}
         ignore_keys = ['added_date', 'add_method','comment']
         # gather attributes coming from device1 and device2
-        report = [set(),set()]
+        report: List[set] = [set(),set()]
         conflicts = []
         for key in DeviceCarbonFootprintData.__annotations__.keys():
             v1 = device1.get(key)
