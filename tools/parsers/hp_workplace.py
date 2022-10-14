@@ -50,7 +50,7 @@ _CATEGORIES = {
     'Tablet': ('Workplace', 'Tablet'),
 }
 
-_temp_PATTERNS = {
+_WEIGHT_PATTERNS = {
     re.compile(r'eight[^0-9]*(?P<weight>[0-9]*\.?\s*[0-9]*)'),
     re.compile(r'(?P<weight>[0-9]*\.?\s*[0-9]*)\s*(w|W)eight')
 }
@@ -81,7 +81,6 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
-
     extracted = text.search_all_patterns(_HP_DESK_PATTERNS, pdf_as_text)
     if not extracted:
         logging.error('The file "%s" did not match the HP pattern', pdf_filename)
@@ -115,7 +114,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     else:
         for block, page in pdf.search_text(body, 'weight'):
             temp_text = page.get_textbox((block.x0, block.y0 - 2, block.x1 + 150, block.y1 + 2))
-            extracted_weight = text.search_all_patterns(_temp_PATTERNS, temp_text)
+            extracted_weight = text.search_all_patterns(_WEIGHT_PATTERNS, temp_text)
             if 'weight' in extracted_weight:
                 result['weight']=extracted_weight['weight']
                 break
@@ -144,7 +143,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             temp_text = page.get_textbox((block.x0, block.y0 - 2, block.x1 + 150, block.y1 + 2))
             extracted_temp = text.search_all_patterns(_LIFETIME_PATTERNS, temp_text)
             if 'lifetime' in extracted_temp:
-                result['lifetime']=extracted_temp['lifetime']
+                result['lifetime']=float(extracted_temp['lifetime'])
                 break
     if 'use_location' in extracted:
         result['use_location'] = extracted['use_location']
@@ -162,7 +161,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             temp_text = page.get_textbox((block.x0, block.y0 - 2, block.x1 + 150, block.y1 + 2))
             extracted_temp = text.search_all_patterns(_ENERGY_PATTERNS, temp_text)
             if 'energy_demand' in extracted_temp:
-                result['yearly_tec']=extracted_temp['energy_demand']
+                result['yearly_tec']=float(extracted_temp['energy_demand'])
                 break
     if 'gwp_manufacturing_ratio' in extracted:
         result['gwp_manufacturing_ratio'] = float(extracted['gwp_manufacturing_ratio'])/100
