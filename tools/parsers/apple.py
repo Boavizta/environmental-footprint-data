@@ -16,7 +16,7 @@ from tools.parsers.lib import text
 
 # A list of patterns to search in the text.
 _APPLE_PATTERNS = (
-    re.compile(r'Apple\s*PRODUCT\s*CARBON\s*FOOTPRINT\s*(?P<name>.*?)\s*At Apple'),
+    re.compile(r'Product Environmental Report\s*(?P<name>.*)\sDate'),
     re.compile(r'QuickSpecs:\s*(?P<name>.*?)\s*The inputs'), 
     re.compile(r'ESTIMATED PRODUCT CARBON FOOTPRINT\:\*?\s*(?P<footprint>[0-9]*)\s*kg\s*CO2\s*e'),
     re.compile(r'The mean carbon footprint for this product is\s*(?P<footprint>[0-9]*)\s*kg\s*CO2\s*e'),
@@ -55,7 +55,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
-    #print(pdf_as_text)
+    print(pdf_as_text)
     extracted = text.search_all_patterns(_APPLE_PATTERNS, pdf_as_text)
     if not extracted:
         logging.error('The file "%s" did not match the Apple pattern', pdf_filename)
