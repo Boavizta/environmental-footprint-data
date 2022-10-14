@@ -44,9 +44,14 @@ _APPLE_PATTERNS = (
 )
 
 _CATEGORIES = {
-    'Proliant': ('Datacenter', 'Server'),
-    'Edgeline': ('Datacenter', 'Converged Edge'),
-    'Synergy': ('Datacenter', 'Converged'),
+    'iPhone': ('Workplace', 'Smartphone'),
+    'iPad': ('Workplace', 'Tablet'),
+    'MacBook': ('Workplace', 'Laptop'),
+    'Watch': ('Home', 'IoT'),    
+    'Display': ('Workplace', 'Monitor'),
+    'HomePod': ('Home', 'IoT'),
+    'TV': ('Home', 'EntertainmentT'),
+    'iPod': ('Home', 'Entertainment'),
 }
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
@@ -55,7 +60,6 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
-    print(pdf_as_text)
     extracted = text.search_all_patterns(_APPLE_PATTERNS, pdf_as_text)
     if not extracted:
         logging.error('The file "%s" did not match the Apple pattern', pdf_filename)
@@ -137,7 +141,11 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         if 'gwp_total' in result:
             if 'gwp_enclosure' in extracted:
                 result['gwp_enclosure_ratio']=round(float(extracted['gwp_enclosure']) / result['gwp_total'],3)
-   
+
+    test = re.findall(r'(?P<storage>[0-9]+)GB\s*(?P<impact>[0-9]+\.?[0-9]*)', pdf_as_text)
+    result['comment']=""
+    for i in test:
+            result['comment']+= result['name'] + " " + i[0] + " (" + i[1] + "kgCO2eq), "
     now = datetime.datetime.now()
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "Apple Auto Parser"
