@@ -4,7 +4,7 @@ import hashlib
 import math
 import re
 from sre_compile import isstring
-from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict, Tuple, List, Set
+from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict, Tuple, List, Set, cast
 
 class DeviceCarbonFootprintData(TypedDict, total=False):
     """The carbon footprint data for one device model."""
@@ -136,7 +136,7 @@ class DeviceCarbonFootprint:
         typed_data: DeviceCarbonFootprintData = {}
         for key in DeviceCarbonFootprintData.__annotations__.keys():
             if isstring(self.get(key)):
-                typed_data[key]=self.get(key).replace(",","").replace("\"","").replace(";","").strip()
+                typed_data[key]=cast(str, self.get(key)).replace(",","").replace("\"","").replace(";","").strip()
             else:
                 typed_data[key]=self.get(key)
         return DeviceCarbonFootprint(typed_data)
