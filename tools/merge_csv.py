@@ -29,6 +29,14 @@ def load_csv(filename: str):
         csvreader = csv.DictReader(file)
         return [data.DeviceCarbonFootprint.from_text(clean_device(row)) for row in csvreader]
 
+def get_key(device: dict, key_name: str) -> str:
+    assert key_name in device
+    if key_name == 'sources':
+        pdf_file = re.search(r'([^\/]*\.pdf)', device.get(key_name, ""))
+        assert pdf_file is not None
+        return pdf_file[0]
+    return device.get(key_name, "").lower()
+
 def main(string_args: Optional[List[str]] = None) -> None:
     argparser = argparse.ArgumentParser(
         description='Merge two Boavizta csv file',
@@ -50,15 +58,10 @@ def main(string_args: Optional[List[str]] = None) -> None:
     nb_duplicates = [0]*nb_files
     conflict_count :Dict[str,int] = {}
 
-    key_name = args.key
-    get_key = lambda d: d.get(key_name).lower()
-    if key_name=='sources':
-        get_key = lambda d: re.search(r'([^\/]*\.pdf)', d.get(key_name))[0]
-
     for i in reversed(range(nb_files)):
         devices = load_csv(args.files[i])
         for device in reversed(devices):
-            key = get_key(device)
+            key = get_key(device, args.key)
             if key in result:
                 # merge the twos while giving priority to the one that is already present in result
                 device2 = result[key]
