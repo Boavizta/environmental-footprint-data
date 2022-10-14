@@ -6,7 +6,7 @@ See an example here https://static.lenovo.com/ww/docs/regulatory/eco-declaration
 import logging
 import re
 import datetime
-from typing import BinaryIO, Iterator
+from typing import BinaryIO, Iterator, Dict, Any
 
 from tools.parsers.lib import data
 from tools.parsers.lib import loader
@@ -77,7 +77,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     if not 'gwp_use_ratio' in extracted:
         unpie = piechart_analyser.PiechartAnalyzer(debug=0)
 
-        pie_data = {}
+        pie_data: Dict[str, Any] = {}
         for image in pdf.list_images(body):
             unpie_output = unpie.analyze(image, ocrprofile='Lenovo')
             if unpie_output and len(unpie_output.keys()) > len(pie_data.keys()):
