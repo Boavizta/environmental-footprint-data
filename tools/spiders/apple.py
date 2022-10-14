@@ -38,7 +38,8 @@ class AppleSpider(spider.BoaViztaSpider):
         """Parse the Apple Environment index page."""
         for pdf_link in response.css('li[class="reports-list-item"] a::attr(href)'):
             pdf_url = "%s%s" % (_BASE_URL, pdf_link.get())
-            yield scrapy.Request(pdf_url, callback=self.parse_carbon_footprint)
+            if 'archive' not in pdf_url:
+                yield scrapy.Request(pdf_url, callback=self.parse_carbon_footprint)
 
     def parse_carbon_footprint(
         self, response: http.Response, **unused_kwargs: Any,
