@@ -16,16 +16,15 @@ from tools.parsers.lib import piechart_analyser
 
 # A list of patterns to search in the text.
 _LENOVO_LCA_PATTERNS = (
-    re.compile(r'Commercial Name (?P<name>.*?)\s*Model'),
-    re.compile(r' Issue Date\s*(?P<date>[A-Z][a-z][0-9]*, [0-9]{4})'),
-    re.compile(
-        r' report this value as\s*(?P<footprint>[0-9]+)\s*'
-        r'\+/-\s*(?P<error>[0-9]+) kg of CO2e'),
-    re.compile(r' Product Weight\s*kg\s*(Input\s*)?(?P<weight>[0-9]*\.[0-9]*)'),
-    re.compile(r' Screen Size\s*inches\s*(?P<screen_size>[0-9]+\.[0-9]+)'),
-    re.compile(r'Assembly Location\s*no unit\s*(?P<assembly_location>[A-Za-z]*)\s+'),
-    re.compile(r'Product Lifetime\s*years\s*(Input\s*)?(?P<lifetime>[0-9]*)'),
-    re.compile(r' Use Location\s*no unit\s*(?P<use_location>[A-Za-z]*)\s+'),
+    re.compile(r'Commercial\s*Name\s*(?P<name>.*?)\s*Model'),
+    re.compile(r'Issue\s*Date\s*(?P<date>[A-Z][a-z][0-9]*, [0-9]{4})'),
+    re.compile(r'report\s*this\s*value\s*as\s*(?P<footprint>[0-9]+\.?[0-9]*)\s*'),
+    re.compile(r'\+\/-\s*(?P<error>[0-9]+)\s*kg'),
+    re.compile(r'Product\s*Weight\s*kg\s*(Input\s*)?(?P<weight>[0-9]*\.[0-9]*)'),
+    re.compile(r'Screen\s*Size\s*inches\s*(?P<screen_size>[0-9]+\.[0-9]+)'),
+    re.compile(r'Assembly\s*Location\s*no unit\s*(?P<assembly_location>[A-Za-z]*)\s+'),
+    re.compile(r'Product\s*Lifetime\s*years\s*(Input\s*)?(?P<lifetime>[0-9]*)'),
+    re.compile(r'Use\s*Location\s*no\s*unit\s*(?P<use_location>[A-Za-z]*)\s+'),
 )
 
 _USE_PERCENT_PATTERN = re.compile(r'.*Use([0-9]*\.*[0-9]*)\%.*')
@@ -44,13 +43,13 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Convert each matched group to our format.
     if 'name' in extracted:
-        result['name'] = extracted['name'].strip().removeprefix('Lenovo ')
+        result['name'] = extracted['name'].strip().removeprefix('Lenovo ').replace(',','')
     if 'footprint' in extracted:
         result['gwp_total'] = float(extracted['footprint'])
-    if result.get('gwp_total') and 'error' in extracted:
-        result['gwp_error_ratio'] = round((float(extracted['error']) / result['gwp_total']), 4)
     else:
         raise ValueError((repr(pdf_as_text), extracted))
+    if result.get('gwp_total') and 'error' in extracted:
+        result['gwp_error_ratio'] = round((float(extracted['error']) / result['gwp_total']), 3)
     if 'date' in extracted:
         result['report_date'] = extracted['date']
     if 'weight' in extracted:

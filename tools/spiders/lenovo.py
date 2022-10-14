@@ -107,4 +107,4 @@ class LenovoSpider(spider.BoaViztaSpider):
                 if keyword in tab_title:
                     device.data['category'], device.data['subcategory'] = category_and_sub
                     break
-            yield device.data
+            yield device.reorder().data
