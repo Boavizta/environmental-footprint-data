@@ -142,7 +142,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             if 'gwp_enclosure' in extracted:
                 result['gwp_enclosure_ratio']=round(float(extracted['gwp_enclosure']) / result['gwp_total'],3)
 
-    test = re.findall(r'(?P<storage>[0-9]+)GB\s*(?P<impact>[0-9]+\.?[0-9]*)', pdf_as_text)
+    test = re.findall(r'(?P<storage>[0-9]+[A-Z]B)\s*(?P<impact>[0-9]+\.?[0-9]*)', pdf_as_text)
     result['comment']=""
     for i in test:
             result['comment']+= result['name'] + " " + i[0] + " (" + i[1] + "kgCO2eq), "
