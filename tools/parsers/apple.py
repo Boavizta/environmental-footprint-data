@@ -19,6 +19,8 @@ _APPLE_PATTERNS = (
     re.compile(r'Product Environmental Report\s*(?P<name>.*)\s*Date'),
     re.compile(r'(?P<screen_size>[0-9]+.?[0-9]{0,2})-inch'),
     re.compile(r'life cycle\s*(?P<footprint>[0-9]*)\s*kg'),
+    re.compile(r'Product Environmental Report\s*(?P<name>.*)\sDate'),
+    re.compile(r'(?P<screen_size>[0-9]+.?[0-9]{0,2})-inch'),
     re.compile(r'(?P<gwp_total>[0-9]+\.?[0-9]{0,2})\skg carbon emissions'),
     re.compile(r'(?P<gwp_manufacturing_ratio>[0-9]+\.?[0-9]{0,2})\%\s*Production'),
     re.compile(r'(?P<gwp_transport_ratio>[0-9]+\.?[0-9]{0,2})\%\s*Transport'),
@@ -60,8 +62,8 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         logging.error('The file "%s" did not match the HP pattern (no name extracted)', pdf_filename)
     if not "category" in result:
             result['category'] = "Datacenter"
-    if 'footprint' in extracted:
-        result['gwp_total'] = float(extracted['footprint'])
+    if 'gwp_total' in extracted:
+        result['gwp_total'] = float(extracted['gwp_total'])
     if 'tolerance' in extracted and 'gwp_total' in result:
         result['gwp_error_ratio'] = round((float(extracted['tolerance']) / result['gwp_total']), 3)
     if 'date' in extracted:
