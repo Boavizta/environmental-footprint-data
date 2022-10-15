@@ -184,8 +184,8 @@ class DeviceCarbonFootprint:
                 file1:str
                 file2:str
                 try:
-                    file1=re.search(r'([^\/]*\.pdf)', str(v1))[0]
-                    file2=re.search(r'([^\/]*\.pdf)', str(v2))[0]
+                    file1=re.search(r'([^\/]*\.pdf)', str(v1))[0]  # type: ignore [index]
+                    file2=re.search(r'([^\/]*\.pdf)', str(v2))[0]  # type: ignore [index]
                 except:
                     file1,file2='1','2'
                 if verbose>1 or (verbose and file1!=file2):
