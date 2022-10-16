@@ -1,12 +1,16 @@
 [{
-    "add_method": "Google Auto Parser",
-    "gwp_manufacturing_ratio": 0.13,
-    "gwp_total": 40,
-    "gwp_use_ratio": 0.85,
-    "lifetime": 4,
-    "manufacturer": "Google",
-    "name": "Chromecast",
-    "report_date": "October 9, 2018",
-    "weight": 0.04,
-    "yearly_tec": 21
+  "manufacturer": "Google",
+  "name": "Chromecast",
+  "category": "Home",
+  "subcategory": "Multimedia",
+  "gwp_total": 40.0,
+  "report_date": "October 9, 2018",
+  "weight": 0.04,
+  "lifetime": 4,
+  "yearly_tec": 21.0,
+  "add_method": "Google Auto Parser",
+  "gwp_use_ratio": 0.85,
+  "gwp_manufacturing_ratio": 0.13,
+  "gwp_eol_ratio": 0.01,
+  "gwp_transport_ratio": 0.01
 }]

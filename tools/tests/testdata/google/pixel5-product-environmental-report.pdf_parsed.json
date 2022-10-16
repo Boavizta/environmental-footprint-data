@@ -1,12 +1,16 @@
 [{
     "add_method": "Google Auto Parser",
+    "category": "Workplace",
+    "gwp_eol_ratio": 0.01,
     "gwp_manufacturing_ratio": 0.79,
-    "gwp_total": 85,
+    "gwp_total": 85.0,
+    "gwp_transport_ratio": 0.04,
     "gwp_use_ratio": 0.16,
     "lifetime": 3,
     "manufacturer": "Google",
     "name": "Pixel 5",
     "report_date": "October 2020",
+    "subcategory": "Smartphone",
     "weight": 0.151,
-    "yearly_tec": 8
+    "yearly_tec": 8.0
 }]
