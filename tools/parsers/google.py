@@ -35,7 +35,7 @@ _GOOGLE_PATTERNS = (
 _USE_PERCENT_PATTERN = re.compile(r'.*Customer [u|U]se\s*([0-9]*\.*[0-9]*)\%.*')
 _PRODUCTION_PERCENT_PATTERN = re.compile(r'.*Production\s*([0-9]*\.*[0-9]*)\%.*')
 _EOL_PERCENT_PATTERN = re.compile(r'Recycling\s*([0-9]*\.*[0-9]*)%')
-_TRANSPORT_PERCENT_PATTERN = re.compile(r'(Distribution)|(Transpor.*)\s*([0-9]*\.*[0-9]*)\s*%')
+_TRANSPORT_PERCENT_PATTERN = re.compile(r'(Distribution|Transpor.*)\s*([0-9]*\.*[0-9]*)\s*%')
 
 _ENGLISH_TO_NUMERIC = {
     'one': 1,
@@ -128,13 +128,13 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         # Look for percentage below "Transport".
         transport_text = page.get_textbox((block.x0, block.y0, block.x1, block.y1 * 2.1 - block.y0))
         if (transport_match := _TRANSPORT_PERCENT_PATTERN.search(transport_text)):
-            result['gwp_transport_ratio'] = round(float(transport_match.group(3)) / 100,3)
+            result['gwp_transport_ratio'] = round(float(transport_match.group(2)) / 100,3)
             break
     for block, page in pdf.search_text(body, 'Transportation'):
         # Look for percentage below "Transport".
         transport_text = page.get_textbox((block.x0, block.y0, block.x1, block.y1 * 2.1 - block.y0))
         if (transport_match := _TRANSPORT_PERCENT_PATTERN.search(transport_text)):
-            result['gwp_transport_ratio'] = round(float(transport_match.group(3)) / 100,3)
+            result['gwp_transport_ratio'] = round(float(transport_match.group(2)) / 100,3)
             break
 
     yield data.DeviceCarbonFootprint(result)
