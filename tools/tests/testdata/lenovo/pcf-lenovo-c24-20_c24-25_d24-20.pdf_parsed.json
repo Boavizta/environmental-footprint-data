@@ -1,12 +1,16 @@
 [{
     "add_method": "Lenovo Auto Parser",
     "assembly_location": "CN",
-    "gwp_error_ratio": 0.3362,
+    "gwp_chassis_ratio": 0.03,
+    "gwp_eol_ratio": 0.005,
+    "gwp_error_ratio": 0.336,
     "lifetime": 5.0,
     "manufacturer": "Lenovo",
-    "name": "C24-20, C24-25, D24-20",
+    "name": "C24-20 C24-25 D24-20",
     "screen_size": 23.8,
-    "gwp_total": 351,
+    "gwp_error_ratio": 0.336,
+    "gwp_packaging_ratio": 0.01,
+    "gwp_total": 351.0,
     "use_location": "WW",
     "weight": 3.01
 }]

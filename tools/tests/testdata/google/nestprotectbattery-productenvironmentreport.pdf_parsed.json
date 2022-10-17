@@ -1,10 +1,14 @@
 [{
   "manufacturer": "Google",
   "name": "Nest Protect (Battery)",
+  "category": "Home",
+  "subcategory": "IoT",
   "gwp_total": 15.0,
   "weight": 0.348,
   "lifetime": 10,
   "add_method": "Google Auto Parser",
   "gwp_use_ratio": 0.1,
-  "gwp_manufacturing_ratio": 0.88
+  "gwp_manufacturing_ratio": 0.88,
+  "gwp_eol_ratio": 0.01,
+  "gwp_transport_ratio": 0.01
 }]
