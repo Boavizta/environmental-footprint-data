@@ -36,9 +36,10 @@ class AppleSpider(spider.BoaViztaSpider):
 
     def parse(self, response: http.Response, **unused_kwargs: Any) -> Iterator[scrapy.Request]:
         """Parse the Apple Environment index page."""
-        for pdf_link in response.css('li[class="reports-list-item"] a::attr(href)'):
-            pdf_url = "%s%s" % (_BASE_URL, pdf_link.get())
-            if 'archive' not in pdf_url:
+        #we only want to get new PCF and therfore avoid getting archives
+        for devices in response.xpath("//div[@id='product-reports-gallery']"):
+            for pdf_link in devices.css('li[class="reports-list-item"] a::attr(href)'):
+                pdf_url = "%s%s" % (_BASE_URL, pdf_link.get())
                 yield scrapy.Request(pdf_url, callback=self.parse_carbon_footprint)
 
     def parse_carbon_footprint(

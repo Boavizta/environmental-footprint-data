@@ -16,17 +16,36 @@ from tools.parsers.lib import text
 
 # A list of patterns to search in the text.
 _APPLE_PATTERNS = (
+    re.compile(r'(?P<name>.*)\s*Environmental\s*Report\s*Apple'),
     re.compile(r'Product Environmental Report\s*(?P<name>.*)\s*Date'),
+    re.compile(r'Date\s*introduced\s*(?P<date>[A-Z][a-z]*\s*[0-9]*\,\s*[0-9]{4})'),
     re.compile(r'(?P<screen_size>[0-9]+.?[0-9]{0,2})-inch'),
-    re.compile(r'life cycle\s*(?P<footprint>[0-9]*)\s*kg'),
+    re.compile(r'(?P<gwp_total>[0-9]*)\s*kg\s*CO2e\s*Total'),
+    re.compile(r'life cycle\s*(?P<gwp_total>[0-9]*)\s*kg'),
+    re.compile(r'assumes\s*a\s*(?P<lifetime>.*)-year period'),
     re.compile(r'Product Environmental Report\s*(?P<name>.*)\sDate'),
+    re.compile(r'standards\s*and\s*based\s*on\s*(?P<longname>[^.]*)\.'),
     re.compile(r'(?P<screen_size>[0-9]+.?[0-9]{0,2})-inch'),
     re.compile(r'(?P<gwp_total>[0-9]+\.?[0-9]{0,2})\skg carbon emissions'),
-    re.compile(r'(?P<gwp_manufacturing_ratio>[0-9]+\.?[0-9]{0,2})\%\s*Production'),
-    re.compile(r'(?P<gwp_transport_ratio>[0-9]+\.?[0-9]{0,2})\%\s*Transport'),
-    re.compile(r'(?P<gwp_use_ratio>[0-9]+\.?[0-9]{0,2})\%\s*Use'),
-    re.compile(r'(?P<gwp_eol_ratio>[0-9]+\.?[0-9]{0,2})\%\s*End-of-life processing'),
+    re.compile(r'(?P<gwp_manufacturing_ratio>[0-9]+\.?[0-9]{0,2})\%[^a-zA-Z0-9]*Production'),
+    re.compile(r'(?P<gwp_transport_ratio>[0-9]+\.?[0-9]{0,2})\%[^a-zA-Z0-9]*Transport'),
+    re.compile(r'(?P<gwp_use_ratio>[0-9]+\.?[0-9]{0,2})\%[^a-zA-Z0-9]*(Use|Customer use)'),
+    re.compile(r'(?P<gwp_eol_ratio>[0-9]+\.?[0-9]{0,2})\%[^a-zA-Z0-9]*(End-of-life processing|Recycling)'),
 )
+
+_ENGLISH_TO_NUMERIC = {
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'three- or four': 3.5,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9,
+    'ten': 10,
+}
 
 _CATEGORIES = {
     'iPhone': ('Workplace', 'Smartphone'),
@@ -37,6 +56,8 @@ _CATEGORIES = {
     'HomePod': ('Home', 'IoT'),
     'TV': ('Home', 'EntertainmentT'),
     'iPod': ('Home', 'Entertainment'),
+    'Mac ': ('Workplace', 'Desktop'),
+    'iMac': ('Workplace', 'Desktop'),
 }
 
 def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootprint]:
@@ -51,86 +72,57 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
         return
 
     # Convert each matched group to our format.
-    if 'name' in extracted:
-        result['name'] = extracted['name'].strip()
+    if 'longname' in extracted:
+        result['name'] = extracted['longname'].strip()
+        storage=re.search(r'([0-9]*)(GB|TB)',result['name'])
+        if storage:
+            result['hard_drive'] = storage[0] + " SSD"
         for keyword, category_and_sub in _CATEGORIES.items():
             if keyword in result['name']:
                 result['category'], result['subcategory'] = category_and_sub
                 break
-        result['name']=result['name'].replace("Apple ","")
     else:
-        logging.error('The file "%s" did not match the HP pattern (no name extracted)', pdf_filename)
+        if 'name' in extracted:
+            result['name'] = extracted['name'].strip()
+            for keyword, category_and_sub in _CATEGORIES.items():
+                if keyword in result['name']:
+                    result['category'], result['subcategory'] = category_and_sub
+                    break
+            result['name']=result['name'].replace("Apple ","")
+        else:
+            logging.error('The file "%s" did not match the HP pattern (no name extracted)', pdf_filename)
+    result['name']=result['name'].replace(" storage","")
+    result['name']=result['name'].replace(" configuration","")
+    result['name']=result['name'].replace(" standard","")
     if not "category" in result:
-            result['category'] = "Datacenter"
+            result['category'] = "Workplace"
     if 'gwp_total' in extracted:
         result['gwp_total'] = float(extracted['gwp_total'])
-    if 'tolerance' in extracted and 'gwp_total' in result:
-        result['gwp_error_ratio'] = round((float(extracted['tolerance']) / result['gwp_total']), 3)
     if 'date' in extracted:
         result['report_date'] = extracted['date']
-    if 'weight' in extracted:
-        result['weight'] = float(extracted['weight'].replace(' ',''))
     if 'screen_size' in extracted:
         result['screen_size'] = float(extracted['screen_size'])
-    if 'cpu_quantity' in extracted:
-        result['number_cpu'] = float(extracted['cpu_quantity'])
-    if 'ram_capacity' in extracted:
-        result['memory'] = float(extracted['ram_capacity'])
-    if 'ssd_quantity' in extracted:
-        result['hard_drive'] = extracted['ssd_quantity'] + " SSD"
     if 'assembly_location' in extracted:
         result['assembly_location'] = extracted['assembly_location']
     if 'lifetime' in extracted:
-        result['lifetime'] = int(extracted['lifetime'])
-    if 'use_location' in extracted:
-        result['use_location'] = extracted['use_location']
-    if 'energy_demand' in extracted:
-        result['yearly_tec'] = float(extracted['energy_demand'].replace(' ',''))
+        lifetime = extracted['lifetime']
+        if numeric_lifetime := _ENGLISH_TO_NUMERIC.get(lifetime):
+            result['lifetime'] = numeric_lifetime
+        else:
+            raise ValueError(f'Could not convert "{lifetime}" to a numeric value')
+    result['use_location'] = "WW"
     if 'gwp_manufacturing_ratio' in extracted:
         result['gwp_manufacturing_ratio'] = round(float(extracted['gwp_manufacturing_ratio'])/100,3)
     if 'gwp_use_ratio' in extracted:
         result['gwp_use_ratio'] = round(float(extracted['gwp_use_ratio'])/100,3)
     if 'gwp_eol_ratio' in extracted:
         result['gwp_eol_ratio'] = round(float(extracted['gwp_eol_ratio'])/100,3)
-    else:
-        if 'gwp_total' in result:
-            if 'gwp_eol' in extracted:
-                result['gwp_eol_ratio']=round(float(extracted['gwp_eol']) / result['gwp_total'],3) 
     if 'gwp_transport_ratio' in extracted:
         result['gwp_transport_ratio'] = float(extracted['gwp_transport_ratio'])/100 
-    else:
-        if 'gwp_total' in result:
-            if 'gwp_transport' in extracted:
-                result['gwp_transport_ratio']=round(float(extracted['gwp_transport']) / result['gwp_total'],3)
-    if 'gwp_ssd_ratio' in extracted:
-        result['gwp_ssd_ratio'] = float(extracted['gwp_ssd_ratio'])/100 
-    else:
-        if 'gwp_total' in result:
-            if 'gwp_ssd' in extracted:
-                result['gwp_ssd_ratio']=round(float(extracted['gwp_ssd']) / result['gwp_total'],3) 
-    if 'gwp_mainboard_ratio' in extracted:
-        result['gwp_mainboard_ratio'] = float(extracted['gwp_mainboard_ratio'])/100 
-    else:
-        if 'gwp_total' in result:
-            if 'gwp_mainboard' in extracted:
-                result['gwp_mainboard_ratio']=round(float(extracted['gwp_mainboard']) / result['gwp_total'],3)
-    if 'gwp_daughterboard_ratio' in extracted:
-        result['gwp_daughterboard_ratio'] = float(extracted['gwp_daughterboard_ratio'])/100 
-    else:
-        if 'gwp_total' in result:
-            if 'gwp_daughterboard' in extracted:
-                result['gwp_daughterboard_ratio']=round(float(extracted['gwp_daughterboard']) / result['gwp_total'],3)
-    if 'gwp_enclosure_ratio' in extracted:
-        result['gwp_enclosure_ratio'] = float(extracted['gwp_enclosure_ratio'])/100 
-    else:
-        if 'gwp_total' in result:
-            if 'gwp_enclosure' in extracted:
-                result['gwp_enclosure_ratio']=round(float(extracted['gwp_enclosure']) / result['gwp_total'],3)
-
     test = re.findall(r'(?P<storage>[0-9]+[A-Z]B)\s*(?P<impact>[0-9]+\.?[0-9]*)', pdf_as_text)
     result['comment']=""
     for i in test:
-            result['comment']+= result['name'] + " " + i[0] + " (" + i[1] + "kgCO2eq), "
+            result['comment']+= extracted['name'] + " " + i[0] + " (" + i[1] + "kgCO2eq) - "
     now = datetime.datetime.now()
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "Apple Auto Parser"
