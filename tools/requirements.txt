@@ -1,8 +1,11 @@
 matplotlib==3.6.1
 numpy==1.21.2
+matplotlib==3.6.1
 opencv-python-headless==4.5.3.56
 pdfminer.six==20211012
 PyGithub==1.55
 pymupdf==1.18.19
+pyOpenSSL==22.0.0
 pytesseract==0.3.8
 scrapy==2.5.1
+selenium==4.5.0
