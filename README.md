@@ -31,6 +31,23 @@ You can easily contribute by :
 
 If any manufacturers wish to share data with us, we will be happy to discuss with them how we can efficiently synchronize this data.
 
+## Running the code
+
+Download Chromedriver for your version of Chrome: https://chromedriver.chromium.org/downloads and move it to a folder that belongs to your path.
+For Mac you can also run
+```sh
+brew install chromedriver
+```
+and restart Chrome.
+
+Then create a python3.9 virtual environment, run
+```sh
+pip install -r tools/requirements.txt
+```
+to install the required packages and follow the instructions on the [spiders README.md](tools/spiders/README.md) to run a spider and parse the pdfs of the associated brand.
+
+When developing a new parser you can also follow the instructions on the [parsers README.md](tools/parsers/README.md).
+
 ## Data format
 
 * `manufacturer`: Manufacturer name, e.g. "Dell" or "HP"
