@@ -1,7 +1,18 @@
 [{
-  "manufacturer": "Apple",
-  "name": "13-inch MacBook Air (M1 CPU) 256GB - 2020",
-  "gwp_total": 161,
-  "weight": 0.348,
-  "add_method": "Apple Auto Parser"
+  "name": "MacBook Air (M1, 2020) with 256GB",
+  "hard_drive": "256GB SSD",
+  "category": "Workplace",
+  "subcategory": "Laptop",
+  "gwp_total": 161.0,
+  "report_date": "November 10, 2020",
+  "screen_size": 13.0,
+  "lifetime": 3.5,
+  "use_location": "WW",
+  "gwp_manufacturing_ratio": 0.76,
+  "gwp_use_ratio": 0.15,
+  "gwp_eol_ratio": 0.01,
+  "gwp_transport_ratio": 0.08,
+  "comment": "",
+  "add_method": "Apple Auto Parser",
+  "manufacturer": "Apple"
 }]
