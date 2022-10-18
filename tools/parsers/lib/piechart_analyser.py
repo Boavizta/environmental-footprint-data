@@ -181,11 +181,11 @@ class PiechartAnalyzer:
 
 
     grayimg1 = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    self.imshow(3, 'legend ocr: grayimg1',grayimg1)
+    #self.imshow(3, 'legend ocr: grayimg1',grayimg1)
     # thret, th1 = cv2.threshold(grayimg1, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV)
     thret, th1 = cv2.threshold(grayimg1, 200, 255, cv2.THRESH_BINARY_INV)
     
-    self.imshow(3, 'legend ocr: binarized image',th1)
+    #self.imshow(3, 'legend ocr: binarized image',th1)
 
     # identify non letter pixels
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(6,6))
@@ -195,7 +195,7 @@ class PiechartAnalyzer:
     mask1 = cv2.dilate(mask1,kernel,1)
     mask1 = cv2.dilate(mask1,k2,1)
     
-    self.imshow(3, 'legend ocr mask1',mask1)
+    #self.imshow(3, 'legend ocr mask1',mask1)
 
     # remove non letter pixels
     th1[mask1==255] = 0
@@ -205,12 +205,12 @@ class PiechartAnalyzer:
     # th1 = cv2.erode(th1,k3,1)
     # th1 = cv2.dilate(th1,k3,1)
 
-    self.imshow(3, 'legend ocr: input of dilate',th1)
+    #self.imshow(3, 'legend ocr: input of dilate',th1)
 
     rect_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (18, profile['vertical dilation']))
     dilation = cv2.dilate(th1, rect_kernel, iterations = 1)
 
-    self.imshow(3, 'legend ocr: input of findContours',dilation)
+    #self.imshow(3, 'legend ocr: input of findContours',dilation)
 
     im2 = img.copy()
 
@@ -222,8 +222,8 @@ class PiechartAnalyzer:
     # im4color[mask1==0] = 255
     grayimg2 = cv2.cvtColor(im4color,cv2.COLOR_BGR2GRAY)
 
-    self.imshow(4, 'legend ocr: input of findContours 2',grayimg2)
-    self.imshow(5, 'ocr im4color',im4color)
+    #self.imshow(4, 'legend ocr: input of findContours 2',grayimg2)
+    #self.imshow(5, 'ocr im4color',im4color)
 
     res = {}
 
@@ -241,7 +241,7 @@ class PiechartAnalyzer:
       cropped = input_img[y:y + h, x:x + w].copy()
       custom_oem_psm_config = '--psm 6'
       fulltext = pytesseract.image_to_string(cropped, config=custom_oem_psm_config).strip()
-      self.imshow(4, fulltext, cropped)
+      #self.imshow(4, fulltext, cropped)
 
       nLine = 0
       nbLines = len(fulltext.splitlines())
@@ -280,8 +280,8 @@ class PiechartAnalyzer:
         thret, th2 = cv2.threshold(thin, 0, 255, cv2.THRESH_OTSU | cv2.THRESH_BINARY_INV)
         # get contour
         if self.debug>=4 and (not thin is None) and len(thin.shape)>=2 and thin.shape[0]>0 and thin.shape[1]>0:
-          cv2.imshow('find contours in ', thin)
-          cv2.imshow('find contours in th ', th2)
+          #cv2.imshow('find contours in ', thin)
+          #cv2.imshow('find contours in th ', th2)
           cv2.waitKey(0)
         contours2, hierarchy2 = cv2.findContours( th2, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
         if len(contours2)>0:
@@ -318,7 +318,7 @@ class PiechartAnalyzer:
     x0 = max(0, int(circle[0]-circle[2]*1.9))
     x1 = min(input_img.shape[1], int(circle[0]+circle[2]*1.9))
     img = input_img[y0:y1, x0:x1]
-    self.imshow(3, 'percent_from_ocr/in', img)
+    #self.imshow(3, 'percent_from_ocr/in', img)
 
     # select characters
     char_method = profile.get('ocr percent letter select method')
@@ -326,9 +326,9 @@ class PiechartAnalyzer:
       img_max = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     else:
       img_max = np.max(img, 2)
-    self.imshow(3, 'percent_from_ocr/img_max',img_max)
+    #self.imshow(3, 'percent_from_ocr/img_max',img_max)
     mask = cv2.threshold(img_max, 70, 255, cv2.THRESH_BINARY_INV)[1]
-    self.imshow(3, 'percent_from_ocr/mask1',mask)
+    #self.imshow(3, 'percent_from_ocr/mask1',mask)
     K2_width = 20
     K2 = cv2.getStructuringElement(cv2.MORPH_RECT,(K2_width,30))
     if 'ocr percent dilate size' in profile:
@@ -336,7 +336,7 @@ class PiechartAnalyzer:
       K2_width = max(1,round(s[0]*circle[2]))
       K2 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(K2_width,max(1,round(s[1]*circle[2]))))
     mask = cv2.dilate(mask,K2,1)
-    self.imshow(3, 'percent_from_ocr/mask',mask)
+    #self.imshow(3, 'percent_from_ocr/mask',mask)
 
     contours, hierarchy = cv2.findContours(mask, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
@@ -376,7 +376,7 @@ class PiechartAnalyzer:
       if self.debug>=2:
         cv2.imwrite('tmp_ocr/'+lines[0]+'_ocr.png',cropped)
 
-      self.imshow(4, singleLine,cropped)
+      #self.imshow(4, singleLine,cropped)
 
       # find corresponding label
       label_out = False
@@ -445,7 +445,7 @@ class PiechartAnalyzer:
     mindim = min(img.shape[0],img.shape[1])
     maxrad = max(1, int(mindim/2))
 
-    self.imshow(4, "input of HoughCircles", grayimg)
+    #self.imshow(4, "input of HoughCircles", grayimg)
 
     circles = cv2.HoughCircles(grayimg,cv2.HOUGH_GRADIENT_ALT,dp=1,
                                 minDist=max(1,int(mindim/10)),
@@ -476,10 +476,10 @@ class PiechartAnalyzer:
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
     mask = cv2.dilate(mask,kernel,1)
     img = cv2.inpaint(img, mask, 20, cv2.INPAINT_TELEA)
-    self.imshow(3, 'inpainted', img)
+    #self.imshow(3, 'inpainted', img)
 
     img_id = np.left_shift(img[:,:,0].astype(np.int32),16) + np.left_shift(img[:,:,1].astype(np.int32),8) + img[:,:,2].astype(np.int32)
-    self.imshow(3, 'mask', mask)
+    #self.imshow(3, 'mask', mask)
 
     res = {}
 
@@ -773,7 +773,7 @@ class PiechartAnalyzer:
             res['profile/main'] = 'ocr'
             res['confidence2'] = 1
 
-    self.imshow(3, 'detected circles',cimg)
+    #self.imshow(3, 'detected circles',cimg)
     cv2.destroyAllWindows()
 
     return res
