@@ -4,7 +4,7 @@ import hashlib
 import math
 import re
 from sre_compile import isstring
-from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict, Tuple, List, Set
+from typing import Any, Dict, Iterable, Iterator, Literal, Union, TextIO, TypedDict, Tuple, List, Set, cast
 
 class DeviceCarbonFootprintData(TypedDict, total=False):
     """The carbon footprint data for one device model."""
@@ -136,9 +136,9 @@ class DeviceCarbonFootprint:
         typed_data: DeviceCarbonFootprintData = {}
         for key in DeviceCarbonFootprintData.__annotations__.keys():
             if isstring(self.get(key)):
-                typed_data[key]=self.get(key).replace(",","").replace("\"","").replace(";","").strip()
+                typed_data[key]=cast(str, self.get(key)).replace(",","").replace("\"","").replace(";","").strip()  # type: ignore [misc]
             else:
-                typed_data[key]=self.get(key)
+                typed_data[key]=self.get(key)  # type: ignore [misc]
         return DeviceCarbonFootprint(typed_data)
 
     def as_csv_row(self, csv_format: Literal['us', 'fr'] = 'us') -> str:
@@ -156,43 +156,43 @@ class DeviceCarbonFootprint:
         result: DeviceCarbonFootprintData = {}
         ignore_keys = ['added_date', 'add_method','comment']
         # gather attributes coming from device1 and device2
-        report = [set(),set()]
+        report: List[set] = [set(),set()]
         conflicts = []
         for key in DeviceCarbonFootprintData.__annotations__.keys():
             v1 = device1.get(key)
             v2 = device2.get(key)
             if not is_empty(v1) and is_empty(v2):
-                result[key]=v1
+                result[key]=v1  # type: ignore [misc]
                 report[0].add(key)
             elif is_empty(v1) and not is_empty(v2):
-                result[key]=v2
+                result[key]=v2  # type: ignore [misc]
                 report[1].add(key)
             elif is_empty(v1) and is_empty(v2) or are_equal(v1,v2):
-                result[key]=v2
+                result[key]=v2  # type: ignore [misc]
                 report[1].add(key)
             elif are_close_enough(v1,v2):
                 if verbose:
                     print("WARNING, in merge,", key, ":", v1, "and", v2, "are considered close enough ->", v2)
-                result[key]=v2
+                result[key]=v2  # type: ignore [misc]
                 report[1].add(key)
             elif key in ignore_keys:
                 if verbose>1:
                     print("WARNING, in merge, ignore difference in field", key, ":", v1, "<->", v2)
-                result[key]=v2
+                result[key]=v2  # type: ignore [misc]
                 report[1].add(key)
             elif key=='sources':
                 file1:str
                 file2:str
                 try:
-                    file1=re.search(r'([^\/]*\.pdf)', v1)[0]
-                    file2=re.search(r'([^\/]*\.pdf)', v2)[0]
+                    file1=re.search(r'([^\/]*\.pdf)', str(v1))[0]  # type: ignore [index]
+                    file2=re.search(r'([^\/]*\.pdf)', str(v2))[0]  # type: ignore [index]
                 except:
                     file1,file2='1','2'
                 if verbose>1 or (verbose and file1!=file2):
                     print("WARNING, in merge source urls are different:")
                     print("  ignored: ", v1)
                     print("  retained:", v2)
-                result[key]=v2
+                result[key]=v2  # type: ignore [misc]
                 report[1].add(key)
             else:
                 conflicts.append(key)
@@ -210,10 +210,10 @@ class DeviceCarbonFootprint:
                     k = input()
             if k=='o':
                 for key in conflicts:
-                    result[key] = device1.get(key)
+                    result[key] = device1.get(key)  # type: ignore [misc]
                     report[0].add(key)
             else:
                 for key in conflicts:
-                    result[key] = device2.get(key)
+                    result[key] = device2.get(key)  # type: ignore [misc]
                     report[1].add(key)
         return DeviceCarbonFootprint(result), report, conflicts

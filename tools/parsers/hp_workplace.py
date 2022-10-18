@@ -6,7 +6,7 @@ See an example here https://h22235.www2.hp.com/hpinfo/globalcitizenship/environm
 import logging
 import re
 import datetime
-from typing import BinaryIO, Iterator
+from typing import BinaryIO, Iterator, Dict, Any
 import hashlib
 import math
 
@@ -180,7 +180,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     if not 'gwp_use_ratio' in extracted:
         unpie = piechart_analyser.PiechartAnalyzer(debug=0)
 
-        pie_data = {}
+        pie_data: Dict[str, Any] = {}
         for image in pdf.list_images(body):
             md5 = hashlib.md5(image).hexdigest()
             if (md5 == 'aa44d95aad83a5871bd7974cafd63a06'):

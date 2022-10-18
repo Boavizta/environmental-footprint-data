@@ -21,7 +21,7 @@ def main(string_args: Optional[List[str]] = None) -> None:
     content = data.DeviceCarbonFootprint.csv_headers()
     with open(args.file, 'rt', encoding='utf-8') as existing_file:
         csvfile = csv.DictReader(existing_file)
-        seen = []
+        seen: List[data.DeviceCarbonFootprint] = []
         for row in csvfile:
             result=data.DeviceCarbonFootprint(row)
             if not 'comment' in result.data:
