@@ -774,7 +774,7 @@ class PiechartAnalyzer:
             res['confidence2'] = 1
 
     #self.imshow(3, 'detected circles',cimg)
-    cv2.destroyAllWindows()
+    #cv2.destroyAllWindows()
 
     return res
 
