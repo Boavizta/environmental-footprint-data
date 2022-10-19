@@ -49,16 +49,18 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Check static typing
+        run: |
+          pip install -r tools/tests/requirements.txt
+          mypy --ignore-missing-imports tools
+      
       - name: Install dependencies
         if: steps.filter.outputs.parsers == 'true'
         run: |
           python -m pip install --upgrade pip
-          pip install -r tools/requirements.txt -r tools/tests/requirements.txt
+          pip install -r tools/requirements.txt
           sudo apt install -y tesseract-ocr
-
-      - name: Check static typing
-        run: mypy --ignore-missing-imports tools
-
+          
       - name: Run tests
         if: steps.filter.outputs.parsers == 'true'
         run: PYTHONPATH=. python -m unittest discover -s tools/tests
