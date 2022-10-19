@@ -43,13 +43,17 @@ jobs:
           filters: |
             parsers:
               - 'tools/parsers/**'
+            tools:
+              - 'tools/**'
 
       - name: Set up Python 3.9
+        if: steps.filter.outputs.tools == 'true'
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
 
       - name: Check static typing
+        if: steps.filter.outputs.tools == 'true'
         run: |
           pip install -r tools/tests/requirements.txt
           mypy --ignore-missing-imports tools
@@ -60,7 +64,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r tools/requirements.txt
           sudo apt install -y tesseract-ocr
-          
+
       - name: Run tests
         if: steps.filter.outputs.parsers == 'true'
         run: PYTHONPATH=. python -m unittest discover -s tools/tests
