@@ -23,7 +23,7 @@ _GOOGLE_PATTERNS = (
     re.compile(r'assuming a (?P<lifetime>[a-z]+)-year life cycle'),
     re.compile(r'Total GHG emissions [^:]+:\s*(?P<footprint>[0-9]*)\s*kg ?CO2 ?e'),
     re.compile(r'year[s]? of use:[0-9]*\s*(?P<footprint>[0-9]*)\s*kg\s*CO2\s*e'),
-    re.compile(r'life cycle:.\s*(?P<footprint>[0-9]*\.[0-9]*)\s*kg\s*CO2\s*e'),
+    re.compile(r'life cycle:[^0-9]?\s*(?P<footprint>[0-9]*\.[0-9]*)\s*kg\s*CO2\s*e'),
     re.compile(r'Total materials:(?P<weight>[0-9]+)\s*g'),
     re.compile(r'Annual energy use estimate(?:[0-9]+ kWh(?:/y)?)\s*(?P<energy_demand>[0-9]+) kWh(?:/y)?'),
     re.compile(r'([0-9]*\.*[0-9]*)\s*kWh\s*Standby power'),
@@ -69,6 +69,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
 
     # Parse text from PDF.
     pdf_as_text = pdf.pdf2txt(body)
+    #print(pdf_as_text)
     extracted = text.search_all_patterns(_GOOGLE_PATTERNS, pdf_as_text)
     if not extracted:
         logging.error('The file "%s" did not match the Google pattern', pdf_filename)
