@@ -32,6 +32,7 @@ _HPE_PATTERNS = (
     re.compile(r'(?P<server_size>[1-6])U\s*server'),
     re.compile(r'Assembly location\s*(?P<assembly_location>(EU|US|Europe|North America|China|WW|Worldwide))'),
     re.compile(r'Copyright \s*(?P<date>[0-9]{4}) '),
+    re.compile(r'\,\s*[A-Z][a-z]* \s*(?P<date>[0-9]{4})\,'),
     re.compile(r'Use\s*\((?P<gwp_use_ratio>[0-9]*\.?[0-9]*)%\)'),
     re.compile(r'Supply chain\s*\((?P<gwp_manufacturing_ratio>[0-9]*\.?[0-9]*)%\)'),
     re.compile(r'End (O|o)f (L|l)ife\s*(?P<gwp_eol>[0-9]*\.?[0-9]*)\s*kg\s*CO2'),
@@ -44,7 +45,8 @@ _HPE_PATTERNS = (
 )
 
 _CATEGORIES = {
-    'Proliant': ('Datacenter', 'Server'),
+    'ProLiant': ('Datacenter', 'Server'),
+    'server': ('Datacenter', 'Server'),
     'Edgeline': ('Datacenter', 'Converged Edge'),
     'Synergy': ('Datacenter', 'Converged'),
 }
@@ -108,35 +110,45 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
             if 'gwp_eol' in extracted:
                 result['gwp_eol_ratio']=round(float(extracted['gwp_eol']) / result['gwp_total'],3) 
     if 'gwp_transport_ratio' in extracted:
-        result['gwp_transport_ratio'] = float(extracted['gwp_transport_ratio'])/100 
+        result['gwp_transport_ratio'] = round(float(extracted['gwp_transport_ratio'])/100,3)
     else:
         if 'gwp_total' in result:
             if 'gwp_transport' in extracted:
                 result['gwp_transport_ratio']=round(float(extracted['gwp_transport']) / result['gwp_total'],3)
     if 'gwp_ssd_ratio' in extracted:
-        result['gwp_ssd_ratio'] = float(extracted['gwp_ssd_ratio'])/100 
+        result['gwp_ssd_ratio'] = round(float(extracted['gwp_ssd_ratio'])/100,3)
     else:
         if 'gwp_total' in result:
             if 'gwp_ssd' in extracted:
                 result['gwp_ssd_ratio']=round(float(extracted['gwp_ssd']) / result['gwp_total'],3) 
+    result['gwp_electronics_ratio'] = 0
+    result['gwp_othercomponents_ratio'] = 0
     if 'gwp_mainboard_ratio' in extracted:
-        result['gwp_mainboard_ratio'] = float(extracted['gwp_mainboard_ratio'])/100 
+        result['gwp_electronics_ratio'] += float(extracted['gwp_mainboard_ratio'])/100
     else:
         if 'gwp_total' in result:
             if 'gwp_mainboard' in extracted:
-                result['gwp_mainboard_ratio']=round(float(extracted['gwp_mainboard']) / result['gwp_total'],3)
+                result['gwp_electronics_ratio'] += float(extracted['gwp_mainboard']) / result['gwp_total']
     if 'gwp_daughterboard_ratio' in extracted:
-        result['gwp_daughterboard_ratio'] = float(extracted['gwp_daughterboard_ratio'])/100 
+        result['gwp_electronics_ratio'] += float(extracted['gwp_daughterboard_ratio'])/100
     else:
         if 'gwp_total' in result:
             if 'gwp_daughterboard' in extracted:
-                result['gwp_daughterboard_ratio']=round(float(extracted['gwp_daughterboard']) / result['gwp_total'],3)
+                result['gwp_electronics_ratio'] += float(extracted['gwp_daughterboard']) / result['gwp_total']
     if 'gwp_enclosure_ratio' in extracted:
-        result['gwp_enclosure_ratio'] = float(extracted['gwp_enclosure_ratio'])/100 
+        result['gwp_othercomponents_ratio'] += float(extracted['gwp_enclosure_ratio'])/100
     else:
         if 'gwp_total' in result:
             if 'gwp_enclosure' in extracted:
-                result['gwp_enclosure_ratio']=round(float(extracted['gwp_enclosure']) / result['gwp_total'],3)
+                result['gwp_othercomponents_ratio'] += float(extracted['gwp_enclosure']) / result['gwp_total']
+    if 'gwp_assembly_ratio' in extracted:
+        result['gwp_othercomponents_ratio'] += float(extracted['gwp_assembly_ratio'])/100
+    else:
+        if 'gwp_total' in result:
+            if 'gwp_assembly' in extracted:
+                result['gwp_othercomponents_ratio'] += float(extracted['gwp_assembly']) / result['gwp_total']
+    result['gwp_electronics_ratio'] = round(result['gwp_electronics_ratio'],3)
+    result['gwp_othercomponents_ratio'] = round(result['gwp_othercomponents_ratio'],3)
     now = datetime.datetime.now()
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "HPE Auto Parser"
