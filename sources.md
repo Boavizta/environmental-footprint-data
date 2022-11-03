@@ -36,7 +36,7 @@
 [Panasonic - Product Carbon Footprint](https://panasonic.net/cns/pc/carbon-footprint/)  
 [Philips - Product Carbon Footprint](https://www.philips.fr/c-w/search.html#q=Philips%20Product%20Carbon%20Footprint&cq=%40ps_contenttype_key%3C%3Eproduct)  
 [Samsung - Life Cycle Assessment for HHP and Display](https://www.samsung.com/us/smg/content/dam/samsung/us/aboutsamsung/2019/2018-Life-Cycle-Assessment-for-HHP-and-Display.pdf)  
-[Samsung - Life Cycle Assessment for Mobile](https://images.samsung.com/is/content/samsung/p5/ve/dd/environment/files/2018_Life_Cycle_Assessment_for_Mobile_Phones_180622.pdf)  
+[Samsung - Life Cycle Assessment for HHP - 2022](https://images.samsung.com/is/content/samsung/assets/latin_en/sustainability/environment/environment-data/2022_Life-Cycle_Assessment_for_HHP_220613.pdf)  
 [Samsung - Lice Cycle Assessment for Galaxy Watch](https://www.researchgate.net/publication/338801291_Life_Cycle_Assessment_Summary_Samsung_Galaxy_Watch)  
 [Seagate - Product Sustainability Reports for Hard Drives](https://www.seagate.com/fr/fr/global-citizenship/product-sustainability/)  
 [Seagate - Life Cycle Assessment for Extensible Storage Platform](https://www.seagate.com/files/www-content/global-citizenship/en-us/docs/lca-summary-onestor-sp-2584s-20150309.pdf)  
