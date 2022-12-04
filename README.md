@@ -2,7 +2,9 @@
 
 This data repository is maintained by [Boavizta](https://www.boavizta.org) and is complementary to Boavizta's environmental footprint evaluation methology. It aims to reference as much data as possible to help organizations to evaluate the environmental footprint of their information systems, applications and digital services.
 
-Boavizta database is quite exclusively derived from PCF (Product Carbon Footprint) sheets provided by the manufacturers. Methodologies used by manufactureres are not transparent and have very large margins of error and the purpose of making these data available is mainly to give ideas of orders of magnitude and to compare different models from the same manufacturer. THEREFORE WE RECOMMAND <u>NOT USING THESE DATA TO MAKE ACCURATE IMPACTS EVALUATIONS</u> OR TO COMPARE THE IMPACTS OF DEVICES FROM DIFFERENT MANUFACTURERS.
+Boavizta database is quite exclusively derived from PCF (Product Carbon Footprint) sheets provided by the manufacturers. Methodologies used by manufactureres are not transparent and have very large margins of error and the purpose of making these data available is mainly to give ideas of orders of magnitude and to compare different models from the same manufacturer.
+
+Therefore **WE RECOMMAND NOT USING THESE DATA TO MAKE ACCURATE IMPACTS EVALUATIONS** or to compare the impacts of devices from different manufacturers.
 
 In addition, most manufacturers rely on the [PAIA evaluation method](https://msl.mit.edu/projects/paia/main.html) developed by MIT. This method is based on data from non-public studies and Boavizta was therefore unable to evaluate its relevance.
 
