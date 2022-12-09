@@ -40,6 +40,8 @@ class AppleSpider(spider.BoaViztaSpider):
         for devices in response.xpath("//div[@id='product-reports-gallery']"):
             for pdf_link in devices.css('li[class="reports-list-item"] a::attr(href)'):
                 pdf_url = "%s%s" % (_BASE_URL, pdf_link.get())
+                if self._should_skip(pdf_url):
+                    continue
                 yield scrapy.Request(pdf_url, callback=self.parse_carbon_footprint)
 
     def parse_carbon_footprint(

@@ -18,6 +18,7 @@ from tools.parsers.lib import piechart_analyser
 _LENOVO_LCA_PATTERNS = (
     re.compile(r'Commercial\s*Name\s*(?P<name>.*?)\s*Model'),
     re.compile(r'Issue\s*Date\s*(?P<date>[A-Z][a-z][0-9]*, [0-9]{4})'),
+    re.compile(r'Issue\s*Date\s*(?P<date>[0-9]{4}-[0-9]*-[0-9])*'),
     re.compile(r'report\s*this\s*value\s*as\s*(?P<footprint>[0-9]+\.?[0-9]*)\s*'),
     re.compile(r'\+\/-\s*(?P<error>[0-9]+)\s*kg'),
     re.compile(r'Product\s*Weight\s*kg\s*(Input\s*)?(?P<weight>[0-9]*\.[0-9]*)'),
@@ -25,6 +26,7 @@ _LENOVO_LCA_PATTERNS = (
     re.compile(r'Assembly\s*Location\s*no unit\s*(?P<assembly_location>[A-Za-z]*)\s+'),
     re.compile(r'Product\s*Lifetime\s*years\s*(Input\s*)?(?P<lifetime>[0-9]*)'),
     re.compile(r'Use\s*Location\s*no\s*unit\s*(?P<use_location>[A-Za-z]*)\s+'),
+    re.compile(r'.*Use\s*(?P<gwp_use>[0-9]*\.*[0-9]*)\%.*')
 )
 
 _USE_PERCENT_PATTERN = re.compile(r'.*Use([0-9]*\.*[0-9]*)\%.*')
@@ -74,7 +76,9 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['added_date'] = now.strftime('%Y-%m-%d')
     result['add_method'] = "Lenovo Auto Parser"
 
-    if not 'gwp_use_ratio' in extracted:
+    if 'gwp_use' in extracted:
+        result['gwp_use_ratio'] = int(extracted['gwp_use'])/100
+    else:
         unpie = piechart_analyser.PiechartAnalyzer(debug=0)
 
         pie_data: Dict[str, Any] = {}
