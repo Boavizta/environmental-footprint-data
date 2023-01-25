@@ -2,7 +2,8 @@
 
 ## 1) Product Carbon Footprint and Life Cycle Assessment from Manufacturers
 
-[Apple - Product Environmental footprint](https://www.apple.com/environment/)   
+[Acer - Product Carbon Footprint for laptops & desktops](https://www.acer.com/fr-fr/sustainability/product-carbon-footprint)  
+[Apple - Product Environmental footprint](https://www.apple.com/environment/)  
 [Asus - Product Eco Profiles](https://csr.asus.com/english/article.aspx?id=1736)  
 [Asus - TCO Certified Products for Displays](https://tcocertified.com/product-finder/index/?category=Displays&brand=ASUS)  
 [Asus - TCO Certified Products for Notebooks](https://tcocertified.com/product-finder/index/?category=Notebooks&brand=ASUS)  
