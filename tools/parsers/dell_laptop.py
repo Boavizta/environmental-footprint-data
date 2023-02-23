@@ -106,7 +106,7 @@ def parse(body: BinaryIO, pdf_filename: str) -> Iterator[data.DeviceCarbonFootpr
     result['add_method'] = "Dell Auto Parser"
 
     if not 'gwp_use_ratio' in extracted:
-        unpie = piechart_analyser.PiechartAnalyzer(debug=0)
+        unpie = piechart_analyser.PiechartAnalyzer(debug=2)
 
         pie_data: Dict[str, Any] = {}
         for image in pdf.list_images(body):
